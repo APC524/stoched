@@ -31,3 +31,6 @@
 # Emacs issues
 *#
 *~
+
+# macOS files
+.DS_Store
