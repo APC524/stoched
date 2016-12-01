@@ -11,7 +11,7 @@ using namespace Eigen;
 
 class Model {
  public:
-  Model(int n_vars, int n_events,
+  Model(int n_vars, int n_events, int method, double *initial_values, 
         Vector_xf (*rate_function) (double t, VectorXd state_array),
         Vector_xf (*event_function) (double t, VectorXd state_array,
                                      int event_choice));
@@ -19,6 +19,9 @@ class Model {
 
   const int n_vars;    // length of state array
   const int n_events;  // number of possible events
+  const int method;    // which algorithm to use for simulation
+
+  double *intial_values; // pointer to array of initial values
 
   /* pointer to function that calculates current rates 
      at which events occur */
