@@ -12,12 +12,21 @@ OMPCXXFLAGS = -g -Wall -lm -O3 -fopenmp
 RM = rm
 LIBS = ./eigen
 
-all: simulate
+all: simulate testparser
 
 simulate: simulate.o
 	$(CXX) -o $@ $^ -I $(LIBS) $(CXXFLAGS)
 
 simulate.o: src/simulate.cc
+	$(CXX) $^ -c $(CXXFLAGS)
+
+testparser: testparser.o parser.o
+	$(CXX) -o $@ $^ -I $(LIBS) $(CXXFLAGS)
+
+testparser.o: src/testparser.cc src/parser.h
+	$(CXX) $^ -c $(CXXFLAGS)
+
+parser.o: src/parser.cc src/parser.h
 	$(CXX) $^ -c $(CXXFLAGS)
 
 # clean up object code and executables

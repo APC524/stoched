@@ -24,6 +24,8 @@
 *.lib
 
 # Executables
+testparser
+simulate
 *.exe
 *.out
 *.app
