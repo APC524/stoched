@@ -7,6 +7,7 @@
   extern "C" int yylex();
   extern "C" int yyparse();
   extern "C" FILE *yyin;
+  extern int linecount;
  
   void yyerror(const char *s); // declare the error function
   %}
@@ -20,31 +21,41 @@
 
 // define the keywords
 %token PARSER
-%token TYPE
+%token VARIABLES
+%token EVENTS
+%token RATE
 %token END
+%token ENDL
+%token COMMENT
 
 // define the data types in the input file
 %token <ival> INT
 %token <dval> DOUBLE
 %token <sval> STRING
+%token <sval> EQSTRING
 
 %%
 // %% demarcates the beginning of the recursive parsing rules
 parser:
-header template body_section footer { cout << "done with a parser file!" << endl; }
+header vars_line events_line body_section footer { cout << "done with a parser file!"
+						   << endl; }
 ;
 header:
-PARSER DOUBLE { cout << "reading a parser file version " << $2 << endl; }
+PARSER DOUBLE ENDLS { cout << "reading a parser file version " << $2 << endl; }
 ;
-template:
-typelines
+vars_line:
+VARIABLES variable_list ENDLS { cout << "end of variable list" << endl; }
 ;
-typelines:
-typelines typeline
-| typeline
+variable_list:
+variable_list STRING { cout << "reading a variable: " << $2 << endl; }
+| STRING { cout << "reading a variable: " << $1 << endl; }
 ;
-typeline:
-TYPE STRING { cout << "new defined parser type: " << $2 << endl; }
+events_line:
+EVENTS events_list ENDLS { cout << "end of events list" << endl; }
+;
+events_list:
+events_list STRING { cout << "reading an event: " << $2 << endl; }
+| STRING { cout << "reading an event: " << $1 << endl; }
 ;
 body_section:
 body_lines
@@ -54,11 +65,18 @@ body_lines body_line
 | body_line
 ;
 body_line:
-INT INT INT INT STRING { cout << "new parser: " << $1 << $2 << $3 << $4 << $5 << endl; }
+STRING equations_list RATE DOUBLE ENDLS { cout << "rate=" << $4 << endl; }
+;
+equations_list:
+equations_list EQSTRING { cout << $2 << " "; }
+| EQSTRING { cout << $1 << " "; }
 ;
 footer:
-END
+END ENDLS
 ;
+ENDLS:
+ENDLS ENDL
+| ENDL ;
 
 %%
 
@@ -82,7 +100,6 @@ int main(int, char**) {
 }
 
 void yyerror(const char *s) {
-  cout << "EEK, parse error!  Message: " << s << endl;
-  // might as well halt now:
+  cout << "ERROR: Parser error on line " << linecount << ". Message: " << s << endl;
   exit(-1);
 }
