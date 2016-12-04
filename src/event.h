@@ -1,6 +1,6 @@
 #ifndef EVENT_H_
 #define EVENT_H_
-#include "fparser.h"
+#include "fparser.hh"
 
 /* class to hold user-specified events, namely sets of functions */
 
@@ -12,7 +12,7 @@ class Event {
   double setRate();
 
  private:
-  functionParser *functionArray;
+  FunctionParser *functionArray;
   double rate;
 };
 
