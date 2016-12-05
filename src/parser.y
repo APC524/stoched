@@ -1,6 +1,8 @@
 %{
 #include <cstdio>
 #include <iostream>
+#include "event.h"
+
   using namespace std;
 
   // global varibales that flex defines
@@ -65,7 +67,9 @@ body_lines body_line
 | body_line
 ;
 body_line:
-STRING equations_list RATE DOUBLE ENDLS { cout << "rate=" << $4 << endl; }
+STRING equations_list RATE DOUBLE ENDLS {   
+  cout << "rate=" << $4 << endl; 
+}
 ;
 equations_list:
 equations_list EQSTRING { cout << $2 << " "; }

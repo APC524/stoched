@@ -1,19 +1,22 @@
 #ifndef EVENT_H_
 #define EVENT_H_
-#include "fparser.hh"
+#include "fparser/fparser.hh"
 
-/* class to hold user-specified events, namely sets of functions */
+using namespace std;
 
+// Class to hold user-specified events, namely sets of functions 
 class Event {
  public: 
-  Event( );
+  Event();
   ~Event();
-  functionParser *addFunction();
-  double setRate();
+  void addFunction(string function, string variables);
+  void setRate(double rate);
+  double getRate();
 
  private:
-  FunctionParser *functionArray;
-  double rate;
+  FunctionParser **functionArray_;
+  double rate_;
+  int eq_count_;
 };
 
 #endif  

@@ -1,40 +1,54 @@
 #include "event.h"
-#include "fparser.hh"
+#include "fparser/fparser.hh"
 #include <assert.h>
+#include <string>
+#include <stdio.h>
 #include <iostream>
-#include <string.h>
 
 using namespace std;
 
 // event.cc
-// class to hold user-specified events, namely sets of functions 
 
-class Event {
-
-  Event::Event(String rate) {
-    Function fparser;
- 
-  }
+// Constructor of Event class
+Event::Event() {
+  eq_count_ = 0;
+  functionArray_ = (FunctionParser **)malloc(sizeof(FunctionParser));
+}
   
-  Event::~Event() {
-    delete [] functionArray_; 
+// Destructor of Event 
+Event::~Event() {
+  
+  free (functionArray_); 
+}
+
+// Add a function parser, consisting of a function and associated variables
+void Event::addFunction(string function, string variables) {
+
+  if (eq_count_ != 0) {
+    functionArray_  = (FunctionParser**)realloc(functionArray_, (eq_count_)*sizeof(FunctionParser));
   }
-
-  FunctionParser Event::addFunction(String function, String variables) {
-    Function fparser;
-
-   int res = fparser.Parse(function, variables);
-    if (res >= 0) {
-      fprintf(stderr, "Error!\n");
-      exit(-1);
-    }
-
-
+  functionArray_[eq_count_] = new FunctionParser;
+  functionArray_[eq_count_]->AddConstant("pi", 3.1415926535897932);
+    
+  int res =  functionArray_[eq_count_]->Parse(function, variables);
+  if (res >= 0) {
+    fprintf(stderr, "Error!\n");
+    exit(-1);
   }
+  double Vars[] = {1.0, 2.0, 5.0};
+  cout << "solution: " <<  functionArray_[eq_count_]->Eval(Vars) << endl;
 
-  double Event::setRate(String rate) {
-
-
-  }
+  eq_count_++;
 
 }
+
+// Return value of rate_ to user
+void Event::setRate(double rate) {
+  rate_ = rate;
+}
+
+// Return value of rate_ to user
+double Event::getRate() {
+  return rate_;
+}
+
