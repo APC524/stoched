@@ -16,9 +16,9 @@ STOCHED_INPUT  {
 VARIABLES      { 
                  // marks beginning of variables list
                  return VARIABLES; }
-EVENTS         { 
-                 // marks beginning of events list
-                 return EVENTS; }
+EVENT         { 
+                 // marks beginning of event line
+                 return EVENT; }
 RATE           { 
                  // indicates event rate is coming next
                  return RATE; }

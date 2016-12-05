@@ -24,7 +24,7 @@
 // define the keywords
 %token PARSER
 %token VARIABLES
-%token EVENTS
+%token EVENT
 %token RATE
 %token END
 %token ENDL
@@ -53,7 +53,7 @@ variable_list STRING { cout << "reading a variable: " << $2 << endl; }
 | STRING { cout << "reading a variable: " << $1 << endl; }
 ;
 events_line:
-EVENTS events_list ENDLS { cout << "end of events list" << endl; }
+EVENT events_list ENDLS { cout << "end of events list" << endl; }
 ;
 events_list:
 events_list STRING { cout << "reading an event: " << $2 << endl; }
