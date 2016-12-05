@@ -1,19 +1,27 @@
+/* ------------- class Model -------------
+
+   Header for class MODEL, which holds user-specified models 
+   of stochastic systems from which realizations are to
+   be simulated. A model may have variable parameters; 
+   each complete set will be stored in an object of class
+   Paramset
+
+*/
+
+
 #ifndef MODEL_H_
 #define MODEL_H_
-#include <Eigen/Core>
-#include <Eigen/LU>
-
-using namespace Eigen;
+#include "../lib/eigen/Eigen/Core"
+#include "../lib/eigen/Eigen/LU"
 
 
-/* class to hold user-specified models of stochastic systems
- so that realizations from them can be simulated */
 
 class Model {
+  using namespace Eigen;
+
  public:
   Model(int n_vars,
         int n_events,
-        int method, 
         Vector_xf (*rate_function) (double t, VectorXd state_array,
                                     VectorXd rate_params),
         Vector_xf (*event_function) (double t, VectorXd state_array,
@@ -25,7 +33,6 @@ class Model {
 
   const int n_vars;    // length of state array
   const int n_events;  // number of possible events
-  const int method;    // which algorithm to use for simulation
 
   /* pointer to function that calculates current rates 
      at which events occur */
