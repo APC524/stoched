@@ -1,5 +1,5 @@
-#ifndef RNGS_H_
-#define RNGS_H_
+#ifndef RNG_H_
+#define RNG_H_
 #include <stdint.h>
 
 /*  Based on xorshift128+ implementation by David Blackman and Sebastiano Vigna (vigna@acm.org) */
@@ -28,16 +28,19 @@ inline double to_double(uint64_t x);
 class rng {
  public:
   rng(int seed);
-  ~rng();
+  virtual ~rng();
   
   // get a new random int64
-  virtual uint64_t next();
+  virtual uint64_t next() = 0;
 
   // get a new random uniform(0, 1) RV
-  virtual double runif();
+  virtual double runif() = 0;
+
+  // get a new random exponential(lambda) RV
+  virtual double rexp(double lambda) = 0;
 
   // quick 2^64 calls to next (for parallelism)
-  virtual void jump();
+  virtual void jump() = 0;
 
 };
 

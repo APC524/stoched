@@ -11,7 +11,7 @@ parser.tab.c parser.tab.h: parser.y
 lex.yy.c: parser.l parser.tab.h
 	flex parser.l
 
-xoroshiro_test: xoroshiro_test.o xoroshiro128plus.o 
+xoroshiro_test: xoroshiro_test.o xoroshiro128plus.o rng.o
 	$(CXX) -o $@ $^
 
 clean:

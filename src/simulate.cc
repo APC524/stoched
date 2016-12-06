@@ -2,9 +2,8 @@
 #include "../lib/eigen/Eigen/Core"
 #include "../lib/eigen/Eigen/LU"
 #include "model.h"
-#include "paramset.H"
+#include "paramset.h"
 
-using namespace Eigen;
 
 int main(int argc, char* argv[]){
   printf("Hello, World!\n");
@@ -18,6 +17,7 @@ int main(int argc, char* argv[]){
     printf("%f\n",u(i));
   }
 
+  
   
   
 }

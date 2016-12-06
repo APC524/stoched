@@ -4,12 +4,12 @@
 #include <math.h>
 #include <stdio.h>
 
-using namespace Eigen;
-
 Realization::Realization(const Model & the_model, const Paramset & the_paramset, const rng & the_rng) :
   the_model(the_model),
   the_paramset(the_paramset),
-  n_vars(the_model.n_vars)
+  the_rng(the_rng),
+  n_vars(the_model.n_vars),
+  n_events(the_model.n_events)
 {
   set_to_initial_state();
 }
@@ -18,23 +18,31 @@ Realization::Realization(const Model & the_model, const Paramset & the_paramset,
 virtual Realization::~Realization(){
   delete state_array;
   delete rates;
-  delete state_time;
 }
 
 
 int Realization::set_to_initial_state(){
-  // create state_array and set to initial values 
-  state_array = the_paramset.initial_values.replicate(1, 1);
+
+  // check that the right number of inits have been supplied
+  assert(n_vars == the_paramset.n_vars);
+  
+  // create state_array and set to initial values
+  state_array = new double[n_vars];
+  for(int i = 0; i < n_vars; i++){
+    state_array[i] = the_paramset.initial_values[i];
+  }
   
   // set state_time to its initial value
   state_time = the_paramset.t_initial;
 
   // create rates array and set to initial rates
-  rates = the_model.rate_function(state_time, state_array,
-                                  the_paramset.rate_params);
+  rates = new double[n_events]
+  the_model.updateRates(rates)
 
   return 0;
 }
+
+// gets rates from the model for all events
 
 
 // simulates the realization from t_inital to t_final
@@ -49,8 +57,7 @@ Realization::simulate(){
   bool done = 0;
 
   // add logic here to check that all conditions below are met initially
-  rates = the_model.rate_function(state_time, state_array,
-                                  the_paramset.rate_params);
+  rates = the_model.updateRates(rates)
 
   while(done==0){
 
@@ -77,8 +84,7 @@ Realization::simulate(){
     output_state();
     
     // update rates and increment iteration count
-    rates = the_model.rate_function(state_time, state_array,
-                                    the_paramset.rate_params);
+    the_model.updateRates(rates);
     iter_count++;
   }
 }
@@ -90,28 +96,25 @@ Realization::output_state(){
   printf("%15.8f", state_time);
 
   for(int = 0; i < n_vars; i++){
-    printf("%15.8f", state_array(i))
+    printf("%15.8f", state_array[i])
   }
 
 }
 
 
 DirectMethod::DirectMethod(const Model & the_model, const Paramset & the_paramset) :
-  Realization(const Model & the_model, const Paramset & the_paramset)
+  Realization(the_model, the_paramset)
 {
-  waiting_times = new VectorXd(the_model.n_events).Zero();
-  random_numbers = new VectorXd(the_model.n_events).Zero();
-}
+  waiting_times = new double[n_events];
+}}
 
 DirectMethod::~DirectMethod(){
   delete waiting_times;
-  delete random_numbers;
 }
 
 DirectMethod::step(){
   for(int i = 0; i < n_vars; i++){
-    random_numbers(i) = the_rng.runif();
+    waiting_times[i] = the_rng.rexp(rates[i]);
   }
-  waiting_times = (-1/rates) * log(random_numbers);
   std::cout << waiting_times;
 }

@@ -1,7 +1,7 @@
 #ifndef XOROSHIRO128_H_
 #define XOROSHIRO128_H_
 #include <stdint.h>
-#include "rngs.h"
+#include "rng.h"
 
 /*  Based on xorshift128+ implementation by David Blackman and Sebastiano Vigna (vigna@acm.org) */
 
@@ -36,6 +36,9 @@ class xoroshiro128plus : public rng {
 
   // get a new random uniform(0, 1) RV
   double runif();
+
+  // get a new random exponential(lambda) RV
+  double rexp(double lambda);
 
   // quick 2^64 calls to next (for parallelism)
   void jump();

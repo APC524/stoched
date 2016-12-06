@@ -13,15 +13,17 @@
 class Realization {
   using namespace Eigen;
  public:
-  Realization(const Model & the_model, const Paramset & the_paramset);
+  Realization(const Model & the_model, const Paramset & the_paramset,
+              const rng & the_rng);
   virtual ~Realization();
 
   const Model the_model;
   const Paramset the_paramset;
   const rng the_rng;
   const int n_vars;
-  VectorXd state_array;
-  VectorXd rates;
+  const int n_events;
+  double *state_array;
+  double *rates;
   double state_time;
 
   // simulates the realization from t_inital to t_final
@@ -46,8 +48,7 @@ class DirectMethod : public Realization {
   ~DirectMethod();
   int step();
  private:
-  VectorXd waiting_times;
-  VectorXd random_numbers;
+  double *waiting_times;
 }
 
 class EulerLeap : public Realization {

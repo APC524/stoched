@@ -2,9 +2,9 @@
 
 Model::Model(int n_vars,
              int n_events,
-             Vector_xf (*rate_function) (double t, VectorXd state_array,
+             VectorXd (*rate_function) (double t, VectorXd state_array,
                                          VectorXd rate_params),
-             Vector_xf (*event_function) (double t, VectorXd state_array,
+             VectorXd (*event_function) (double t, VectorXd state_array,
                                           VectorXd event_params,
                                           int event_choice)
              ):

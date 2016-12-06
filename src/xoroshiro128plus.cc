@@ -1,4 +1,6 @@
 #include "xoroshiro128plus.h"
+#include "rng.h"
+#include <math.h>
 
 // convert uint64_t to double
 inline double to_double(uint64_t x) {
@@ -15,7 +17,7 @@ uint64_t xoroshiro128plus::splitmix64() {
 	return z ^ (z >> 31);
 }
 
-xoroshiro128plus::xoroshiro128plus(int seed){
+xoroshiro128plus::xoroshiro128plus(int seed) : rng::rng(seed) {
 
   /* initialize state with splitmix64 random ints
      from seed int (prevents similar seeds from generating
@@ -49,6 +51,12 @@ uint64_t xoroshiro128plus::next() {
 // get random uniform(0, 1) double and update state
 double xoroshiro128plus::runif() {
   return to_double(next());
+}
+
+
+// get random exponential(lambda) double and update state
+double xoroshiro128plus::rexp(double lambda) {
+  return (-1/lambda) * log(to_double(next()));
 }
 
 
