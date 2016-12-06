@@ -18,9 +18,10 @@ int main() {
   event.setRate(rateFunction, variables);
   event.addFunction(function1, variables);
   event.addFunction(function2, variables);
-  cout << event.useFunction(0, args) << endl;
-  cout << event.useFunction(1, args) << endl;
-  cout << event.getRate(args) << endl;
+  cout << "Variables: a = " << args[0] << ", b = " << args[1] << ", c = " << args[2] << endl;
+  cout << "Function 1: a*b*c = " << event.useFunction(0, args) << endl;
+  cout << "Function 2: a+b+c = " << event.useFunction(1, args) << endl;
+  cout << "Rate Function: 5*(a+b) = " << event.getRate(args) << endl;
 
   return 0;
 }

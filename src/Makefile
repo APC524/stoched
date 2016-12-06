@@ -11,14 +11,20 @@ RM = rm -f
 LIBS = ../lib/eigen
 OBJECTS = fparser/fparser.o event.o model.o testparser.o lex.yy.o parser.tab.o
 
-all: testparser.exe fparser/fparser.exe
+all: testparser.exe fparser/fparser.exe testevent.exe testmodel.exe
 #simulate
 
 simulate.exe: simulate.o
 	$(CXX) -o $@ $^ -I $(LIBS) $(CXXFLAGS)
 
 testparser.exe: $(OBJECTS)
-	g++ $(OBJECTS) -ll -o $@
+	$(CXX) $(OBJECTS) -ll -o $@
+
+testevent.exe: event.o testevent.o fparser/fparser.o
+	$(CXX) $^ -o $@  
+
+testmodel.exe: model.o event.o testmodel.o fparser/fparser.o
+	$(CXX) $^ -o $@  
 
 fparser/fparser.exe: fparser/example2.o fparser/fparser.o
 	$(CXX) $^ -o $@  

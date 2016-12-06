@@ -31,14 +31,17 @@ int main() {
   model.addEventFct(1, functionB1);
   model.addEventFct(1, functionB2);
 
-  cout << model.useEventFct(0, 0, argsA) << endl;
-  cout << model.useEventFct(0, 1, argsA) << endl;
+  cout << "A Variables: a = " << argsA[0] << ", b = " << argsA[1] << ", c = " << argsA[2] << endl;
+  cout << "B Variables: a = " << argsB[0] << ", b = " << argsB[1] << ", c = " << argsB[2] << endl;
+  
+  cout << "Function A1: a*b*c = " << model.useEventFct(0, 0, argsA) << endl;
+  cout << "Function A2: a+b+c = " << model.useEventFct(0, 1, argsA) << endl;
 
-  cout << model.useEventFct(1, 0, argsB) << endl;
-  cout << model.useEventFct(1, 1, argsB) << endl;
+  cout << "Function B1: a+b*c = " << model.useEventFct(1, 0, argsB) << endl;
+  cout << "Function B2: a*b-c = " << model.useEventFct(1, 1, argsB) << endl;
 
-  cout << model.getEventRate(0, argsA) << endl;
-  cout << model.getEventRate(1, argsB) << endl;
+  cout << "Rate Function A: 5*(a+b) = " << model.getEventRate(0, argsA) << endl;
+  cout << "Rate Function B: c*(a-b) = " << model.getEventRate(1, argsB) << endl;
 
   return 0;
 }
