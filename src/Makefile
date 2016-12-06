@@ -9,6 +9,7 @@ CXXFLAGS = -g -Wall -lm -O3
 OMPCXXFLAGS = -g -Wall -lm -O3 -fopenmp
 RM = rm
 LIBS = ../lib/eigen
+OBJECTS = fparser/fparser.o event.o model.o testparser.o lex.yy.o parser.tab.o
 
 all: testparser
 #simulate
@@ -16,31 +17,25 @@ all: testparser
 simulate: simulate.o
 	$(CXX) -o $@ $^ -I $(LIBS) $(CXXFLAGS)
 
-simulate.o: simulate.cc
-	$(CXX) $^ -c $(CXXFLAGS)
-
-#testparser: testparser.o parser.o
-#	$(CXX) -o $@ $^ -I $(LIBS) $(CXXFLAGS)
-
-#testparser.o: testparser.cc
-#	$(CXX) $^ -c $(CXXFLAGS)
-
-#parser.o: parser.cc parser.h
-#	$(CXX) $^ -c $(CXXFLAGS)
+testparser: $(OBJECTS)
+	g++ $(OBJECTS) -ll -o testparser
 
 # use flex and bison to generate parser source code
-testparser: testparser.cc lex.yy.c parser.tab.c parser.tab.h
-	g++ testparser.cc lex.yy.c parser.tab.c -ll -o testparser
-
 parser.tab.c parser.tab.h: parser.y
 	bison -d parser.y
 
 lex.yy.c: parser.l parser.tab.h
 	flex parser.l
 
+# dependency rules
+%.o: %.cc
+	g++ -c $< 
+%.o: %.c
+	g++ -c $<
+
 # clean up object code and executables
 clean:
-	$(RM) simulate
+	$(RM) simulate testparser
 	$(RM) *.o
 
 # clean up emacs temp files

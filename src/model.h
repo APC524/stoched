@@ -17,7 +17,6 @@
 using namespace std;
 
 class Model {
-  using namespace Eigen;
 
  public:
   Model(string vars);
