@@ -27,8 +27,7 @@ inline double to_double(uint64_t x);
 
 class rng {
  public:
-  rng(int seed);
-  virtual ~rng();
+  virtual ~rng() {};
   
   // get a new random int64
   virtual uint64_t next() = 0;

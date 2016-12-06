@@ -17,7 +17,7 @@ uint64_t xoroshiro128plus::splitmix64() {
 	return z ^ (z >> 31);
 }
 
-xoroshiro128plus::xoroshiro128plus(int seed) : rng::rng(seed) {
+xoroshiro128plus::xoroshiro128plus(int seed) : rng::rng() {
 
   /* initialize state with splitmix64 random ints
      from seed int (prevents similar seeds from generating
