@@ -10,8 +10,10 @@ class Event {
   Event();
   ~Event();
   void addFunction(string function, string variables);
+  double useFunction(int iFunction, double *args);
   void setRate(double rate);
   double getRate();
+  string eventName;
 
  private:
   FunctionParser **functionArray_;
