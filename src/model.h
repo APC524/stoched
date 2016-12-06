@@ -2,6 +2,7 @@
 #define MODEL_H_
 #include <Eigen/Core>
 #include <Eigen/LU>
+#include "event.h"
 
 using namespace Eigen;
 
@@ -11,23 +12,18 @@ using namespace Eigen;
 
 class Model {
  public:
-  Model(int n_vars, int n_events,
-        Vector_xf (*rate_function) (double t, VectorXd state_array),
-        Vector_xf (*event_function) (double t, VectorXd state_array,
-                                     int event_choice));
+  Model(string vars);
   ~Model();
+  void addEvent(double rate);
+  void addEventFct(int iEvent, string function);
+  double useEventFct(int iEvent, int iFunction, double *stateArray);
+  double getEventRate(int iEvent);
+  void updateState(int iEvent, double *stateArray);
+ 
+private:
+  vector<Event*> eventPtrList;
+  const string vars;
 
-  const int n_vars;    // length of state array
-  const int n_events;  // number of possible events
-
-  /* pointer to function that calculates current rates 
-     at which events occur */
-  Vector_xf (*rate_function) (double t, VectorXd state_array);
-
-  /* pointer to function that calculates change to state 
-     array for a given event */
-  Vector_xf (*event_function) (double t, VectorXd state_array,
-                               int event_choice));
 }
 
 #endif

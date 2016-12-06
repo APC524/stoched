@@ -35,10 +35,14 @@ void Event::addFunction(string function, string variables) {
     fprintf(stderr, "Error!\n");
     exit(-1);
   }
-  double Vars[] = {1.0, 2.0, 5.0};
-  cout << "solution: " <<  functionArray_[eq_count_]->Eval(Vars) << endl;
 
   eq_count_++;
+
+}
+
+// Use a function parser, consisting of a function and associated variables
+double Event::useFunction(int iFunction, double *args) {
+  return  functionArray_[iFunction]->Eval(args);
 
 }
 
