@@ -35,24 +35,29 @@ void Event::addFunction(string function, string variables) {
     fprintf(stderr, "Error!\n");
     exit(-1);
   }
-
   eq_count_++;
 
 }
 
 // Use a function parser, consisting of a function and associated variables
-double Event::useFunction(int iFunction, double *args) {
-  return  functionArray_[iFunction]->Eval(args);
+double Event::useFunction(int iFunction, double *stateArray) {
+  return  functionArray_[iFunction]->Eval(stateArray);
 
 }
 
 // Return value of rate_ to user
-void Event::setRate(double rate) {
-  rate_ = rate;
+void Event::setRate(string function, string variables) {
+  int res = rateFunction.Parse(function, variables);
+
+  if (res >= 0) {
+    fprintf(stderr, "Error!\n");
+    exit(-1);
+  }
+
 }
 
 // Return value of rate_ to user
-double Event::getRate() {
-  return rate_;
+double Event::getRate(double *stateArray) {
+  return rateFunction.Eval(stateArray);
 }
 

@@ -1,17 +1,50 @@
+#include "event.h"
 #include "model.h"
+#include "fparser/fparser.hh"
+#include <assert.h>
+#include <string>
+#include <stdio.h>
+#include <iostream>
+#include <vector>
 
-Model::Model(int n_vars,
-             int n_events,
-             Vector_xf (*rate_function) (double t, VectorXd state_array,
-                                         VectorXd rate_params),
-             Vector_xf (*event_function) (double t, VectorXd state_array,
-                                          VectorXd event_params,
-                                          int event_choice)
-             ):
-  n_vars(n_vars),
-  n_events(n_events),
-  (*rate_function)((*rate_function)),
-  (*event_function)((*event_function))
-{};
+using namespace std;
 
-Model::~Model(){};
+// model.cc
+
+/* class to hold user-specified models of stochastic systems
+ so that realizations from them can be simulated */
+
+Model:: Model(string vars) {
+  vars_ = vars;
+}
+
+Model:: ~Model() {
+
+}
+
+void Model::addEvent(string functionRate) {
+  eventPtrList.push_back(new Event);
+  eventPtrList.back()->setRate(functionRate, vars_);
+}
+
+void Model::addEventFct(int iEvent, string function) {
+  eventPtrList[iEvent]->addFunction(function, vars_);
+
+}
+
+double Model::useEventFct(int iEvent, int iFunction, double *stateArray) {
+  return eventPtrList[iEvent]->useFunction(iFunction, stateArray);
+
+}
+
+double Model::getEventRate(int iEvent, double *stateArray) {
+  return eventPtrList[iEvent]->getRate(stateArray);
+
+}
+
+//void Model::updateState(int iEvent, double *stateArray) {
+
+//}
+ 
+
+

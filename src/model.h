@@ -11,11 +11,10 @@
 
 #ifndef MODEL_H_
 #define MODEL_H_
-#include <Eigen/Core>
-#include <Eigen/LU>
 #include "event.h"
+#include <vector>
 
-
+using namespace std;
 
 class Model {
   using namespace Eigen;
@@ -23,15 +22,16 @@ class Model {
  public:
   Model(string vars);
   ~Model();
-  void addEvent(double rate);
+  void addEvent(string functionRate);
   void addEventFct(int iEvent, string function);
   double useEventFct(int iEvent, int iFunction, double *stateArray);
-  double getEventRate(int iEvent);
+  double getEventRate(int iEvent, double *stateArray);
   void updateState(int iEvent, double *stateArray);
  
 private:
   vector<Event*> eventPtrList;
-  const string vars;
-}
+  string vars_;
+
+};
 
 #endif
