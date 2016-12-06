@@ -22,8 +22,7 @@
 }
 
 // define the keywords
-%token PARSER
-%token VARIABLES
+%token SETUP_VARS
 %token EVENT
 %token RATE
 %token END
@@ -33,47 +32,29 @@
 // define the data types in the input file
 %token <ival> INT
 %token <dval> DOUBLE
-%token <sval> STRING
-%token <sval> EQSTRING
+%token <sval> QSTRING
 
 %%
 // %% demarcates the beginning of the recursive parsing rules
 parser:
-header vars_line events_line body_section footer { cout << "done with a parser file!"
+vars_line event_lines footer { cout << "done with a parser file!"
 						   << endl; }
 ;
-header:
-PARSER DOUBLE ENDLS { cout << "reading a parser file version " << $2 << endl; }
-;
 vars_line:
-VARIABLES variable_list ENDLS { cout << "end of variable list" << endl; }
+SETUP_VARS QSTRING ENDLS { cout << "reading a variable: " << $2 << endl; }
 ;
-variable_list:
-variable_list STRING { cout << "reading a variable: " << $2 << endl; }
-| STRING { cout << "reading a variable: " << $1 << endl; }
+event_lines:
+event_lines event_line
+| event_line
 ;
-events_line:
-EVENT events_list ENDLS { cout << "end of events list" << endl; }
-;
-events_list:
-events_list STRING { cout << "reading an event: " << $2 << endl; }
-| STRING { cout << "reading an event: " << $1 << endl; }
-;
-body_section:
-body_lines
-;
-body_lines:
-body_lines body_line
-| body_line
-;
-body_line:
-STRING equations_list RATE DOUBLE ENDLS {   
+event_line:
+EVENT equations_list RATE DOUBLE ENDLS {   
   cout << "rate=" << $4 << endl; 
 }
 ;
 equations_list:
-equations_list EQSTRING { cout << $2 << " "; }
-| EQSTRING { cout << $1 << " "; }
+equations_list QSTRING { cout << $2 << " "; }
+| QSTRING { cout << $1 << " "; }
 ;
 footer:
 END ENDLS

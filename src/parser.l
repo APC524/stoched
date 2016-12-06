@@ -7,16 +7,13 @@ int linecount = 1;
 #define YY_DECL extern "C" int yylex()
 %}
 %%
-[ \t]        { 
+[ \t]          { 
                  // ignore tabs
                  ; }
-STOCHED_INPUT  { 
-                 // marks the beginning of the input file
-                 return PARSER; }
-VARIABLES      { 
-                 // marks beginning of variables list
-                 return VARIABLES; }
-EVENT         { 
+SETUP_VARS     { 
+                 // marks beginning of file and is followed by variables string
+                 return SETUP_VARS; }
+EVENT          { 
                  // marks beginning of event line
                  return EVENT; }
 RATE           { 
@@ -38,14 +35,19 @@ end            {
                  // parser an int
                  yylval.ival = atoi(yytext);
                  return INT; }
-[a-zA-Z0-9]+   {
-                 // parse a string. Need to copy it using strdup
+\"[a-z , \+ \- \* / = A-Z0-9]+\"   {
+                 // parse a string beginning and ending with quotes. string may
+                 // contain a-z A-Z 0-9 and the symbols ,+-*/= and spaces 
                  yylval.sval = strdup(yytext);
-                 return STRING; }
-'[a-z \-/=\+A-Z0-9]+'   {
-                 // parse an equation as a string but allowing spaces
-                 yylval.sval = strdup(yytext);
-                 return EQSTRING; }
+                 int len = 0;
+                 while(yylval.sval[len] != '\0'){
+                 len++;
+                 }
+                 // delete the trailing quote from the string
+                 yylval.sval[len-1] = '\0';
+                 // delete leading quote from the string
+                 yylval.sval++;
+                 return QSTRING; }
 #.*            {
                  // '#' indicates a comment, so ignore the rest of
                  // the text following # until the next \n
@@ -54,3 +56,7 @@ end            {
 		 fprintf(stderr, "ERROR: Unrecognized symbol: %s\n", yytext);
                  exit(-1); }
 %%
+// [a-zA-Z0-9]+   {
+//                 // parse a string containing only letters and numbers
+//                 yylval.sval = strdup(yytext);
+//                 return STRING; }
