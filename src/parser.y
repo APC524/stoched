@@ -43,7 +43,7 @@
 %%
 // %% demarcates the beginning of the recursive parsing rules
 parser:
-{cout << "before" <<endl; eventCnt = 0; cout << "after" << endl;}vars_line event_lines footer {
+{cout << "set eventCnt = 0" <<endl; eventCnt = 0; }vars_line event_lines footer {
   cout << "done with a parser file!" << endl;
 }
 ;
@@ -54,12 +54,12 @@ SETUP_VARS QSTRING ENDLS {
 }
 ;
 event_lines:
-event_line event_lines
+event_lines event_line
 | event_line
 ;
 event_line:
 EVENT RATE QSTRING { cout << "initialize event\n";
-  cout << "rateStr =" << $3 << endl;cModel.addEvent($3); cout << "about the inc" << endl; eventCnt++; cout << "after inc" << endl;} equations_list ENDLS {  // 
+  cout << "rateStr =" << $3 << endl;cModel.addEvent($3); } equations_list {cout << "increment eventCnt" << endl; eventCnt++; cout << "new val of eventCnt = " << eventCnt << endl;} ENDLS {  // 
   cout << " end of event" << endl;
 }
 ;

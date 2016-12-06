@@ -1,18 +1,21 @@
 SETUP_VARS "co,c,o"
-#STOCHED_INPUT 1.3
 
-# example of a comment
+# this is an example of a comment
 
-#VARIABLES "co,c,o"  
+# Now we will define two events. The syntax is the EVENT keyword, the RATE keyword,
+# followed by a rate equation and n event equations.
+# The rate equation is the the RHS of rate = f(state)
+# Following this are the event equations. There should be one equation for each elment
+# of the state array.
+# In this case, there are 3 state varaibles. You know this because line 1 says
+# the state array is co,c,o
+# so there are three equations following the rate equation.
+# The first equation describes a function for the first variable in the
+# state array. For example, "co - 1" represents the equation co = co -1 since co is the
+# first varaible listed on line 1 of this file.
 
-# dissociation
-#EVENT "co = co - 1" "c = c + 1" "o = o + 1" RATE "24.3*(co+o)"
-# equations must be in order and with only RHS
-EVENT RATE 1 "24.3*(co+o)" 1 "co - 1" 1 "c + 1" 1 "o + 1"
-# example of another type of comment 
-# association
-#EVENT "co = co + 1" "c = c - 1" "o = o - 1" RATE "56.1+co/c"
-EVENT RATE "56.1+co/c" 2 "co + 1" 2 "c - 1" 2 "o - 1"
+EVENT RATE "24.3*(co+o)" "co - 1" "c + 1" "o + 1"
+EVENT RATE "56.1+co/c" "co + 1" "c - 1" "o - 1"  # example of another type of comment 
 
 end
 
