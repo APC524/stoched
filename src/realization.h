@@ -4,6 +4,7 @@
 #include "../lib/eigen/Eigen/LU"
 #include "model.h"
 #include "paramset.h"
+#include "rngs.h"
 
 
 /* class to hold realizations of a model 
@@ -13,10 +14,12 @@ class Realization {
   using namespace Eigen;
  public:
   Realization(const Model & the_model, const Paramset & the_paramset);
-  ~Realization();
+  virtual ~Realization();
 
   const Model the_model;
   const Paramset the_paramset;
+  const rng the_rng;
+  const int n_vars;
   VectorXd state_array;
   VectorXd rates;
   double state_time;
@@ -33,22 +36,26 @@ class Realization {
 
   /* sets state_array and state_time to 
      their user-specified initial values */
-  int set_to_initial_state();
-  
+  int set_to_initial_state();  
 
 }
 
-class ExactRealization : public Realization {
+class DirectMethod : public Realization {
+ public:
+  DirectMethod(const Model & the_model, const Paramset & the_paramset);
+  ~DirectMethod();
+  int step();
+ private:
+  VectorXd waiting_times;
+  VectorXd random_numbers;
+}
+
+class EulerLeap : public Realization {
  public:
   int step();
 }
 
-class EulerLeapRealization : public Realization {
- public:
-  int step();
-}
-
-class MidpointLeapRealization : public Realization {
+class MidpointLeap : public Realization {
  public:
   int step();
 }

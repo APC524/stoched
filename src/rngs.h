@@ -1,7 +1,6 @@
-#ifndef XOROSHIRO128_H_
-#define XOROSHIRO128_H_
+#ifndef RNGS_H_
+#define RNGS_H_
 #include <stdint.h>
-#include "rngs.h"
 
 /*  Based on xorshift128+ implementation by David Blackman and Sebastiano Vigna (vigna@acm.org) */
 
@@ -26,30 +25,19 @@
 
 inline double to_double(uint64_t x);
 
-class xoroshiro128plus : public rng {
+class rng {
  public:
-  xoroshiro128plus(int seed);
-  ~xoroshiro128plus();
+  rng(int seed);
+  ~rng();
   
   // get a new random int64
-  uint64_t next();
+  virtual uint64_t next();
 
   // get a new random uniform(0, 1) RV
-  double runif();
+  virtual double runif();
 
   // quick 2^64 calls to next (for parallelism)
-  void jump();
-
- private:
-  // state of the generator
-  uint64_t s[2];
-
-  // simulated rotate
-  inline uint64_t rotl(const uint64_t x, int k);
-
-  // splitmix64 implementation transforming seed
-  uint64_t splitmixstate;
-  uint64_t splitmix64();
+  virtual void jump();
 
 };
 

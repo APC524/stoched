@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "../lib/eigen/Eigen/Core"
 #include "../lib/eigen/Eigen/LU"
-//#include model.h
+#include "model.h"
+#include "paramset.H"
 
 using namespace Eigen;
 
@@ -16,4 +17,7 @@ int main(int argc, char* argv[]){
   for  (int i = 0; i < u_len; i++){
     printf("%f\n",u(i));
   }
+
+  
+  
 }

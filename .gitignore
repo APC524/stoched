@@ -27,6 +27,7 @@
 testparser
 simulate
 parser
+test_xoroshiro
 *.exe
 *.out
 *.app
