@@ -65,7 +65,7 @@ ENDLS ENDL
 
 %%
 
-int main(int, char**) {
+int parseFile() {
   // set the input file
   string inputfile = "example.parser.in";
   FILE *myfile = fopen(inputfile.c_str(), "r");
@@ -81,7 +81,7 @@ int main(int, char**) {
   do {
     yyparse();
   } while (!feof(yyin));
-  
+  return 0;
 }
 
 void yyerror(const char *s) {
