@@ -8,11 +8,11 @@ SETUP_VARS "co,c,o"
 # dissociation
 #EVENT "co = co - 1" "c = c + 1" "o = o + 1" RATE "24.3*(co+o)"
 # equations must be in order and with only RHS
-EVENT "co - 1" "c + 1" "o + 1" RATE "24.3*(co+o)"
+EVENT RATE 1 "24.3*(co+o)" 1 "co - 1" 1 "c + 1" 1 "o + 1"
 # example of another type of comment 
 # association
 #EVENT "co = co + 1" "c = c - 1" "o = o - 1" RATE "56.1+co/c"
-EVENT "co + 1" "c - 1" "o - 1" RATE "56.1+co/c"
+EVENT RATE "56.1+co/c" 2 "co + 1" 2 "c - 1" 2 "o - 1"
 
 end
 
