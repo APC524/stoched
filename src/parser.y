@@ -9,11 +9,11 @@
 
   // global varibales that flex defines
   extern "C" int yylex();
-  extern "C" int yyparse(Model cModel, int eventCnt);
+  extern "C" int yyparse(Model& cModel, int eventCnt);
   extern "C" FILE *yyin;
   extern int linecount;
  
-  void yyerror(Model cModel, int eventCnt, const char *s); // declare the error function
+  void yyerror(Model& cModel, int eventCnt, const char *s); // declare the error function
   %}
 // flex returns a token as a yystype. Bison will store this in a union
 // containing the different data types.
@@ -37,7 +37,7 @@
 %token <sval> QSTRING
 
  // input argument(s) to the parser function
-%parse-param {Model cModel}
+%parse-param {Model& cModel}
 %parse-param {int eventCnt}
 
 %%
@@ -76,7 +76,7 @@ ENDLS ENDL
 
 %%
 
-int parseFile(Model cModel) {
+int parseFile(Model& cModel) {
   // set the input file
   string inputfile = "example.parser.in";
   FILE *myfile = fopen(inputfile.c_str(), "r");
@@ -97,7 +97,7 @@ int parseFile(Model cModel) {
   return 0;
 }
 
-void yyerror(Model cModel, int eventCnt, const char *s) {
+void yyerror(Model& cModel, int eventCnt, const char *s) {
   cout << "ERROR: Parser error on line " << linecount << ". Message: " << s << endl;
   exit(-1);
 }

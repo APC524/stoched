@@ -1,4 +1,4 @@
-SETUP_VARS "co,c,o"
+SETUP_VARS "a,b,c"
 
 # this is an example of a comment
 
@@ -8,14 +8,14 @@ SETUP_VARS "co,c,o"
 # Following this are the event equations. There should be one equation for each elment
 # of the state array.
 # In this case, there are 3 state varaibles. You know this because line 1 says
-# the state array is co,c,o
+# the state array is a,b,c
 # so there are three equations following the rate equation.
 # The first equation describes a function for the first variable in the
-# state array. For example, "co - 1" represents the equation co = co -1 since co is the
+# state array. For example, "a*b*c" represents the equation a = a*b*c since a is the
 # first varaible listed on line 1 of this file.
 
-EVENT RATE "24.3*(co+o)" "co - 1" "c + 1" "o + 1"
-EVENT RATE "56.1+co/c" "co + 1" "c - 1" "o - 1"  # example of another type of comment 
+EVENT RATE "5*(a+b)" "a*b*c" "a+b+c" "c*b-a"
+EVENT RATE "c*(a+b)" "a+b*c" "a*b-c" "(a-b)*c"  # example of another type of comment 
 
 end
 
