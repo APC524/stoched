@@ -1,29 +1,38 @@
+/* ------------- class Model -------------
+
+   Header for class MODEL, which holds user-specified models 
+   of stochastic systems from which realizations are to
+   be simulated. A model may have variable parameters; 
+   each complete set will be stored in an object of class
+   Paramset
+
+*/
+
+
 #ifndef MODEL_H_
 #define MODEL_H_
-#include <Eigen/Core>
-#include <Eigen/LU>
 #include "event.h"
+#include <vector>
 
-using namespace Eigen;
-
-
-/* class to hold user-specified models of stochastic systems
- so that realizations from them can be simulated */
+using namespace std;
 
 class Model {
+
  public:
-  Model(string vars);
+  Model();
   ~Model();
-  void addEvent(double rate);
+  void addVars(string vars);
+  void addEvent(string functionRate);
   void addEventFct(int iEvent, string function);
   double useEventFct(int iEvent, int iFunction, double *stateArray);
-  double getEventRate(int iEvent);
+  double getEventRate(int iEvent, double *stateArray);
   void updateState(int iEvent, double *stateArray);
+  void updateRates(double *stateArray, double *rateArray);
  
 private:
   vector<Event*> eventPtrList;
-  const string vars;
+  string vars_;
 
-}
+};
 
 #endif

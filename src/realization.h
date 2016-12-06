@@ -1,25 +1,22 @@
 #ifndef REALIZATION_H_
 #define REALIZATION_H_
-#include "../lib/eigen/Eigen/Core"
-#include "../lib/eigen/Eigen/LU"
 #include "model.h"
 #include "paramset.h"
-#include "rngs.h"
+#include "rng.h"
 
 
 /* class to hold realizations of a model 
    (state array, propensities, waiting times, etc.) */
 
 class Realization {
-  using namespace Eigen;
  public:
   Realization(const Model & the_model, const Paramset & the_paramset,
-              const rng & the_rng);
+              const rng *the_rng);
   virtual ~Realization();
 
   const Model the_model;
   const Paramset the_paramset;
-  const rng the_rng;
+  const rng *the_rng;
   const int n_vars;
   const int n_events;
   double *state_array;
@@ -40,25 +37,26 @@ class Realization {
      their user-specified initial values */
   int set_to_initial_state();  
 
-}
+};
 
 class DirectMethod : public Realization {
  public:
-  DirectMethod(const Model & the_model, const Paramset & the_paramset);
+  DirectMethod(const Model & the_model, const Paramset & the_paramset,
+               const rng *the_rng);
   ~DirectMethod();
   int step();
  private:
   double *waiting_times;
-}
+};
 
 class EulerLeap : public Realization {
  public:
   int step();
-}
+};
 
 class MidpointLeap : public Realization {
  public:
   int step();
-}
+};
 
 #endif

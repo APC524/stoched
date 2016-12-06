@@ -4,7 +4,7 @@
 #include <math.h>
 #include <stdio.h>
 
-Realization::Realization(const Model & the_model, const Paramset & the_paramset, const rng & the_rng) :
+Realization::Realization(const Model & the_model, const Paramset & the_paramset, const rng *the_rng) :
   the_model(the_model),
   the_paramset(the_paramset),
   the_rng(the_rng),
@@ -100,7 +100,7 @@ Realization::output_state(){
 }
 
 
-DirectMethod::DirectMethod(const Model & the_model, const Paramset & the_paramset) :
+DirectMethod::DirectMethod(const Model & the_model, const Paramset & the_paramset, const rng *the_rng) :
   Realization(the_model, the_paramset)
 {
   waiting_times = new double[n_events];
