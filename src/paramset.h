@@ -14,7 +14,7 @@ class Paramset {
   Paramset(int method, VectorXd rate_params, VectorXd event_params,
            VectorXd initial_values, double t_initial,
            double t_final, double timestep_size, int n_realizations,
-           int max_iter);
+           int max_iter, int seed);
   ~Paramset();
 
   const int method;              // which algorithm to use for simulation
@@ -31,6 +31,7 @@ class Paramset {
                                  // for this parameter set
   
   int max_iter;                  // max number of iterations to simulate
+  int seed;                      // seed for the random number generator
 
 }
 

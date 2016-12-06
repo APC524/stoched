@@ -10,7 +10,8 @@ Paramset::Paramset(int method,
                    double t_final,
                    double timestep_size,
                    int n_realizations,
-                   int max_iter) :
+                   int max_iter,
+                   int seed) :
   
   method(method),                 // which algorithm to use for simulation
   rate_params(rate_params),       // parameters for rate function
@@ -20,7 +21,8 @@ Paramset::Paramset(int method,
   t_final(t_final),               // final time for simulation
   timestep_size(timestep_size),   // size of timestep for approximate methods
   n_realizations(n_realizations), // number of realizations to simulate
-  max_iter(max_iter)              // max number of iterations to simulate
+  max_iter(max_iter),             // max number of iterations to simulate
+  seed(seed)                      // seed for the random number generator
 {};
 
 Paramset::~Paramset();

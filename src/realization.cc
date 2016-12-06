@@ -28,6 +28,7 @@ Realization::set_to_initial_state(){
 Realization::simulate(){
   t_initial = the_paramset.t_initial;
   t_final = the_paramset.t_final;
+  seed = the_paramset.seed
 
   int max_stop = 0;
   int rate_stop = 0;
@@ -78,5 +79,10 @@ Realization::output_state(){
   for(int = 0; i < the_model.n_vars; i++){
     printf("%15.8f", state_array(i))
   }
+
+}
+
+ExactRealization::step(){
+  waiting_times = 
 
 }

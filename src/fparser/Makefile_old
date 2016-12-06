@@ -1,0 +1,8 @@
+fparser: example.o fparser.o
+	g++ fparser.cc examples/example.cc -o fparser
+
+fparser.o: fparser.cc
+	g++ -c fparser.cc -o fparser.o
+
+example.o: examples/example.cc
+	g++ -c examples/example.cc -o example.o
