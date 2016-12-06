@@ -41,15 +41,15 @@ vars_line event_lines footer { cout << "done with a parser file!"
 						   << endl; }
 ;
 vars_line:
-SETUP_VARS QSTRING ENDLS { cout << "reading a variable: " << $2 << endl; }
+SETUP_VARS QSTRING ENDLS { cout << "Beginning of input file\nvariables: " << $2 << endl; }
 ;
 event_lines:
 event_lines event_line
 | event_line
 ;
 event_line:
-EVENT equations_list RATE DOUBLE ENDLS {   
-  cout << "rate=" << $4 << endl; 
+EVENT equations_list RATE QSTRING ENDLS {   
+  cout << "rate= " << $4 << endl; 
 }
 ;
 equations_list:

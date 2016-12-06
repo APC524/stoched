@@ -35,9 +35,9 @@ end            {
                  // parser an int
                  yylval.ival = atoi(yytext);
                  return INT; }
-\"[a-z , \+ \- \* / = A-Z0-9]+\"   {
+\"[a-z \. , ( ) \+ \- \* / = A-Z0-9]+\"   {
                  // parse a string beginning and ending with quotes. string may
-                 // contain a-z A-Z 0-9 and the symbols ,+-*/= and spaces 
+                 // contain a-z A-Z 0-9 and the symbols ,+-*./=() and spaces 
                  yylval.sval = strdup(yytext);
                  int len = 0;
                  while(yylval.sval[len] != '\0'){
