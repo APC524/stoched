@@ -21,7 +21,10 @@ int main() {
   double argsA[3] = {1.0, 2.0, 4.0};
   double argsB[3] = {5.0, 4.0, 6.0};
 
-  Model model(variables);
+  Model model;
+
+  model.addVars(variables);
+
   model.addEvent(rateFunctionA);
   model.addEvent(rateFunctionB);
 

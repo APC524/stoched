@@ -14,12 +14,14 @@ using namespace std;
 /* class to hold user-specified models of stochastic systems
  so that realizations from them can be simulated */
 
-Model:: Model(string vars) {
-  vars_ = vars;
+Model:: Model() {
 }
 
 Model:: ~Model() {
+}
 
+void Model::addVars(string vars) {
+  vars_ = vars;
 }
 
 void Model::addEvent(string functionRate) {

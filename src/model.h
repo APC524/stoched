@@ -19,8 +19,9 @@ using namespace std;
 class Model {
 
  public:
-  Model(string vars);
+  Model();
   ~Model();
+  void addVars(string vars);
   void addEvent(string functionRate);
   void addEventFct(int iEvent, string function);
   double useEventFct(int iEvent, int iFunction, double *stateArray);
