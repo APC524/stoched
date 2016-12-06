@@ -7,18 +7,18 @@ CXX = g++
 MPICXX = mpicc
 CXXFLAGS = -g -Wall -lm -O3
 OMPCXXFLAGS = -g -Wall -lm -O3 -fopenmp
-RM = rm
+RM = rm -f
 LIBS = ../lib/eigen
 OBJECTS = fparser/fparser.o event.o model.o testparser.o lex.yy.o parser.tab.o
 
 all: testparser
 #simulate
 
-simulate: simulate.o
+simulate.exe: simulate.o
 	$(CXX) -o $@ $^ -I $(LIBS) $(CXXFLAGS)
 
 testparser: $(OBJECTS)
-	g++ $(OBJECTS) -ll -o testparser
+	g++ $(OBJECTS) -ll -o $@
 
 # use flex and bison to generate parser source code
 parser.tab.c parser.tab.h: parser.y
@@ -35,9 +35,9 @@ lex.yy.c: parser.l parser.tab.h
 
 # clean up object code and executables
 clean:
-	$(RM) simulate testparser
+	$(RM) *.exe
 	$(RM) *.o
 
 # clean up emacs temp files
 clobber: clean
-	rm -f *~ \#*\#
+	$(RM) *~ \#*\#
