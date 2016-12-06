@@ -1,5 +1,11 @@
 #include "xoroshiro128plus.h"
 
+// convert uint64_t to double
+inline double to_double(uint64_t x) {
+       const union { uint64_t i; double d; } u = { .i = UINT64_C(0x3FF) << 52 | x >> 12 };
+       return u.d - 1.0;
+}
+
 
 // splitmix64 next function, for initializing generator
 uint64_t xoroshiro128plus::splitmix64() {
@@ -40,6 +46,12 @@ uint64_t xoroshiro128plus::next() {
 }
 
 
+// get random uniform(0, 1) double and update state
+double xoroshiro128plus::runif() {
+  return to_double(next());
+}
+
+
 /* This is the jump function for the generator. It is equivalent
    to 2^64 calls to next(); it can be used to generate 2^64
    non-overlapping subsequences for parallel computations. */
@@ -48,7 +60,7 @@ void xoroshiro128plus::jump() {
 
   uint64_t s0 = 0;
   uint64_t s1 = 0;
-  for(int i = 0; i < sizeof JUMP / sizeof *JUMP; i++)
+  for(uint64_t i = 0; i < sizeof JUMP / sizeof *JUMP; i++)
     for(int b = 0; b < 64; b++) {
       if (JUMP[i] & 1ULL << b) {
         s0 ^= s[0];
