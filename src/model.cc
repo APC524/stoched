@@ -65,6 +65,21 @@ void Model::updateState(int iEvent, double *stateArray) {
     stateArray[i] = stateCopy[i];
 
 }
+
+void Model::updateRates(double *stateArray, double *rateArray) {
+  int event_count = eventPtrList.size();
+  double rateCopy[event_count];
+
+  for (int i = 0; i < event_count; i++)
+    rateCopy[i] = 0.0;
+
+  for (int i = 0; i < event_count; i++)
+    rateCopy[i] = getEventRate(i, stateArray);
+
+  for (int i = 0; i < event_count; i++)
+    rateArray[i] = rateCopy[i];
+
+}
  
 
 

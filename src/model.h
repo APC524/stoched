@@ -27,6 +27,7 @@ class Model {
   double useEventFct(int iEvent, int iFunction, double *stateArray);
   double getEventRate(int iEvent, double *stateArray);
   void updateState(int iEvent, double *stateArray);
+  void updateRates(double *stateArray, double *rateArray);
  
 private:
   vector<Event*> eventPtrList;
