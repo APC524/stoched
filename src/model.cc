@@ -44,9 +44,42 @@ double Model::getEventRate(int iEvent, double *stateArray) {
 
 }
 
-//void Model::updateState(int iEvent, double *stateArray) {
+void Model::updateState(int iEvent, double *stateArray) {
+  int var_count = 1;  
+  int fct_count = eventPtrList[iEvent]->getSize();
+  double stateCopy[fct_count];
 
-//}
+  for (int i = 0; i < vars_.length(); i++) {
+    if (vars_[i] == ',') var_count++;
+  }
+
+  assert(var_count == fct_count);
+
+  for (int i = 0; i < fct_count; i++)
+    stateCopy[i] = 0.0;
+
+  for (int i = 0; i < fct_count; i++)
+    stateCopy[i] = useEventFct(iEvent, i, stateArray);
+
+  for (int i = 0; i < fct_count; i++)
+    stateArray[i] = stateCopy[i];
+
+}
+
+void Model::updateRates(double *stateArray, double *rateArray) {
+  int event_count = eventPtrList.size();
+  double rateCopy[event_count];
+
+  for (int i = 0; i < event_count; i++)
+    rateCopy[i] = 0.0;
+
+  for (int i = 0; i < event_count; i++)
+    rateCopy[i] = getEventRate(i, stateArray);
+
+  for (int i = 0; i < event_count; i++)
+    rateArray[i] = rateCopy[i];
+
+}
  
 
 

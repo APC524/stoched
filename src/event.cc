@@ -56,6 +56,10 @@ void Event::setRate(string function, string variables) {
 
 }
 
+// Return size of event, namely number of functions, to user
+int Event::getSize() {
+  return eq_count_;
+}
 // Return value of rate_ to user
 double Event::getRate(double *stateArray) {
   return rateFunction.Eval(stateArray);

@@ -13,6 +13,7 @@ class Event {
   double useFunction(int iFunction, double *args);
   void setRate(string function, string variables);
   double getRate(double *args);
+  int getSize();
   string eventName;
 
  private:
@@ -20,6 +21,7 @@ class Event {
   FunctionParser rateFunction;
   double rate_;
   int eq_count_;
+
 };
 
 #endif  
