@@ -36,13 +36,11 @@ int Realization::set_to_initial_state(){
   state_time = the_paramset.t_initial;
 
   // create rates array and set to initial rates
-  rates = new double[n_events]
-  the_model.updateRates(rates)
+  rates = new double[n_events];
+  the_model.updateRates(state_array, rates);
 
   return 0;
 }
-
-// gets rates from the model for all events
 
 
 // simulates the realization from t_inital to t_final
@@ -53,11 +51,11 @@ Realization::simulate(){
   bool time_stop = 0;
   bool max_iter_stop = 0;
   bool rate_stop = 0;
-  int iter_count=1;
+  int iter_count = 1;
   bool done = 0;
 
   // add logic here to check that all conditions below are met initially
-  rates = the_model.updateRates(rates)
+  rates = the_model.updateRates(state_array, rates);
 
   while(done==0){
 
@@ -84,7 +82,7 @@ Realization::simulate(){
     output_state();
     
     // update rates and increment iteration count
-    the_model.updateRates(rates);
+    the_model.updateRates(state_array, rates);
     iter_count++;
   }
 }
@@ -106,15 +104,25 @@ DirectMethod::DirectMethod(const Model & the_model, const Paramset & the_paramse
   Realization(the_model, the_paramset)
 {
   waiting_times = new double[n_events];
-}}
+}
 
 DirectMethod::~DirectMethod(){
   delete waiting_times;
 }
 
 DirectMethod::step(){
+  // update waiting times
+  int min_ind = 0;
   for(int i = 0; i < n_vars; i++){
     waiting_times[i] = the_rng.rexp(rates[i]);
+    if(waiting_times[i] < waiting_times[min_ind]){
+      min_ind = i;
+    }
+    printf("%15.8f \n" waiting_times[i]);
   }
-  std::cout << waiting_times;
+  printf("%d", min_ind);
+
+  // update time and do event
+  state_time += waiting_times[min_ind];
+  the_model.updateState(min_ind, state_array);
 }

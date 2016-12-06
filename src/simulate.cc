@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include "../lib/eigen/Eigen/Core"
-#include "../lib/eigen/Eigen/LU"
 #include "model.h"
 #include "paramset.h"
+#include "realization.h"
 
 
 int main(int argc, char* argv[]){
