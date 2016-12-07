@@ -59,6 +59,7 @@ fparser/example2.o: fparser/example2.cc
 clean:
 	$(RM) *.exe
 	$(RM) *.o
+	$(RM) -rf build/
 
 # clean up emacs temp files
 clobber: clean
