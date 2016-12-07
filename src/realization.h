@@ -1,25 +1,24 @@
 #ifndef REALIZATION_H_
 #define REALIZATION_H_
-#include <Eigen/Core>
-#include <Eigen/LU>
+#include "../lib/eigen/Eigen/Core"
+#include "../lib/eigen/Eigen/LU"
 #include "model.h"
 #include "paramset.h"
-
-using namespace Eigen;
 
 
 /* class to hold realizations of a model 
    (state array, propensities, waiting times, etc.) */
 
 class Realization {
+  using namespace Eigen;
  public:
-  Realization(const Model & the_model, double t_initial,
-              double t_final, int max_iter);
+  Realization(const Model & the_model, const Paramset & the_paramset);
   ~Realization();
 
-  Model the_model;
+  const Model the_model;
+  const Paramset the_paramset;
   VectorXd state_array;
-  VectorXd waiting_times;
+  VectorXd rates;
   double state_time;
 
   // simulates the realization from t_inital to t_final
@@ -32,10 +31,10 @@ class Realization {
   // prints the current state of the simulation
   int output_state();
 
- private:
-  const double t_inital;
-  const double t_final;
-  const int max_iter;
+  /* sets state_array and state_time to 
+     their user-specified initial values */
+  int set_to_initial_state();
+  
 
 }
 
