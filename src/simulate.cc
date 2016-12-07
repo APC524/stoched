@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include "../lib/eigen/Eigen/Core"
-#include "../lib/eigen/Eigen/LU"
-//#include model.h
+#include "model.h"
+#include "paramset.h"
+#include "realization.h"
 
-using namespace Eigen;
 
 // Example definition for ending simulation loop
 // #define TFINAL_OR_MAXITER 0;
@@ -20,6 +19,7 @@ int main(int argc, char* argv[]){
   for  (int i = 0; i < u_len; i++){
     printf("%f\n",u(i));
   }
+
   
   // Here: Get parameters from the parser
   

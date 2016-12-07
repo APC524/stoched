@@ -10,6 +10,7 @@ OMPCXXFLAGS = -g -Wall -lm -O3 -fopenmp
 RM = rm -f
 LIBS = ../lib/eigen
 OBJECTS = fparser/fparser.o event.o model.o testparser.o lex.yy.o parser.tab.o
+CLASSES = model.o event.o xoroshiro128plus.o realization.o paramset.o
 
 all: testparser.exe fparser/fparser.exe testevent.exe testmodel.exe
 #simulate
@@ -18,16 +19,22 @@ simulate.exe: simulate.o
 	$(CXX) -o $@ $^ -I $(LIBS) $(CXXFLAGS)
 
 testparser.exe: $(OBJECTS)
-	$(CXX) $(OBJECTS) -ll -o $@ $(CXXFLAGS)
+	$(CXX) $(OBJECTS) -ll -o $@
 
 testevent.exe: event.o testevent.o fparser/fparser.o
-	$(CXX) $^ -o $@ $(CXXFLAGS)
+	$(CXX) $^ -o $@  
 
 testmodel.exe: model.o event.o testmodel.o fparser/fparser.o
-	$(CXX) $^ -o $@ $(CXXFLAGS)
+	$(CXX) $^ -o $@
+
+testmodel: model.o event.o testmodel.o fparser/fparser.o
+	$(CXX) $^ -o $@
+
+testsimulate: testsimulate.o $(CLASSES) fparser/fparser.o
+	$(CXX) $^ -o $@
 
 fparser/fparser.exe: fparser/example2.o fparser/fparser.o
-	$(CXX) $^ -o $@ $(CXXFLAGS)
+	$(CXX) $^ -o $@  
 
 # use flex and bison to generate parser source code
 parser.tab.c parser.tab.h: parser.y
@@ -38,15 +45,15 @@ lex.yy.c: parser.l parser.tab.h
 
 # dependency rules
 fparser/fparser.o: fparser/fparser.cc
-	$(CXX) $^ -c -o fparser/fparser.o $(CXXFLAGS)
+	$(CXX) -c $^ -o $@
 
-#fparser/example2.o: fparser/example2.cc
-#	$(CXX) $^ -c -o fparser/fparser.o
+fparser/example2.o: fparser/example2.cc
+	$(CXX) $^ -o $@
 
 %.o: %.cc
-	$(CXX) -c $< $(CXXFLAGS)
+	g++ -c $< 
 %.o: %.c
-	$(CXX) -c $< $(CXXFLAGS)
+	g++ -c $<
 
 # clean up object code and executables
 clean:
