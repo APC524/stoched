@@ -11,6 +11,7 @@ Paramset::Paramset(int method,
                    int seed) :
   
   method(method),                 // which algorithm to use for simulation
+  n_vars(n_vars),                 // number of variables 
   initial_values(initial_values), // initial values for variables
   t_initial(t_initial),           // initial time for simulation
   t_final(t_final),               // final time for simulation
@@ -20,5 +21,5 @@ Paramset::Paramset(int method,
   seed(seed)                      // seed for the random number generator
 {};
 
-Paramset::~Paramset();
+Paramset::~Paramset(){};
 

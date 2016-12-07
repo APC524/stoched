@@ -10,13 +10,13 @@
 
 class Realization {
  public:
-  Realization(const Model & the_model, const Paramset & the_paramset,
-              const rng *the_rng);
+  Realization(Model *the_model, const Paramset & the_paramset,
+              rng *the_rng, int n_vars, int n_events);
   virtual ~Realization();
 
-  const Model the_model;
+  Model *the_model;
   const Paramset the_paramset;
-  const rng *the_rng;
+  rng *the_rng;
   const int n_vars;
   const int n_events;
   double *state_array;
@@ -28,8 +28,11 @@ class Realization {
 
   /* takes one simulation step according to the chosen
    algorithm */
-  virtual int step();
+  virtual int step() = 0;
 
+  // checks whether all rates are zero
+  bool rates_are_zero();
+  
   // prints the current state of the simulation
   int output_state();
 
@@ -41,8 +44,8 @@ class Realization {
 
 class DirectMethod : public Realization {
  public:
-  DirectMethod(const Model & the_model, const Paramset & the_paramset,
-               const rng *the_rng);
+  DirectMethod(Model *the_model, const Paramset & the_paramset,
+               rng *the_rng, int n_vars, int n_events);
   ~DirectMethod();
   int step();
  private:

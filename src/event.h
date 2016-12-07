@@ -11,14 +11,17 @@ class Event {
   ~Event();
   void addFunction(string function, string variables);
   double useFunction(int iFunction, double *args);
-  void setRate(double rate);
-  double getRate();
+  void setRate(string function, string variables);
+  double getRate(double *args);
+  int getSize();
   string eventName;
 
  private:
   FunctionParser **functionArray_;
+  FunctionParser rateFunction;
   double rate_;
   int eq_count_;
+
 };
 
 #endif  
