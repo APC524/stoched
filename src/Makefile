@@ -25,9 +25,12 @@ testevent.exe: event.o testevent.o fparser/fparser.o
 	$(CXX) $^ -o $@  
 
 testmodel.exe: model.o event.o testmodel.o fparser/fparser.o
-	$(CXX) $^ -o $@  
+	$(CXX) $^ -o $@
 
-testmodel: testmodel.o $(CLASSES) fparser/fparser.o
+testmodel: model.o event.o testmodel.o fparser/fparser.o
+	$(CXX) $^ -o $@
+
+testsimulate: testsimulate.o $(CLASSES) fparser/fparser.o
 	$(CXX) $^ -o $@
 
 fparser/fparser.exe: fparser/example2.o fparser/fparser.o

@@ -58,6 +58,16 @@ int Realization::simulate(){
   the_model->updateRates(state_array, rates);
 
   while(done==0){
+    
+    // take step according to method
+    step();
+
+    // output state of the simuation
+    output_state();
+    
+    // update rates and increment iteration count
+    the_model->updateRates(state_array, rates);
+    iter_count++;
 
     /* check that stop conditions haven't been reached
        (maybe wrap this in a function) */ 
@@ -74,17 +84,10 @@ int Realization::simulate(){
       done = 1;
     }
     else {}
-    
-    // take step according to method
-    step();
 
-    // output state of the simuation
-    output_state();
-    
-    // update rates and increment iteration count
-    the_model->updateRates(state_array, rates);
-    iter_count++;
   }
+
+  
   return 0;
 }
 
@@ -95,7 +98,7 @@ int Realization::output_state(){
   printf("%15.8f ", state_time);
 
   for(int i = 0; i < n_vars; i++){
-    printf("%15.8f", state_array[i]);
+    printf("%15.8f ", state_array[i]);
   }
   printf("\n");
   return 0;
@@ -128,9 +131,7 @@ int DirectMethod::step(){
     if(waiting_times[i] < waiting_times[min_ind]){
       min_ind = i;
     }
-    printf("%15.8f \n", waiting_times[i]);
   }
-  printf("%d", min_ind);
 
   // update time and do event
   state_time += waiting_times[min_ind];
