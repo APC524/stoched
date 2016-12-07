@@ -1,17 +1,19 @@
 %{
 #include <cstdio>
 #include <iostream>
+#include "model.h"
 #include "event.h"
+
 
   using namespace std;
 
   // global varibales that flex defines
   extern "C" int yylex();
-  extern "C" int yyparse();
+  extern "C" int yyparse(Model& cModel, int eventCnt);
   extern "C" FILE *yyin;
   extern int linecount;
  
-  void yyerror(const char *s); // declare the error function
+  void yyerror(Model& cModel, int eventCnt, const char *s); // declare the error function
   %}
 // flex returns a token as a yystype. Bison will store this in a union
 // containing the different data types.
@@ -22,9 +24,8 @@
 }
 
 // define the keywords
-%token PARSER
-%token VARIABLES
-%token EVENTS
+%token SETUP_VARS
+%token EVENT
 %token RATE
 %token END
 %token ENDL
@@ -33,47 +34,38 @@
 // define the data types in the input file
 %token <ival> INT
 %token <dval> DOUBLE
-%token <sval> STRING
-%token <sval> EQSTRING
+%token <sval> QSTRING
+
+ // input argument(s) to the parser function
+%parse-param {Model& cModel}
+%parse-param {int eventCnt}
 
 %%
 // %% demarcates the beginning of the recursive parsing rules
 parser:
-header vars_line events_line body_section footer { cout << "done with a parser file!"
-						   << endl; }
-;
-header:
-PARSER DOUBLE ENDLS { cout << "reading a parser file version " << $2 << endl; }
+{cout << "set eventCnt = 0" <<endl; eventCnt = 0; }vars_line event_lines footer {
+  cout << "done with a parser file!" << endl;
+}
 ;
 vars_line:
-VARIABLES variable_list ENDLS { cout << "end of variable list" << endl; }
+SETUP_VARS QSTRING ENDLS {
+  cout << "Beginning of input file\nvariables: " << $2 << endl;
+  cModel.addVars($2);
+}
 ;
-variable_list:
-variable_list STRING { cout << "reading a variable: " << $2 << endl; }
-| STRING { cout << "reading a variable: " << $1 << endl; }
+event_lines:
+event_lines event_line
+| event_line
 ;
-events_line:
-EVENTS events_list ENDLS { cout << "end of events list" << endl; }
-;
-events_list:
-events_list STRING { cout << "reading an event: " << $2 << endl; }
-| STRING { cout << "reading an event: " << $1 << endl; }
-;
-body_section:
-body_lines
-;
-body_lines:
-body_lines body_line
-| body_line
-;
-body_line:
-STRING equations_list RATE DOUBLE ENDLS {   
-  cout << "rate=" << $4 << endl; 
+event_line:
+EVENT RATE QSTRING { cout << "initialize event\n";
+  cout << "rateStr =" << $3 << endl;cModel.addEvent($3); } equations_list {cout << "increment eventCnt" << endl; eventCnt++; cout << "new val of eventCnt = " << eventCnt << endl;} ENDLS {  // 
+  cout << " end of event" << endl;
 }
 ;
 equations_list:
-equations_list EQSTRING { cout << $2 << " "; }
-| EQSTRING { cout << $1 << " "; }
+equations_list QSTRING { cout << "f =" << eventCnt<< endl; cModel.addEventFct(eventCnt, $2); }
+| QSTRING { cout << "QSTRING = " << $1 << "eventCnt = " << eventCnt<< endl; cout << $1 << " "; cModel.addEventFct(eventCnt, $1); }
 ;
 footer:
 END ENDLS
@@ -84,7 +76,7 @@ ENDLS ENDL
 
 %%
 
-int main(int, char**) {
+int parseFile(Model& cModel) {
   // set the input file
   string inputfile = "example.parser.in";
   FILE *myfile = fopen(inputfile.c_str(), "r");
@@ -98,12 +90,14 @@ int main(int, char**) {
 
   // parse through the input until there is no more:
   do {
-    yyparse();
+    cout << "about to run yyparse" << endl;
+    int eventCnt = 0;
+    yyparse(cModel, eventCnt);
   } while (!feof(yyin));
-  
+  return 0;
 }
 
-void yyerror(const char *s) {
+void yyerror(Model& cModel, int eventCnt, const char *s) {
   cout << "ERROR: Parser error on line " << linecount << ". Message: " << s << endl;
   exit(-1);
 }
