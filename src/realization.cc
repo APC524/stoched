@@ -85,7 +85,6 @@ int Realization::simulate(){
 
   }
 
-  
   return 0;
 }
 
@@ -102,12 +101,14 @@ int Realization::output_state(){
   return 0;
 }
 
+// checks whether all rates are zero
 bool Realization::rates_are_zero(){
-  double total_rate = 0.0;
   for(int i = 0; i < n_events; i++){
-    total_rate += rates[i];
+    if(rates[i] > DBL_MIN){
+      return 0;
+    };
   }
-  return !(total_rate > DBL_MIN);
+  return 1;
 }
 
 

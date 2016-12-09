@@ -28,6 +28,7 @@ testparser
 simulate
 parser
 src/test_xoroshiro
+src/testsimulate
 *.exe
 *.out
 *.app
