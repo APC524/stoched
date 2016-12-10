@@ -18,16 +18,16 @@ simulate.exe: simulate.o
 	$(CXX) -o $@ $^ -I $(LIBS) $(CXXFLAGS)
 
 testparser.exe: $(OBJECTS)
-	$(CXX) $(OBJECTS) -ll -o $@
+	$(CXX) $(OBJECTS) -ll -o $@ $(CXXFLAGS)
 
 testevent.exe: event.o testevent.o fparser/fparser.o
-	$(CXX) $^ -o $@  
+	$(CXX) $^ -o $@ $(CXXFLAGS)
 
 testmodel.exe: model.o event.o testmodel.o fparser/fparser.o
-	$(CXX) $^ -o $@  
+	$(CXX) $^ -o $@ $(CXXFLAGS)
 
 fparser/fparser.exe: fparser/example2.o fparser/fparser.o
-	$(CXX) $^ -o $@  
+	$(CXX) $^ -o $@ $(CXXFLAGS)
 
 # use flex and bison to generate parser source code
 parser.tab.c parser.tab.h: parser.y
@@ -38,15 +38,15 @@ lex.yy.c: parser.l parser.tab.h
 
 # dependency rules
 fparser/fparser.o: fparser/fparser.cc
-	$(CXX) $^ -o $@
+	$(CXX) $^ -c -o fparser/fparser.o $(CXXFLAGS)
 
-fparser/example2.o: fparser/example2.cc
-	$(CXX) $^ -o $@
+#fparser/example2.o: fparser/example2.cc
+#	$(CXX) $^ -c -o fparser/fparser.o
 
 %.o: %.cc
-	g++ -c $< 
+	$(CXX) -c $< $(CXXFLAGS)
 %.o: %.c
-	g++ -c $<
+	$(CXX) -c $< $(CXXFLAGS)
 
 # clean up object code and executables
 clean:
