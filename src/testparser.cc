@@ -1,4 +1,5 @@
 // testparser.cc
+#include <stdio.h>
 #include <iostream>
 #include "model.h"
 #include "event.h"
