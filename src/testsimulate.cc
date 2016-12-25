@@ -95,29 +95,30 @@ int main() {
   myfile << "\n";
   
   // Run realization simulation
-  DirectMethod realization(model_ptr, paramset, rng_ptr, n_vars, n_events);
-  realization.simulate(myfile);
+  //DirectMethod realization(model_ptr, paramset, rng_ptr, n_vars, n_events);
+  //realization.simulate(myfile);
 
+
+
+
+  //high_resolution_clock::time_point t1 = high_resolution_clock::now();
+  FirstReaction realization(model_ptr, paramset, rng_ptr, n_vars, n_events);
+  realization.simulate(myfile);
+  //high_resolution_clock::time_point t2 = high_resolution_clock::now();
   // Close the file 
   myfile.close();
 
+  //auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
 
-  high_resolution_clock::time_point t1 = high_resolution_clock::now();
-  FirstReaction realization(model_ptr, paramset, rng_ptr, n_vars, n_events);
-  realization.simulate();
-  high_resolution_clock::time_point t2 = high_resolution_clock::now();
-
-  auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
-
-  high_resolution_clock::time_point t3 = high_resolution_clock::now();
+  /*high_resolution_clock::time_point t3 = high_resolution_clock::now();
   NextReaction realization2(model_ptr, paramset, rng_ptr, n_vars, n_events);
-  realization2.simulate();
+  realization2.simulate(myfile);
   high_resolution_clock::time_point t4 = high_resolution_clock::now();
 
-  auto duration_next = duration_cast<microseconds>( t4 - t3 ).count();
+  auto duration_next = duration_cast<microseconds>( t4 - t3 ).count();*/
 
-  printf("First rxn ran in %15.8f seconds \n", duration_first * 1.0e-6);
-  printf("Next rxn ran in %15.8f seconds \n", duration_next * 1.0e-6);
+  //printf("First rxn ran in %15.8f seconds \n", duration_first * 1.0e-6);
+  //printf("Next rxn ran in %15.8f seconds \n", duration_next * 1.0e-6);
   
   delete rng_ptr;
 
