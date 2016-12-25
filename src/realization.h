@@ -4,7 +4,6 @@
 #include "paramset.h"
 #include "rng.h"
 
-
 /* class to hold realizations of a model 
    (state array, propensities, waiting times, etc.) */
 
@@ -24,7 +23,7 @@ class Realization {
   double state_time;
 
   // simulates the realization from t_inital to t_final
-  int simulate();
+  int simulate(std::ofstream& myfile);
 
   /* takes one simulation step according to the chosen
    algorithm */
@@ -34,7 +33,7 @@ class Realization {
   bool rates_are_zero();
   
   // prints the current state of the simulation
-  int output_state();
+  int output_state(std::ofstream& myfile);
 
   /* sets state_array and state_time to 
      their user-specified initial values */

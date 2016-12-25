@@ -5,7 +5,7 @@
 # -----------------------------------------------------------------------------
 CXX = g++-6
 MPICXX = mpicc
-CXXFLAGS = -g -Wall -lm -O3
+CXXFLAGS = -g -Wall -lm -O3 
 OMPCXXFLAGS = -g -Wall -lm -O3 -fopenmp
 RM = rm -f
 LIBS = ../lib/eigen
@@ -19,28 +19,25 @@ all: testparser.exe testevent.exe testmodel.exe testsimulate.exe
 #simulate
 
 simulate.exe: simulate.o
-	$(CXX) -o $@ $^ -I $(LIBS) $(CXXFLAGS)
+	$(CXX) $(OMPCXXFLAGS) -o $@ $^ -I $(LIBS) $(CXXFLAGS)
 
 testparser.exe: $(OBJECTS)
-	$(CXX) $(OBJECTS) -ll -o $@
+	$(CXX) $(OMPCXXFLAGS) $(OBJECTS) -ll -o $@
 
 testevent.exe: event.o testevent.o fparser/fparser.o
-	$(CXX) $^ -o $@  
+	$(CXX) $(OMPCXXFLAGS) $^ -o $@  
 
 testmodel.exe: model.o event.o testmodel.o fparser/fparser.o
-	$(CXX) $^ -o $@
+	$(CXX) $(OMPCXXFLAGS) $^ -o $@
 
 testmodel: model.o event.o testmodel.o fparser/fparser.o
-	$(CXX) $^ -o $@
-
-#testsimulate: testsimulate.o $(CLASSES) fparser/fparser.o
-#	$(CXX) $^ -o $@
+	$(CXX) $(OMPCXXFLAGS) $^ -o $@
 
 testsimulate.exe: testsimulate.o $(CLASSES) fparser/fparser.o
-	$(CXX) $^ -o $@
+	$(CXX) $(OMPCXXFLAGS) $^ -o $@
 
-#fparser/fparser.exe: fparser/example2.o fparser/fparser.o
-#	$(CXX) $^ -o $@  
+fparser/fparser.exe: fparser/example2.o fparser/fparser.o
+	$(CXX) $^ -o $@  
 
 # use flex and bison to generate parser source code
 parser.tab.c parser.tab.h: parser.y
@@ -56,15 +53,12 @@ fparser/fparser.o: fparser/fparser.cc
 #fparser/example2.o: fparser/example2.cc fparser/fparser.o
 #	$(CXX) $^ -o $@
 
-#realization.o: realization.cc model.o event.o
-#	$(CXX) -c $^ -o $@
-
 %.o: %.cc
-	g++-6 -c $< 
+	g++-6 -fopenmp -c $< 
 #	g++ -std=c++11 $<
 	
 %.o: %.c
-	g++-6 -c $<
+	g++-6 -fopenmp -c $<
 
 # clean up object code and executables
 clean:

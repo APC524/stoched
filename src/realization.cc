@@ -3,6 +3,9 @@
 #include "xoroshiro128plus.h"
 #include <math.h>
 #include <stdio.h>
+#include <fstream>
+#include <iomanip>
+
 
 Realization::Realization(Model *the_model, const Paramset & the_paramset, rng *the_rng, int n_vars, int n_events) :
   the_model(the_model),
@@ -43,7 +46,7 @@ int Realization::set_to_initial_state(){
 
 
 // simulates the realization from t_inital to t_final
-int Realization::simulate(){
+int Realization::simulate(std::ofstream& myfile){
   double t_initial = the_paramset.t_initial;
   double t_final = the_paramset.t_final;
   int max_iter = the_paramset.max_iter;
@@ -63,7 +66,7 @@ int Realization::simulate(){
     step();
 
     // output state of the simuation
-    output_state();
+    output_state(myfile);
     
     // update rates and increment iteration count
     the_model->updateRates(state_array, rates);
@@ -92,15 +95,16 @@ int Realization::simulate(){
 }
 
 // prints the current state of the simulation
-int Realization::output_state(){
+int Realization::output_state(std::ofstream& myfile){
   // to be modified depending on ultimately
   // chosen output format
-  printf("%15.8f ", state_time);
 
+  myfile << left << setprecision(8) << setw(15) << state_time;
   for(int i = 0; i < n_vars; i++){
-    printf("%15.8f ", state_array[i]);
+    myfile << left << setprecision(8) << setw(15) << state_array[i];
   }
-  printf("\n");
+  myfile << "\n";
+
   return 0;
 }
 
@@ -125,8 +129,10 @@ DirectMethod::~DirectMethod(){
 
 int DirectMethod::step(){
   // update waiting times
+
   int min_ind = 0;
-  for(int i = 0; i < n_events; i++){
+  int i;
+  for(i = 0; i < n_events; i++){
     waiting_times[i] = the_rng->rexp(rates[i]);
     if(waiting_times[i] < waiting_times[min_ind]){
       min_ind = i;
