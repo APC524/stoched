@@ -3,7 +3,6 @@
 #include <string>
 #include <stdio.h>
 #include <fstream>
-#include <sys/time.h>
 #include <iomanip>
 #include <chrono>
 #include "event.h"
@@ -13,15 +12,11 @@
 #include "xoroshiro128plus.h"
 
 
-using namespace std;
+//using namespace std;
 using namespace std::chrono;
 
 int main() {
   
-  // Initialize timer (to get total runtime)
-  struct timeval t1, t2;
-  gettimeofday(&t1, NULL);
-
   string variables = "a,b";
   double args[2] = {1.0, 2.0};
   double rateArray[2] = {0.0, 0.0};
@@ -101,32 +96,35 @@ int main() {
 
 
 
-  //high_resolution_clock::time_point t1 = high_resolution_clock::now();
+  high_resolution_clock::time_point t1 = high_resolution_clock::now();
   FirstReaction realization(model_ptr, paramset, rng_ptr, n_vars, n_events);
   realization.simulate(myfile);
-  //high_resolution_clock::time_point t2 = high_resolution_clock::now();
-  // Close the file 
-  myfile.close();
+  high_resolution_clock::time_point t2 = high_resolution_clock::now();
 
-  //auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
+  myfile << "\n";
+  myfile << left << setw(15) << "time";
+  vars_count = model.getVarsCount(); 
+  for(int i = 0; i < n_vars; i++){
+    string test = model.getIthVar(i);
+    myfile << left << setw(15) <<  test;
+  }
+  myfile << "\n";
 
-  /*high_resolution_clock::time_point t3 = high_resolution_clock::now();
+  auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
+
+  high_resolution_clock::time_point t3 = high_resolution_clock::now();
   NextReaction realization2(model_ptr, paramset, rng_ptr, n_vars, n_events);
   realization2.simulate(myfile);
   high_resolution_clock::time_point t4 = high_resolution_clock::now();
+  // Close the file 
+  myfile.close();
 
-  auto duration_next = duration_cast<microseconds>( t4 - t3 ).count();*/
+  auto duration_next = duration_cast<microseconds>( t4 - t3 ).count();
 
-  //printf("First rxn ran in %15.8f seconds \n", duration_first * 1.0e-6);
-  //printf("Next rxn ran in %15.8f seconds \n", duration_next * 1.0e-6);
+  printf("First rxn ran in %15.8f seconds \n", duration_first * 1.0e-6);
+  printf("Next rxn ran in %15.8f seconds \n", duration_next * 1.0e-6);
   
   delete rng_ptr;
-
-  // Output runtime:
-  gettimeofday(&t2, NULL);
-  int milliSeconds = (t2.tv_sec - t1.tv_sec) * 1000 + (t2.tv_usec - t1.tv_usec)/1000;
-  double timediff = (double)(milliSeconds)/1000.0;
-  printf ("Runtime: %f seconds.\n",timediff);
 
   return 0;
 }
