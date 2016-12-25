@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sys/time.h>
 #include <iomanip>
+#include <chrono>
 #include "event.h"
 #include "model.h"
 #include "paramset.h"
@@ -13,6 +14,7 @@
 
 
 using namespace std;
+using namespace std::chrono;
 
 int main() {
   
@@ -68,10 +70,10 @@ int main() {
   int n_events = 4;
   double inits[2] = {0.0, 0.0};
   double t_initial = 0;
-  double t_final = 4000;
+  double t_final = 5000;
   double timestep_size = 0.5;
   double n_realizations = 1;
-  double max_iter = 10000000;
+  double max_iter = 100000000;
   int seed = 502;
   Paramset paramset(method, n_vars, inits, t_initial,
                     t_final, timestep_size, n_realizations,
@@ -99,6 +101,24 @@ int main() {
   // Close the file 
   myfile.close();
 
+
+  high_resolution_clock::time_point t1 = high_resolution_clock::now();
+  FirstReaction realization(model_ptr, paramset, rng_ptr, n_vars, n_events);
+  realization.simulate();
+  high_resolution_clock::time_point t2 = high_resolution_clock::now();
+
+  auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
+
+  high_resolution_clock::time_point t3 = high_resolution_clock::now();
+  NextReaction realization2(model_ptr, paramset, rng_ptr, n_vars, n_events);
+  realization2.simulate();
+  high_resolution_clock::time_point t4 = high_resolution_clock::now();
+
+  auto duration_next = duration_cast<microseconds>( t4 - t3 ).count();
+
+  printf("First rxn ran in %15.8f seconds \n", duration_first * 1.0e-6);
+  printf("Next rxn ran in %15.8f seconds \n", duration_next * 1.0e-6);
+  
   delete rng_ptr;
 
   // Output runtime:

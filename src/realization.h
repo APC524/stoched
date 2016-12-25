@@ -36,20 +36,34 @@ class Realization {
   int output_state(std::ofstream& myfile);
 
   /* sets state_array and state_time to 
-     their user-specified initial values */
-  int set_to_initial_state();  
+     their user-specified initial values 
+     and possibly does other setup logic 
+     in derived classes */
+  virtual int set_to_initial_state();  
 
 };
 
-class DirectMethod : public Realization {
+class FirstReaction : public Realization {
  public:
-  DirectMethod(Model *the_model, const Paramset & the_paramset,
+  FirstReaction(Model *the_model, const Paramset & the_paramset,
                rng *the_rng, int n_vars, int n_events);
-  ~DirectMethod();
+  ~FirstReaction();
   int step();
  private:
   double *waiting_times;
 };
+
+class NextReaction : public Realization {
+ public:
+  NextReaction(Model *the_model, const Paramset & the_paramset,
+               rng *the_rng, int n_vars, int n_events);
+  ~NextReaction();
+  int step();
+  int set_to_initial_state();
+ private:
+  double *waiting_times;
+};
+
 
 class EulerLeap : public Realization {
  public:
