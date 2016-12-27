@@ -78,7 +78,7 @@ int main() {
 
   // Open file
   ofstream myfile;
-  myfile.open ("example.txt");
+  myfile.open ("example_output.txt");
 
   // Write the header line corresponding to model
   myfile << left << setw(15) << "time";
