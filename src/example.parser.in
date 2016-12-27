@@ -1,21 +1,12 @@
-SETUP_VARS "a,b,c"
+SETUP_VARS "a,b"
 
 # this is an example of a comment
 
-# Now we will define two events. The syntax is the EVENT keyword, the RATE keyword,
-# followed by a rate equation and n event equations.
-# The rate equation is the the RHS of rate = f(state)
-# Following this are the event equations. There should be one equation for each elment
-# of the state array.
-# In this case, there are 3 state varaibles. You know this because line 1 says
-# the state array is a,b,c
-# so there are three equations following the rate equation.
-# The first equation describes a function for the first variable in the
-# state array. For example, "a*b*c" represents the equation a = a*b*c since a is the
-# first varaible listed on line 1 of this file.
+EVENT RATE "3" "a + 1" "b + 0"
+EVENT RATE "a / 3" "a - 1" "b + 0"
+EVENT RATE "5 * a" "a + 0" "b + 1"
+EVENT RATE "b / 30" "a + 0" "b - 1"
 
-EVENT RATE "5*(a+b)" "a*b*c" "a+b+c" "c*b-a"
-EVENT RATE "c*(a+b)" "a+b*c" "a*b-c" "(a-b)*c"  # example of another type of comment 
 
 end
 

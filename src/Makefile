@@ -9,11 +9,10 @@ CXXFLAGS = -g -Wall -lm -O3
 OMPCXXFLAGS = -g -Wall -lm -O3 -fopenmp
 RM = rm -f
 LIBS = ../lib/eigen
-OBJECTS = fparser/fparser.o event.o model.o testparser.o lex.yy.o parser.tab.o
+OBJECTS = fparser/fparser.o event.o model.o lex.yy.o parser.tab.o
 CLASSES = model.o event.o xoroshiro128plus.o realization.o paramset.o
 
-#all: testparser.exe fparser/fparser.exe testevent.exe testmodel.exe
-all: testparser.exe testevent.exe testmodel.exe testsimulate.exe
+all: stoched.exe testparser.exe testevent.exe testmodel.exe testsimulate.exe
 
 
 #simulate
@@ -21,8 +20,8 @@ all: testparser.exe testevent.exe testmodel.exe testsimulate.exe
 simulate.exe: simulate.o
 	$(CXX) $(OMPCXXFLAGS) -o $@ $^ -I $(LIBS) $(CXXFLAGS)
 
-testparser.exe: $(OBJECTS)
-	$(CXX) $(OMPCXXFLAGS) $(OBJECTS) -ll -o $@
+testparser.exe: testparser.o $(OBJECTS)
+	$(CXX) $(OMPCXXFLAGS) $^ -ll -o $@
 
 testevent.exe: event.o testevent.o fparser/fparser.o
 	$(CXX) $(OMPCXXFLAGS) $^ -o $@  
@@ -35,6 +34,9 @@ testmodel: model.o event.o testmodel.o fparser/fparser.o
 
 testsimulate.exe: testsimulate.o $(CLASSES) fparser/fparser.o
 	$(CXX) $(OMPCXXFLAGS) $^ -o $@
+
+stoched.exe: stoched.o $(OBJECTS) $(CLASSES)
+	$(CXX) $(OMPCXXFLAGS) $^ -ll -o $@
 
 fparser/fparser.exe: fparser/example2.o fparser/fparser.o
 	$(CXX) $^ -o $@  
@@ -64,7 +66,9 @@ fparser/fparser.o: fparser/fparser.cc
 clean:
 	$(RM) *.exe
 	$(RM) *.o
-	$(RM) -rf build/
+	$(RM) fparser/*.o
+	$(RM) -r *.dSYM
+	$(RM) *output.txt
 
 # clean up emacs temp files
 clobber: clean
