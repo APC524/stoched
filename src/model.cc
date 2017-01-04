@@ -21,39 +21,90 @@
 
 using namespace std;
 
-/* class to hold user-specified models of stochastic systems
- so that realizations from them can be simulated */
+/**
+ *   @brief  Default  constructor for Model  
+ *  
+ *   @param  none   
+ *   @return nothing 
+ */ 
 
 Model:: Model() {
 }
 
+/**
+ *   @brief  Destructor of Model  
+ *  
+ *   @param  none
+ *   @return nothing 
+ */ 
 Model:: ~Model() {
 }
 
+/**
+ *   @brief  Add variable list to a Model
+ *  
+ *   @param  vars is a string used to set variables associate with a Model
+ *   @return void
+ */ 
 void Model::addVars(string vars) {
   vars_ = vars;
 }
 
+/**
+ *   @brief  Add Event to Model's list of Events
+ *  
+ *   @param  functionRate is a string that defines an Event's rate
+ *   @return void
+ */ 
 void Model::addEvent(string functionRate) {
   eventPtrList.push_back(new Event);
   eventPtrList.back()->setRate(functionRate, vars_);
 }
 
+/**
+ *   @brief  Add Event function to specified Event in Model
+ *  
+ *   @param  iEvent is an int that indexes Event list
+ *   @param  function is a string that specifies Event function
+ *   @return void
+ */ 
 void Model::addEventFct(int iEvent, string function) {
   eventPtrList[iEvent]->addFunction(function, vars_);
 
 }
 
+/**
+ *   @brief  Evaluate given function in specified Event
+ *  
+ *   @param  iEvent is an int that indexes Event list
+ *   @param  iFunction is an int that indexes an Event's Function list
+ *   @param  stateArray is a double array specifiying variable values of a function
+ *   @return evaluated function as a double
+ */ 
 double Model::useEventFct(int iEvent, int iFunction, double *stateArray) {
   return eventPtrList[iEvent]->useFunction(iFunction, stateArray);
 
 }
 
+/**
+ *   @brief  Evaluate rate function for a specified Event
+ *  
+ *   @param  iEvent is an int that indexes Event list
+ *   @param  stateArray is a double array specifiying variable values of a function
+ *   @return evaluated rate function as a double
+ */ 
 double Model::getEventRate(int iEvent, double *stateArray) {
   return eventPtrList[iEvent]->getRate(stateArray);
 
 }
 
+/**
+ *   @brief  Update state array by evaluating all functions of a given Event
+ *  
+ *   @param  iEvent is an int that indexes Event list
+ *   @param  stateArray is a double array specifiying variable values of a function
+ *   @return void
+ */ 
 void Model::updateState(int iEvent, double *stateArray) {
   int var_count = 1;  
   int fct_count = eventPtrList[iEvent]->getSize();
@@ -76,6 +127,13 @@ void Model::updateState(int iEvent, double *stateArray) {
 
 }
 
+/**
+ *   @brief  Update rate for all Events in Model's Event list
+ *  
+ *   @param  stateArray is a double array specifiying variable values of a function
+ *   @param  rateArray is a double array specifiying variable values of a rate function
+ *   @return void
+ */ 
 void Model::updateRates(double *stateArray, double *rateArray) {
   int event_count = eventPtrList.size();
   double rateCopy[event_count];
@@ -90,6 +148,3 @@ void Model::updateRates(double *stateArray, double *rateArray) {
     rateArray[i] = rateCopy[i];
 
 }
- 
-
-

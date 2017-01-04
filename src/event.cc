@@ -19,21 +19,36 @@
 
 using namespace std;
 
-// event.cc
-
-// Constructor of Event class
+/**
+ *   @brief  Default  constructor for Event  
+ *  
+ *   @param  eq_count is the size of the function array
+ *   @param  functionArray contains all user-specified FunctionParsers that govern event   
+ *   @return nothing 
+ */ 
 Event::Event() {
   eq_count_ = 0;
   functionArray_ = (FunctionParser **)malloc(sizeof(FunctionParser));
 }
   
-// Destructor of Event 
+/**
+ *   @brief  Destructor of Event  
+ *  
+ *   @param  none
+ *   @return nothing 
+ */ 
 Event::~Event() {
   
   free (functionArray_); 
 }
 
-// Add a function parser, consisting of a function and associated variables
+/**
+ *   @brief  Add a function parser to the function array
+ *  
+ *   @param  function is a string used to generate a FunctionParser object
+ *   @param  variables is a string used to generate a FunctionParser object
+ *   @return void
+ */ 
 void Event::addFunction(string function, string variables) {
 
   if (eq_count_ != 0) {
@@ -51,13 +66,24 @@ void Event::addFunction(string function, string variables) {
 
 }
 
-// Use a function parser, consisting of a function and associated variables
+/**
+ *   @brief  Evaluate function stored at specified spot in the function array
+ *  
+ *   @param  iFunction is an int that indexes function array
+ *   @param  stateArray is a double array specifying variable values of function
+ *   @return evaluated functionParser as a double
+ */ 
 double Event::useFunction(int iFunction, double *stateArray) {
   return  functionArray_[iFunction]->Eval(stateArray);
-
 }
 
-// Return value of rate_ to user
+/**
+ *   @brief Set equation for rateFunction
+ *  
+ *   @param  function is a string used for parsing rateFunction
+ *   @param  variables is a string used for parsing rateFunction
+ *   @return void
+ */ 
 void Event::setRate(string function, string variables) {
   int res = rateFunction.Parse(function, variables);
 
@@ -68,12 +94,22 @@ void Event::setRate(string function, string variables) {
 
 }
 
-// Return size of event, namely number of functions, to user
+/**
+ *   @brief Return size of event, namely number of functions, to user  
+ *
+ *   @param  None
+ *   @return size of event, namely number of functions, as an int
+ */ 
 int Event::getSize() {
   return eq_count_;
 }
-// Return value of rate_ to user
+
+/**
+ *   @brief Return rate to user based on values of the state array
+ *  
+ *   @param  stateArray is a double array specifying variable values of function
+ *   @return evaluated rateFunction as a double
+ */ 
 double Event::getRate(double *stateArray) {
   return rateFunction.Eval(stateArray);
 }
-
