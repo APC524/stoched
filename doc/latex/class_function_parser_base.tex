@@ -1,0 +1,139 @@
+\hypertarget{class_function_parser_base}{}\section{Function\+Parser\+Base$<$ Value\+\_\+t $>$ Class Template Reference}
+\label{class_function_parser_base}\index{Function\+Parser\+Base$<$ Value\+\_\+t $>$@{Function\+Parser\+Base$<$ Value\+\_\+t $>$}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_function_parser_base_1_1_function_wrapper}{Function\+Wrapper}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a1126e1f068b31fb3ea89ffc3918f9aa8}\label{class_function_parser_base_a1126e1f068b31fb3ea89ffc3918f9aa8}} 
+enum {\bfseries Parse\+Error\+Type} \{ \newline
+{\bfseries S\+Y\+N\+T\+A\+X\+\_\+\+E\+R\+R\+OR} =0, 
+{\bfseries M\+I\+S\+M\+\_\+\+P\+A\+R\+E\+N\+TH}, 
+{\bfseries M\+I\+S\+S\+I\+N\+G\+\_\+\+P\+A\+R\+E\+N\+TH}, 
+{\bfseries E\+M\+P\+T\+Y\+\_\+\+P\+A\+R\+E\+N\+TH}, 
+\newline
+{\bfseries E\+X\+P\+E\+C\+T\+\_\+\+O\+P\+E\+R\+A\+T\+OR}, 
+{\bfseries O\+U\+T\+\_\+\+O\+F\+\_\+\+M\+E\+M\+O\+RY}, 
+{\bfseries U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries I\+N\+V\+A\+L\+I\+D\+\_\+\+V\+A\+RS}, 
+\newline
+{\bfseries I\+L\+L\+\_\+\+P\+A\+R\+A\+M\+S\+\_\+\+A\+M\+O\+U\+NT}, 
+{\bfseries P\+R\+E\+M\+A\+T\+U\+R\+E\+\_\+\+E\+OS}, 
+{\bfseries E\+X\+P\+E\+C\+T\+\_\+\+P\+A\+R\+E\+N\+T\+H\+\_\+\+F\+U\+NC}, 
+{\bfseries U\+N\+K\+N\+O\+W\+N\+\_\+\+I\+D\+E\+N\+T\+I\+F\+I\+ER}, 
+\newline
+{\bfseries N\+O\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+P\+A\+R\+S\+E\+D\+\_\+\+Y\+ET}, 
+{\bfseries F\+P\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}
+ \}
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a9cc3978ca1d4fca4244b367fc62d4a45}\label{class_function_parser_base_a9cc3978ca1d4fca4244b367fc62d4a45}} 
+typedef Value\+\_\+t {\bfseries value\+\_\+type}
+\item 
+\mbox{\Hypertarget{class_function_parser_base_abf70d4a8970e7174d857c464bf1019a3}\label{class_function_parser_base_abf70d4a8970e7174d857c464bf1019a3}} 
+typedef Value\+\_\+t($\ast$ {\bfseries Function\+Ptr}) (const Value\+\_\+t $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a11af9197aafaca95459675399a606912}\label{class_function_parser_base_a11af9197aafaca95459675399a606912}} 
+int {\bfseries Parse} (const char $\ast$Function, const std\+::string \&Vars, bool use\+Degrees=false)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_aeee0eb66f38ebc4a7a66fbffac173130}\label{class_function_parser_base_aeee0eb66f38ebc4a7a66fbffac173130}} 
+int {\bfseries Parse} (const std\+::string \&Function, const std\+::string \&Vars, bool use\+Degrees=false)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_ab00b7a9b93a1ff688255a4aaffbb1f19}\label{class_function_parser_base_ab00b7a9b93a1ff688255a4aaffbb1f19}} 
+void {\bfseries set\+Delimiter\+Char} (char)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a1d81e799766922a212c03021f7366b07}\label{class_function_parser_base_a1d81e799766922a212c03021f7366b07}} 
+const char $\ast$ {\bfseries Error\+Msg} () const
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a6abd7c5d3a1b1ca515d0a35856ee7335}\label{class_function_parser_base_a6abd7c5d3a1b1ca515d0a35856ee7335}} 
+Parse\+Error\+Type {\bfseries Get\+Parse\+Error\+Type} () const
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a2c0d3960126fd7f68541c702dc5e24c5}\label{class_function_parser_base_a2c0d3960126fd7f68541c702dc5e24c5}} 
+Value\+\_\+t {\bfseries Eval} (const Value\+\_\+t $\ast$Vars)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a8d8d51025306b4db5f734db31a1c0b1c}\label{class_function_parser_base_a8d8d51025306b4db5f734db31a1c0b1c}} 
+int {\bfseries Eval\+Error} () const
+\item 
+\mbox{\Hypertarget{class_function_parser_base_aaab17ce1b0bf03d761c341b255cb5253}\label{class_function_parser_base_aaab17ce1b0bf03d761c341b255cb5253}} 
+bool {\bfseries Add\+Constant} (const std\+::string \&name, Value\+\_\+t value)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a6d7748f020515ab70b0eb8885595485f}\label{class_function_parser_base_a6d7748f020515ab70b0eb8885595485f}} 
+bool {\bfseries Add\+Unit} (const std\+::string \&name, Value\+\_\+t value)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a3ce10f1ba66ab8b2682acf0db0b65254}\label{class_function_parser_base_a3ce10f1ba66ab8b2682acf0db0b65254}} 
+bool {\bfseries Add\+Function} (const std\+::string \&name, Function\+Ptr, unsigned params\+Amount)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_aa4925ed099b1708d0690457c414cb386}\label{class_function_parser_base_aa4925ed099b1708d0690457c414cb386}} 
+bool {\bfseries Add\+Function} (const std\+::string \&name, \hyperlink{class_function_parser_base}{Function\+Parser\+Base} \&)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a2193385ed0850c8124895fa50255bd6b}\label{class_function_parser_base_a2193385ed0850c8124895fa50255bd6b}} 
+{\footnotesize template$<$typename Derived\+Wrapper $>$ }\\bool {\bfseries Add\+Function\+Wrapper} (const std\+::string \&name, const Derived\+Wrapper \&, unsigned params\+Amount)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a817de51bc1c502df38e14484d4e15140}\label{class_function_parser_base_a817de51bc1c502df38e14484d4e15140}} 
+\hyperlink{class_function_parser_base_1_1_function_wrapper}{Function\+Wrapper} $\ast$ {\bfseries Get\+Function\+Wrapper} (const std\+::string \&name)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_ab8b553d924e2940b8ee3cc00fbd11d10}\label{class_function_parser_base_ab8b553d924e2940b8ee3cc00fbd11d10}} 
+bool {\bfseries Remove\+Identifier} (const std\+::string \&name)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_af25c430d7834d7d1e43b8da5ebaaf382}\label{class_function_parser_base_af25c430d7834d7d1e43b8da5ebaaf382}} 
+void {\bfseries Optimize} ()
+\item 
+\mbox{\Hypertarget{class_function_parser_base_af9911ae70fa2ad7a9b72c83c2b04e371}\label{class_function_parser_base_af9911ae70fa2ad7a9b72c83c2b04e371}} 
+int {\bfseries Parse\+And\+Deduce\+Variables} (const std\+::string \&function, int $\ast$amount\+Of\+Variables\+Found=0, bool use\+Degrees=false)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a358732851be21c0a4d7391fe121c24e6}\label{class_function_parser_base_a358732851be21c0a4d7391fe121c24e6}} 
+int {\bfseries Parse\+And\+Deduce\+Variables} (const std\+::string \&function, std\+::string \&result\+Var\+String, int $\ast$amount\+Of\+Variables\+Found=0, bool use\+Degrees=false)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_acb8b8d6665d3e3a14e2ffb87b7b92333}\label{class_function_parser_base_acb8b8d6665d3e3a14e2ffb87b7b92333}} 
+int {\bfseries Parse\+And\+Deduce\+Variables} (const std\+::string \&function, std\+::vector$<$ std\+::string $>$ \&result\+Vars, bool use\+Degrees=false)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a7e61e394eabcf0986e12fa74345b10b9}\label{class_function_parser_base_a7e61e394eabcf0986e12fa74345b10b9}} 
+{\bfseries Function\+Parser\+Base} (const \hyperlink{class_function_parser_base}{Function\+Parser\+Base} \&)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_abf49ad6d28419f75eee77fa5b71defcd}\label{class_function_parser_base_abf49ad6d28419f75eee77fa5b71defcd}} 
+\hyperlink{class_function_parser_base}{Function\+Parser\+Base} \& {\bfseries operator=} (const \hyperlink{class_function_parser_base}{Function\+Parser\+Base} \&)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a27aa76aa3a554b9210d761c1add2172b}\label{class_function_parser_base_a27aa76aa3a554b9210d761c1add2172b}} 
+void {\bfseries Force\+Deep\+Copy} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a4e45e8962c27cbc0ec62d0a6f9a75cac}\label{class_function_parser_base_a4e45e8962c27cbc0ec62d0a6f9a75cac}} 
+static Value\+\_\+t {\bfseries epsilon} ()
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a694aea0bfb61cd324a753b917f906406}\label{class_function_parser_base_a694aea0bfb61cd324a753b917f906406}} 
+static void {\bfseries set\+Epsilon} (Value\+\_\+t)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a77ea4e232ccb5aca661597f72dc37c84}\label{class_function_parser_base_a77ea4e232ccb5aca661597f72dc37c84}} 
+Data $\ast$ {\bfseries get\+Parser\+Data} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_function_parser_base_ad1e1645cc19dff08c61d38680fb18852}\label{class_function_parser_base_ad1e1645cc19dff08c61d38680fb18852}} 
+static std\+::pair$<$ const char $\ast$, Value\+\_\+t $>$ {\bfseries Parse\+Literal} (const char $\ast$)
+\item 
+\mbox{\Hypertarget{class_function_parser_base_a86b9cf2fafc3419ba7964db41fe88e9c}\label{class_function_parser_base_a86b9cf2fafc3419ba7964db41fe88e9c}} 
+static unsigned {\bfseries Parse\+Identifier} (const char $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_function_parser_base_acf3d682653499dcca599e0d88db26b48}\label{class_function_parser_base_acf3d682653499dcca599e0d88db26b48}} 
+class {\bfseries F\+Poptimizer\+\_\+\+Code\+Tree\+::\+Code\+Tree$<$ Value\+\_\+t $>$}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/fparser/fparser.\+hh\item 
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/fparser/fparser.\+cc\end{DoxyCompactItemize}

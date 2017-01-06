@@ -1,0 +1,221 @@
+\hypertarget{class_model}{}\section{Model Class Reference}
+\label{class_model}\index{Model@{Model}}
+
+
+Class M\+O\+D\+EL, which holds user-\/specified models of stochastic systems from which realizations are to be simulated. A model may have variable parameters; each complete set will be stored in an object of class \hyperlink{class_paramset}{Paramset}.  
+
+
+
+
+{\ttfamily \#include $<$model.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_model_ae3b375de5f6df4faf74a95d64748e048}{Model} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{class_model}{Model}. \end{DoxyCompactList}\item 
+\hyperlink{class_model_ad6ebd2062a0b823db841a0b88baac4c0}{$\sim$\+Model} ()
+\begin{DoxyCompactList}\small\item\em Destructor of \hyperlink{class_model}{Model}. \end{DoxyCompactList}\item 
+void \hyperlink{class_model_a4743b4f267eeb1a60e21cc2995e1efcd}{add\+Vars} (string vars)
+\begin{DoxyCompactList}\small\item\em Add variable list to a \hyperlink{class_model}{Model}. \end{DoxyCompactList}\item 
+void \hyperlink{class_model_ab6f784e4ff8cdf3ee5e010ef4dd8d597}{add\+Event} (string function\+Rate)
+\begin{DoxyCompactList}\small\item\em Add \hyperlink{class_event}{Event} to \hyperlink{class_model}{Model}\textquotesingle{}s list of Events. \end{DoxyCompactList}\item 
+void \hyperlink{class_model_a78d9b07bd5e819215c9aeefabb4cede7}{add\+Event\+Fct} (int i\+Event, string function)
+\begin{DoxyCompactList}\small\item\em Add \hyperlink{class_event}{Event} function to specified \hyperlink{class_event}{Event} in \hyperlink{class_model}{Model}. \end{DoxyCompactList}\item 
+double \hyperlink{class_model_a774d9fb034f8704a75d7b3568a87a3bc}{use\+Event\+Fct} (int i\+Event, int i\+Function, double $\ast$state\+Array)
+\begin{DoxyCompactList}\small\item\em Evaluate given function in specified \hyperlink{class_event}{Event}. \end{DoxyCompactList}\item 
+double \hyperlink{class_model_a2909caddddccca90faaae708e68226ad}{get\+Event\+Rate} (int i\+Event, double $\ast$state\+Array)
+\begin{DoxyCompactList}\small\item\em Evaluate rate function for a specified \hyperlink{class_event}{Event}. \end{DoxyCompactList}\item 
+void \hyperlink{class_model_ad9e7a181a31a2a9fab052d11b1984afd}{update\+State} (int i\+Event, double $\ast$state\+Array)
+\begin{DoxyCompactList}\small\item\em Update state array by evaluating all functions of a given \hyperlink{class_event}{Event}. \end{DoxyCompactList}\item 
+void \hyperlink{class_model_a3f2fd71261c87162718864d7efc67f2f}{update\+Rates} (double $\ast$state\+Array, double $\ast$rate\+Array)
+\begin{DoxyCompactList}\small\item\em Update rate for all Events in \hyperlink{class_model}{Model}\textquotesingle{}s \hyperlink{class_event}{Event} list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class M\+O\+D\+EL, which holds user-\/specified models of stochastic systems from which realizations are to be simulated. A model may have variable parameters; each complete set will be stored in an object of class \hyperlink{class_paramset}{Paramset}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_model_ae3b375de5f6df4faf74a95d64748e048}\label{class_model_ae3b375de5f6df4faf74a95d64748e048}} 
+\index{Model@{Model}!Model@{Model}}
+\index{Model@{Model}!Model@{Model}}
+\subsubsection{\texorpdfstring{Model()}{Model()}}
+{\footnotesize\ttfamily Model\+::\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \hyperlink{class_model}{Model}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_ad6ebd2062a0b823db841a0b88baac4c0}\label{class_model_ad6ebd2062a0b823db841a0b88baac4c0}} 
+\index{Model@{Model}!````~Model@{$\sim$\+Model}}
+\index{````~Model@{$\sim$\+Model}!Model@{Model}}
+\subsubsection{\texorpdfstring{$\sim$\+Model()}{~Model()}}
+{\footnotesize\ttfamily Model\+::$\sim$\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor of \hyperlink{class_model}{Model}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_model_ab6f784e4ff8cdf3ee5e010ef4dd8d597}\label{class_model_ab6f784e4ff8cdf3ee5e010ef4dd8d597}} 
+\index{Model@{Model}!add\+Event@{add\+Event}}
+\index{add\+Event@{add\+Event}!Model@{Model}}
+\subsubsection{\texorpdfstring{add\+Event()}{addEvent()}}
+{\footnotesize\ttfamily void Model\+::add\+Event (\begin{DoxyParamCaption}\item[{string}]{function\+Rate }\end{DoxyParamCaption})}
+
+
+
+Add \hyperlink{class_event}{Event} to \hyperlink{class_model}{Model}\textquotesingle{}s list of Events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em function\+Rate} & is a string that defines an \hyperlink{class_event}{Event}\textquotesingle{}s rate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_a78d9b07bd5e819215c9aeefabb4cede7}\label{class_model_a78d9b07bd5e819215c9aeefabb4cede7}} 
+\index{Model@{Model}!add\+Event\+Fct@{add\+Event\+Fct}}
+\index{add\+Event\+Fct@{add\+Event\+Fct}!Model@{Model}}
+\subsubsection{\texorpdfstring{add\+Event\+Fct()}{addEventFct()}}
+{\footnotesize\ttfamily void Model\+::add\+Event\+Fct (\begin{DoxyParamCaption}\item[{int}]{i\+Event,  }\item[{string}]{function }\end{DoxyParamCaption})}
+
+
+
+Add \hyperlink{class_event}{Event} function to specified \hyperlink{class_event}{Event} in \hyperlink{class_model}{Model}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Event} & is an int that indexes \hyperlink{class_event}{Event} list \\
+\hline
+{\em function} & is a string that specifies \hyperlink{class_event}{Event} function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_a4743b4f267eeb1a60e21cc2995e1efcd}\label{class_model_a4743b4f267eeb1a60e21cc2995e1efcd}} 
+\index{Model@{Model}!add\+Vars@{add\+Vars}}
+\index{add\+Vars@{add\+Vars}!Model@{Model}}
+\subsubsection{\texorpdfstring{add\+Vars()}{addVars()}}
+{\footnotesize\ttfamily void Model\+::add\+Vars (\begin{DoxyParamCaption}\item[{string}]{vars }\end{DoxyParamCaption})}
+
+
+
+Add variable list to a \hyperlink{class_model}{Model}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vars} & is a string used to set variables associate with a \hyperlink{class_model}{Model} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_a2909caddddccca90faaae708e68226ad}\label{class_model_a2909caddddccca90faaae708e68226ad}} 
+\index{Model@{Model}!get\+Event\+Rate@{get\+Event\+Rate}}
+\index{get\+Event\+Rate@{get\+Event\+Rate}!Model@{Model}}
+\subsubsection{\texorpdfstring{get\+Event\+Rate()}{getEventRate()}}
+{\footnotesize\ttfamily double Model\+::get\+Event\+Rate (\begin{DoxyParamCaption}\item[{int}]{i\+Event,  }\item[{double $\ast$}]{state\+Array }\end{DoxyParamCaption})}
+
+
+
+Evaluate rate function for a specified \hyperlink{class_event}{Event}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Event} & is an int that indexes \hyperlink{class_event}{Event} list \\
+\hline
+{\em state\+Array} & is a double array specifiying variable values of a function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+evaluated rate function as a double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_a3f2fd71261c87162718864d7efc67f2f}\label{class_model_a3f2fd71261c87162718864d7efc67f2f}} 
+\index{Model@{Model}!update\+Rates@{update\+Rates}}
+\index{update\+Rates@{update\+Rates}!Model@{Model}}
+\subsubsection{\texorpdfstring{update\+Rates()}{updateRates()}}
+{\footnotesize\ttfamily void Model\+::update\+Rates (\begin{DoxyParamCaption}\item[{double $\ast$}]{state\+Array,  }\item[{double $\ast$}]{rate\+Array }\end{DoxyParamCaption})}
+
+
+
+Update rate for all Events in \hyperlink{class_model}{Model}\textquotesingle{}s \hyperlink{class_event}{Event} list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state\+Array} & is a double array specifiying variable values of a function \\
+\hline
+{\em rate\+Array} & is a double array specifiying variable values of a rate function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_ad9e7a181a31a2a9fab052d11b1984afd}\label{class_model_ad9e7a181a31a2a9fab052d11b1984afd}} 
+\index{Model@{Model}!update\+State@{update\+State}}
+\index{update\+State@{update\+State}!Model@{Model}}
+\subsubsection{\texorpdfstring{update\+State()}{updateState()}}
+{\footnotesize\ttfamily void Model\+::update\+State (\begin{DoxyParamCaption}\item[{int}]{i\+Event,  }\item[{double $\ast$}]{state\+Array }\end{DoxyParamCaption})}
+
+
+
+Update state array by evaluating all functions of a given \hyperlink{class_event}{Event}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Event} & is an int that indexes \hyperlink{class_event}{Event} list \\
+\hline
+{\em state\+Array} & is a double array specifiying variable values of a function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_a774d9fb034f8704a75d7b3568a87a3bc}\label{class_model_a774d9fb034f8704a75d7b3568a87a3bc}} 
+\index{Model@{Model}!use\+Event\+Fct@{use\+Event\+Fct}}
+\index{use\+Event\+Fct@{use\+Event\+Fct}!Model@{Model}}
+\subsubsection{\texorpdfstring{use\+Event\+Fct()}{useEventFct()}}
+{\footnotesize\ttfamily double Model\+::use\+Event\+Fct (\begin{DoxyParamCaption}\item[{int}]{i\+Event,  }\item[{int}]{i\+Function,  }\item[{double $\ast$}]{state\+Array }\end{DoxyParamCaption})}
+
+
+
+Evaluate given function in specified \hyperlink{class_event}{Event}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Event} & is an int that indexes \hyperlink{class_event}{Event} list \\
+\hline
+{\em i\+Function} & is an int that indexes an \hyperlink{class_event}{Event}\textquotesingle{}s Function list \\
+\hline
+{\em state\+Array} & is a double array specifiying variable values of a function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+evaluated function as a double 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/model.\+h\item 
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{model_8cc}{model.\+cc}\end{DoxyCompactItemize}
