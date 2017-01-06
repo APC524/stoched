@@ -4,12 +4,12 @@
 #include <fstream>
 #include <iomanip>
 #include <chrono>
-#include <omp.h>
 #include "event.h"
 #include "model.h"
 #include "paramset.h"
 #include "realization.h"
 #include "xoroshiro128plus.h"
+#include "realization_factory.h"
 
 
 //using namespace std;
@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
   // TO BE IMPLEMENTED 
 
   // manually specified parameters for now
-  int method = 0;
+  int method = 2;
   int n_vars = 2;
   int n_events = 4;
   double inits[2] = {0.0, 0.0};
@@ -81,15 +81,19 @@ int main(int argc, char *argv[]) {
                     t_final, timestep_size, n_realizations,
                     max_iter, seed);
 
+  // instantiate rng
   xoroshiro128plus* rng_ptr = new xoroshiro128plus(seed);
+
+  // instantiate RealizationFactory
+  RealizationFactory factory; 
 
   // Instantiate timer 
   high_resolution_clock::time_point t1 = high_resolution_clock::now();
 
   // Set up OMP environment/variables 
-  omp_set_dynamic(0);     // Explicitly disable dynamic teams
-  int nthreads = omp_get_max_threads();
-  omp_set_num_threads(nthreads);
+  //omp_set_dynamic(0);     // Explicitly disable dynamic teams
+  //int nthreads = omp_get_max_threads();
+  //omp_set_num_threads(nthreads);
 
   // Loop over instantiations of realizations for same model: 
   int i=0;
@@ -97,7 +101,7 @@ int main(int argc, char *argv[]) {
   for(i = 0; i < n_realizations; i++){
     // Open file
     ofstream myfile;
-    string write_out_path = out_path + "_event_" + to_string(i+1) + ".txt";
+    string write_out_path = out_path + "_realization_" + to_string(i+1) + ".txt";
 
     myfile.open(write_out_path);
     // Write the header line corresponding to model
@@ -112,15 +116,29 @@ int main(int argc, char *argv[]) {
     /* instantiate realization class
        corresponding to the user-specified
        method (TO DO! Factory Pattern!) */
-    FirstReaction realization(model_ptr, paramset,
-                              rng_ptr, n_vars, n_events);
+    Realization *realization = factory.NewRealization(model_ptr,
+						      paramset,
+						      rng_ptr,
+						      n_vars,
+						      n_events);
+
+    
+    // check that realization factory worked
+    if(realization == NULL){
+      fprintf(stderr,
+	      "Error: unrecognized method id\n "
+	      "(received id: %d) \n",
+	      paramset.method);
+      return 1;
+    }
+    
     // simulate and clean up
-    realization.simulate(myfile);
+    realization->simulate(myfile);
     myfile.close();
   }
   high_resolution_clock::time_point t2 = high_resolution_clock::now();
   auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
-  printf("Test ran with %d threads \n", nthreads);
+  //  printf("Test ran with %d threads \n", nthreads);
   printf("Test ran in %15.8f seconds \n", duration_first * 1.0e-6);
 
   return 0;
