@@ -33,7 +33,11 @@ src/testsimulate
 *.out
 *.app
 
+# output files
+*_output_*
+
 # Emacs issues
+.#*
 *#
 *~
 
