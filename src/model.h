@@ -13,6 +13,8 @@
 #define MODEL_H_
 #include "event.h"
 #include <vector>
+#include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -26,6 +28,8 @@ class Model {
   void addEventFct(int iEvent, string function);
   double useEventFct(int iEvent, int iFunction, double *stateArray);
   double getEventRate(int iEvent, double *stateArray);
+  int getVarsCount();
+  string getIthVar(int index);
   void updateState(int iEvent, double *stateArray);
   void updateRates(double *stateArray, double *rateArray);
  
