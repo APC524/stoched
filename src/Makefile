@@ -3,7 +3,7 @@
 # 11/29/16, APC 524, Final Project
 # Makefile
 # -----------------------------------------------------------------------------
-CXX = g++
+CXX = g++-6
 MPICXX = mpicc
 CXXFLAGS = -g -Wall -lm -O3 
 OMPCXXFLAGS = -g -Wall -lm -O3 -fopenmp
@@ -67,7 +67,7 @@ clean:
 	$(RM) *.o
 	$(RM) fparser/*.o
 	$(RM) -r *.dSYM
-	$(RM) *output.txt
+	$(RM) *output*.txt
 
 # clean up emacs temp files
 clobber: clean
