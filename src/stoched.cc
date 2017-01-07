@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
   // TO BE IMPLEMENTED 
 
   // manually specified parameters for now
-  int method = 2;
+  int method = 0;
   int n_vars = 2;
   int n_events = 4;
   double inits[2] = {0.0, 0.0};
@@ -145,7 +145,9 @@ int main(int argc, char *argv[]) {
   }
   high_resolution_clock::time_point t2 = high_resolution_clock::now();
   auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
+  #if defined(_OPENMP)
   printf("Test ran with %d threads \n", nthreads);
+  #endif
   printf("Test ran in %15.8f seconds \n", duration_first * 1.0e-6);
 
   return 0;
