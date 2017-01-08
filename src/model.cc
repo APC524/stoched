@@ -99,20 +99,6 @@ double Model::getEventRate(int iEvent, double *stateArray) {
 
 }
 
-/**
- *   @brief  Update state array by evaluating all functions of a given Event
- *  
- *   @param  iEvent is an int that indexes Event list
- *   @param  stateArray is a double array specifiying variable values of a function
- *   @return void
- */ 
-void Model::updateState(int iEvent, double *stateArray) {
-  int var_count = 1;  
-  int fct_count = eventPtrList[iEvent]->getSize();
-  double stateCopy[fct_count];
-}
-
-
 int Model::getVarsCount() {
   // Returns total number of variables. 
   int var_count = 1;
@@ -132,7 +118,13 @@ string Model::getIthVar(int index) {
   return token;
 }
 
-
+/**
+ *   @brief  Update state array by evaluating all functions of a given Event
+ *  
+ *   @param  iEvent is an int that indexes Event list
+ *   @param  stateArray is a double array specifiying variable values of a function
+ *   @return void
+ */
 void Model::updateState(int iEvent, double *stateArray) {
   int fct_count = eventPtrList[iEvent]->getSize();
   double stateCopy[fct_count];
