@@ -10,6 +10,7 @@ OMPCXXFLAGS = -g -Wall -lm -O3 -fopenmp
 RM = rm -f
 OBJECTS = fparser/fparser.o event.o model.o lex.yy.o parser.tab.o
 CLASSES = model.o event.o xoroshiro128plus.o realization.o paramset.o realization_factory.o
+REALIZATIONS = nextreaction.o firstreaction.o
 
 all: stoched.exe testparser.exe testevent.exe testmodel.exe testsimulate.exe
 
@@ -29,13 +30,13 @@ testmodel.exe: model.o event.o testmodel.o fparser/fparser.o
 testmodel: model.o event.o testmodel.o fparser/fparser.o
 	$(CXX) $(OMPCXXFLAGS) $^ -o $@
 
-testsimulate.exe: testsimulate.o $(CLASSES) fparser/fparser.o
+testsimulate.exe: testsimulate.o $(CLASSES) $(REALIZATIONS) fparser/fparser.o
 	$(CXX) $(OMPCXXFLAGS) $^ -o $@
 
-stoched.exe: stoched.o $(OBJECTS) $(CLASSES)
+stoched.exe: stoched.o $(OBJECTS) $(CLASSES) $(REALIZATIONS)
 	$(CXX) $(OMPCXXFLAGS) $^ -ll -o $@
 
-stoched_serial.exe: stoched.o $(OBJECTS) $(CLASSES)
+stoched_serial.exe: stoched.o $(OBJECTS) $(CLASSES) $(REALIZATIONS)
 	$(CXX) $(CXXFLAGS) $^ -ll -o $@
 
 fparser/fparser.exe: fparser/example2.o fparser/fparser.o

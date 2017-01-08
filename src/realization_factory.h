@@ -1,6 +1,8 @@
 #ifndef REALIZATION_FACTORY_H_
 #define REALIZATION_FACTORY_H_
 #include "realization.h"
+#include "nextreaction.h"
+#include "firstreaction.h"
 
 class RealizationFactory {
  public:
