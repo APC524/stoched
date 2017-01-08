@@ -1,9 +1,10 @@
 #include "fparser.hh"
 #include <iostream>
 #include <string>
-#include <stdio.h>
+//#include <stdio.h>
+#include <stdlib.h>
 
-using namespace std;
+//using namespace std;
 
 int main (){
   string function;
@@ -18,9 +19,10 @@ int main (){
   }
   int res = fparser.Parse(function, "a,b,c");
   if (res >= 0){
-    fprintf(stderr, "Error!\n");
+    //std::fprintf(stderr, "Error!\n");
+
+    cout << string(res+7, ' ') << "^\n" << fparser.ErrorMsg() << "\n\n";
     exit(-1);
-//cout << string(res+7, ' ') << "^\n" << fparser.ErrorMsg() << "\n\n";
   }
 
   double a,b,c;

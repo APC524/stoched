@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <vector>
+#include <sstream>
 
 using namespace std;
 
@@ -98,6 +99,7 @@ double Model::getEventRate(int iEvent, double *stateArray) {
 
 }
 
+<<<<<<< HEAD
 /**
  *   @brief  Update state array by evaluating all functions of a given Event
  *  
@@ -109,11 +111,34 @@ void Model::updateState(int iEvent, double *stateArray) {
   int var_count = 1;  
   int fct_count = eventPtrList[iEvent]->getSize();
   double stateCopy[fct_count];
+}
 
+
+int Model::getVarsCount() {
+  // Returns total number of variables. 
+  int var_count = 1;
   for (int i = 0; i < vars_.length(); i++) {
     if (vars_[i] == ',') var_count++;
   }
+  return var_count;
+}
 
+string Model::getIthVar(int index) {
+  // Returns the ith variable in the variable list. 
+  istringstream ss(vars_);
+  string token;
+  for(int i=0; i < index+1; i++){
+    getline(ss, token, ',');
+  }
+  return token;
+}
+
+
+void Model::updateState(int iEvent, double *stateArray) {
+  int fct_count = eventPtrList[iEvent]->getSize();
+  double stateCopy[fct_count];
+
+  int var_count = getVarsCount();
   assert(var_count == fct_count);
 
   for (int i = 0; i < fct_count; i++)
