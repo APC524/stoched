@@ -99,7 +99,6 @@ double Model::getEventRate(int iEvent, double *stateArray) {
 
 }
 
-<<<<<<< HEAD
 /**
  *   @brief  Update state array by evaluating all functions of a given Event
  *  
