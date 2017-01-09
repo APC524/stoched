@@ -124,8 +124,14 @@ int main(int argc, char *argv[]) {
   #if defined(_OPENMP)
   // Set up OMP environment/variables 
   omp_set_dynamic(0);     // Explicitly disable dynamic teams
+  int max_threads = omp_get_max_threads();
+
+  if(nthreads>max_threads){
+    printf("Test failed: only %d threads available \n", max_threads);
+    return -1;
+  }
   if(nthreads==-1){
-    nthreads = omp_get_max_threads();
+    nthreads = max_threads;
   }
   omp_set_num_threads(nthreads);
   #endif
