@@ -5,7 +5,6 @@
 #include <iomanip>
 #include <chrono>
 
-  #define _OPENMP
 #if defined(_OPENMP)
    #include <omp.h> 
 #endif
