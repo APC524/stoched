@@ -14,6 +14,8 @@
 #define MODEL_H_
 #include "event.h"
 #include <vector>
+#include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -49,7 +51,10 @@ class Model {
   // Evaluate rate function for a specified Event
   double getEventRate(int iEvent, double *stateArray);
 
-  // Update state array by evaluating all functions of a given Event
+  int getVarsCount();
+  string getIthVar(int index);
+
+  // Update state array by evaluation all functions of a given Event
   void updateState(int iEvent, double *stateArray);
 
   // Update rate for all Events in Model's Event list
