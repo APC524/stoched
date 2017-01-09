@@ -3,6 +3,7 @@
 #include "realization.h"
 #include "nextreaction.h"
 #include "firstreaction.h"
+#include "eulerleap.h"
 
 class RealizationFactory {
  public:

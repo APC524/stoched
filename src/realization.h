@@ -52,15 +52,4 @@ class Realization {
 };
 
 
-
-class EulerLeap : public Realization {
- public:
-  int step();
-};
-
-class MidpointLeap : public Realization {
- public:
-  int step();
-};
-
 #endif
