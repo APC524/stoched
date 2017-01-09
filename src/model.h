@@ -29,6 +29,7 @@ class Model {
   double useEventFct(int iEvent, int iFunction, double *stateArray);
   double getEventRate(int iEvent, double *stateArray);
   int getVarsCount();
+  int getEventsCount();
   string getIthVar(int index);
   void updateState(int iEvent, double *stateArray);
   void updateRates(double *stateArray, double *rateArray);
