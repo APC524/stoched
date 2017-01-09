@@ -1,5 +1,14 @@
 \hypertarget{class_realization}{}\section{Realization Class Reference}
 \label{class_realization}\index{Realization@{Realization}}
+
+
+Class \hyperlink{class_realization}{Realization} holds realizations of a \hyperlink{class_model}{Model} (state array, propensities, waiting times, etc.)  
+
+
+
+
+{\ttfamily \#include $<$realization.\+h$>$}
+
 Inheritance diagram for Realization\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,42 +18,106 @@ Inheritance diagram for Realization\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_realization_a599b405e69cc9dd43fc66b9b58a41ba8}\label{class_realization_a599b405e69cc9dd43fc66b9b58a41ba8}} 
-{\bfseries Realization} (const \hyperlink{class_model}{Model} \&the\+\_\+model, const \hyperlink{class_paramset}{Paramset} \&the\+\_\+paramset)
-\item 
-\mbox{\Hypertarget{class_realization_aa8516a01a8e87ca4748ea2f43ebd6b60}\label{class_realization_aa8516a01a8e87ca4748ea2f43ebd6b60}} 
-int {\bfseries simulate} ()
-\item 
+\hyperlink{class_realization_a599b405e69cc9dd43fc66b9b58a41ba8}{Realization} (const \hyperlink{class_model}{Model} \&\hyperlink{class_realization_aaf38f4ab6d7286c35942308bc78b38db}{the\+\_\+model}, const \hyperlink{class_paramset}{Paramset} \&\hyperlink{class_realization_a119bb29de88929bc51bc1b329473a94b}{the\+\_\+paramset})
+\begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{class_realization}{Realization}. \end{DoxyCompactList}\item 
+int \hyperlink{class_realization_aa8516a01a8e87ca4748ea2f43ebd6b60}{simulate} ()
+\begin{DoxyCompactList}\small\item\em Simulates the realization from t\+\_\+inital to t\+\_\+final. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_realization_a74f7b9164e136edd4f2e446d267da56b}\label{class_realization_a74f7b9164e136edd4f2e446d267da56b}} 
-virtual int {\bfseries step} ()
-\item 
-\mbox{\Hypertarget{class_realization_a0856e7aef37514c6ae1b685e6a436a38}\label{class_realization_a0856e7aef37514c6ae1b685e6a436a38}} 
-int {\bfseries output\+\_\+state} ()
-\item 
-\mbox{\Hypertarget{class_realization_a24f8262338aa96a742ffc76f4128c2dd}\label{class_realization_a24f8262338aa96a742ffc76f4128c2dd}} 
-int {\bfseries set\+\_\+to\+\_\+initial\+\_\+state} ()
-\end{DoxyCompactItemize}
+virtual int \hyperlink{class_realization_a74f7b9164e136edd4f2e446d267da56b}{step} ()
+\begin{DoxyCompactList}\small\item\em takes one simulation step according to the chosen algorithm \end{DoxyCompactList}\item 
+int \hyperlink{class_realization_a0856e7aef37514c6ae1b685e6a436a38}{output\+\_\+state} ()
+\begin{DoxyCompactList}\small\item\em Prints the current state of the simulation. \end{DoxyCompactList}\item 
+int \hyperlink{class_realization_a24f8262338aa96a742ffc76f4128c2dd}{set\+\_\+to\+\_\+initial\+\_\+state} ()
+\begin{DoxyCompactList}\small\item\em Sets state\+\_\+array and state\+\_\+time to their user-\/specified initial values. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_realization_aaf38f4ab6d7286c35942308bc78b38db}\label{class_realization_aaf38f4ab6d7286c35942308bc78b38db}} 
-const \hyperlink{class_model}{Model} {\bfseries the\+\_\+model}
-\item 
+const \hyperlink{class_model}{Model} \hyperlink{class_realization_aaf38f4ab6d7286c35942308bc78b38db}{the\+\_\+model}
+\begin{DoxyCompactList}\small\item\em the\+\_\+model is a \hyperlink{class_model}{Model} instance \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_realization_a119bb29de88929bc51bc1b329473a94b}\label{class_realization_a119bb29de88929bc51bc1b329473a94b}} 
-const \hyperlink{class_paramset}{Paramset} {\bfseries the\+\_\+paramset}
-\item 
+const \hyperlink{class_paramset}{Paramset} \hyperlink{class_realization_a119bb29de88929bc51bc1b329473a94b}{the\+\_\+paramset}
+\begin{DoxyCompactList}\small\item\em the\+\_\+paramset is a \hyperlink{class_paramset}{Paramset} instance \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_realization_a2ab61502cfab8dfe643d976d735163a9}\label{class_realization_a2ab61502cfab8dfe643d976d735163a9}} 
-Vector\+Xd {\bfseries state\+\_\+array}
-\item 
+Vector\+Xd \hyperlink{class_realization_a2ab61502cfab8dfe643d976d735163a9}{state\+\_\+array}
+\begin{DoxyCompactList}\small\item\em state\+\_\+array is a Vector\+Xd specifiying variable values of a function \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_realization_ae91425d8eacea1f0374b8f0f7f57347b}\label{class_realization_ae91425d8eacea1f0374b8f0f7f57347b}} 
-Vector\+Xd {\bfseries rates}
-\item 
+Vector\+Xd \hyperlink{class_realization_ae91425d8eacea1f0374b8f0f7f57347b}{rates}
+\begin{DoxyCompactList}\small\item\em rates is a Vector\+Xd specifying variable values of a rate function \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_realization_a7c4def45c4833072317517b71e723793}\label{class_realization_a7c4def45c4833072317517b71e723793}} 
-double {\bfseries state\+\_\+time}
-\end{DoxyCompactItemize}
+double \hyperlink{class_realization_a7c4def45c4833072317517b71e723793}{state\+\_\+time}
+\begin{DoxyCompactList}\small\item\em state\+\_\+time is a double that tracks state progress \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class \hyperlink{class_realization}{Realization} holds realizations of a \hyperlink{class_model}{Model} (state array, propensities, waiting times, etc.) 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_realization_a599b405e69cc9dd43fc66b9b58a41ba8}\label{class_realization_a599b405e69cc9dd43fc66b9b58a41ba8}} 
+\index{Realization@{Realization}!Realization@{Realization}}
+\index{Realization@{Realization}!Realization@{Realization}}
+\subsubsection{\texorpdfstring{Realization()}{Realization()}}
+{\footnotesize\ttfamily Realization\+::\+Realization (\begin{DoxyParamCaption}\item[{const \hyperlink{class_model}{Model} \&}]{the\+\_\+model,  }\item[{const \hyperlink{class_paramset}{Paramset} \&}]{the\+\_\+paramset }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \hyperlink{class_realization}{Realization}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+\_\+model} & is a \hyperlink{class_model}{Model} object \\
+\hline
+{\em the\+\_\+paramset} & is a \hyperlink{class_paramset}{Paramset} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_realization_a0856e7aef37514c6ae1b685e6a436a38}\label{class_realization_a0856e7aef37514c6ae1b685e6a436a38}} 
+\index{Realization@{Realization}!output\+\_\+state@{output\+\_\+state}}
+\index{output\+\_\+state@{output\+\_\+state}!Realization@{Realization}}
+\subsubsection{\texorpdfstring{output\+\_\+state()}{output\_state()}}
+{\footnotesize\ttfamily Realization\+::output\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints the current state of the simulation. 
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_realization_a24f8262338aa96a742ffc76f4128c2dd}\label{class_realization_a24f8262338aa96a742ffc76f4128c2dd}} 
+\index{Realization@{Realization}!set\+\_\+to\+\_\+initial\+\_\+state@{set\+\_\+to\+\_\+initial\+\_\+state}}
+\index{set\+\_\+to\+\_\+initial\+\_\+state@{set\+\_\+to\+\_\+initial\+\_\+state}!Realization@{Realization}}
+\subsubsection{\texorpdfstring{set\+\_\+to\+\_\+initial\+\_\+state()}{set\_to\_initial\_state()}}
+{\footnotesize\ttfamily Realization\+::set\+\_\+to\+\_\+initial\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets state\+\_\+array and state\+\_\+time to their user-\/specified initial values. 
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_realization_aa8516a01a8e87ca4748ea2f43ebd6b60}\label{class_realization_aa8516a01a8e87ca4748ea2f43ebd6b60}} 
+\index{Realization@{Realization}!simulate@{simulate}}
+\index{simulate@{simulate}!Realization@{Realization}}
+\subsubsection{\texorpdfstring{simulate()}{simulate()}}
+{\footnotesize\ttfamily Realization\+::simulate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Simulates the realization from t\+\_\+inital to t\+\_\+final. 
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization.\+h\item 
-/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization.\+cc\end{DoxyCompactItemize}
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{realization_8h}{realization.\+h}\item 
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{realization_8cc}{realization.\+cc}\end{DoxyCompactItemize}

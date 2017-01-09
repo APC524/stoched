@@ -1,0 +1,43 @@
+\hypertarget{realization_8h}{}\section{/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization.h File Reference}
+\label{realization_8h}\index{/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization.\+h@{/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization.\+h}}
+
+
+A\+PC 524, Final Project -\/ Stoched.  
+
+
+{\ttfamily \#include \char`\"{}../lib/eigen/\+Eigen/\+Core\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../lib/eigen/\+Eigen/\+LU\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}model.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}paramset.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_realization}{Realization}
+\begin{DoxyCompactList}\small\item\em Class \hyperlink{class_realization}{Realization} holds realizations of a \hyperlink{class_model}{Model} (state array, propensities, waiting times, etc.) \end{DoxyCompactList}\item 
+class \hyperlink{class_exact_realization}{Exact\+Realization}
+\begin{DoxyCompactList}\small\item\em Class \hyperlink{class_exact_realization}{Exact\+Realization} implements \hyperlink{class_realization}{Realization} \hyperlink{class_exact_realization_a3dfa40f473f2cfce2263f4d304af3828}{step()} function using exact calculation. \end{DoxyCompactList}\item 
+class \hyperlink{class_euler_leap_realization}{Euler\+Leap\+Realization}
+\begin{DoxyCompactList}\small\item\em Class \hyperlink{class_euler_leap_realization}{Euler\+Leap\+Realization} implements \hyperlink{class_realization}{Realization} \hyperlink{class_euler_leap_realization_ab72bfdc22d6101f2c10227b27a5121f1}{step()} function using Euler Leap method. \end{DoxyCompactList}\item 
+class \hyperlink{class_midpoint_leap_realization}{Midpoint\+Leap\+Realization}
+\begin{DoxyCompactList}\small\item\em Class \hyperlink{class_midpoint_leap_realization}{Midpoint\+Leap\+Realization} implements \hyperlink{class_realization}{Realization} \hyperlink{class_midpoint_leap_realization_a6c3e52150f488b7daccc2d0caa0cb378}{step()} function using Midpoint Leap method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{realization_8h_a28ce24970d452ab8981cb29a3f07dafc}\label{realization_8h_a28ce24970d452ab8981cb29a3f07dafc}} 
+class \hyperlink{class_realization}{Realization} {\bfseries event\+Cnt}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A\+PC 524, Final Project -\/ Stoched. 
+
+\begin{DoxyAuthor}{Author}
+Dylan Morris (\href{mailto:peckham@princeton.edu}{\tt peckham@princeton.\+edu}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12/6/16 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+\hypertarget{event.cc_DESCRIPTION}{}\subsection{D\+E\+S\+C\+R\+I\+P\+T\+I\+ON}\label{event.cc_DESCRIPTION}

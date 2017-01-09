@@ -1,41 +1,53 @@
 \hypertarget{class_paramset}{}\section{Paramset Class Reference}
 \label{class_paramset}\index{Paramset@{Paramset}}
+
+
+\hyperlink{class_paramset}{Paramset} is a class to hold a particular set of pameters for user requested simulation run(s)  
+
+
+
+
+{\ttfamily \#include $<$paramset.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_paramset_a2893c9f0d0ad896fd1f55d4cda734cbd}{Paramset} (int method, Vector\+Xd rate\+\_\+params, Vector\+Xd event\+\_\+params, Vector\+Xd initial\+\_\+values, double t\+\_\+initial, double t\+\_\+final, double timestep\+\_\+size, int n\+\_\+realizations, int max\+\_\+iter)
+\hyperlink{class_paramset_a2893c9f0d0ad896fd1f55d4cda734cbd}{Paramset} (int \hyperlink{class_paramset_a67376577973f825ba60fc7c319ccc906}{method}, Vector\+Xd \hyperlink{class_paramset_a0bde34e534a67451a5e9317c9a1c8a81}{rate\+\_\+params}, Vector\+Xd \hyperlink{class_paramset_a25079a96917e88458073dedd724f2b68}{event\+\_\+params}, Vector\+Xd \hyperlink{class_paramset_ad7db1c48bae63ad5b392a7b4de9f5d56}{initial\+\_\+values}, double \hyperlink{class_paramset_a7d82a76c08567e5072aa1b125708c7d8}{t\+\_\+initial}, double \hyperlink{class_paramset_ac88cde461d8dbbd8a7d2636fc45f7119}{t\+\_\+final}, double \hyperlink{class_paramset_a0554913cf803a67bc59ffdee154abc24}{timestep\+\_\+size}, int \hyperlink{class_paramset_a50c0325e75983b66d0825406ec7873ac}{n\+\_\+realizations}, int \hyperlink{class_paramset_afeb86c327cd6966707996019609e6ed1}{max\+\_\+iter})
 \begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{class_paramset}{Paramset}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_paramset_a67376577973f825ba60fc7c319ccc906}\label{class_paramset_a67376577973f825ba60fc7c319ccc906}} 
-const int {\bfseries method}
-\item 
+const int \hyperlink{class_paramset_a67376577973f825ba60fc7c319ccc906}{method}
+\begin{DoxyCompactList}\small\item\em which algorithm to use for simulation \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_paramset_a0bde34e534a67451a5e9317c9a1c8a81}\label{class_paramset_a0bde34e534a67451a5e9317c9a1c8a81}} 
-const Vector\+Xd {\bfseries rate\+\_\+params}
-\item 
+const Vector\+Xd \hyperlink{class_paramset_a0bde34e534a67451a5e9317c9a1c8a81}{rate\+\_\+params}
+\begin{DoxyCompactList}\small\item\em parameters for rate function \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_paramset_a25079a96917e88458073dedd724f2b68}\label{class_paramset_a25079a96917e88458073dedd724f2b68}} 
-const Vector\+Xd {\bfseries event\+\_\+params}
-\item 
+const Vector\+Xd \hyperlink{class_paramset_a25079a96917e88458073dedd724f2b68}{event\+\_\+params}
+\begin{DoxyCompactList}\small\item\em parameters for event function \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_paramset_ad7db1c48bae63ad5b392a7b4de9f5d56}\label{class_paramset_ad7db1c48bae63ad5b392a7b4de9f5d56}} 
-const Vector\+Xd {\bfseries initial\+\_\+values}
-\item 
+const Vector\+Xd \hyperlink{class_paramset_ad7db1c48bae63ad5b392a7b4de9f5d56}{initial\+\_\+values}
+\begin{DoxyCompactList}\small\item\em initial values for variables \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_paramset_a7d82a76c08567e5072aa1b125708c7d8}\label{class_paramset_a7d82a76c08567e5072aa1b125708c7d8}} 
-const double {\bfseries t\+\_\+initial}
-\item 
+const double \hyperlink{class_paramset_a7d82a76c08567e5072aa1b125708c7d8}{t\+\_\+initial}
+\begin{DoxyCompactList}\small\item\em initial time for simulation \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_paramset_ac88cde461d8dbbd8a7d2636fc45f7119}\label{class_paramset_ac88cde461d8dbbd8a7d2636fc45f7119}} 
-const double {\bfseries t\+\_\+final}
-\item 
+const double \hyperlink{class_paramset_ac88cde461d8dbbd8a7d2636fc45f7119}{t\+\_\+final}
+\begin{DoxyCompactList}\small\item\em final time for simulation \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_paramset_a0554913cf803a67bc59ffdee154abc24}\label{class_paramset_a0554913cf803a67bc59ffdee154abc24}} 
-const double {\bfseries timestep\+\_\+size}
-\item 
+const double \hyperlink{class_paramset_a0554913cf803a67bc59ffdee154abc24}{timestep\+\_\+size}
+\begin{DoxyCompactList}\small\item\em size of timestep for approximate \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_paramset_a50c0325e75983b66d0825406ec7873ac}\label{class_paramset_a50c0325e75983b66d0825406ec7873ac}} 
-int {\bfseries n\+\_\+realizations}
-\item 
+int \hyperlink{class_paramset_a50c0325e75983b66d0825406ec7873ac}{n\+\_\+realizations}
+\begin{DoxyCompactList}\small\item\em number of realizations to simulate \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_paramset_afeb86c327cd6966707996019609e6ed1}\label{class_paramset_afeb86c327cd6966707996019609e6ed1}} 
-int {\bfseries max\+\_\+iter}
-\end{DoxyCompactItemize}
+int \hyperlink{class_paramset_afeb86c327cd6966707996019609e6ed1}{max\+\_\+iter}
+\begin{DoxyCompactList}\small\item\em max number of iterations to simulate \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+\hyperlink{class_paramset}{Paramset} is a class to hold a particular set of pameters for user requested simulation run(s) 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_paramset_a2893c9f0d0ad896fd1f55d4cda734cbd}\label{class_paramset_a2893c9f0d0ad896fd1f55d4cda734cbd}} 
@@ -58,12 +70,20 @@ Default constructor for \hyperlink{class_paramset}{Paramset}.
 \hline
 {\em initial\+\_\+values} & is a Vector\+Xd that sets initial values for variables \\
 \hline
-{\em } & \\
+{\em t\+\_\+initial} & is a double that sets initial time for simulation \\
+\hline
+{\em t\+\_\+final} & is a double that sets initial time for simulation \\
+\hline
+{\em timestep\+\_\+size} & is a double representing the size of the timestep for approximate methods \\
+\hline
+{\em n\+\_\+realizations} & is an int representing number of realizations to simulate \\
+\hline
+{\em max\+\_\+iter} & is an int and is the maximum number of iterations to simulate \\
 \hline
 \end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/paramset.\+h\item 
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{paramset_8h}{paramset.\+h}\item 
 /\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{paramset_8cc}{paramset.\+cc}\end{DoxyCompactItemize}

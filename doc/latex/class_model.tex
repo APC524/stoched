@@ -2,7 +2,7 @@
 \label{class_model}\index{Model@{Model}}
 
 
-Class M\+O\+D\+EL, which holds user-\/specified models of stochastic systems from which realizations are to be simulated. A model may have variable parameters; each complete set will be stored in an object of class \hyperlink{class_paramset}{Paramset}.  
+Class \hyperlink{class_model}{Model}, which holds user-\/specified models of stochastic systems from which realizations are to be simulated. A model may have variable parameters; each complete set will be stored in an object of class \hyperlink{class_paramset}{Paramset}.  
 
 
 
@@ -29,11 +29,41 @@ double \hyperlink{class_model_a2909caddddccca90faaae708e68226ad}{get\+Event\+Rat
 void \hyperlink{class_model_ad9e7a181a31a2a9fab052d11b1984afd}{update\+State} (int i\+Event, double $\ast$state\+Array)
 \begin{DoxyCompactList}\small\item\em Update state array by evaluating all functions of a given \hyperlink{class_event}{Event}. \end{DoxyCompactList}\item 
 void \hyperlink{class_model_a3f2fd71261c87162718864d7efc67f2f}{update\+Rates} (double $\ast$state\+Array, double $\ast$rate\+Array)
-\begin{DoxyCompactList}\small\item\em Update rate for all Events in \hyperlink{class_model}{Model}\textquotesingle{}s \hyperlink{class_event}{Event} list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Update rate for all Events in \hyperlink{class_model}{Model}\textquotesingle{}s \hyperlink{class_event}{Event} list. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_model_a4743b4f267eeb1a60e21cc2995e1efcd}\label{class_model_a4743b4f267eeb1a60e21cc2995e1efcd}} 
+void {\bfseries add\+Vars} (string vars)
+\item 
+\mbox{\Hypertarget{class_model_ab6f784e4ff8cdf3ee5e010ef4dd8d597}\label{class_model_ab6f784e4ff8cdf3ee5e010ef4dd8d597}} 
+void {\bfseries add\+Event} (string function\+Rate)
+\item 
+\mbox{\Hypertarget{class_model_a78d9b07bd5e819215c9aeefabb4cede7}\label{class_model_a78d9b07bd5e819215c9aeefabb4cede7}} 
+void {\bfseries add\+Event\+Fct} (int i\+Event, string function)
+\item 
+\mbox{\Hypertarget{class_model_a774d9fb034f8704a75d7b3568a87a3bc}\label{class_model_a774d9fb034f8704a75d7b3568a87a3bc}} 
+double {\bfseries use\+Event\+Fct} (int i\+Event, int i\+Function, double $\ast$state\+Array)
+\item 
+\mbox{\Hypertarget{class_model_a2909caddddccca90faaae708e68226ad}\label{class_model_a2909caddddccca90faaae708e68226ad}} 
+double {\bfseries get\+Event\+Rate} (int i\+Event, double $\ast$state\+Array)
+\item 
+\mbox{\Hypertarget{class_model_ad9e7a181a31a2a9fab052d11b1984afd}\label{class_model_ad9e7a181a31a2a9fab052d11b1984afd}} 
+void {\bfseries update\+State} (int i\+Event, double $\ast$state\+Array)
+\item 
+\mbox{\Hypertarget{class_model_a3f2fd71261c87162718864d7efc67f2f}\label{class_model_a3f2fd71261c87162718864d7efc67f2f}} 
+void {\bfseries update\+Rates} (double $\ast$state\+Array, double $\ast$rate\+Array)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_model_aa0b522b54981f6acb247f101addf0f0d}\label{class_model_aa0b522b54981f6acb247f101addf0f0d}} 
+vector$<$ \hyperlink{class_event}{Event} $\ast$ $>$ \hyperlink{class_model_aa0b522b54981f6acb247f101addf0f0d}{event\+Ptr\+List}
+\begin{DoxyCompactList}\small\item\em List of Events in \hyperlink{class_model}{Model}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_model_a713e115e1b8d997490d80d877ffb4740}\label{class_model_a713e115e1b8d997490d80d877ffb4740}} 
+string \hyperlink{class_model_a713e115e1b8d997490d80d877ffb4740}{vars\+\_\+}
+\begin{DoxyCompactList}\small\item\em Variables associated with a model. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Class M\+O\+D\+EL, which holds user-\/specified models of stochastic systems from which realizations are to be simulated. A model may have variable parameters; each complete set will be stored in an object of class \hyperlink{class_paramset}{Paramset}. 
+Class \hyperlink{class_model}{Model}, which holds user-\/specified models of stochastic systems from which realizations are to be simulated. A model may have variable parameters; each complete set will be stored in an object of class \hyperlink{class_paramset}{Paramset}. 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_model_ae3b375de5f6df4faf74a95d64748e048}\label{class_model_ae3b375de5f6df4faf74a95d64748e048}} 
@@ -217,5 +247,6 @@ evaluated function as a double
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/model.\+h\item 
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{model_8h}{model.\+h}\item 
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{parser_8y}{parser.\+y}\item 
 /\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{model_8cc}{model.\+cc}\end{DoxyCompactItemize}

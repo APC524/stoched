@@ -1,36 +1,54 @@
+/** 
+ *  @file    paramset.h
+ *  @author  Dylan Morris (peckham@princeton.edu)
+ *  @date    12/6/16  
+ *  @version 1.0 
+ *  
+ *  @brief APC 524, Final Project - Stoched 
+ *
+ *  @section DESCRIPTION
+ *  
+ */
+
 #ifndef PARAMSET_H_
 #define PARAMSET_H_
 #include "../lib/eigen/Eigen/Core"
 #include "../lib/eigen/Eigen/LU"
 
-
-/* class to hold a particular set of pameters for 
-   user requested simulation run(s) */
+/**  
+ *  @brief Paramset is a class to hold a particular set of pameters for 
+ *         user requested simulation run(s) 
+ *
+ */  
 
 class Paramset {
   using namespace Eigen;
 
  public:
+
+  // Default constructor for Paramset
   Paramset(int method, VectorXd rate_params, VectorXd event_params,
            VectorXd initial_values, double t_initial,
            double t_final, double timestep_size, int n_realizations,
            int max_iter);
+
+  // Destructor of Paramset
   ~Paramset();
 
-  const int method;              // which algorithm to use for simulation
-  const VectorXd rate_params;    // parameters for rate function
-  const VectorXd event_params;   // parameters for event function
-  const VectorXd initial_values; // initial values for variables
-  const double t_initial;        // initial time for simulation
-  const double t_final;          // final time for simulation
+  const int method;              ///< which algorithm to use for simulation
+  const VectorXd rate_params;    ///< parameters for rate function
+  const VectorXd event_params;   ///< parameters for event function
+  const VectorXd initial_values; ///< initial values for variables
+  const double t_initial;        ///< initial time for simulation
+  const double t_final;          ///< final time for simulation
   
-  const double timestep_size;    // size of timestep for approximate
+  const double timestep_size;    ///< size of timestep for approximate
                                  // ("tau leap") methods
 
-  int n_realizations;            // number of realizations to simulate
+  int n_realizations;            ///< number of realizations to simulate
                                  // for this parameter set
   
-  int max_iter;                  // max number of iterations to simulate
+  int max_iter;                  ///< max number of iterations to simulate
 
 }
 

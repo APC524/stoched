@@ -1,3 +1,17 @@
+/**
+ *  @file    simulate.cc
+ *  @author  Dylan Morris (peckham@princeton.edu)
+ *  @date    12/6/16  
+ *  @version 1.0 
+ *  
+ *  @brief APC 524, Final Project - Stoched
+ *
+ *  @section DESCRIPTION
+ *  
+ */
+
+
+
 #include <stdio.h>
 #include "../lib/eigen/Eigen/Core"
 #include "../lib/eigen/Eigen/LU"
@@ -5,9 +19,13 @@
 
 using namespace Eigen;
 
-// Example definition for ending simulation loop
 // #define TFINAL_OR_MAXITER 0;
 
+/**
+ *   @brief  Example definition for ending simulation loop
+ *
+ *   @return int
+ */ 
 int main(int argc, char* argv[]){
   printf("Hello, World!\n");
   

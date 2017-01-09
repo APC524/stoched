@@ -1,13 +1,24 @@
+/** 
+ *  @file    model.h
+ *  @author  Caleb Peckham (peckham@princeton.edu)
+ *  @date    12/6/16  
+ *  @version 1.0 
+ *  
+ *  @brief APC 524, Final Project - Stoched 
+ *
+ *  @section DESCRIPTION
+ *  
+ */
+
 #ifndef MODEL_H_
 #define MODEL_H_
 #include "event.h"
 #include <vector>
 
-
 using namespace std;
 
 /**  
- *  @brief Class MODEL, which holds user-specified models 
+ *  @brief Class Model, which holds user-specified models 
  *  of stochastic systems from which realizations are to
  *  be simulated. A model may have variable parameters; 
  *  each complete set will be stored in an object of class Paramset
@@ -16,28 +27,29 @@ using namespace std;
 class Model {
 
  public:
+
   // Default constructor for Model
   Model();
 
-  // Destructor of Model
+  // Destructor of Model 
   ~Model();
 
-  // Add variable list to Model
+  // Add variable list to a Model
   void addVars(string vars);
   
-  // Add an Event to Model's list of Events
+  // Add Event to Model's list of Events
   void addEvent(string functionRate);
 
-  // Add an Event function to specified Event in Model
+  // Add Event function to specified Event in Model
   void addEventFct(int iEvent, string function);
 
   // Evaluate given function in specified Event
   double useEventFct(int iEvent, int iFunction, double *stateArray);
 
-  // Evaluate rate function for specified Event
+  // Evaluate rate function for a specified Event
   double getEventRate(int iEvent, double *stateArray);
 
-  // Update state array by evaluation all functions of a given Event
+  // Update state array by evaluating all functions of a given Event
   void updateState(int iEvent, double *stateArray);
 
   // Update rate for all Events in Model's Event list

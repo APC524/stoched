@@ -1,8 +1,27 @@
+/** 
+ *  @file    realization.cc
+ *  @author  Dylan Morris (peckham@princeton.edu)
+ *  @date    12/6/16  
+ *  @version 1.0 
+ *  
+ *  @brief APC 524, Final Project - Stoched 
+ *
+ *  @section DESCRIPTION
+ *  
+ */
+
 #include <random>
 #include "realization.h"
 
 using namespace Eigen;
 
+/**
+ *   @brief  Default constructor for Realization  
+ *  
+ *   @param  the_model is a Model object
+ *   @param  the_paramset is a Paramset object
+ *   @return nothing 
+ */ 
 Realization::Realization(const Model & the_model, const Paramset & the_paramset) :
   the_model(the_model),
   the_paramset(the_paramset)
@@ -10,7 +29,11 @@ Realization::Realization(const Model & the_model, const Paramset & the_paramset)
   set_to_initial_state();
 }
 
-
+/**
+ *   @brief  Sets state_array and state_time to their user-specified initial values
+ *  
+ *   @return nothing 
+ */ 
 Realization::set_to_initial_state(){
   // create state_array and set to initial values 
   state_array = the_paramset.initial_values.replicate(1, 1);
@@ -24,7 +47,11 @@ Realization::set_to_initial_state(){
 }
 
 
-// simulates the realization from t_inital to t_final
+/**
+ *   @brief  Simulates the realization from t_inital to t_final
+ *  
+ *   @return nothing 
+ */ 
 Realization::simulate(){
   t_initial = the_paramset.t_initial;
   t_final = the_paramset.t_final;
@@ -66,10 +93,13 @@ Realization::simulate(){
                                     the_paramset.rate_params);
     iter_count++;
 
-  
 }
 
-// prints the current state of the simulation
+/**
+ *   @brief  Prints the current state of the simulation
+ *  
+ *   @return nothing 
+ */ 
 Realization::output_state(){
   // to be modified depending on ultimately
   // chosen output format
@@ -78,5 +108,4 @@ Realization::output_state(){
   for(int = 0; i < the_model.n_vars; i++){
     printf("%15.8f", state_array(i))
   }
-
 }

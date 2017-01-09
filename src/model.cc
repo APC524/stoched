@@ -1,4 +1,4 @@
-/** 
+/**
  *  @file    model.cc
  *  @author  Caleb Peckham (peckham@princeton.edu)
  *  @date    12/6/16  
@@ -146,5 +146,4 @@ void Model::updateRates(double *stateArray, double *rateArray) {
 
   for (int i = 0; i < event_count; i++)
     rateArray[i] = rateCopy[i];
-
 }

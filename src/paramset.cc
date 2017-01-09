@@ -21,11 +21,11 @@ using namespace Eigen;
  * @param rate_params is a VectorXd that specifies parameters for rate function
  * @param event_params is a VectorXd that specifies parameters for event function
  * @param initial_values is a VectorXd that sets initial values for variables
- * @param
- * @param
- * @param
- * @param
- *
+ * @param t_initial is a double that sets initial time for simulation
+ * @param t_final is a double that sets initial time for simulation
+ * @param timestep_size is a double representing the size of the timestep for approximate methods
+ * @param n_realizations is an int representing number of realizations to simulate
+ * @param max_iter is an int and is the maximum number of iterations to simulate
  */
 
 Paramset::Paramset(int method,

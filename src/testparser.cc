@@ -1,13 +1,30 @@
-// testparser.cc
+/**
+ *  @file    testparser.cc
+ *  @author  Kevin Griffin (kevinpg@princeton.edu)
+ *  @date    12/6/16  
+ *  @version 1.0 
+ *  
+ *  @brief APC 524, Final Project - Stoched
+ *
+ *  @section DESCRIPTION
+ *  
+ */
+
 #include <iostream>
 #include "model.h"
 #include "event.h"
 
-
 using namespace std;
 
-//declare the parser method written by flex and bison
+/// Eeclare the parser method written by flex and bison
 int parseFile(Model& model);
+
+/**
+ *   @brief Example parsing code 
+ *
+ *   @return int
+ *
+ */
 
 int main(int argc, char *argv[]) {
   cout << "Hello, World" << endl;

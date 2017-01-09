@@ -1,10 +1,8 @@
 Stoched                         {#mainpage}
 ============
 
-[TOC] 
 
-Introduction {#introduction}
-------------------------
+###Introduction 
 
 Stoched* is a platform for simulating realizations of stochastic systems modeled by rate equations. 
 The Gillespie algorithm performs exact simulations. Also, more scalable approximate algorithms derived from the 
@@ -15,16 +13,14 @@ experience. While other tools for stochastic modeling and simulation exist, none
 and few are specialized to those systems modeled by rate equations alone. We take user-friendly modeling languages 
 developed for Bayesian inference (BUGS/JAGS and Stan) as guides.
 
-License {#license}
-------------------------
+###License
 
 Permission to use, copy, modify, and distribute this software and its documentation under the terms of the GNU General Public License is hereby granted. No representations are made about the suitability of this software for any purpose. It is provided "as is" without express or implied warranty. See the GNU General Public License for more details.
 
 Documents produced by Stoched are derivative works derived from the input used in their production; they are not affected by this license.
 
-Links {#links}
-------------------------
+###Links
 
-[Flex/Bison] {https://www.gnu.org/software/bison/}
+[Flex/Bison] (https://www.gnu.org/software/bison/)
 
-[Open MPI] {https://www.open-mpi.org/}
+[Open MPI] (https://www.open-mpi.org/)

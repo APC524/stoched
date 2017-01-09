@@ -20,7 +20,7 @@
 using namespace std;
 
 /**
- *   @brief  Default  constructor for Event  
+ *   @brief  Default constructor for Event  
  *  
  *   @param  eq_count is the size of the function array
  *   @param  functionArray contains all user-specified FunctionParsers that govern event   
