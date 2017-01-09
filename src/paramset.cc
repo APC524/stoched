@@ -12,7 +12,6 @@
 
 #include "paramset.h"
 
-using namespace Eigen;
 
 /**
  * @brief Default constructor for Paramset

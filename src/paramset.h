@@ -37,8 +37,8 @@ class Paramset {
   ~Paramset();
 
   const int method;              ///< which algorithm to use for simulation
-  const int n_vars;               ///< number of initial values/variables
-  const couble *initial_values; ///< initial values for variables
+  const int n_vars;              ///< number of initial values/variables
+  const double *initial_values;  ///< initial values for variables
   const double t_initial;        ///< initial time for simulation
   const double t_final;          ///< final time for simulation  
   const double timestep_size;    ///< size of timestep for approximate
