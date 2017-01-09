@@ -12,7 +12,7 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_paramset_a2893c9f0d0ad896fd1f55d4cda734cbd}{Paramset} (int \hyperlink{class_paramset_a67376577973f825ba60fc7c319ccc906}{method}, Vector\+Xd \hyperlink{class_paramset_a0bde34e534a67451a5e9317c9a1c8a81}{rate\+\_\+params}, Vector\+Xd \hyperlink{class_paramset_a25079a96917e88458073dedd724f2b68}{event\+\_\+params}, Vector\+Xd \hyperlink{class_paramset_ad7db1c48bae63ad5b392a7b4de9f5d56}{initial\+\_\+values}, double \hyperlink{class_paramset_a7d82a76c08567e5072aa1b125708c7d8}{t\+\_\+initial}, double \hyperlink{class_paramset_ac88cde461d8dbbd8a7d2636fc45f7119}{t\+\_\+final}, double \hyperlink{class_paramset_a0554913cf803a67bc59ffdee154abc24}{timestep\+\_\+size}, int \hyperlink{class_paramset_a50c0325e75983b66d0825406ec7873ac}{n\+\_\+realizations}, int \hyperlink{class_paramset_afeb86c327cd6966707996019609e6ed1}{max\+\_\+iter})
+\hyperlink{class_paramset_aa62d7992b29e74983af7d6026b7111c0}{Paramset} (int \hyperlink{class_paramset_a67376577973f825ba60fc7c319ccc906}{method}, int \hyperlink{class_paramset_aee56c5dcf7d40836397965cdcf392343}{n\+\_\+vars}, double $\ast$\hyperlink{class_paramset_aae7232620d4a9c0bbf30b12c37610c1e}{initial\+\_\+values}, double \hyperlink{class_paramset_a7d82a76c08567e5072aa1b125708c7d8}{t\+\_\+initial}, double \hyperlink{class_paramset_ac88cde461d8dbbd8a7d2636fc45f7119}{t\+\_\+final}, double \hyperlink{class_paramset_a0554913cf803a67bc59ffdee154abc24}{timestep\+\_\+size}, int \hyperlink{class_paramset_a50c0325e75983b66d0825406ec7873ac}{n\+\_\+realizations}, int \hyperlink{class_paramset_afeb86c327cd6966707996019609e6ed1}{max\+\_\+iter}, int \hyperlink{class_paramset_ab8a5866bb87cc2d78a69c47bacaeb06e}{seed})
 \begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{class_paramset}{Paramset}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -20,14 +20,11 @@
 \mbox{\Hypertarget{class_paramset_a67376577973f825ba60fc7c319ccc906}\label{class_paramset_a67376577973f825ba60fc7c319ccc906}} 
 const int \hyperlink{class_paramset_a67376577973f825ba60fc7c319ccc906}{method}
 \begin{DoxyCompactList}\small\item\em which algorithm to use for simulation \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_paramset_a0bde34e534a67451a5e9317c9a1c8a81}\label{class_paramset_a0bde34e534a67451a5e9317c9a1c8a81}} 
-const Vector\+Xd \hyperlink{class_paramset_a0bde34e534a67451a5e9317c9a1c8a81}{rate\+\_\+params}
-\begin{DoxyCompactList}\small\item\em parameters for rate function \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_paramset_a25079a96917e88458073dedd724f2b68}\label{class_paramset_a25079a96917e88458073dedd724f2b68}} 
-const Vector\+Xd \hyperlink{class_paramset_a25079a96917e88458073dedd724f2b68}{event\+\_\+params}
-\begin{DoxyCompactList}\small\item\em parameters for event function \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_paramset_ad7db1c48bae63ad5b392a7b4de9f5d56}\label{class_paramset_ad7db1c48bae63ad5b392a7b4de9f5d56}} 
-const Vector\+Xd \hyperlink{class_paramset_ad7db1c48bae63ad5b392a7b4de9f5d56}{initial\+\_\+values}
+\mbox{\Hypertarget{class_paramset_aee56c5dcf7d40836397965cdcf392343}\label{class_paramset_aee56c5dcf7d40836397965cdcf392343}} 
+const int \hyperlink{class_paramset_aee56c5dcf7d40836397965cdcf392343}{n\+\_\+vars}
+\begin{DoxyCompactList}\small\item\em number of initial values/variables \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_paramset_aae7232620d4a9c0bbf30b12c37610c1e}\label{class_paramset_aae7232620d4a9c0bbf30b12c37610c1e}} 
+const double $\ast$ \hyperlink{class_paramset_aae7232620d4a9c0bbf30b12c37610c1e}{initial\+\_\+values}
 \begin{DoxyCompactList}\small\item\em initial values for variables \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_paramset_a7d82a76c08567e5072aa1b125708c7d8}\label{class_paramset_a7d82a76c08567e5072aa1b125708c7d8}} 
 const double \hyperlink{class_paramset_a7d82a76c08567e5072aa1b125708c7d8}{t\+\_\+initial}
@@ -43,18 +40,21 @@ int \hyperlink{class_paramset_a50c0325e75983b66d0825406ec7873ac}{n\+\_\+realizat
 \begin{DoxyCompactList}\small\item\em number of realizations to simulate \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_paramset_afeb86c327cd6966707996019609e6ed1}\label{class_paramset_afeb86c327cd6966707996019609e6ed1}} 
 int \hyperlink{class_paramset_afeb86c327cd6966707996019609e6ed1}{max\+\_\+iter}
-\begin{DoxyCompactList}\small\item\em max number of iterations to simulate \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em max number of iterations to simulate \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_paramset_ab8a5866bb87cc2d78a69c47bacaeb06e}\label{class_paramset_ab8a5866bb87cc2d78a69c47bacaeb06e}} 
+int \hyperlink{class_paramset_ab8a5866bb87cc2d78a69c47bacaeb06e}{seed}
+\begin{DoxyCompactList}\small\item\em seed for the random number generator \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 \hyperlink{class_paramset}{Paramset} is a class to hold a particular set of pameters for user requested simulation run(s) 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_paramset_a2893c9f0d0ad896fd1f55d4cda734cbd}\label{class_paramset_a2893c9f0d0ad896fd1f55d4cda734cbd}} 
+\mbox{\Hypertarget{class_paramset_aa62d7992b29e74983af7d6026b7111c0}\label{class_paramset_aa62d7992b29e74983af7d6026b7111c0}} 
 \index{Paramset@{Paramset}!Paramset@{Paramset}}
 \index{Paramset@{Paramset}!Paramset@{Paramset}}
 \subsubsection{\texorpdfstring{Paramset()}{Paramset()}}
-{\footnotesize\ttfamily Paramset\+::\+Paramset (\begin{DoxyParamCaption}\item[{int}]{method,  }\item[{Vector\+Xd}]{rate\+\_\+params,  }\item[{Vector\+Xd}]{event\+\_\+params,  }\item[{Vector\+Xd}]{initial\+\_\+values,  }\item[{double}]{t\+\_\+initial,  }\item[{double}]{t\+\_\+final,  }\item[{double}]{timestep\+\_\+size,  }\item[{int}]{n\+\_\+realizations,  }\item[{int}]{max\+\_\+iter }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Paramset\+::\+Paramset (\begin{DoxyParamCaption}\item[{int}]{method,  }\item[{int}]{n\+\_\+vars,  }\item[{double $\ast$}]{initial\+\_\+values,  }\item[{double}]{t\+\_\+initial,  }\item[{double}]{t\+\_\+final,  }\item[{double}]{timestep\+\_\+size,  }\item[{int}]{n\+\_\+realizations,  }\item[{int}]{max\+\_\+iter,  }\item[{int}]{seed }\end{DoxyParamCaption})}
 
 
 
