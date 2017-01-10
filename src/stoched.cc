@@ -101,6 +101,8 @@ int main(int argc, char *argv[]) {
           max_iter = atof(argv[j + 1]);
         } else if (string(argv[j]) == "seed") {
           seed = atoi(argv[j + 1]);
+        } else if (string(argv[j]) == "out_path") {
+          out_path = string(argv[j + 1]);
         }
     }
   }
