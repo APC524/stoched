@@ -4,5 +4,5 @@ var searchData=
   ['setrate',['setRate',['../class_event.html#a993a01984496bc158be92b67422f8655',1,'Event']]],
   ['simulate',['simulate',['../class_realization.html#a4e21bc7355e33c17d1401736b3c62413',1,'Realization']]],
   ['splitmix64',['splitmix64',['../classxoroshiro128plus.html#aee8ea766a36b82e20c5fdc2c5184a41c',1,'xoroshiro128plus']]],
-  ['step',['step',['../class_first_reaction.html#aed63c3c95d20b2ad557dabb6c5376a73',1,'FirstReaction::step()'],['../class_next_reaction.html#a2c1502879c76efe398c2947056936725',1,'NextReaction::step()']]]
+  ['step',['step',['../class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d',1,'EulerLeap::step()'],['../class_first_reaction.html#aed63c3c95d20b2ad557dabb6c5376a73',1,'FirstReaction::step()'],['../class_next_reaction.html#a2c1502879c76efe398c2947056936725',1,'NextReaction::step()'],['../class_realization.html#a9949217117927b149850288f3b74c9ef',1,'Realization::step()']]]
 ];

@@ -9,5 +9,5 @@ var searchData=
   ['splitmix64',['splitmix64',['../classxoroshiro128plus.html#aee8ea766a36b82e20c5fdc2c5184a41c',1,'xoroshiro128plus']]],
   ['state_5farray',['state_array',['../class_realization.html#a126f89978f0407873473222171333ee1',1,'Realization']]],
   ['state_5ftime',['state_time',['../class_realization.html#a7c4def45c4833072317517b71e723793',1,'Realization']]],
-  ['step',['step',['../class_first_reaction.html#aed63c3c95d20b2ad557dabb6c5376a73',1,'FirstReaction::step()'],['../class_next_reaction.html#a2c1502879c76efe398c2947056936725',1,'NextReaction::step()']]]
+  ['step',['step',['../class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d',1,'EulerLeap::step()'],['../class_first_reaction.html#aed63c3c95d20b2ad557dabb6c5376a73',1,'FirstReaction::step()'],['../class_next_reaction.html#a2c1502879c76efe398c2947056936725',1,'NextReaction::step()'],['../class_realization.html#a9949217117927b149850288f3b74c9ef',1,'Realization::step()']]]
 ];

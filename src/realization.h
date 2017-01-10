@@ -51,7 +51,7 @@ class Realization {
   // simulates the realization from t_inital to t_final
   int simulate(std::ofstream& myfile);
 
-  // takes one simulation step according to the chosen algorithm 
+  /// takes one simulation step according to the chosen algorithm 
   virtual int step() = 0;
 
   // checks whether all rates are zero

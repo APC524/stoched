@@ -23,10 +23,10 @@ Inheritance diagram for Realization\+:\begin{figure}[H]
 virtual \hyperlink{class_realization_a040c39b39c5057c668bd264b4329f2b4}{$\sim$\+Realization} ()
 \begin{DoxyCompactList}\small\item\em Destructor of \hyperlink{class_realization}{Realization}. \end{DoxyCompactList}\item 
 int \hyperlink{class_realization_a4e21bc7355e33c17d1401736b3c62413}{simulate} (std\+::ofstream \&myfile)
-\item 
+\begin{DoxyCompactList}\small\item\em Simulates the realization from t\+\_\+inital to t\+\_\+final. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_realization_a9949217117927b149850288f3b74c9ef}\label{class_realization_a9949217117927b149850288f3b74c9ef}} 
-virtual int {\bfseries step} ()=0
-\item 
+virtual int \hyperlink{class_realization_a9949217117927b149850288f3b74c9ef}{step} ()=0
+\begin{DoxyCompactList}\small\item\em takes one simulation step according to the chosen algorithm \end{DoxyCompactList}\item 
 bool \hyperlink{class_realization_a48953442ebf235cd1e02731c7419f65f}{rates\+\_\+are\+\_\+zero} ()
 \begin{DoxyCompactList}\small\item\em checks whether all rates are zero \end{DoxyCompactList}\item 
 int \hyperlink{class_realization_ab7ef90279eef4bf11261084f541c7bb0}{output\+\_\+state} (std\+::ofstream \&myfile)
@@ -157,7 +157,9 @@ Reimplemented in \hyperlink{class_euler_leap_a1a13929ea1ebf40e7357439968828f4b}{
 \subsubsection{\texorpdfstring{simulate()}{simulate()}}
 {\footnotesize\ttfamily int Realization\+::simulate (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{myfile }\end{DoxyParamCaption})}
 
-Simulates the realization from t\+\_\+inital to t\+\_\+final
+
+
+Simulates the realization from t\+\_\+inital to t\+\_\+final. 
 
 \begin{DoxyReturn}{Returns}
 int 

@@ -69,7 +69,7 @@ int Realization::set_to_initial_state(){
 }
 
 /**
- *   Simulates the realization from t_inital to t_final
+ *   @brief Simulates the realization from t_inital to t_final
  *  
  *   @return int
  */ 
