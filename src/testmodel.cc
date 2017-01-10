@@ -4,10 +4,8 @@
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief APC 524, Final Project - Stoched
+ *  @brief   Example usage of Model class
  *
- *  @section DESCRIPTION
- *  
  */
 
 #include <iostream>
