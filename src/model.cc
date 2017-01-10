@@ -114,6 +114,17 @@ int Model::getVarsCount() {
   return var_count;
 }
 
+
+/**
+ *   @brief  Return total number of Events
+ *
+ *   @return ith variable as string
+ */
+int Model::getEventsCount() {
+  return eventPtrList.size();
+}
+
+
 /**
  *   @brief  Returns the ith variable in the variable list
  *
@@ -163,7 +174,7 @@ void Model::updateState(int iEvent, double *stateArray) {
  *   @return void
  */ 
 void Model::updateRates(double *stateArray, double *rateArray) {
-  int event_count = eventPtrList.size();
+  int event_count = getEventsCount();
   double rateCopy[event_count];
 
   for (int i = 0; i < event_count; i++)

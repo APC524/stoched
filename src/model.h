@@ -54,6 +54,9 @@ class Model {
   // Returns total number of variables. 
   int getVarsCount();
 
+  // Return total number of events
+  int getEventsCount();
+
   // Returns the ith variable in the variable list
   string getIthVar(int index);
 

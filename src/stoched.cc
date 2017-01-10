@@ -73,8 +73,6 @@ int main(int argc, char *argv[]) {
 
   // default parameters
   int method = 0;
-  int n_vars = 2;
-  int n_events = 4;
   double inits[2] = {0.0, 0.0};
   double t_initial = 0;
   double t_final = 5000;
@@ -82,6 +80,12 @@ int main(int argc, char *argv[]) {
   int n_realizations = 1;
   double max_iter = 100000000;
   int seed = 502;
+
+  /* save fixed number of variables, events
+     from the now-assembled model */
+  int n_vars = model_ptr->getVarsCount();
+  int n_events = model_ptr->getEventsCount();
+
   int nthreads = -1;
 
 
@@ -116,7 +120,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  // Fix method parameters 
+  // Fix method parameters
   Paramset paramset(method, n_vars, inits, t_initial,
                     t_final, timestep_size, n_realizations,
                     max_iter, seed);

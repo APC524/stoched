@@ -12,9 +12,17 @@
 
 #ifndef REALIZATION_H_
 #define REALIZATION_H_
+
+#include <math.h>
+#include <stdio.h>
+#include <fstream>
+#include <iomanip>
+#include <float.h>
+
 #include "model.h"
 #include "paramset.h"
 #include "rng.h"
+
 
 /**  
  *  @brief Class Realization holds realizations of a Model 
@@ -58,51 +66,6 @@ class Realization {
      in derived classes */
   virtual int set_to_initial_state();
   
-};
-
-class FirstReaction : public Realization {
- public:
-  FirstReaction(Model *the_model, const Paramset & the_paramset,
-               rng *the_rng, int n_vars, int n_events);
-  ~FirstReaction();
-  int step();
- private:
-  double *waiting_times;
-};
-
-class NextReaction : public Realization {
- public:
-  NextReaction(Model *the_model, const Paramset & the_paramset,
-               rng *the_rng, int n_vars, int n_events);
-  ~NextReaction();
-  int step();
-  int set_to_initial_state();
- private:
-  double *waiting_times;
-};
-
-
-/**  
- *  @brief Class EulerLeap implements Realization step() function 
- *         using Euler Leap method
- */  
-
-class EulerLeap : public Realization {
- public:
-
-  //takes one simulation step according to the chosen algorithm 
-  int step();
-};
-
-/**  
- *  @brief Class MidpointLeap implements Realization step() function 
- *         using Midpoint Leap method
- */  
-class MidpointLeap : public Realization {
- public:
-
-  //takes one simulation step according to the chosen algorithm 
-  int step();
 };
 
 #endif

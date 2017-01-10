@@ -10,6 +10,8 @@
 #include "paramset.h"
 #include "realization.h"
 #include "xoroshiro128plus.h"
+#include "nextreaction.h"
+#include "firstreaction.h"
 
 
 //using namespace std;
@@ -97,7 +99,7 @@ int main() {
 
 
   high_resolution_clock::time_point t1 = high_resolution_clock::now();
-  FirstReaction realization(model_ptr, paramset, rng_ptr, n_vars, n_events);
+  NextReaction realization(model_ptr, paramset, rng_ptr, n_vars, n_events);
   realization.simulate(myfile);
   high_resolution_clock::time_point t2 = high_resolution_clock::now();
 
@@ -113,7 +115,7 @@ int main() {
   auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
 
   high_resolution_clock::time_point t3 = high_resolution_clock::now();
-  NextReaction realization2(model_ptr, paramset, rng_ptr, n_vars, n_events);
+  FirstReaction realization2(model_ptr, paramset, rng_ptr, n_vars, n_events);
   realization2.simulate(myfile);
   high_resolution_clock::time_point t4 = high_resolution_clock::now();
   // Close the file 
