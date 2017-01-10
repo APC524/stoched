@@ -1,13 +1,11 @@
 #include "xoroshiro128plus.h"
 #include "rng.h"
-#include <math.h>
 
-// convert uint64_t to double
+// convert uint64_t to double in (0, 1)
 inline double to_double(uint64_t x) {
        const union { uint64_t i; double d; } u = { .i = UINT64_C(0x3FF) << 52 | x >> 12 };
        return u.d - 1.0;
 }
-
 
 // splitmix64 next function, for initializing generator
 uint64_t xoroshiro128plus::splitmix64() {
@@ -52,13 +50,6 @@ uint64_t xoroshiro128plus::next() {
 double xoroshiro128plus::runif() {
   return to_double(next());
 }
-
-
-// get random exponential(lambda) double and update state
-double xoroshiro128plus::rexp(double lambda) {
-  return (-1/lambda) * log(to_double(next()));
-}
-
 
 /* This is the jump function for the generator. It is equivalent
    to 2^64 calls to next(); it can be used to generate 2^64

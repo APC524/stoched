@@ -1,8 +1,16 @@
 #ifndef REALIZATION_H_
 #define REALIZATION_H_
+
+#include <math.h>
+#include <stdio.h>
+#include <fstream>
+#include <iomanip>
+#include <float.h>
+
 #include "model.h"
 #include "paramset.h"
 #include "rng.h"
+
 
 /* class to hold realizations of a model 
    (state array, propensities, waiting times, etc.) */
@@ -43,36 +51,5 @@ class Realization {
 
 };
 
-class FirstReaction : public Realization {
- public:
-  FirstReaction(Model *the_model, const Paramset & the_paramset,
-               rng *the_rng, int n_vars, int n_events);
-  ~FirstReaction();
-  int step();
- private:
-  double *waiting_times;
-};
-
-class NextReaction : public Realization {
- public:
-  NextReaction(Model *the_model, const Paramset & the_paramset,
-               rng *the_rng, int n_vars, int n_events);
-  ~NextReaction();
-  int step();
-  int set_to_initial_state();
- private:
-  double *waiting_times;
-};
-
-
-class EulerLeap : public Realization {
- public:
-  int step();
-};
-
-class MidpointLeap : public Realization {
- public:
-  int step();
-};
 
 #endif

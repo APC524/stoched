@@ -24,8 +24,6 @@
    a 64-bit seed, we suggest to seed a splitmix64 generator and use its
    output to fill s. */
 
-inline double to_double(uint64_t x);
-
 class xoroshiro128plus : public rng {
  public:
   xoroshiro128plus(int seed);
@@ -36,9 +34,6 @@ class xoroshiro128plus : public rng {
 
   // get a new random uniform(0, 1) RV
   double runif();
-
-  // get a new random exponential(lambda) RV
-  double rexp(double lambda);
 
   // quick 2^64 calls to next (for parallelism)
   void jump();
