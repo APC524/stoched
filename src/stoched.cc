@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iomanip>
 #include <chrono>
+
 #if defined(_OPENMP)
    #include <omp.h> 
 #endif
@@ -51,7 +52,7 @@ int main(int argc, char *argv[]) {
   
   // coerce arg variables to usable types 
   string model_path = argv[1];
-  string param_path = argv[2];
+  //string param_path = argv[2];
 
   // allow user-specified output path, or default
   string out_path = "stoched_output";
@@ -70,7 +71,7 @@ int main(int argc, char *argv[]) {
   // test that the Model was initialized by the parser properly
   // TO BE IMPLEMENTED 
 
-  // manually specified parameters for now
+  // default parameters
   int method = 0;
   double inits[2] = {0.0, 0.0};
   double t_initial = 0;
@@ -85,9 +86,59 @@ int main(int argc, char *argv[]) {
   int n_vars = model_ptr->getVarsCount();
   int n_events = model_ptr->getEventsCount();
 
+  int nthreads = -1;
+
+
+  // Set non-default params from inputs 
+  if(argc>3){
+    for(int j = 3; j < argc; j++){
+
+        // CONVERT TYPES 
+
+        if (string(argv[j]) == "method") {
+          // We know the next argument *should* be the filename:
+          method = atoi(argv[j + 1]);
+        } else if (string(argv[j]) == "n_vars") {
+          n_vars = atoi(argv[j + 1]);
+        } else if (string(argv[j]) == "n_events") {
+          n_events = atoi(argv[j + 1]);
+        } else if (string(argv[j]) == "t_initial") {
+          t_initial = atof(argv[j + 1]);
+        } else if (string(argv[j]) == "t_final") {
+          t_final = atof(argv[j + 1]);
+        } else if (string(argv[j]) == "timestep_size") {
+          timestep_size = atof(argv[j + 1]);
+        } else if (string(argv[j]) == "n_realizations") {
+          n_realizations = atoi(argv[j + 1]);
+        } else if (string(argv[j]) == "max_iter") {
+          max_iter = atof(argv[j + 1]);
+        } else if (string(argv[j]) == "seed") {
+          seed = atoi(argv[j + 1]);
+        } else if (string(argv[j]) == "nthreads") {
+          nthreads = atoi(argv[j + 1]);
+        }
+    }
+  }
+
+  // Fix method parameters
   Paramset paramset(method, n_vars, inits, t_initial,
                     t_final, timestep_size, n_realizations,
                     max_iter, seed);
+
+  #if defined(_OPENMP)
+  // Set up OMP environment/variables 
+  omp_set_dynamic(0);     // Explicitly disable dynamic teams
+  int max_threads = omp_get_max_threads();
+
+  if(nthreads>max_threads){
+    printf("Test failed: only %d threads available \n", max_threads);
+    return -1;
+  }
+  if(nthreads==-1){
+    nthreads = max_threads;
+  }
+  omp_set_num_threads(nthreads);
+  #endif
 
   // instantiate rng
   xoroshiro128plus* rng_ptr = new xoroshiro128plus(seed);
@@ -97,13 +148,6 @@ int main(int argc, char *argv[]) {
 
   // Instantiate timer 
   high_resolution_clock::time_point t1 = high_resolution_clock::now();
-
-  #if defined(_OPENMP)
-  // Set up OMP environment/variables 
-  omp_set_dynamic(0);     // Explicitly disable dynamic teams
-  int nthreads = omp_get_max_threads();
-  omp_set_num_threads(nthreads);
-  #endif
 
   // Loop over instantiations of realizations for same model: 
   int i=0;
