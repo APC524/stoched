@@ -2,12 +2,12 @@
 \label{class_euler_leap}\index{Euler\+Leap@{Euler\+Leap}}
 
 
-Class \hyperlink{class_euler_leap}{Euler\+Leap} implements \hyperlink{class_realization}{Realization} \hyperlink{class_euler_leap_a25b1ea90a95bfd41ecb919605683da9d}{step()} function using Euler Leap method.  
+Class \hyperlink{class_euler_leap}{Euler\+Leap} implements \hyperlink{class_realization}{Realization} step() function using Euler Leap method.  
 
 
 
 
-{\ttfamily \#include $<$realization.\+h$>$}
+{\ttfamily \#include $<$eulerleap.\+h$>$}
 
 Inheritance diagram for Euler\+Leap\+:\begin{figure}[H]
 \begin{center}
@@ -18,15 +18,41 @@ Inheritance diagram for Euler\+Leap\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_euler_leap_ae5db6ea05659798b624a28872799b906}\label{class_euler_leap_ae5db6ea05659798b624a28872799b906}} 
+{\bfseries Euler\+Leap} (\hyperlink{class_model}{Model} $\ast$\hyperlink{class_realization_a47ec1d062b8caee874b08c1a17d6aeeb}{the\+\_\+model}, const \hyperlink{class_paramset}{Paramset} \&\hyperlink{class_realization_a119bb29de88929bc51bc1b329473a94b}{the\+\_\+paramset}, \hyperlink{classrng}{rng} $\ast$\hyperlink{class_realization_ac8d358d929afae90cf5790675b6744f9}{the\+\_\+rng}, int \hyperlink{class_realization_ad9951a0829e68e12fcb3817735bb5097}{n\+\_\+vars}, int \hyperlink{class_realization_afb711282bef806fc0020f91252d1df2c}{n\+\_\+events})
+\item 
 \mbox{\Hypertarget{class_euler_leap_a25b1ea90a95bfd41ecb919605683da9d}\label{class_euler_leap_a25b1ea90a95bfd41ecb919605683da9d}} 
-int \hyperlink{class_euler_leap_a25b1ea90a95bfd41ecb919605683da9d}{step} ()
-\begin{DoxyCompactList}\small\item\em takes one simulation step according to the chosen algorithm \end{DoxyCompactList}\end{DoxyCompactItemize}
+int {\bfseries step} ()
+\item 
+int \hyperlink{class_euler_leap_a1a13929ea1ebf40e7357439968828f4b}{set\+\_\+to\+\_\+initial\+\_\+state} ()
+\begin{DoxyCompactList}\small\item\em Sets state\+\_\+array and state\+\_\+time to their user-\/specified initial values. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
-Class \hyperlink{class_euler_leap}{Euler\+Leap} implements \hyperlink{class_realization}{Realization} \hyperlink{class_euler_leap_a25b1ea90a95bfd41ecb919605683da9d}{step()} function using Euler Leap method. 
+Class \hyperlink{class_euler_leap}{Euler\+Leap} implements \hyperlink{class_realization}{Realization} step() function using Euler Leap method. 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_euler_leap_a1a13929ea1ebf40e7357439968828f4b}\label{class_euler_leap_a1a13929ea1ebf40e7357439968828f4b}} 
+\index{Euler\+Leap@{Euler\+Leap}!set\+\_\+to\+\_\+initial\+\_\+state@{set\+\_\+to\+\_\+initial\+\_\+state}}
+\index{set\+\_\+to\+\_\+initial\+\_\+state@{set\+\_\+to\+\_\+initial\+\_\+state}!Euler\+Leap@{Euler\+Leap}}
+\subsubsection{\texorpdfstring{set\+\_\+to\+\_\+initial\+\_\+state()}{set\_to\_initial\_state()}}
+{\footnotesize\ttfamily int Euler\+Leap\+::set\+\_\+to\+\_\+initial\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sets state\+\_\+array and state\+\_\+time to their user-\/specified initial values. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_realization_a391a89af7574a9053f53f8a299c2cc70}{Realization}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{realization_8h}{realization.\+h}\end{DoxyCompactItemize}
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{eulerleap_8h}{eulerleap.\+h}\item 
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{eulerleap_8cc}{eulerleap.\+cc}\end{DoxyCompactItemize}

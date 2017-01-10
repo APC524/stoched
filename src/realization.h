@@ -1,13 +1,13 @@
 /** 
  *  @file    realization.h
- *  @author  Dylan Morris (peckham@princeton.edu)
+ *  @author  Dylan Morris (dhmorris@princeton.edu)
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief APC 524, Final Project - Stoched 
+ *  @brief Class Realization holds realizations of a Model 
+ *         (state array, propensities, waiting times, etc.) 
  *
- *  @section DESCRIPTION
- *  
+ *
  */
 
 #ifndef REALIZATION_H_
@@ -41,17 +41,17 @@ class Realization {
 
   Model *the_model;             ///< the_model is a Model instance
   const Paramset the_paramset;  ///< the_paramset is a Paramset instance
-  rng *the_rng;
-  const int n_vars;
-  const int n_events;
-  double *state_array;       ///< state_array is a double array specifiying variable values of a function
-  double *rates;             ///< rates is a double array specifying variable values of a rate function
-  double state_time;         ///< state_time is a double that tracks state progress
+  rng *the_rng;                 ///< the_rng is an random number generator
+  const int n_vars;             ///< n_vars is an int specifying number of variables
+  const int n_events;           ///< n_events is an int specifying number of events
+  double *state_array;          ///< state_array is a double array specifiying variable values of a function
+  double *rates;                ///< rates is a double array specifying variable values of a rate function
+  double state_time;            ///< state_time is a double that tracks state progress
 
   // simulates the realization from t_inital to t_final
   int simulate(std::ofstream& myfile);
 
-  /// takes one simulation step according to the chosen algorithm 
+  // takes one simulation step according to the chosen algorithm 
   virtual int step() = 0;
 
   // checks whether all rates are zero

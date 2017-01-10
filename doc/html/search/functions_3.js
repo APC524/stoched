@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['main',['main',['../simulate_8cc.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;simulate.cc'],['../testevent_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;testevent.cc'],['../testmodel_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;testmodel.cc'],['../testparser_8cc.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;testparser.cc']]],
-  ['model',['Model',['../class_model.html#ae3b375de5f6df4faf74a95d64748e048',1,'Model']]]
+  ['geteventrate',['getEventRate',['../class_model.html#a2909caddddccca90faaae708e68226ad',1,'Model']]],
+  ['geteventscount',['getEventsCount',['../class_model.html#adc48dad5a02caa940aaffee7e8377682',1,'Model']]],
+  ['getithvar',['getIthVar',['../class_model.html#adcb9dcc2d1d58f18d595f1476fc77b3b',1,'Model']]],
+  ['getrate',['getRate',['../class_event.html#a2288e3b3fa19e076e04bba11b88d189a',1,'Event']]],
+  ['getsize',['getSize',['../class_event.html#a1a0f2e2dc0b203f7be0f1d5b8810c6a2',1,'Event']]],
+  ['getvarscount',['getVarsCount',['../class_model.html#ae8b56a284c355ff18421174d078dc870',1,'Model']]]
 ];

@@ -1,14 +1,54 @@
 \hypertarget{class_realization_factory}{}\section{Realization\+Factory Class Reference}
 \label{class_realization_factory}\index{Realization\+Factory@{Realization\+Factory}}
+
+
+Class \hyperlink{class_realization_factory}{Realization\+Factory} generates required instance of \hyperlink{class_realization}{Realization} (\hyperlink{class_first_reaction}{First\+Reaction}, \hyperlink{class_next_reaction}{Next\+Reaction}, \hyperlink{class_euler_leap}{Euler\+Leap}) based on input.  
+
+
+
+
+{\ttfamily \#include $<$realization\+\_\+factory.\+h$>$}
+
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+static \hyperlink{class_realization}{Realization} $\ast$ \hyperlink{class_realization_factory_a4881816e453d1107de053ea3c0b8d8ba}{New\+Realization} (\hyperlink{class_model}{Model} $\ast$the\+\_\+model, const \hyperlink{class_paramset}{Paramset} \&the\+\_\+paramset, \hyperlink{classrng}{rng} $\ast$the\+\_\+rng, int n\+\_\+vars, int n\+\_\+events)
+\begin{DoxyCompactList}\small\item\em Create new realization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class \hyperlink{class_realization_factory}{Realization\+Factory} generates required instance of \hyperlink{class_realization}{Realization} (\hyperlink{class_first_reaction}{First\+Reaction}, \hyperlink{class_next_reaction}{Next\+Reaction}, \hyperlink{class_euler_leap}{Euler\+Leap}) based on input. 
+
+\subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_realization_factory_a4881816e453d1107de053ea3c0b8d8ba}\label{class_realization_factory_a4881816e453d1107de053ea3c0b8d8ba}} 
-static \hyperlink{class_realization}{Realization} $\ast$ {\bfseries New\+Realization} (\hyperlink{class_model}{Model} $\ast$the\+\_\+model, const \hyperlink{class_paramset}{Paramset} \&the\+\_\+paramset, \hyperlink{classrng}{rng} $\ast$the\+\_\+rng, int n\+\_\+vars, int n\+\_\+events)
-\end{DoxyCompactItemize}
+\index{Realization\+Factory@{Realization\+Factory}!New\+Realization@{New\+Realization}}
+\index{New\+Realization@{New\+Realization}!Realization\+Factory@{Realization\+Factory}}
+\subsubsection{\texorpdfstring{New\+Realization()}{NewRealization()}}
+{\footnotesize\ttfamily \hyperlink{class_realization}{Realization} $\ast$ Realization\+Factory\+::\+New\+Realization (\begin{DoxyParamCaption}\item[{\hyperlink{class_model}{Model} $\ast$}]{the\+\_\+model,  }\item[{const \hyperlink{class_paramset}{Paramset} \&}]{the\+\_\+paramset,  }\item[{\hyperlink{classrng}{rng} $\ast$}]{the\+\_\+rng,  }\item[{int}]{n\+\_\+vars,  }\item[{int}]{n\+\_\+events }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create new realization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+\_\+model} & is a \hyperlink{class_model}{Model} object \\
+\hline
+{\em the\+\_\+paramset} & is a \hyperlink{class_paramset}{Paramset} object \\
+\hline
+{\em the\+\_\+rng} & is a random number generator \\
+\hline
+{\em n\+\_\+vars} & is an int specifying variable count \\
+\hline
+{\em n\+\_\+events} & is an int specifying event count\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization\+\_\+factory.\+h\item 
-/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization\+\_\+factory.\+cc\end{DoxyCompactItemize}
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{realization__factory_8h}{realization\+\_\+factory.\+h}\item 
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{realization__factory_8cc}{realization\+\_\+factory.\+cc}\end{DoxyCompactItemize}

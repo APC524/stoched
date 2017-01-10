@@ -4,9 +4,8 @@
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief APC 524, Final Project - Stoched 
- *
- *  @section DESCRIPTION
+ *  @brief Class Realization holds realizations of a Model 
+ *         (state array, propensities, waiting times, etc.) 
  *  
  */
 
@@ -17,10 +16,12 @@
  *  
  *   @param  the_model is a Model object
  *   @param  the_paramset is a Paramset object
- *   @param   
+ *   @param  the_rng is a random number generator 
+ *   @param  n_vars is an int specifying variable count
+ *   @param  n_events is an int specifying event count
+ * 
  *   @return nothing 
  */ 
-
 Realization::Realization(Model *the_model, const Paramset & the_paramset, rng *the_rng, int n_vars, int n_events) :
   the_model(the_model),
   the_paramset(the_paramset),
@@ -44,11 +45,10 @@ Realization::~Realization(){
 }
 
 /**
- *   Sets state_array and state_time to their user-specified initial values
+ *   @brief Sets state_array and state_time to their user-specified initial values
  *  
- *   @return nothing 
+ *   @return int
  */ 
-
 int Realization::set_to_initial_state(){
 
   // check that the right number of inits have been supplied
@@ -71,7 +71,7 @@ int Realization::set_to_initial_state(){
 /**
  *   Simulates the realization from t_inital to t_final
  *  
- *   @return nothing 
+ *   @return int
  */ 
 int Realization::simulate(std::ofstream& myfile){
   double t_initial = the_paramset.t_initial;
@@ -121,7 +121,7 @@ int Realization::simulate(std::ofstream& myfile){
 /**
  *   @brief  Prints the current state of the simulation
  *  
- *   @return nothing 
+ *   @return int 
  */ 
 
 int Realization::output_state(std::ofstream& myfile){
@@ -137,7 +137,11 @@ int Realization::output_state(std::ofstream& myfile){
   return 0;
 }
 
-// checks whether all rates are zero
+/**
+ *   @brief checks whether all rates are zero
+ *
+ *   @return bool
+ */
 bool Realization::rates_are_zero(){
   for(int i = 0; i < n_events; i++){
     if(rates[i] > DBL_MIN){
@@ -146,5 +150,3 @@ bool Realization::rates_are_zero(){
   }
   return 1;
 }
-
-

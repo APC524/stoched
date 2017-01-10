@@ -4,9 +4,8 @@
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief APC 524, Final Project - Stoched 
- *
- *  @section DESCRIPTION
+ *  @brief Class Event holds a user-specified event, namely set of 
+ *         functions and associated rate
  *  
  */
 

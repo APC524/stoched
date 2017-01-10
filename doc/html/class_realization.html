@@ -77,16 +77,15 @@ Inheritance diagram for Realization:</div>
  <div class="center">
   <img src="class_realization.png" usemap="#Realization_map" alt=""/>
   <map id="Realization_map" name="Realization_map">
-<area href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using Euler Leap method. " alt="EulerLeap" shape="rect" coords="0,56,88,80"/>
-<area href="class_first_reaction.html" alt="FirstReaction" shape="rect" coords="98,56,186,80"/>
-<area href="class_midpoint_leap.html" title="Class MidpointLeap implements Realization step() function using Midpoint Leap method. " alt="MidpointLeap" shape="rect" coords="196,56,284,80"/>
-<area href="class_next_reaction.html" alt="NextReaction" shape="rect" coords="294,56,382,80"/>
+<area href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using Euler Leap method. " alt="EulerLeap" shape="rect" coords="0,56,86,80"/>
+<area href="class_first_reaction.html" title="Class FirstReaction takes first step() according to chosen algorithm. " alt="FirstReaction" shape="rect" coords="96,56,182,80"/>
+<area href="class_next_reaction.html" title="Class FirstReaction takes next step() according to chosen algorithm. " alt="NextReaction" shape="rect" coords="192,56,278,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af4cfb6f2221bef9ba5ad09564796677f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#af4cfb6f2221bef9ba5ad09564796677f">Realization</a> (<a class="el" href="class_model.html">Model</a> *<a class="el" href="class_realization.html#a47ec1d062b8caee874b08c1a17d6aeeb">the_model</a>, const <a class="el" href="class_paramset.html">Paramset</a> &amp;<a class="el" href="class_realization.html#a119bb29de88929bc51bc1b329473a94b">the_paramset</a>, <a class="el" href="classrng.html">rng</a> *the_rng, int n_vars, int n_events)</td></tr>
+<tr class="memitem:af4cfb6f2221bef9ba5ad09564796677f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#af4cfb6f2221bef9ba5ad09564796677f">Realization</a> (<a class="el" href="class_model.html">Model</a> *<a class="el" href="class_realization.html#a47ec1d062b8caee874b08c1a17d6aeeb">the_model</a>, const <a class="el" href="class_paramset.html">Paramset</a> &amp;<a class="el" href="class_realization.html#a119bb29de88929bc51bc1b329473a94b">the_paramset</a>, <a class="el" href="classrng.html">rng</a> *<a class="el" href="class_realization.html#ac8d358d929afae90cf5790675b6744f9">the_rng</a>, int <a class="el" href="class_realization.html#ad9951a0829e68e12fcb3817735bb5097">n_vars</a>, int <a class="el" href="class_realization.html#afb711282bef806fc0020f91252d1df2c">n_events</a>)</td></tr>
 <tr class="memdesc:af4cfb6f2221bef9ba5ad09564796677f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a>.  <a href="#af4cfb6f2221bef9ba5ad09564796677f">More...</a><br /></td></tr>
 <tr class="separator:af4cfb6f2221bef9ba5ad09564796677f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a040c39b39c5057c668bd264b4329f2b4"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#a040c39b39c5057c668bd264b4329f2b4">~Realization</a> ()</td></tr>
@@ -95,16 +94,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4e21bc7355e33c17d1401736b3c62413"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#a4e21bc7355e33c17d1401736b3c62413">simulate</a> (std::ofstream &amp;myfile)</td></tr>
 <tr class="separator:a4e21bc7355e33c17d1401736b3c62413"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9949217117927b149850288f3b74c9ef"><td class="memItemLeft" align="right" valign="top"><a id="a9949217117927b149850288f3b74c9ef"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#a9949217117927b149850288f3b74c9ef">step</a> ()=0</td></tr>
-<tr class="memdesc:a9949217117927b149850288f3b74c9ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">takes one simulation step according to the chosen algorithm <br /></td></tr>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>step</b> ()=0</td></tr>
 <tr class="separator:a9949217117927b149850288f3b74c9ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48953442ebf235cd1e02731c7419f65f"><td class="memItemLeft" align="right" valign="top"><a id="a48953442ebf235cd1e02731c7419f65f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>rates_are_zero</b> ()</td></tr>
+<tr class="memitem:a48953442ebf235cd1e02731c7419f65f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#a48953442ebf235cd1e02731c7419f65f">rates_are_zero</a> ()</td></tr>
+<tr class="memdesc:a48953442ebf235cd1e02731c7419f65f"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks whether all rates are zero  <a href="#a48953442ebf235cd1e02731c7419f65f">More...</a><br /></td></tr>
 <tr class="separator:a48953442ebf235cd1e02731c7419f65f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7ef90279eef4bf11261084f541c7bb0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#ab7ef90279eef4bf11261084f541c7bb0">output_state</a> (std::ofstream &amp;myfile)</td></tr>
 <tr class="memdesc:ab7ef90279eef4bf11261084f541c7bb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current state of the simulation.  <a href="#ab7ef90279eef4bf11261084f541c7bb0">More...</a><br /></td></tr>
 <tr class="separator:ab7ef90279eef4bf11261084f541c7bb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a391a89af7574a9053f53f8a299c2cc70"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#a391a89af7574a9053f53f8a299c2cc70">set_to_initial_state</a> ()</td></tr>
+<tr class="memdesc:a391a89af7574a9053f53f8a299c2cc70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets state_array and state_time to their user-specified initial values.  <a href="#a391a89af7574a9053f53f8a299c2cc70">More...</a><br /></td></tr>
 <tr class="separator:a391a89af7574a9053f53f8a299c2cc70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -115,16 +114,19 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a47ec1d062b8caee874b08c1a17d6aeeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a119bb29de88929bc51bc1b329473a94b"><td class="memItemLeft" align="right" valign="top"><a id="a119bb29de88929bc51bc1b329473a94b"></a>
 const <a class="el" href="class_paramset.html">Paramset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#a119bb29de88929bc51bc1b329473a94b">the_paramset</a></td></tr>
-<tr class="memdesc:a119bb29de88929bc51bc1b329473a94b"><td class="mdescLeft">&#160;</td><td class="mdescRight">the_paramset is a <a class="el" href="class_paramset.html" title="Paramset is a class to hold a particular set of pameters for user requested simulation run(s) ...">Paramset</a> instance <br /></td></tr>
+<tr class="memdesc:a119bb29de88929bc51bc1b329473a94b"><td class="mdescLeft">&#160;</td><td class="mdescRight">the_paramset is a <a class="el" href="class_paramset.html" title="Class Paramset holds a particular set of pameters for user requested simulation run(s) ...">Paramset</a> instance <br /></td></tr>
 <tr class="separator:a119bb29de88929bc51bc1b329473a94b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8d358d929afae90cf5790675b6744f9"><td class="memItemLeft" align="right" valign="top"><a id="ac8d358d929afae90cf5790675b6744f9"></a>
-<a class="el" href="classrng.html">rng</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>the_rng</b></td></tr>
+<a class="el" href="classrng.html">rng</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#ac8d358d929afae90cf5790675b6744f9">the_rng</a></td></tr>
+<tr class="memdesc:ac8d358d929afae90cf5790675b6744f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">the_rng is an random number generator <br /></td></tr>
 <tr class="separator:ac8d358d929afae90cf5790675b6744f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9951a0829e68e12fcb3817735bb5097"><td class="memItemLeft" align="right" valign="top"><a id="ad9951a0829e68e12fcb3817735bb5097"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>n_vars</b></td></tr>
+const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#ad9951a0829e68e12fcb3817735bb5097">n_vars</a></td></tr>
+<tr class="memdesc:ad9951a0829e68e12fcb3817735bb5097"><td class="mdescLeft">&#160;</td><td class="mdescRight">n_vars is an int specifying number of variables <br /></td></tr>
 <tr class="separator:ad9951a0829e68e12fcb3817735bb5097"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb711282bef806fc0020f91252d1df2c"><td class="memItemLeft" align="right" valign="top"><a id="afb711282bef806fc0020f91252d1df2c"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>n_events</b></td></tr>
+const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#afb711282bef806fc0020f91252d1df2c">n_events</a></td></tr>
+<tr class="memdesc:afb711282bef806fc0020f91252d1df2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">n_events is an int specifying number of events <br /></td></tr>
 <tr class="separator:afb711282bef806fc0020f91252d1df2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a126f89978f0407873473222171333ee1"><td class="memItemLeft" align="right" valign="top"><a id="a126f89978f0407873473222171333ee1"></a>
 double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#a126f89978f0407873473222171333ee1">state_array</a></td></tr>
@@ -190,7 +192,10 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">the_model</td><td>is a <a class="el" href="class_model.html" title="Class Model, which holds user-specified models of stochastic systems from which realizations are to b...">Model</a> object </td></tr>
-    <tr><td class="paramname">the_paramset</td><td>is a <a class="el" href="class_paramset.html" title="Paramset is a class to hold a particular set of pameters for user requested simulation run(s) ...">Paramset</a> object </td></tr>
+    <tr><td class="paramname">the_paramset</td><td>is a <a class="el" href="class_paramset.html" title="Class Paramset holds a particular set of pameters for user requested simulation run(s) ...">Paramset</a> object </td></tr>
+    <tr><td class="paramname">the_rng</td><td>is a random number generator </td></tr>
+    <tr><td class="paramname">n_vars</td><td>is an int specifying variable count </td></tr>
+    <tr><td class="paramname">n_events</td><td>is an int specifying event count</td></tr>
   </table>
   </dd>
 </dl>
@@ -244,7 +249,27 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><div class="memdoc">
 
 <p>Prints the current state of the simulation. </p>
-<dl class="section return"><dt>Returns</dt><dd>nothing </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="a48953442ebf235cd1e02731c7419f65f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48953442ebf235cd1e02731c7419f65f">&#9670;&nbsp;</a></span>rates_are_zero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Realization::rates_are_zero </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>checks whether all rates are zero </p>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -270,10 +295,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets state_array and state_time to their user-specified initial values</p>
-<dl class="section return"><dt>Returns</dt><dd>nothing </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_next_reaction.html#a0cc63c4ec9fe3f338472fff302f6d746">NextReaction</a>.</p>
+<p>Sets state_array and state_time to their user-specified initial values. </p>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_euler_leap.html#a1a13929ea1ebf40e7357439968828f4b">EulerLeap</a>, and <a class="el" href="class_next_reaction.html#a0cc63c4ec9fe3f338472fff302f6d746">NextReaction</a>.</p>
 
 </div>
 </div>
@@ -293,7 +319,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
       </table>
 </div><div class="memdoc">
 <p>Simulates the realization from t_inital to t_final</p>
-<dl class="section return"><dt>Returns</dt><dd>nothing </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
 </div>
 </div>

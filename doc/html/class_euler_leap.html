@@ -66,10 +66,10 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Class <a class="el" href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using Euler Leap method. ">EulerLeap</a> implements <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a> <a class="el" href="class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d" title="takes one simulation step according to the chosen algorithm ">step()</a> function using Euler Leap method.  
+<p>Class <a class="el" href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using Euler Leap method. ">EulerLeap</a> implements <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a> step() function using Euler Leap method.  
  <a href="class_euler_leap.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="realization_8h_source.html">realization.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="eulerleap_8h_source.html">eulerleap.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for EulerLeap:</div>
 <div class="dyncontent">
@@ -82,12 +82,17 @@ Inheritance diagram for EulerLeap:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ae5db6ea05659798b624a28872799b906"><td class="memItemLeft" align="right" valign="top"><a id="ae5db6ea05659798b624a28872799b906"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EulerLeap</b> (<a class="el" href="class_model.html">Model</a> *<a class="el" href="class_realization.html#a47ec1d062b8caee874b08c1a17d6aeeb">the_model</a>, const <a class="el" href="class_paramset.html">Paramset</a> &amp;<a class="el" href="class_realization.html#a119bb29de88929bc51bc1b329473a94b">the_paramset</a>, <a class="el" href="classrng.html">rng</a> *<a class="el" href="class_realization.html#ac8d358d929afae90cf5790675b6744f9">the_rng</a>, int <a class="el" href="class_realization.html#ad9951a0829e68e12fcb3817735bb5097">n_vars</a>, int <a class="el" href="class_realization.html#afb711282bef806fc0020f91252d1df2c">n_events</a>)</td></tr>
+<tr class="separator:ae5db6ea05659798b624a28872799b906"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25b1ea90a95bfd41ecb919605683da9d"><td class="memItemLeft" align="right" valign="top"><a id="a25b1ea90a95bfd41ecb919605683da9d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d">step</a> ()</td></tr>
-<tr class="memdesc:a25b1ea90a95bfd41ecb919605683da9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">takes one simulation step according to the chosen algorithm <br /></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>step</b> ()</td></tr>
 <tr class="separator:a25b1ea90a95bfd41ecb919605683da9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a13929ea1ebf40e7357439968828f4b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_euler_leap.html#a1a13929ea1ebf40e7357439968828f4b">set_to_initial_state</a> ()</td></tr>
+<tr class="memdesc:a1a13929ea1ebf40e7357439968828f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets state_array and state_time to their user-specified initial values.  <a href="#a1a13929ea1ebf40e7357439968828f4b">More...</a><br /></td></tr>
+<tr class="separator:a1a13929ea1ebf40e7357439968828f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_realization"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_realization')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_realization.html">Realization</a></td></tr>
-<tr class="memitem:af4cfb6f2221bef9ba5ad09564796677f inherit pub_methods_class_realization"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#af4cfb6f2221bef9ba5ad09564796677f">Realization</a> (<a class="el" href="class_model.html">Model</a> *<a class="el" href="class_realization.html#a47ec1d062b8caee874b08c1a17d6aeeb">the_model</a>, const <a class="el" href="class_paramset.html">Paramset</a> &amp;<a class="el" href="class_realization.html#a119bb29de88929bc51bc1b329473a94b">the_paramset</a>, <a class="el" href="classrng.html">rng</a> *the_rng, int n_vars, int n_events)</td></tr>
+<tr class="memitem:af4cfb6f2221bef9ba5ad09564796677f inherit pub_methods_class_realization"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#af4cfb6f2221bef9ba5ad09564796677f">Realization</a> (<a class="el" href="class_model.html">Model</a> *<a class="el" href="class_realization.html#a47ec1d062b8caee874b08c1a17d6aeeb">the_model</a>, const <a class="el" href="class_paramset.html">Paramset</a> &amp;<a class="el" href="class_realization.html#a119bb29de88929bc51bc1b329473a94b">the_paramset</a>, <a class="el" href="classrng.html">rng</a> *<a class="el" href="class_realization.html#ac8d358d929afae90cf5790675b6744f9">the_rng</a>, int <a class="el" href="class_realization.html#ad9951a0829e68e12fcb3817735bb5097">n_vars</a>, int <a class="el" href="class_realization.html#afb711282bef806fc0020f91252d1df2c">n_events</a>)</td></tr>
 <tr class="memdesc:af4cfb6f2221bef9ba5ad09564796677f inherit pub_methods_class_realization"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a>.  <a href="class_realization.html#af4cfb6f2221bef9ba5ad09564796677f">More...</a><br /></td></tr>
 <tr class="separator:af4cfb6f2221bef9ba5ad09564796677f inherit pub_methods_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a040c39b39c5057c668bd264b4329f2b4 inherit pub_methods_class_realization"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#a040c39b39c5057c668bd264b4329f2b4">~Realization</a> ()</td></tr>
@@ -95,14 +100,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="separator:a040c39b39c5057c668bd264b4329f2b4 inherit pub_methods_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e21bc7355e33c17d1401736b3c62413 inherit pub_methods_class_realization"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#a4e21bc7355e33c17d1401736b3c62413">simulate</a> (std::ofstream &amp;myfile)</td></tr>
 <tr class="separator:a4e21bc7355e33c17d1401736b3c62413 inherit pub_methods_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48953442ebf235cd1e02731c7419f65f inherit pub_methods_class_realization"><td class="memItemLeft" align="right" valign="top"><a id="a48953442ebf235cd1e02731c7419f65f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>rates_are_zero</b> ()</td></tr>
+<tr class="memitem:a48953442ebf235cd1e02731c7419f65f inherit pub_methods_class_realization"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#a48953442ebf235cd1e02731c7419f65f">rates_are_zero</a> ()</td></tr>
+<tr class="memdesc:a48953442ebf235cd1e02731c7419f65f inherit pub_methods_class_realization"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks whether all rates are zero  <a href="class_realization.html#a48953442ebf235cd1e02731c7419f65f">More...</a><br /></td></tr>
 <tr class="separator:a48953442ebf235cd1e02731c7419f65f inherit pub_methods_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7ef90279eef4bf11261084f541c7bb0 inherit pub_methods_class_realization"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#ab7ef90279eef4bf11261084f541c7bb0">output_state</a> (std::ofstream &amp;myfile)</td></tr>
 <tr class="memdesc:ab7ef90279eef4bf11261084f541c7bb0 inherit pub_methods_class_realization"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current state of the simulation.  <a href="class_realization.html#ab7ef90279eef4bf11261084f541c7bb0">More...</a><br /></td></tr>
 <tr class="separator:ab7ef90279eef4bf11261084f541c7bb0 inherit pub_methods_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a391a89af7574a9053f53f8a299c2cc70 inherit pub_methods_class_realization"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#a391a89af7574a9053f53f8a299c2cc70">set_to_initial_state</a> ()</td></tr>
-<tr class="separator:a391a89af7574a9053f53f8a299c2cc70 inherit pub_methods_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -113,16 +116,19 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a47ec1d062b8caee874b08c1a17d6aeeb inherit pub_attribs_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a119bb29de88929bc51bc1b329473a94b inherit pub_attribs_class_realization"><td class="memItemLeft" align="right" valign="top"><a id="a119bb29de88929bc51bc1b329473a94b"></a>
 const <a class="el" href="class_paramset.html">Paramset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#a119bb29de88929bc51bc1b329473a94b">the_paramset</a></td></tr>
-<tr class="memdesc:a119bb29de88929bc51bc1b329473a94b inherit pub_attribs_class_realization"><td class="mdescLeft">&#160;</td><td class="mdescRight">the_paramset is a <a class="el" href="class_paramset.html" title="Paramset is a class to hold a particular set of pameters for user requested simulation run(s) ...">Paramset</a> instance <br /></td></tr>
+<tr class="memdesc:a119bb29de88929bc51bc1b329473a94b inherit pub_attribs_class_realization"><td class="mdescLeft">&#160;</td><td class="mdescRight">the_paramset is a <a class="el" href="class_paramset.html" title="Class Paramset holds a particular set of pameters for user requested simulation run(s) ...">Paramset</a> instance <br /></td></tr>
 <tr class="separator:a119bb29de88929bc51bc1b329473a94b inherit pub_attribs_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8d358d929afae90cf5790675b6744f9 inherit pub_attribs_class_realization"><td class="memItemLeft" align="right" valign="top"><a id="ac8d358d929afae90cf5790675b6744f9"></a>
-<a class="el" href="classrng.html">rng</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>the_rng</b></td></tr>
+<a class="el" href="classrng.html">rng</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#ac8d358d929afae90cf5790675b6744f9">the_rng</a></td></tr>
+<tr class="memdesc:ac8d358d929afae90cf5790675b6744f9 inherit pub_attribs_class_realization"><td class="mdescLeft">&#160;</td><td class="mdescRight">the_rng is an random number generator <br /></td></tr>
 <tr class="separator:ac8d358d929afae90cf5790675b6744f9 inherit pub_attribs_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9951a0829e68e12fcb3817735bb5097 inherit pub_attribs_class_realization"><td class="memItemLeft" align="right" valign="top"><a id="ad9951a0829e68e12fcb3817735bb5097"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>n_vars</b></td></tr>
+const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#ad9951a0829e68e12fcb3817735bb5097">n_vars</a></td></tr>
+<tr class="memdesc:ad9951a0829e68e12fcb3817735bb5097 inherit pub_attribs_class_realization"><td class="mdescLeft">&#160;</td><td class="mdescRight">n_vars is an int specifying number of variables <br /></td></tr>
 <tr class="separator:ad9951a0829e68e12fcb3817735bb5097 inherit pub_attribs_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb711282bef806fc0020f91252d1df2c inherit pub_attribs_class_realization"><td class="memItemLeft" align="right" valign="top"><a id="afb711282bef806fc0020f91252d1df2c"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>n_events</b></td></tr>
+const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#afb711282bef806fc0020f91252d1df2c">n_events</a></td></tr>
+<tr class="memdesc:afb711282bef806fc0020f91252d1df2c inherit pub_attribs_class_realization"><td class="mdescLeft">&#160;</td><td class="mdescRight">n_events is an int specifying number of events <br /></td></tr>
 <tr class="separator:afb711282bef806fc0020f91252d1df2c inherit pub_attribs_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a126f89978f0407873473222171333ee1 inherit pub_attribs_class_realization"><td class="memItemLeft" align="right" valign="top"><a id="a126f89978f0407873473222171333ee1"></a>
 double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#a126f89978f0407873473222171333ee1">state_array</a></td></tr>
@@ -138,9 +144,41 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:a7c4def45c4833072317517b71e723793 inherit pub_attribs_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class <a class="el" href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using Euler Leap method. ">EulerLeap</a> implements <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a> <a class="el" href="class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d" title="takes one simulation step according to the chosen algorithm ">step()</a> function using Euler Leap method. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>/Users/Caleb/APC524/stoched/src/<a class="el" href="realization_8h_source.html">realization.h</a></li>
+<div class="textblock"><p>Class <a class="el" href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using Euler Leap method. ">EulerLeap</a> implements <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a> step() function using Euler Leap method. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1a13929ea1ebf40e7357439968828f4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a13929ea1ebf40e7357439968828f4b">&#9670;&nbsp;</a></span>set_to_initial_state()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int EulerLeap::set_to_initial_state </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets state_array and state_time to their user-specified initial values. </p>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+<p>Reimplemented from <a class="el" href="class_realization.html#a391a89af7574a9053f53f8a299c2cc70">Realization</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>/Users/Caleb/APC524/stoched/src/<a class="el" href="eulerleap_8h_source.html">eulerleap.h</a></li>
+<li>/Users/Caleb/APC524/stoched/src/<a class="el" href="eulerleap_8cc.html">eulerleap.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

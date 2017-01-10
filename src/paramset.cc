@@ -1,12 +1,11 @@
 /** 
  *  @file    paramset.cc
- *  @author  Dillon 
+ *  @author  Dillon Morris (dhmorris@princeton.edu)
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief APC 524, Final Project - Stoched 
- *
- *  @section DESCRIPTION
+ *  @brief Class Paramset holds a particular set of pameters for 
+ *         user requested simulation run(s) 
  *  
  */
 
@@ -47,5 +46,11 @@ Paramset::Paramset(int method,
   seed(seed)                      // seed for the random number generator
 {};
 
+/**
+ * @brief Destructor for Paramset
+ *
+ * @return nothing
+ *
+ */
 Paramset::~Paramset(){};
 

@@ -18,22 +18,21 @@ Inheritance diagram for Realization\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_realization_af4cfb6f2221bef9ba5ad09564796677f}{Realization} (\hyperlink{class_model}{Model} $\ast$\hyperlink{class_realization_a47ec1d062b8caee874b08c1a17d6aeeb}{the\+\_\+model}, const \hyperlink{class_paramset}{Paramset} \&\hyperlink{class_realization_a119bb29de88929bc51bc1b329473a94b}{the\+\_\+paramset}, \hyperlink{classrng}{rng} $\ast$the\+\_\+rng, int n\+\_\+vars, int n\+\_\+events)
+\hyperlink{class_realization_af4cfb6f2221bef9ba5ad09564796677f}{Realization} (\hyperlink{class_model}{Model} $\ast$\hyperlink{class_realization_a47ec1d062b8caee874b08c1a17d6aeeb}{the\+\_\+model}, const \hyperlink{class_paramset}{Paramset} \&\hyperlink{class_realization_a119bb29de88929bc51bc1b329473a94b}{the\+\_\+paramset}, \hyperlink{classrng}{rng} $\ast$\hyperlink{class_realization_ac8d358d929afae90cf5790675b6744f9}{the\+\_\+rng}, int \hyperlink{class_realization_ad9951a0829e68e12fcb3817735bb5097}{n\+\_\+vars}, int \hyperlink{class_realization_afb711282bef806fc0020f91252d1df2c}{n\+\_\+events})
 \begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{class_realization}{Realization}. \end{DoxyCompactList}\item 
 virtual \hyperlink{class_realization_a040c39b39c5057c668bd264b4329f2b4}{$\sim$\+Realization} ()
 \begin{DoxyCompactList}\small\item\em Destructor of \hyperlink{class_realization}{Realization}. \end{DoxyCompactList}\item 
 int \hyperlink{class_realization_a4e21bc7355e33c17d1401736b3c62413}{simulate} (std\+::ofstream \&myfile)
 \item 
 \mbox{\Hypertarget{class_realization_a9949217117927b149850288f3b74c9ef}\label{class_realization_a9949217117927b149850288f3b74c9ef}} 
-virtual int \hyperlink{class_realization_a9949217117927b149850288f3b74c9ef}{step} ()=0
-\begin{DoxyCompactList}\small\item\em takes one simulation step according to the chosen algorithm \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_realization_a48953442ebf235cd1e02731c7419f65f}\label{class_realization_a48953442ebf235cd1e02731c7419f65f}} 
-bool {\bfseries rates\+\_\+are\+\_\+zero} ()
+virtual int {\bfseries step} ()=0
 \item 
+bool \hyperlink{class_realization_a48953442ebf235cd1e02731c7419f65f}{rates\+\_\+are\+\_\+zero} ()
+\begin{DoxyCompactList}\small\item\em checks whether all rates are zero \end{DoxyCompactList}\item 
 int \hyperlink{class_realization_ab7ef90279eef4bf11261084f541c7bb0}{output\+\_\+state} (std\+::ofstream \&myfile)
 \begin{DoxyCompactList}\small\item\em Prints the current state of the simulation. \end{DoxyCompactList}\item 
 virtual int \hyperlink{class_realization_a391a89af7574a9053f53f8a299c2cc70}{set\+\_\+to\+\_\+initial\+\_\+state} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sets state\+\_\+array and state\+\_\+time to their user-\/specified initial values. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -44,14 +43,14 @@ virtual int \hyperlink{class_realization_a391a89af7574a9053f53f8a299c2cc70}{set\
 const \hyperlink{class_paramset}{Paramset} \hyperlink{class_realization_a119bb29de88929bc51bc1b329473a94b}{the\+\_\+paramset}
 \begin{DoxyCompactList}\small\item\em the\+\_\+paramset is a \hyperlink{class_paramset}{Paramset} instance \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_realization_ac8d358d929afae90cf5790675b6744f9}\label{class_realization_ac8d358d929afae90cf5790675b6744f9}} 
-\hyperlink{classrng}{rng} $\ast$ {\bfseries the\+\_\+rng}
-\item 
+\hyperlink{classrng}{rng} $\ast$ \hyperlink{class_realization_ac8d358d929afae90cf5790675b6744f9}{the\+\_\+rng}
+\begin{DoxyCompactList}\small\item\em the\+\_\+rng is an random number generator \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_realization_ad9951a0829e68e12fcb3817735bb5097}\label{class_realization_ad9951a0829e68e12fcb3817735bb5097}} 
-const int {\bfseries n\+\_\+vars}
-\item 
+const int \hyperlink{class_realization_ad9951a0829e68e12fcb3817735bb5097}{n\+\_\+vars}
+\begin{DoxyCompactList}\small\item\em n\+\_\+vars is an int specifying number of variables \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_realization_afb711282bef806fc0020f91252d1df2c}\label{class_realization_afb711282bef806fc0020f91252d1df2c}} 
-const int {\bfseries n\+\_\+events}
-\item 
+const int \hyperlink{class_realization_afb711282bef806fc0020f91252d1df2c}{n\+\_\+events}
+\begin{DoxyCompactList}\small\item\em n\+\_\+events is an int specifying number of events \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_realization_a126f89978f0407873473222171333ee1}\label{class_realization_a126f89978f0407873473222171333ee1}} 
 double $\ast$ \hyperlink{class_realization_a126f89978f0407873473222171333ee1}{state\+\_\+array}
 \begin{DoxyCompactList}\small\item\em state\+\_\+array is a double array specifiying variable values of a function \end{DoxyCompactList}\item 
@@ -82,6 +81,12 @@ Default constructor for \hyperlink{class_realization}{Realization}.
 {\em the\+\_\+model} & is a \hyperlink{class_model}{Model} object \\
 \hline
 {\em the\+\_\+paramset} & is a \hyperlink{class_paramset}{Paramset} object \\
+\hline
+{\em the\+\_\+rng} & is a random number generator \\
+\hline
+{\em n\+\_\+vars} & is an int specifying variable count \\
+\hline
+{\em n\+\_\+events} & is an int specifying event count\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -114,7 +119,20 @@ nothing
 Prints the current state of the simulation. 
 
 \begin{DoxyReturn}{Returns}
-nothing 
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_realization_a48953442ebf235cd1e02731c7419f65f}\label{class_realization_a48953442ebf235cd1e02731c7419f65f}} 
+\index{Realization@{Realization}!rates\+\_\+are\+\_\+zero@{rates\+\_\+are\+\_\+zero}}
+\index{rates\+\_\+are\+\_\+zero@{rates\+\_\+are\+\_\+zero}!Realization@{Realization}}
+\subsubsection{\texorpdfstring{rates\+\_\+are\+\_\+zero()}{rates\_are\_zero()}}
+{\footnotesize\ttfamily bool Realization\+::rates\+\_\+are\+\_\+zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+checks whether all rates are zero 
+
+\begin{DoxyReturn}{Returns}
+bool 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_realization_a391a89af7574a9053f53f8a299c2cc70}\label{class_realization_a391a89af7574a9053f53f8a299c2cc70}} 
 \index{Realization@{Realization}!set\+\_\+to\+\_\+initial\+\_\+state@{set\+\_\+to\+\_\+initial\+\_\+state}}
@@ -122,14 +140,16 @@ nothing
 \subsubsection{\texorpdfstring{set\+\_\+to\+\_\+initial\+\_\+state()}{set\_to\_initial\_state()}}
 {\footnotesize\ttfamily int Realization\+::set\+\_\+to\+\_\+initial\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Sets state\+\_\+array and state\+\_\+time to their user-\/specified initial values
+
+
+Sets state\+\_\+array and state\+\_\+time to their user-\/specified initial values. 
 
 \begin{DoxyReturn}{Returns}
-nothing 
+int 
 \end{DoxyReturn}
 
 
-Reimplemented in \hyperlink{class_next_reaction_a0cc63c4ec9fe3f338472fff302f6d746}{Next\+Reaction}.
+Reimplemented in \hyperlink{class_euler_leap_a1a13929ea1ebf40e7357439968828f4b}{Euler\+Leap}, and \hyperlink{class_next_reaction_a0cc63c4ec9fe3f338472fff302f6d746}{Next\+Reaction}.
 
 \mbox{\Hypertarget{class_realization_a4e21bc7355e33c17d1401736b3c62413}\label{class_realization_a4e21bc7355e33c17d1401736b3c62413}} 
 \index{Realization@{Realization}!simulate@{simulate}}
@@ -140,7 +160,7 @@ Reimplemented in \hyperlink{class_next_reaction_a0cc63c4ec9fe3f338472fff302f6d74
 Simulates the realization from t\+\_\+inital to t\+\_\+final
 
 \begin{DoxyReturn}{Returns}
-nothing 
+int 
 \end{DoxyReturn}
 
 
