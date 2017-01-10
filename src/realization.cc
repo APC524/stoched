@@ -1,4 +1,25 @@
+/** 
+ *  @file    realization.cc
+ *  @author  Dylan Morris (dhmorris@princeton.edu)
+ *  @date    12/6/16  
+ *  @version 1.0 
+ *  
+ *  @brief APC 524, Final Project - Stoched 
+ *
+ *  @section DESCRIPTION
+ *  
+ */
+
 #include "realization.h"
+
+/**
+ *   @brief  Default constructor for Realization  
+ *  
+ *   @param  the_model is a Model object
+ *   @param  the_paramset is a Paramset object
+ *   @param   
+ *   @return nothing 
+ */ 
 
 Realization::Realization(Model *the_model, const Paramset & the_paramset, rng *the_rng, int n_vars, int n_events) :
   the_model(the_model),
@@ -12,11 +33,21 @@ Realization::Realization(Model *the_model, const Paramset & the_paramset, rng *t
   set_to_initial_state();
 }
 
-
+/**
+ *   @brief  Destructor of Realization
+ *  
+ *   @return nothing 
+ */ 
 Realization::~Realization(){
   delete state_array;
   delete rates;
 }
+
+/**
+ *   Sets state_array and state_time to their user-specified initial values
+ *  
+ *   @return nothing 
+ */ 
 
 int Realization::set_to_initial_state(){
 
@@ -37,8 +68,11 @@ int Realization::set_to_initial_state(){
   return 0;
 }
 
-
-// simulates the realization from t_inital to t_final
+/**
+ *   Simulates the realization from t_inital to t_final
+ *  
+ *   @return nothing 
+ */ 
 int Realization::simulate(std::ofstream& myfile){
   double t_initial = the_paramset.t_initial;
   double t_final = the_paramset.t_final;
@@ -84,7 +118,12 @@ int Realization::simulate(std::ofstream& myfile){
   return 0;
 }
 
-// prints the current state of the simulation
+/**
+ *   @brief  Prints the current state of the simulation
+ *  
+ *   @return nothing 
+ */ 
+
 int Realization::output_state(std::ofstream& myfile){
   // to be modified depending on ultimately
   // chosen output format
@@ -107,4 +146,5 @@ bool Realization::rates_are_zero(){
   }
   return 1;
 }
+
 

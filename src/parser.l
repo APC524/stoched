@@ -1,3 +1,16 @@
+/** 
+ *  @file    parser.l
+ *  @author  Kevin Griffin (kevinpg@princeton.edu)
+ *  @date    12/6/16  
+ *  @version 1.0 
+ *  
+ *  @brief APC 524, Final Project - Stoched 
+ *
+ *  @section DESCRIPTION
+ *  
+ */
+
+
 %{
 #include <stdio.h>
 #include <iostream>

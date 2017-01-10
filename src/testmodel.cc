@@ -1,4 +1,15 @@
-// testevent.cc
+/**
+ *  @file    testmodel.cc
+ *  @author  Caleb Peckham (peckham@princeton.edu)
+ *  @date    12/6/16  
+ *  @version 1.0 
+ *  
+ *  @brief APC 524, Final Project - Stoched
+ *
+ *  @section DESCRIPTION
+ *  
+ */
+
 #include <iostream>
 #include <string>
 #include <stdio.h>
@@ -6,6 +17,12 @@
 #include "model.h"
 
 using namespace std;
+
+/**
+ *   @brief  Example usage of Model class 
+ *
+ *   @return int
+ */
 
 int main() {
   

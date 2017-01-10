@@ -3,6 +3,11 @@
 #include "realization.h"
 #include <stdexcept>  
 
+/**  
+ *  @brief Class EulerLeap implements Realization step() function 
+ *         using Euler Leap method
+ */  
+
 class EulerLeap : public Realization {
  public:
   EulerLeap(Model *the_model, const Paramset & the_paramset,

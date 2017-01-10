@@ -1,0 +1,52 @@
+.TH "Realization" 3 "Wed Jan 4 2017" "Stoched" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Realization
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBEulerLeapRealization\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRealization\fP (const \fBModel\fP &the_model, const \fBParamset\fP &the_paramset)"
+.br
+.ti -1c
+.RI "int \fBsimulate\fP ()"
+.br
+.ti -1c
+.RI "virtual int \fBstep\fP ()"
+.br
+.ti -1c
+.RI "int \fBoutput_state\fP ()"
+.br
+.ti -1c
+.RI "int \fBset_to_initial_state\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const \fBModel\fP \fBthe_model\fP"
+.br
+.ti -1c
+.RI "const \fBParamset\fP \fBthe_paramset\fP"
+.br
+.ti -1c
+.RI "VectorXd \fBstate_array\fP"
+.br
+.ti -1c
+.RI "VectorXd \fBrates\fP"
+.br
+.ti -1c
+.RI "double \fBstate_time\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Stoched from the source code\&.

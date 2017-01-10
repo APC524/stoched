@@ -1,0 +1,322 @@
+.TH "MpfrFloat" 3 "Wed Jan 4 2017" "Stoched" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MpfrFloat
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBMpfrFloatData\fP"
+.br
+.ti -1c
+.RI "class \fBMpfrFloatDataContainer\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMpfrFloat\fP (double value)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP (long double value)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP (long value)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP (int value)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP (const char *value, char **endptr)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP & \fBoperator=\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP & \fBoperator=\fP (double value)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP & \fBoperator=\fP (long double value)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP & \fBoperator=\fP (long value)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP & \fBoperator=\fP (int value)"
+.br
+.ti -1c
+.RI "void \fBparseValue\fP (const char *value)"
+.br
+.ti -1c
+.RI "void \fBparseValue\fP (const char *value, char **endptr)"
+.br
+.ti -1c
+.RI "template<typename Mpfr_t > void \fBget_raw_mpfr_data\fP (Mpfr_t &dest_mpfr_t)"
+.br
+.ti -1c
+.RI "const char * \fBgetAsString\fP (unsigned precision) const"
+.br
+.ti -1c
+.RI "bool \fBisInteger\fP () const"
+.br
+.ti -1c
+.RI "long \fBtoInt\fP () const"
+.br
+.ti -1c
+.RI "double \fBtoDouble\fP () const"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP & \fBoperator+=\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP & \fBoperator+=\fP (double)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP & \fBoperator\-=\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP & \fBoperator\-=\fP (double)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP & \fBoperator*=\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP & \fBoperator*=\fP (double)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP & \fBoperator/=\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP & \fBoperator/=\fP (double)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP & \fBoperator%=\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "void \fBnegate\fP ()"
+.br
+.ti -1c
+.RI "void \fBabs\fP ()"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP \fBoperator+\fP (const \fBMpfrFloat\fP &) const"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP \fBoperator+\fP (double) const"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP \fBoperator\-\fP (const \fBMpfrFloat\fP &) const"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP \fBoperator\-\fP (double) const"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP \fBoperator*\fP (const \fBMpfrFloat\fP &) const"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP \fBoperator*\fP (double) const"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP \fBoperator/\fP (const \fBMpfrFloat\fP &) const"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP \fBoperator/\fP (double) const"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP \fBoperator%\fP (const \fBMpfrFloat\fP &) const"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP \fBoperator\-\fP () const"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBMpfrFloat\fP &) const"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (double) const"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBMpfrFloat\fP &) const"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (double) const"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBMpfrFloat\fP &) const"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (double) const"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBMpfrFloat\fP &) const"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (double) const"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBMpfrFloat\fP &) const"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (double) const"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBMpfrFloat\fP &) const"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (double) const"
+.br
+.ti -1c
+.RI "template<> void \fBget_raw_mpfr_data\fP (mpfr_t &dest_mpfr_t)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBsetDefaultMantissaBits\fP (unsigned long bits)"
+.br
+.ti -1c
+.RI "static unsigned long \fBgetCurrentDefaultMantissaBits\fP ()"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBlog\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBlog2\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBlog10\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBexp\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBexp2\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBexp10\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBcos\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBsin\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBtan\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBsec\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBcsc\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBcot\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static void \fBsincos\fP (const \fBMpfrFloat\fP &, \fBMpfrFloat\fP &sin, \fBMpfrFloat\fP &cos)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBacos\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBasin\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBatan\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBatan2\fP (const \fBMpfrFloat\fP &, const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBhypot\fP (const \fBMpfrFloat\fP &, const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBcosh\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBsinh\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBtanh\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBacosh\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBasinh\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBatanh\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBsqrt\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBcbrt\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBroot\fP (const \fBMpfrFloat\fP &, unsigned long root)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBpow\fP (const \fBMpfrFloat\fP &, const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBpow\fP (const \fBMpfrFloat\fP &, long exponent)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBabs\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBdim\fP (const \fBMpfrFloat\fP &, const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBround\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBceil\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBfloor\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBtrunc\fP (const \fBMpfrFloat\fP &)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBparseString\fP (const char *str, char **endptr)"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBconst_pi\fP ()"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBconst_e\fP ()"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBconst_log2\fP ()"
+.br
+.ti -1c
+.RI "static \fBMpfrFloat\fP \fBsomeEpsilon\fP ()"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "\fBMpfrFloat\fP \fBoperator+\fP (double lhs, const \fBMpfrFloat\fP &rhs)"
+.br
+.ti -1c
+.RI "\fBMpfrFloat\fP \fBoperator\-\fP (double lhs, const \fBMpfrFloat\fP &rhs)"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Stoched from the source code\&.
