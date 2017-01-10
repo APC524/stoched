@@ -11,6 +11,8 @@
 
 #include "realization.h"
 
+using namespace std;
+
 /**
  *   @brief  Default constructor for Realization  
  *  
@@ -87,6 +89,9 @@ int Realization::simulate(std::ofstream& myfile){
   set_to_initial_state();
 
   while(done==0){
+    for(int k = 0; k < n_events; k++)
+      {if(rates[k] < 0.0){printf("%15.8f \n", rates[k]);}
+      }
     
     // take step according to method
     step();
@@ -108,13 +113,10 @@ int Realization::simulate(std::ofstream& myfile){
       done = 1;
     }
     else if(rates_are_zero()){
-      rate_stop = 1;
-      done = 1;
+          rate_stop = 1;
+          done = 1;
     }
-    else {}
-
   }
-
   return 0;
 }
 
@@ -143,10 +145,16 @@ int Realization::output_state(std::ofstream& myfile){
  *   @return bool
  */
 bool Realization::rates_are_zero(){
+  bool val = 1;
   for(int i = 0; i < n_events; i++){
+    if(rates[i] < 0.0) {
+      throw runtime_error("Negative rate. Rates must always "
+                          "be greater than or equal to zero");
+    };
+
     if(rates[i] > DBL_MIN){
-      return 0;
+      val = 0;
     };
   }
-  return 1;
+  return val;
 }

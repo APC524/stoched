@@ -5,8 +5,10 @@
  *  @version 1.0 
  *  
  *  @brief  Class EulerLeap implements Realization step() function 
- *          using Euler Leap method
- *  
+ *          using the basic tau leap approximate method of Gillepsie
+ *          (2001). The method is analogous to the deterministic forward 
+ *          Euler method the numerical solution of ordinary
+ *          differential equations.
  */
 
 #include "eulerleap.h"
