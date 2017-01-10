@@ -18,6 +18,8 @@
 #include <fstream>
 #include <iomanip>
 #include <float.h>
+#include <stdexcept>
+#include <iostream>
 
 #include "model.h"
 #include "paramset.h"

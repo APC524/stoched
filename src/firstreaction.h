@@ -4,8 +4,8 @@
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief   Inherit Realization class for first reaction instance
- *  
+ *  @brief   Class FirstReaction implements Realization step() function
+ *           using the exact First Reaction algorithm of Gillespie (1971)
  */
 
 #ifndef FIRSTREACTION_H_
@@ -13,8 +13,8 @@
 #include "realization.h"
 
 /**
- *  @brief Class FirstReaction takes first step() according to chosen algorithm 
- *
+ *  @brief Class FirstReaction implements Realization step() function
+ *           using the exact First Reaction algorithm of Gillespie (1971)
  */
 class FirstReaction : public Realization {
  public:

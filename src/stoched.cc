@@ -40,6 +40,7 @@ int validate_args(int argc, char *argv[]) {
 
 int main(int argc, char *argv[]) {
 
+
   // do argument validation
   validate_args(argc, argv);
   
@@ -65,17 +66,21 @@ int main(int argc, char *argv[]) {
 
   // default parameters
   int method = 0;
-  int n_vars = 2;
-  int n_events = 4;
-  double inits[2] = {0.0, 0.0};
-  double t_initial = 0;
-  double t_final = 5000;
-  double timestep_size = 0.5;
   int n_realizations = 1;
   double max_iter = 100000000;
+  double timestep_size = -1.0;
   int seed = 502;
   int suppress_output = 0;
 
+  int n_vars = model_ptr->getVarsCount();
+  int n_events = model_ptr->getEventsCount();
+
+  double t_initial, t_final;
+
+  /* create array to hold user-specified initial values
+     SOMEONE PLEASE IMPLEMENT THIS */
+  double inits[n_vars];
+  for(int k = 0; k < n_vars; k++){inits[k] = 0;};
 
   // Set non-default params from inputs 
   if(argc>2){
@@ -86,10 +91,6 @@ int main(int argc, char *argv[]) {
         if (string(argv[j]) == "method") {
           // We know the next argument *should* be the filename:
           method = atoi(argv[j + 1]);
-        } else if (string(argv[j]) == "n_vars") {
-          n_vars = atoi(argv[j + 1]);
-        } else if (string(argv[j]) == "n_events") {
-          n_events = atoi(argv[j + 1]);
         } else if (string(argv[j]) == "t_initial") {
           t_initial = atof(argv[j + 1]);
         } else if (string(argv[j]) == "t_final") {
@@ -114,7 +115,6 @@ int main(int argc, char *argv[]) {
   Paramset paramset(method, n_vars, inits, t_initial,
                     t_final, timestep_size, n_realizations,
                     max_iter, seed, suppress_output);
-
 
   // instantiate rng
   xoroshiro128plus* rng_ptr = new xoroshiro128plus(seed);

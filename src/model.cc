@@ -116,7 +116,7 @@ int Model::getVarsCount() {
 /**
  *   @brief  Return total number of Events
  *
- *   @return ith variable as string
+ *   @return int
  */
 int Model::getEventsCount() {
   return eventPtrList.size();

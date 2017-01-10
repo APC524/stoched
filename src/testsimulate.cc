@@ -29,7 +29,7 @@ int main() {
 
   string function2A = "a - 1";
   string function2B = "b + 0";
-  string rateFunction2 = "a / 3";
+  string rateFunction2 = "(a / 3)";
 
   string function3A = "a + 0";
   string function3B = "b + 1";
