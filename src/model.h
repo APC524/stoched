@@ -31,7 +31,7 @@ class Model {
  public:
 
   // Default constructor for Model
-  Model();
+  Model();        
 
   // Destructor of Model 
   ~Model();
@@ -51,7 +51,10 @@ class Model {
   // Evaluate rate function for a specified Event
   double getEventRate(int iEvent, double *stateArray);
 
+  // Returns total number of variables. 
   int getVarsCount();
+
+  // Returns the ith variable in the variable list
   string getIthVar(int index);
 
   // Update state array by evaluation all functions of a given Event

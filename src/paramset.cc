@@ -17,9 +17,8 @@
  * @brief Default constructor for Paramset
  *
  * @param method is an int that specifies algorithm to use for simulation
- * @param rate_params is a VectorXd that specifies parameters for rate function
- * @param event_params is a VectorXd that specifies parameters for event function
- * @param initial_values is a VectorXd that sets initial values for variables
+ * @param n_vars is an int that specifies number of variables 
+ * @param initial_values is a double array that sets initial values for variables
  * @param t_initial is a double that sets initial time for simulation
  * @param t_final is a double that sets initial time for simulation
  * @param timestep_size is a double representing the size of the timestep for approximate methods

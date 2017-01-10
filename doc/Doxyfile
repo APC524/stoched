@@ -850,9 +850,7 @@ FILE_PATTERNS          = *.c \
                          *.ucf \
                          *.qsf \
                          *.as \
-                         *.js \
-                         *.y \
-                         *.l
+                         *.js 
 
 # The RECURSIVE tag can be used to specify whether or not subdirectories should
 # be searched for input files as well.
@@ -868,6 +866,8 @@ RECURSIVE              = NO
 # run.
 
 EXCLUDE                = /Users/Caleb/APC524/stoched/src/parser.tab.h
+EXCLUDE               += /Users/Caleb/APC524/stoched/src/old_model.h
+EXCLUDE               += /Users/Caleb/APC524/stoched/src/old_model.cc
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded

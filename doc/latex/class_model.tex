@@ -13,79 +13,32 @@ Class \hyperlink{class_model}{Model}, which holds user-\/specified models of sto
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_model_ae3b375de5f6df4faf74a95d64748e048}{Model} ()
-\begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{class_model}{Model}. \end{DoxyCompactList}\item 
+\item 
 \hyperlink{class_model_ad6ebd2062a0b823db841a0b88baac4c0}{$\sim$\+Model} ()
-\begin{DoxyCompactList}\small\item\em Destructor of \hyperlink{class_model}{Model}. \end{DoxyCompactList}\item 
+\item 
 void \hyperlink{class_model_a4743b4f267eeb1a60e21cc2995e1efcd}{add\+Vars} (string vars)
-\begin{DoxyCompactList}\small\item\em Add variable list to a \hyperlink{class_model}{Model}. \end{DoxyCompactList}\item 
+\item 
 void \hyperlink{class_model_ab6f784e4ff8cdf3ee5e010ef4dd8d597}{add\+Event} (string function\+Rate)
-\begin{DoxyCompactList}\small\item\em Add \hyperlink{class_event}{Event} to \hyperlink{class_model}{Model}\textquotesingle{}s list of Events. \end{DoxyCompactList}\item 
+\item 
 void \hyperlink{class_model_a78d9b07bd5e819215c9aeefabb4cede7}{add\+Event\+Fct} (int i\+Event, string function)
 \begin{DoxyCompactList}\small\item\em Add \hyperlink{class_event}{Event} function to specified \hyperlink{class_event}{Event} in \hyperlink{class_model}{Model}. \end{DoxyCompactList}\item 
 double \hyperlink{class_model_a774d9fb034f8704a75d7b3568a87a3bc}{use\+Event\+Fct} (int i\+Event, int i\+Function, double $\ast$state\+Array)
 \begin{DoxyCompactList}\small\item\em Evaluate given function in specified \hyperlink{class_event}{Event}. \end{DoxyCompactList}\item 
 double \hyperlink{class_model_a2909caddddccca90faaae708e68226ad}{get\+Event\+Rate} (int i\+Event, double $\ast$state\+Array)
 \begin{DoxyCompactList}\small\item\em Evaluate rate function for a specified \hyperlink{class_event}{Event}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_model_ae8b56a284c355ff18421174d078dc870}\label{class_model_ae8b56a284c355ff18421174d078dc870}} 
-int {\bfseries get\+Vars\+Count} ()
-\item 
-\mbox{\Hypertarget{class_model_adcb9dcc2d1d58f18d595f1476fc77b3b}\label{class_model_adcb9dcc2d1d58f18d595f1476fc77b3b}} 
-string {\bfseries get\+Ith\+Var} (int index)
-\item 
+int \hyperlink{class_model_ae8b56a284c355ff18421174d078dc870}{get\+Vars\+Count} ()
+\begin{DoxyCompactList}\small\item\em Return total number of variables. \end{DoxyCompactList}\item 
+string \hyperlink{class_model_adcb9dcc2d1d58f18d595f1476fc77b3b}{get\+Ith\+Var} (int index)
+\begin{DoxyCompactList}\small\item\em Returns the ith variable in the variable list. \end{DoxyCompactList}\item 
 void \hyperlink{class_model_ad9e7a181a31a2a9fab052d11b1984afd}{update\+State} (int i\+Event, double $\ast$state\+Array)
 \begin{DoxyCompactList}\small\item\em Update state array by evaluating all functions of a given \hyperlink{class_event}{Event}. \end{DoxyCompactList}\item 
 void \hyperlink{class_model_a3f2fd71261c87162718864d7efc67f2f}{update\+Rates} (double $\ast$state\+Array, double $\ast$rate\+Array)
-\begin{DoxyCompactList}\small\item\em Update rate for all Events in \hyperlink{class_model}{Model}\textquotesingle{}s \hyperlink{class_event}{Event} list. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_model_ae05422514dfd69ef84acbf62e1da6314}\label{class_model_ae05422514dfd69ef84acbf62e1da6314}} 
-{\bfseries Model} (int n\+\_\+vars, int n\+\_\+events, Vector\+Xd($\ast$rate\+\_\+function)(double t, Vector\+Xd state\+\_\+array, Vector\+Xd rate\+\_\+params), Vector\+Xd($\ast$event\+\_\+function)(double t, Vector\+Xd state\+\_\+array, Vector\+Xd event\+\_\+params, int event\+\_\+choice))
-\item 
-\mbox{\Hypertarget{class_model_a4743b4f267eeb1a60e21cc2995e1efcd}\label{class_model_a4743b4f267eeb1a60e21cc2995e1efcd}} 
-void {\bfseries add\+Vars} (string vars)
-\item 
-\mbox{\Hypertarget{class_model_ab6f784e4ff8cdf3ee5e010ef4dd8d597}\label{class_model_ab6f784e4ff8cdf3ee5e010ef4dd8d597}} 
-void {\bfseries add\+Event} (string function\+Rate)
-\item 
-\mbox{\Hypertarget{class_model_a78d9b07bd5e819215c9aeefabb4cede7}\label{class_model_a78d9b07bd5e819215c9aeefabb4cede7}} 
-void {\bfseries add\+Event\+Fct} (int i\+Event, string function)
-\item 
-\mbox{\Hypertarget{class_model_a774d9fb034f8704a75d7b3568a87a3bc}\label{class_model_a774d9fb034f8704a75d7b3568a87a3bc}} 
-double {\bfseries use\+Event\+Fct} (int i\+Event, int i\+Function, double $\ast$state\+Array)
-\item 
-\mbox{\Hypertarget{class_model_a2909caddddccca90faaae708e68226ad}\label{class_model_a2909caddddccca90faaae708e68226ad}} 
-double {\bfseries get\+Event\+Rate} (int i\+Event, double $\ast$state\+Array)
-\item 
-\mbox{\Hypertarget{class_model_ae8b56a284c355ff18421174d078dc870}\label{class_model_ae8b56a284c355ff18421174d078dc870}} 
-int {\bfseries get\+Vars\+Count} ()
-\item 
-\mbox{\Hypertarget{class_model_adcb9dcc2d1d58f18d595f1476fc77b3b}\label{class_model_adcb9dcc2d1d58f18d595f1476fc77b3b}} 
-string {\bfseries get\+Ith\+Var} (int index)
-\item 
-\mbox{\Hypertarget{class_model_ad9e7a181a31a2a9fab052d11b1984afd}\label{class_model_ad9e7a181a31a2a9fab052d11b1984afd}} 
-void {\bfseries update\+State} (int i\+Event, double $\ast$state\+Array)
-\item 
-\mbox{\Hypertarget{class_model_a3f2fd71261c87162718864d7efc67f2f}\label{class_model_a3f2fd71261c87162718864d7efc67f2f}} 
-void {\bfseries update\+Rates} (double $\ast$state\+Array, double $\ast$rate\+Array)
-\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_model_a58a70f2aa016135d36cab7a3e4c9984b}\label{class_model_a58a70f2aa016135d36cab7a3e4c9984b}} 
-const int {\bfseries n\+\_\+vars}
-\item 
-\mbox{\Hypertarget{class_model_ac44cde8cfcdee99497cf0de5a6bf9485}\label{class_model_ac44cde8cfcdee99497cf0de5a6bf9485}} 
-const int {\bfseries n\+\_\+events}
-\item 
-\mbox{\Hypertarget{class_model_a9a5bd4589568179430178006dd7cf456}\label{class_model_a9a5bd4589568179430178006dd7cf456}} 
-Vector\+\_\+xf($\ast$ {\bfseries rate\+\_\+function} )(double t, Vector\+Xd state\+\_\+array, Vector\+Xd rate\+\_\+params)
-\item 
-\mbox{\Hypertarget{class_model_aa03b6ffb568662cb94607d87f4432b79}\label{class_model_aa03b6ffb568662cb94607d87f4432b79}} 
-Vector\+\_\+xf($\ast$ {\bfseries event\+\_\+function} )(double t, Vector\+Xd state\+\_\+array, Vector\+Xd event\+\_\+params, int event\+\_\+choice))
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Update rate for all Events in \hyperlink{class_model}{Model}\textquotesingle{}s \hyperlink{class_event}{Event} list. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_model_aa0b522b54981f6acb247f101addf0f0d}\label{class_model_aa0b522b54981f6acb247f101addf0f0d}} 
-vector$<$ \hyperlink{class_event}{Event} $\ast$ $>$ \hyperlink{class_model_aa0b522b54981f6acb247f101addf0f0d}{event\+Ptr\+List}
+\mbox{\Hypertarget{class_model_ab1a536085bce5b910dd354e396583db6}\label{class_model_ab1a536085bce5b910dd354e396583db6}} 
+vector$<$ \hyperlink{class_event}{Event} $\ast$ $>$ \hyperlink{class_model_ab1a536085bce5b910dd354e396583db6}{event\+Ptr\+List}
 \begin{DoxyCompactList}\small\item\em List of Events in \hyperlink{class_model}{Model}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_model_a713e115e1b8d997490d80d877ffb4740}\label{class_model_a713e115e1b8d997490d80d877ffb4740}} 
 string \hyperlink{class_model_a713e115e1b8d997490d80d877ffb4740}{vars\+\_\+}
@@ -102,9 +55,7 @@ Class \hyperlink{class_model}{Model}, which holds user-\/specified models of sto
 \subsubsection{\texorpdfstring{Model()}{Model()}}
 {\footnotesize\ttfamily Model\+::\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
-
-Default constructor for \hyperlink{class_model}{Model}. 
+Default constructor for \hyperlink{class_model}{Model}
 
 
 \begin{DoxyParams}{Parameters}
@@ -120,9 +71,7 @@ nothing
 \subsubsection{\texorpdfstring{$\sim$\+Model()}{~Model()}}
 {\footnotesize\ttfamily Model\+::$\sim$\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
-
-Destructor of \hyperlink{class_model}{Model}. 
+Destructor of \hyperlink{class_model}{Model}
 
 
 \begin{DoxyParams}{Parameters}
@@ -141,9 +90,7 @@ nothing
 \subsubsection{\texorpdfstring{add\+Event()}{addEvent()}}
 {\footnotesize\ttfamily void Model\+::add\+Event (\begin{DoxyParamCaption}\item[{string}]{function\+Rate }\end{DoxyParamCaption})}
 
-
-
-Add \hyperlink{class_event}{Event} to \hyperlink{class_model}{Model}\textquotesingle{}s list of Events. 
+Add \hyperlink{class_event}{Event} to \hyperlink{class_model}{Model}\textquotesingle{}s list of Events
 
 
 \begin{DoxyParams}{Parameters}
@@ -179,9 +126,7 @@ void
 \subsubsection{\texorpdfstring{add\+Vars()}{addVars()}}
 {\footnotesize\ttfamily void Model\+::add\+Vars (\begin{DoxyParamCaption}\item[{string}]{vars }\end{DoxyParamCaption})}
 
-
-
-Add variable list to a \hyperlink{class_model}{Model}. 
+Add variable list to a \hyperlink{class_model}{Model}
 
 
 \begin{DoxyParams}{Parameters}
@@ -210,6 +155,37 @@ Evaluate rate function for a specified \hyperlink{class_event}{Event}.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 evaluated rate function as a double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_adcb9dcc2d1d58f18d595f1476fc77b3b}\label{class_model_adcb9dcc2d1d58f18d595f1476fc77b3b}} 
+\index{Model@{Model}!get\+Ith\+Var@{get\+Ith\+Var}}
+\index{get\+Ith\+Var@{get\+Ith\+Var}!Model@{Model}}
+\subsubsection{\texorpdfstring{get\+Ith\+Var()}{getIthVar()}}
+{\footnotesize\ttfamily string Model\+::get\+Ith\+Var (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Returns the ith variable in the variable list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & is an int that indexes variable list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ith variable as string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_ae8b56a284c355ff18421174d078dc870}\label{class_model_ae8b56a284c355ff18421174d078dc870}} 
+\index{Model@{Model}!get\+Vars\+Count@{get\+Vars\+Count}}
+\index{get\+Vars\+Count@{get\+Vars\+Count}!Model@{Model}}
+\subsubsection{\texorpdfstring{get\+Vars\+Count()}{getVarsCount()}}
+{\footnotesize\ttfamily int Model\+::get\+Vars\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return total number of variables. 
+
+\begin{DoxyReturn}{Returns}
+int 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_model_a3f2fd71261c87162718864d7efc67f2f}\label{class_model_a3f2fd71261c87162718864d7efc67f2f}} 
 \index{Model@{Model}!update\+Rates@{update\+Rates}}
@@ -278,7 +254,4 @@ evaluated function as a double
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 /\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{model_8h}{model.\+h}\item 
-/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/old\+\_\+model.\+h\item 
-/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{parser_8y}{parser.\+y}\item 
-/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{model_8cc}{model.\+cc}\item 
-/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/old\+\_\+model.\+cc\end{DoxyCompactItemize}
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{model_8cc}{model.\+cc}\end{DoxyCompactItemize}
