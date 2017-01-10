@@ -1,20 +1,19 @@
 /** 
  *  @file    paramset.h
- *  @author  Dylan Morris (peckham@princeton.edu)
+ *  @author  Dylan Morris (dhmorris@princeton.edu)
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief APC 524, Final Project - Stoched 
+ *  @brief Class Paramset holds a particular set of pameters for 
+ *         user requested simulation run(s) 
  *
- *  @section DESCRIPTION
- *  
  */
 
 #ifndef PARAMSET_H_
 #define PARAMSET_H_
 
 /**  
- *  @brief Paramset is a class to hold a particular set of pameters for 
+ *  @brief Class Paramset holds a particular set of pameters for 
  *         user requested simulation run(s) 
  *
  */  

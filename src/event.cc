@@ -4,9 +4,8 @@
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief APC 524, Final Project - Stoched 
- *
- *  @section DESCRIPTION
+ *  @brief Class Event holds a user-specified event, namely set of 
+ *         functions and associated rate
  *  
  */
 
@@ -35,7 +34,6 @@ Event::Event() {
 /**
  *   @brief  Destructor of Event  
  *  
- *   @param  none
  *   @return nothing 
  */ 
 Event::~Event() {
@@ -98,7 +96,6 @@ void Event::setRate(string function, string variables) {
 /**
  *   @brief Return size of event, namely number of functions, to user  
  *
- *   @param  None
  *   @return size of event, namely number of functions, as an int
  */ 
 int Event::getSize() {

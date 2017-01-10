@@ -1,5 +1,27 @@
+/** 
+ *  @file    realization_factory.cc
+ *  @author  Dylan Morris (dhmorris@princeton.edu)
+ *  @date    12/6/16  
+ *  @version 1.0 
+ *  
+ *  @brief Class RealizationFactory generates required instance of Realization 
+ *         (FirstReaction, NextReaction, EulerLeap) based on input
+ *  
+ */
+
 #include "realization_factory.h"
 
+/**
+ *   @brief  Create new realization 
+ *   
+ *   @param  the_model is a Model object
+ *   @param  the_paramset is a Paramset object
+ *   @param  the_rng is a random number generator 
+ *   @param  n_vars is an int specifying variable count
+ *   @param  n_events is an int specifying event count
+ *
+ *   @return nothing 
+ */ 
 Realization* RealizationFactory::NewRealization(Model *the_model,
 						const Paramset & the_paramset,
 						rng *the_rng,

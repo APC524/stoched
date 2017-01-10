@@ -23,26 +23,24 @@
 
 using namespace std;
 
-/*!
+/**
  *   Default constructor for Model  
  *  
- *   @param  none   
  *   @return nothing 
  */ 
 
 Model:: Model() {
 }
 
-/*!
+/**
  *   Destructor of Model  
  *  
- *   @param  none
  *   @return nothing 
  */ 
 Model:: ~Model() {
 }
 
-/*!
+/**
  *   Add variable list to a Model
  *  
  *   @param  vars is a string used to set variables associate with a Model

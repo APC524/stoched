@@ -67,7 +67,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Class <a class="el" href="class_model.html" title="Class Model, which holds user-specified models of stochastic systems from which realizations are to b...">Model</a>, which holds user-specified models of stochastic systems from which realizations are to be simulated. A model may have variable parameters; each complete set will be stored in an object of class <a class="el" href="class_paramset.html" title="Paramset is a class to hold a particular set of pameters for user requested simulation run(s) ...">Paramset</a>.  
+<p>Class <a class="el" href="class_model.html" title="Class Model, which holds user-specified models of stochastic systems from which realizations are to b...">Model</a>, which holds user-specified models of stochastic systems from which realizations are to be simulated. A model may have variable parameters; each complete set will be stored in an object of class <a class="el" href="class_paramset.html" title="Class Paramset holds a particular set of pameters for user requested simulation run(s) ...">Paramset</a>.  
  <a href="class_model.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="model_8h_source.html">model.h</a>&gt;</code></p>
@@ -94,6 +94,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae8b56a284c355ff18421174d078dc870"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ae8b56a284c355ff18421174d078dc870">getVarsCount</a> ()</td></tr>
 <tr class="memdesc:ae8b56a284c355ff18421174d078dc870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return total number of variables.  <a href="#ae8b56a284c355ff18421174d078dc870">More...</a><br /></td></tr>
 <tr class="separator:ae8b56a284c355ff18421174d078dc870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc48dad5a02caa940aaffee7e8377682"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#adc48dad5a02caa940aaffee7e8377682">getEventsCount</a> ()</td></tr>
+<tr class="memdesc:adc48dad5a02caa940aaffee7e8377682"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return total number of Events.  <a href="#adc48dad5a02caa940aaffee7e8377682">More...</a><br /></td></tr>
+<tr class="separator:adc48dad5a02caa940aaffee7e8377682"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcb9dcc2d1d58f18d595f1476fc77b3b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#adcb9dcc2d1d58f18d595f1476fc77b3b">getIthVar</a> (int index)</td></tr>
 <tr class="memdesc:adcb9dcc2d1d58f18d595f1476fc77b3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the ith variable in the variable list.  <a href="#adcb9dcc2d1d58f18d595f1476fc77b3b">More...</a><br /></td></tr>
 <tr class="separator:adcb9dcc2d1d58f18d595f1476fc77b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,7 +119,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:a713e115e1b8d997490d80d877ffb4740"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class <a class="el" href="class_model.html" title="Class Model, which holds user-specified models of stochastic systems from which realizations are to b...">Model</a>, which holds user-specified models of stochastic systems from which realizations are to be simulated. A model may have variable parameters; each complete set will be stored in an object of class <a class="el" href="class_paramset.html" title="Paramset is a class to hold a particular set of pameters for user requested simulation run(s) ...">Paramset</a>. </p>
+<div class="textblock"><p>Class <a class="el" href="class_model.html" title="Class Model, which holds user-specified models of stochastic systems from which realizations are to b...">Model</a>, which holds user-specified models of stochastic systems from which realizations are to be simulated. A model may have variable parameters; each complete set will be stored in an object of class <a class="el" href="class_paramset.html" title="Class Paramset holds a particular set of pameters for user requested simulation run(s) ...">Paramset</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae3b375de5f6df4faf74a95d64748e048"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae3b375de5f6df4faf74a95d64748e048">&#9670;&nbsp;</a></span>Model()</h2>
@@ -133,12 +136,6 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
       </table>
 </div><div class="memdoc">
 <p>Default constructor for <a class="el" href="class_model.html" title="Class Model, which holds user-specified models of stochastic systems from which realizations are to b...">Model</a></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>nothing </dd></dl>
 
 </div>
@@ -158,12 +155,6 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
       </table>
 </div><div class="memdoc">
 <p>Destructor of <a class="el" href="class_model.html" title="Class Model, which holds user-specified models of stochastic systems from which realizations are to b...">Model</a></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>nothing </dd></dl>
 
 </div>
@@ -294,6 +285,26 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>evaluated rate function as a double </dd></dl>
+
+</div>
+</div>
+<a id="adc48dad5a02caa940aaffee7e8377682"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc48dad5a02caa940aaffee7e8377682">&#9670;&nbsp;</a></span>getEventsCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Model::getEventsCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return total number of Events. </p>
+<dl class="section return"><dt>Returns</dt><dd>ith variable as string </dd></dl>
 
 </div>
 </div>

@@ -1,3 +1,15 @@
+/** 
+ *  @file    xoroshiro128plus.h
+ *  @author  Dylan Morris (dhmorris@princeton.edu)
+ *  @date    12/6/16  
+ *  @version 1.0 
+ *  
+ *  @brief Class xoroshorio128plus implements a random number 
+ *         generator of Class rng
+ *  
+ */
+
+
 #ifndef XOROSHIRO128_H_
 #define XOROSHIRO128_H_
 #include <stdint.h>
@@ -24,9 +36,17 @@
    a 64-bit seed, we suggest to seed a splitmix64 generator and use its
    output to fill s. */
 
+/**
+ *  @brief Class xoroshiro128plus implements a random number 
+ *         generator of Class rng
+ *  
+ */
 class xoroshiro128plus : public rng {
  public:
+  /// Default constructor 
   xoroshiro128plus(int seed);
+
+  // Destructor
   ~xoroshiro128plus();
   
   // get a new random int64

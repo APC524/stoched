@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['yy_5fbs_5fcolumn',['yy_bs_column',['../structyy__buffer__state.html#a10c4fcd8be759e6bf11e6d3e8cdb0307',1,'yy_buffer_state']]],
-  ['yy_5fbs_5flineno',['yy_bs_lineno',['../structyy__buffer__state.html#a818e94bc9c766e683c60df1e9fd01199',1,'yy_buffer_state']]]
+  ['waiting_5ftimes',['waiting_times',['../class_first_reaction.html#adef190a1cb589cc8317b469f94cd6ad4',1,'FirstReaction::waiting_times()'],['../class_next_reaction.html#a8a7d82a004db70828dd732bf57cf35b6',1,'NextReaction::waiting_times()']]]
 ];
