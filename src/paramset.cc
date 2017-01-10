@@ -33,7 +33,8 @@ Paramset::Paramset(int method,
                    double timestep_size,
                    int n_realizations,
                    int max_iter,
-                   int seed) :
+                   int seed, 
+                   int suppress_output) :
   
   method(method),                 // which algorithm to use for simulation
   n_vars(n_vars),                 // number of variables 
@@ -43,7 +44,8 @@ Paramset::Paramset(int method,
   timestep_size(timestep_size),   // size of timestep for approximate methods
   n_realizations(n_realizations), // number of realizations to simulate
   max_iter(max_iter),             // max number of iterations to simulate
-  seed(seed)                      // seed for the random number generator
+  seed(seed),                      // seed for the random number generator
+  suppress_output(suppress_output) // allows user to only output final state values
 {};
 
 /**

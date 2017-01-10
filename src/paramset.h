@@ -30,7 +30,8 @@ class Paramset {
            double timestep_size,
            int n_realizations,
            int max_iter,
-           int seed);
+           int seed,
+           int suppress_output);
 
   // Destructor of Paramset
   ~Paramset();
@@ -46,6 +47,7 @@ class Paramset {
                                  // for this parameter set
   int max_iter;                  ///< max number of iterations to simulate
   int seed;                      ///< seed for the random number generator
+  int suppress_output;           ///< allows user to only print final state value
 
 };
 

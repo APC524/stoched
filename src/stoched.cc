@@ -74,6 +74,7 @@ int main(int argc, char *argv[]) {
   int n_realizations = 1;
   double max_iter = 100000000;
   int seed = 502;
+  int suppress_output = 0;
 
 
   // Set non-default params from inputs 
@@ -103,6 +104,8 @@ int main(int argc, char *argv[]) {
           seed = atoi(argv[j + 1]);
         } else if (string(argv[j]) == "out_path") {
           out_path = string(argv[j + 1]);
+        } else if (string(argv[j]) == "suppress_print") {
+          suppress_output = atoi(argv[j + 1]);
         }
     }
   }
@@ -110,7 +113,7 @@ int main(int argc, char *argv[]) {
   // Fix method parameters 
   Paramset paramset(method, n_vars, inits, t_initial,
                     t_final, timestep_size, n_realizations,
-                    max_iter, seed);
+                    max_iter, seed, suppress_output);
 
 
   // instantiate rng
@@ -162,7 +165,7 @@ int main(int argc, char *argv[]) {
   }
   high_resolution_clock::time_point t2 = high_resolution_clock::now();
   auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
-  printf("Test ran in %15.8f seconds \n", duration_first * 1.0e-6);
+  printf("Code ran in %15.8f seconds \n", duration_first * 1.0e-6);
 
   return 0;
 }
