@@ -27,13 +27,11 @@ int parseFile(Model& model);
 // wrapper for argument validation
 int validate_args(int argc, char *argv[]) {
   // do very basic argument validation for now
-  if (argc < 3) {
+  if (argc < 2) {
     printf("\nExpected at least 2 arguments, got %i \n\n"
-           "USAGE: %s <model file> <parameter file>\n\n"
+           "USAGE: %s <model file> \n\n"
            "<model file>: Path to a file "
-           "specifying a stoched model\n"
-           "<parameter file>: Path to a file "
-           "giving parameters for the model realization\n\n",
+           "specifying a stoched model\n\n",
            argc - 1, argv[0]);
     exit(1);
   }
@@ -47,7 +45,6 @@ int main(int argc, char *argv[]) {
   
   // coerce arg variables to usable types 
   string model_path = argv[1];
-  //string param_path = argv[2];
 
   // allow user-specified output path, or default
   string out_path = "stoched_output";
@@ -77,12 +74,11 @@ int main(int argc, char *argv[]) {
   int n_realizations = 1;
   double max_iter = 100000000;
   int seed = 502;
-  int nthreads = -1;
 
 
   // Set non-default params from inputs 
-  if(argc>3){
-    for(int j = 3; j < argc; j++){
+  if(argc>2){
+    for(int j = 2; j < argc; j++){
 
         // CONVERT TYPES 
 
@@ -105,8 +101,6 @@ int main(int argc, char *argv[]) {
           max_iter = atof(argv[j + 1]);
         } else if (string(argv[j]) == "seed") {
           seed = atoi(argv[j + 1]);
-        } else if (string(argv[j]) == "nthreads") {
-          nthreads = atoi(argv[j + 1]);
         }
     }
   }
