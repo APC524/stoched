@@ -4,7 +4,9 @@
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief   Inherit Realization class for next reaction instance
+ *  @brief   Class nextreaction implements Realization step() function
+ *           using the exact Next Reaction algorithm of Gibson & Bruck
+ *           (2000)
  *  
  */
 
@@ -14,8 +16,9 @@
 #include <float.h>
 
 /**
- *  @brief Class FirstReaction takes next step() according to chosen algorithm 
- *
+ *  @brief Class NextReaction implements Realization step() function
+ *           using the exact Next Reaction algorithm of Gibson & Bruck
+ *           (2000) 
  */
 class NextReaction : public Realization {
  public:
