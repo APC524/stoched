@@ -76,9 +76,9 @@ int main(int argc, char *argv[]) {
 
   double t_initial = 0;
   double t_final = 5000;
-  double timestep_size = 0.5;
   int n_realizations = 1;
   double max_iter = 100000000;
+  double timestep_size = -2341.9382;
   int seed = 502;
   int suppress_output = 0;
 
