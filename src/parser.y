@@ -60,9 +60,9 @@
 %%
 // %% demarcates the beginning of the recursive parsing rules
 parser:
-{  cout << "set eventCnt = 0" << endl; 
+{  // cout << "set eventCnt = 0" << endl; 
    eventCnt = 0; 
-   cout << "set eqnCnt = 0" << endl;
+   // cout << "set eqnCnt = 0" << endl;
    eqnCnt = 0; 
 }
 vars_line event_lines footer {
@@ -71,7 +71,7 @@ vars_line event_lines footer {
 ;
 vars_line:
 SETUP_VARS QSTRING ENDLS {
-  cout << "Beginning of input file\nvariables: " << $2 << endl;
+  cout << "Variables: " << $2 << endl;
   cModel.addVars($2);
 }
 ;
@@ -81,40 +81,38 @@ event_lines event_line
 ;
 event_line:
 EVENT RATE QSTRING
-{ cout << "Found a new event\n";
-  cout << "setting rateStr = " << $3 << endl;cModel.addEvent($3);
+{ cout << "Adding new event. eventCnt = " << eventCnt << endl;
+  cout << "Setting rate = " << $3 << endl;
+  cModel.addEvent($3);
 } equations_list {
-  cout << "increment eventCnt" << endl;
+  //cout << "increment eventCnt" << endl;
   eventCnt++;
-  cout << "new val of eventCnt = " << eventCnt << endl;
+  //cout << "new val of eventCnt = " << eventCnt << endl;
   eqnCnt = 0;
-  cout << "reset eqnCnt to " << eqnCnt << endl;
+  //cout << "reset eqnCnt to " << eqnCnt << endl;
   } ENDLS {
-    cout << " end of event" << endl;
+    cout << "End of event" << endl;
     }
 ;
 equations_list:
 equations_list QSTRING 
-{ cout << "Adding new equation: " << $2; 
+{ cout << "Adding new equation: " << $2 << " "; 
   cout << "eqnCnt = " << eqnCnt<< endl;
   cModel.addEventFct(eventCnt, $2);
   // check if this new equation is compatible with tau leaping
   if (!tauLeapAvail(cModel, cModel.getVarsString(), $2, eqnCnt)){
     cModel.setTauLeapFalse();
-    cout << "tau leap is not available!!!" << endl;
-    cout << cModel.checkTauLeapAvail() << endl;
-  }
-  else {
-    cout << "tau leap was available!!!" << endl;
   }
   eqnCnt++;
 }
 | QSTRING 
-{ cout << "Adding new equation: " << $1; 
+{ cout << "Adding new equation: " << $1 << " "; 
   cout << "eqnCnt = " << eqnCnt<< endl;
   cModel.addEventFct(eventCnt, $1); 
   // check if this new equation is compatible with tau leaping
-  // ... should call the same function as above
+  if (!tauLeapAvail(cModel, cModel.getVarsString(), $1, eqnCnt)){
+    cModel.setTauLeapFalse();
+  }
   eqnCnt++;
 }
 ;
@@ -141,7 +139,7 @@ int parseFile(Model& cModel, string inputfile) {
 
   // parse through the input until there is no more:
   do {
-    cout << "about to run yyparse" << endl;
+    cout << "Begin parsing file named: " << inputfile << endl;
     int eventCnt = 0;
     int eqnCnt = 0;
     yyparse(cModel, eventCnt, eqnCnt);

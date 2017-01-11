@@ -8,13 +8,15 @@ using namespace std;
 bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
 		  int eqnCnt){
   
-  cout << "Beginning of tauLeapAvail. Comparing " << varListStr
-       << " with " << functionStr << endl;
-  // extract the name of variable in varListStr that corresponds to eqnCnt
+  // cout << "Beginning of tauLeapAvail. Comparing " << varListStr
+  // << " with " << functionStr << endl;
+
+  // finding the beginning and end of the variable name in varListStr
+  // that corresponds to eqnCnt
   int begVarName = 0;
-  for (int commaCnt = 0; commaCnt == eqnCnt; begVarName++){
+  for (int commaCnt = 0; commaCnt != eqnCnt; begVarName++){
     if (begVarName == varListStr.length()){
-      cout << "the # of functns > # of equations so cant tau leap" << endl;
+      cout << "\tthe # of functns > # of equations so cant tau leap" << endl;
       return false;
     }
     if (varListStr[begVarName] == ','){
@@ -22,66 +24,44 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
     }
   }
   int endVarName = begVarName;
-  for (; varListStr[endVarName] == ',' || varListStr[endVarName] == '\0';
+  for (; !(varListStr[endVarName] == ',' || varListStr[endVarName] == '\0');
        endVarName++){
     if (endVarName == varListStr.length()){
-      cout << "the # of functns > # of equations so cant tau leap" << endl;
+      cout << "\tthe # of functns > # of equations so cant tau leap" << endl;
       return false;
     }
   }
-  // now I have two ints that demarcate beg and end of var, possibly containing
-  //whitespace on either side.
-  //... do something with these like copy into a sub string?
-  /*
-  // varListStrsubstr = varListStr.substr(end,beg);
-  // a,b,c
-  // cmp ,b, with beginning of Qstring, ignore whitespace in both.
-  // when reach second comma, assert + or - or throw error.
-  // probably need to be more cautious about lengths
-  int ivs = 0; // counter for the 
-  int i...;
-  std::string functionStr = $1.copy();
-  // need to create varNameList from varString
-  //...
-  std::string varNameEqn;
-  */
+
   if (isdigit(functionStr[0])){ // assume the case of double +/- var
-    //handle this;
     int i = 1;
-    for (; !(isdigit(functionStr[i]) || functionStr[i] == '.'); i++){
-      if (i == functionStr.length()){
-	cout << "tau leaping not available, function is a constant" << endl;
-	return false;
-      }
+    for (; (isdigit(functionStr[i]) || functionStr[i] == '.'); i++){
+      ;
     }
     // ignore white space
     if (isspace(functionStr[i])){
-      for (; !(isspace(functionStr[i])); i++){
-	if (i == functionStr.length()){
-	  cout << "tau leaping not available, function is a constant" << endl;
-	  return false;
-	}
+      for (; isspace(functionStr[i]); i++){
+	;
       }
     }
     // expect + or -
     if (i == functionStr.length()){
-      cout << "tau leaping not available, function is a constant" << endl;
-      return false;
+      cout << "\ttau leaping is available, function is a constant" << endl;
+      return true;
     }
     if (!(functionStr[i] == '+' || functionStr[i] == '-')){
-      cout << "tau leaping not available, function is a constant" << endl;
+      cout << "\ttau leaping not available. was expecting +/-" << endl;
       return false;
     }
     i++;
     if (i == functionStr.length()){
-      cerr << "invalid function, should not end with +/-" << endl;
+      cerr << "ERROR: invalid function, should not end with +/-" << endl;
       exit(1);
     }
     // ignore white space
     if (isspace(functionStr[i])){
-      for (; !(isspace(functionStr[i])); i++){
+      for (; isspace(functionStr[i]); i++){
 	if (i == functionStr.length()){
-	  cerr << "invalid function, should not end with +/-" << endl;
+	  cerr << "ERROR: invalid function, should not end with +/-" << endl;
 	  exit(1);
 	}
       }
@@ -91,42 +71,106 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
     for (; functionStr[i] != '\0'; i++){
       if (i == functionStr.length() ||
 	  i - begFuncVarName + begVarName >= endVarName){
-	cout << "Tau leaping not available: name mismatch";
+	cout << "\tTau leaping not available: name mismatch" << endl;
 	return false;
       }
-      if (functionStr[i - begFuncVarName] != varListStr[i-begVarName]){
-	cout << "Tau leaping not available since does function variable name"
-	  "does not match variable name in the variable list" << endl;
+      // cout << "funcStrChar = " << functionStr[i]
+      // << " varListChar = "
+      // << varListStr[i - begFuncVarName + begVarName] << endl;
+      if (functionStr[i] != varListStr[i - begFuncVarName + begVarName]){
+	cout << "\tTau leaping not available since function variable\n"
+	  "\tname does not match variable name in the variable list" << endl;
 	return false;
       }
     }
-    return true;
-  }
-  else {
-    //handle other case !!!!!!!!!
-    cout << "this case is not implemented yet" << endl;
-    return false; // this is temporary
-  }
-    /*    varNameEqn = functionStr(i);
-    if (varNameList.compare(varNameEqn)){
-      // mark as TAU_LEAP_AVAIL = true;
-      //...
+    // verify that the end of the varList varaible name was reached
+    if (!(varListStr[i - begFuncVarName + begVarName] == ','
+	  || varListStr[i - begFuncVarName + begVarName] == '\0')){
+      cout << "\tTau leaping not available since function variable\n"
+	"\tname is shorter than variable name in the variable list" << endl;
+      return false;
     }
   }
-  else { // assume case of var +/- double
-    // handle this;
-    // invloves stepping through and verifying +/- and double.
-    // if it is violated, break
-    // mark as TAU_LEAP_AVAIL = true;
+  else { // handle the case that the equation begins with nondigit
+    int i = 0;
+    if (!isalpha(functionStr[i])){
+      cout << "\ttau leap is not available. equation begins with\n"
+	   << "\tcharacter that is not 0-9, a-z, or A-Z" << endl;
+      return false;
+    }
+    // compare the variable to the name in the varListStr
+    int begFuncVarName = i;
+    for (; isalpha(functionStr[i]) || isdigit(functionStr[i]); i++){
+      if (i == functionStr.length() ||
+	  i - begFuncVarName + begVarName >= endVarName){
+	cout << "\tTau leaping not available: name mismatch" << endl;
+	return false;
+      }
+      // cout << "\tfuncStrChar = " << functionStr[i]
+      // << " varListChar = "
+      // << varListStr[i - begFuncVarName + begVarName] << endl;
+      if (functionStr[i] != varListStr[i - begFuncVarName + begVarName]){
+	cout << "\tTau leaping not available since function variable\n"
+	  "\tname does not match variable name in the variable list" << endl;
+	return false;
+      }
+    }
+    // verify that the end of the varList varaible name was reached
+    if (!(varListStr[i - begFuncVarName + begVarName] == ','
+	  || varListStr[i - begFuncVarName + begVarName] == '\0')){
+      cout << "\tTau leaping not available since function variable\n"
+	"\tname is shorter than variable name in the variable list" << endl;
+      return false;
+    }
+
+    // the variable names match, but verify that the rest of the
+    // function string is compatible with tau leaping
+
+    // ignore white space
+    if (isspace(functionStr[i])){
+      for (; isspace(functionStr[i]); i++){
+	;
+      }
+    }
+    // expect + or -
+    if (i == functionStr.length()){
+      cout << "\ttau leaping is available, function is constant" << endl;
+      return true;
+    }
+    if (!(functionStr[i] == '+' || functionStr[i] == '-')){
+      cout << "\ttau leaping not available. was expecting +/-" << endl;
+      return false;
+    }
+    i++;
+    if (i == functionStr.length()){
+      cerr << "ERROR: invalid function. should not end with +/-" << endl;
+      exit(1);
+    }
+    // ignore white space
+    if (isspace(functionStr[i])){
+      for (; isspace(functionStr[i]); i++){
+	;
+      }
+    }
+    if (i == functionStr.length()){
+      cerr << "ERROR: invalid function. should not end with +/-" << endl;
+      exit(1);
+    }
+    if (!(isdigit(functionStr[i]) || functionStr[i] == '.')){
+      cout << "\ttau leaping not available. was expecting a double" << endl;
+      return false;
+    }
+    // expect a double
+    for (; (isdigit(functionStr[i]) || functionStr[i] == '.'); i++){
+      ;
+    }
+    // expect a \0 character
+    if (functionStr[i] != '\0'){
+      cout << "\ttau leaping not available. was expecting end of function"
+	   << endl;
+      return false;
+    }
   }
-  
-  int token1Len = 0;
-  for (; QSTRING[token1Len] == '\s' || QSTRING[token1Len] == '\t'; token1Len++){
-  }
-  
-  cout << "The euler compatible var begins at position " << i << endl;
-  // find end of var (next , or \0) and put it in a string.
-  // string cmp beginning of it with the t
-  // ...
-  */
+  cout << "\ttau leap is available" << endl;
+  return true;
 }
