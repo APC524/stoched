@@ -4,7 +4,7 @@ Authors                         {#authors}
 
 ###Caleb Peckham 
 
-
+Caleb is a senior undergraduate student in the MAE Department.
 
 ###Dylan Morris
 
@@ -12,7 +12,7 @@ Authors                         {#authors}
 
 ###Kevin Griffin
 
-
+Kevin is a senior undergraduate student in the MAE Department. He wrote the parser which uses Flex, Bison, and FunctionParser libraries.
 
 ###Julienne LaChance
 
