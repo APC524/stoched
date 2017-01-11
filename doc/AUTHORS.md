@@ -2,7 +2,7 @@ Authors                         {#authors}
 ============
 
 
-#Caleb Peckham 
+###Caleb Peckham 
 
 Caleb is a senior undergraduate student in the MAE Department.
 
