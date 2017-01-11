@@ -4,9 +4,9 @@
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief APC 524, Final Project - Stoched 
- *
- *  @section DESCRIPTION
+ *  @brief Class Model, which holds user-specified models 
+ *  of stochastic systems from which realizations are to
+ *  be simulated.
  *  
  */
 
