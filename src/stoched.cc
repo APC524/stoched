@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
   int method = 0;
   int n_realizations = 1;
   double max_iter = 100000000;
-  double timestep_size = -1.0;
+  double timestep_size = -2341.9382;
   int seed = 502;
   int nthreads = -1;
 

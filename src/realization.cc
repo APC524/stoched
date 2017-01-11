@@ -89,10 +89,7 @@ int Realization::simulate(std::ofstream& myfile){
   set_to_initial_state();
 
   while(done==0){
-    for(int k = 0; k < n_events; k++)
-      {if(rates[k] < 0.0){printf("%15.8f \n", rates[k]);}
-      }
-    
+
     // take step according to method
     step();
 

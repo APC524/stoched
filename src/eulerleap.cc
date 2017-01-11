@@ -36,6 +36,11 @@ EulerLeap::EulerLeap(Model *the_model, const Paramset & the_paramset,
       };
   */
   if(the_paramset.timestep_size < 0){
+    if(the_paramset.timestep_size == -2341.9382){
+      throw runtime_error("No timestep size specified. "
+                          "Tau leap methods require a "
+                          "timestep size");
+    }
     throw runtime_error("Invalid timestep size: timestep size must "
                         "be positive");
       };
