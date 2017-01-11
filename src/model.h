@@ -45,10 +45,19 @@ class Model {
   // Add Event function to specified Event in Model
   void addEventFct(int iEvent, string function);
 
+  // Indicate tau leaping is inpermissible
+  void setTauLeapFalse();
+
+  // Check if events are compatible with tau leaping
+  bool checkTauLeapAvail();
+
   // Evaluate given function in specified Event
   double useEventFct(int iEvent, int iFunction, double *stateArray);
 
-  // Evaluate rate function for a specified Event
+  // Get the variable list
+  string getVarsString();
+
+  // Evaluate rate function for specified Event
   double getEventRate(int iEvent, double *stateArray);
 
   // Returns total number of variables. 
@@ -69,7 +78,7 @@ class Model {
 private:
   vector<Event*> eventPtrList; ///< List of Events in Model
   string vars_;                ///< Variables associated with a model
-
+  bool tauLeapAvail_;
 };
 
 #endif
