@@ -5,18 +5,25 @@
  *  @version 1.0 
  *  
  *  @brief  Class EulerLeap implements Realization step() function 
- *          using Euler Leap method
+ *          using the basic tau leap approximate algorithm of Gillepsie
+ *          (2001). The method is analogous to the deterministic forward 
+ *          Euler method the numerical solution of ordinary
+ *          differential equations.
  *  
  */
 
 #ifndef EULERLEAP_H_
 #define EULERLEAP_H_
-#include "realization.h"
 #include <stdexcept>  
+
+#include "realization.h"
 
 /**  
  *  @brief Class EulerLeap implements Realization step() function 
- *         using Euler Leap method
+ *          using the basic tau leap approximate algorithm of Gillepsie
+ *          (2001). The method is analogous to the deterministic forward 
+ *          Euler method the numerical solution of ordinary
+ *          differential equations.
  */  
 class EulerLeap : public Realization {
  public:

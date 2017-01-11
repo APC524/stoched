@@ -5,8 +5,10 @@
  *  @version 1.0 
  *  
  *  @brief  Class EulerLeap implements Realization step() function 
- *          using Euler Leap method
- *  
+ *          using the basic tau leap approximate method of Gillepsie
+ *          (2001). The method is analogous to the deterministic forward 
+ *          Euler method the numerical solution of ordinary
+ *          differential equations.
  */
 
 #include "eulerleap.h"
@@ -34,6 +36,11 @@ EulerLeap::EulerLeap(Model *the_model, const Paramset & the_paramset,
       };
   */
   if(the_paramset.timestep_size < 0){
+    if(the_paramset.timestep_size == -2341.9382){
+      throw runtime_error("No timestep size specified. "
+                          "Tau leap methods require a "
+                          "timestep size");
+    }
     throw runtime_error("Invalid timestep size: timestep size must "
                         "be positive");
       };

@@ -88,9 +88,9 @@ ENDLS ENDL
 
 %%
 
-int parseFile(Model& cModel) {
+int parseFile(Model& cModel, string inputfile) {
   // set the input file
-  string inputfile = "example.parser.in";
+  //string inputfile = "example.parser.in";
   FILE *myfile = fopen(inputfile.c_str(), "r");
   // check that the file is valid
   if (!myfile) {

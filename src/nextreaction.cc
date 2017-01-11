@@ -4,7 +4,9 @@
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief   Inherit Realization class for next reaction instance
+ *  @brief   Class NextReaction implements Realization step() function
+ *           using the exact Next Reaction algorithm of Gibson & Bruck
+ *           (2000)
  *  
  */
 

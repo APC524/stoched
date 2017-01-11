@@ -4,14 +4,15 @@
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief   Inherit Realization class for first reaction instance
+ *  @brief   Class FirstReaction implements Realization step() function
+ *           using the exact First Reaction algorithm of Gillespie (1971)
  *  
  */
 
 #include "firstreaction.h"
 
 /**
- *   @brief  Default constructor for NextReaction
+ *   @brief  Default constructor for FirstReaction
  *  
  *   @param  the_model is a Model object
  *   @param  the_paramset is a Paramset object

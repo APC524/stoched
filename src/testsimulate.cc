@@ -38,7 +38,7 @@ int main() {
 
   string function2A = "a - 1";
   string function2B = "b + 0";
-  string rateFunction2 = "a / 3";
+  string rateFunction2 = "(a / 3)";
 
   string function3A = "a + 0";
   string function3B = "b + 1";
@@ -81,9 +81,10 @@ int main() {
   double n_realizations = 1;
   double max_iter = 100000000;
   int seed = 502;
+  int suppress_output = 0;
   Paramset paramset(method, n_vars, inits, t_initial,
                     t_final, timestep_size, n_realizations,
-                    max_iter, seed);
+                    max_iter, seed, suppress_output);
 
   xoroshiro128plus* rng_ptr = new xoroshiro128plus(seed);
 

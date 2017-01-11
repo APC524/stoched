@@ -11,6 +11,8 @@
 
 #include "realization.h"
 
+using namespace std;
+
 /**
  *   @brief  Default constructor for Realization  
  *  
@@ -77,6 +79,7 @@ int Realization::simulate(std::ofstream& myfile){
   double t_initial = the_paramset.t_initial;
   double t_final = the_paramset.t_final;
   int max_iter = the_paramset.max_iter;
+  int suppress_output = the_paramset.suppress_output;
   
   bool time_stop = 0;
   bool max_iter_stop = 0;
@@ -87,12 +90,13 @@ int Realization::simulate(std::ofstream& myfile){
   set_to_initial_state();
 
   while(done==0){
-    
+
     // take step according to method
     step();
 
     // output state of the simuation
-    output_state(myfile);
+    if(suppress_output==0)
+      output_state(myfile);
     
     // increment iteration count
     iter_count++;
@@ -108,12 +112,13 @@ int Realization::simulate(std::ofstream& myfile){
       done = 1;
     }
     else if(rates_are_zero()){
-      rate_stop = 1;
-      done = 1;
+          rate_stop = 1;
+          done = 1;
     }
-    else {}
-
   }
+
+  if(suppress_output==1)
+    output_state(myfile);
 
   return 0;
 }
@@ -143,10 +148,16 @@ int Realization::output_state(std::ofstream& myfile){
  *   @return bool
  */
 bool Realization::rates_are_zero(){
+  bool val = 1;
   for(int i = 0; i < n_events; i++){
+    if(rates[i] < 0.0) {
+      throw runtime_error("Negative rate. Rates must always "
+                          "be greater than or equal to zero");
+    };
+
     if(rates[i] > DBL_MIN){
-      return 0;
+      val = 0;
     };
   }
-  return 1;
+  return val;
 }

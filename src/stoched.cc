@@ -4,11 +4,7 @@
 #include <fstream>
 #include <iomanip>
 #include <chrono>
-
-#if defined(_OPENMP)
-   #include <omp.h> 
-#endif
-
+#include <vector>
 #include "event.h"
 #include "model.h"
 #include "paramset.h"
@@ -21,7 +17,7 @@
 using namespace std::chrono;
 
 //declare the parser method written by flex and bison
-int parseFile(Model& model);
+int parseFile(Model& model, string inputfilename);
 
 /* eventually parseFile will take a std::string
    argument giving the path to the model file
@@ -32,13 +28,12 @@ int parseFile(Model& model);
 // wrapper for argument validation
 int validate_args(int argc, char *argv[]) {
   // do very basic argument validation for now
-  if (argc < 3) {
-    printf("\nExpected at least 2 arguments, got %i \n\n"
-           "USAGE: %s <model file> <parameter file>\n\n"
+  // note: argc = # of agrs + 1 because name of program is counted
+  if (argc < 2) { // require 2 or more args
+    fprintf(stderr, "\nExpected at least 2 arguments, got %i \n\n"
+           "USAGE: %s <model file> \n\n"
            "<model file>: Path to a file "
-           "specifying a stoched model\n"
-           "<parameter file>: Path to a file "
-           "giving parameters for the model realization\n\n",
+           "specifying a stoched model\n\n",
            argc - 1, argv[0]);
     exit(1);
   }
@@ -52,7 +47,6 @@ int main(int argc, char *argv[]) {
   
   // coerce arg variables to usable types 
   string model_path = argv[1];
-  //string param_path = argv[2];
 
   // allow user-specified output path, or default
   string out_path = "stoched_output";
@@ -63,9 +57,10 @@ int main(int argc, char *argv[]) {
   model_ptr = & model;
 
   // populate model from parser
-  int res = parseFile(model);
+  int res = parseFile(model, model_path);
   if (res != 0) {
-    fprintf(stderr, "Error: Parser returned %d", res);
+    fprintf(stderr, "Error: Parser returned %d\n", res);
+    exit(1);
   }
 
   // test that the Model was initialized by the parser properly
@@ -73,25 +68,24 @@ int main(int argc, char *argv[]) {
 
   // default parameters
   int method = 0;
-  double inits[2] = {0.0, 0.0};
+  int n_vars = 2;
+  int n_events = 4;
+
+  vector<double> inits_v;
+  int init_count = 0;
+
   double t_initial = 0;
   double t_final = 5000;
-  double timestep_size = 0.5;
   int n_realizations = 1;
   double max_iter = 100000000;
+  double timestep_size = -2341.9382;
   int seed = 502;
-
-  /* save fixed number of variables, events
-     from the now-assembled model */
-  int n_vars = model_ptr->getVarsCount();
-  int n_events = model_ptr->getEventsCount();
-
-  int nthreads = -1;
+  int suppress_output = 0;
 
 
   // Set non-default params from inputs 
-  if(argc>3){
-    for(int j = 3; j < argc; j++){
+  if(argc>2){
+    for(int j = 2; j < argc; j++){
 
         // CONVERT TYPES 
 
@@ -114,31 +108,43 @@ int main(int argc, char *argv[]) {
           max_iter = atof(argv[j + 1]);
         } else if (string(argv[j]) == "seed") {
           seed = atoi(argv[j + 1]);
-        } else if (string(argv[j]) == "nthreads") {
-          nthreads = atoi(argv[j + 1]);
+        } else if (string(argv[j]) == "out_path") {
+          out_path = string(argv[j + 1]);
+        } else if (string(argv[j]) == "suppress_print") {
+          suppress_output = atoi(argv[j + 1]);
+        } else if (string(argv[j]) == "init_file") {
+          string init_path = string(argv[j + 1]);
+          // Optional init values file: 
+          ifstream myfile (init_path);
+          init_count = 0;
+          for (double a; myfile >> a;) {
+            inits_v.push_back(a);
+            init_count++;
+          }
+
         }
     }
   }
 
-  // Fix method parameters
+  if(init_count==0)
+    init_count=2;
+
+  double inits[init_count];
+  if(inits_v.empty()){
+    inits[0] = 0.0;
+    inits[1] = 0.0;
+  }
+  else{
+    for(int i = 0; i < init_count; i++){
+      inits[i] = inits_v[i];
+    }
+  }
+
+  // Fix method parameters 
   Paramset paramset(method, n_vars, inits, t_initial,
                     t_final, timestep_size, n_realizations,
-                    max_iter, seed);
+                    max_iter, seed, suppress_output);
 
-  #if defined(_OPENMP)
-  // Set up OMP environment/variables 
-  omp_set_dynamic(0);     // Explicitly disable dynamic teams
-  int max_threads = omp_get_max_threads();
-
-  if(nthreads>max_threads){
-    printf("Test failed: only %d threads available \n", max_threads);
-    return -1;
-  }
-  if(nthreads==-1){
-    nthreads = max_threads;
-  }
-  omp_set_num_threads(nthreads);
-  #endif
 
   // instantiate rng
   xoroshiro128plus* rng_ptr = new xoroshiro128plus(seed);
@@ -150,12 +156,8 @@ int main(int argc, char *argv[]) {
   high_resolution_clock::time_point t1 = high_resolution_clock::now();
 
   // Loop over instantiations of realizations for same model: 
-  int i=0;
-  #if defined(_OPENMP)
-  #pragma omp parallel for private(i)
-  #endif
 
-  for(i = 0; i < n_realizations; i++){
+  for(int i = 0; i < n_realizations; i++){
     // Open file
     ofstream myfile;
     string write_out_path = out_path + "_realization_" + to_string(i+1) + ".txt";
@@ -193,10 +195,7 @@ int main(int argc, char *argv[]) {
   }
   high_resolution_clock::time_point t2 = high_resolution_clock::now();
   auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
-  #if defined(_OPENMP)
-  printf("Test ran with %d threads \n", nthreads);
-  #endif
-  printf("Test ran in %15.8f seconds \n", duration_first * 1.0e-6);
+  printf("Code ran in %15.8f seconds \n", duration_first * 1.0e-6);
 
   return 0;
 }
