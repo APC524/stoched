@@ -4,9 +4,9 @@
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief APC 524, Final Project - Stoched 
- *
- *  @section DESCRIPTION
+ *  @brief Class Model, which holds user-specified models 
+ *  of stochastic systems from which realizations are to
+ *  be simulated.
  *  
  */
 
@@ -30,6 +30,7 @@ using namespace std;
  */ 
 
 Model:: Model() {
+  tauLeapAvail_ = true;
 }
 
 /**
@@ -74,6 +75,24 @@ void Model::addEventFct(int iEvent, string function) {
 }
 
 /**
+ *   @brief  Indicate tau leaping is inpermissible by setting the tauLeapAvail_ flag to false
+ *  
+ *   @return void
+ */
+void Model::setTauLeapFalse() {
+  tauLeapAvail_ = false;
+}
+
+/**
+ *   @brief  Check if events are compatible with tau leaping
+ *
+ *   @return the status of if tau leaping is available as a boolean
+ */
+bool Model::checkTauLeapAvail() {
+  return tauLeapAvail_;
+}
+
+/**
  *   @brief  Evaluate given function in specified Event
  *  
  *   @param  iEvent is an int that indexes Event list
@@ -84,6 +103,14 @@ void Model::addEventFct(int iEvent, string function) {
 double Model::useEventFct(int iEvent, int iFunction, double *stateArray) {
   return eventPtrList[iEvent]->useFunction(iFunction, stateArray);
 
+}
+
+/**
+ *   @brief  Get a list of the variables that make up the state array
+ *   @return comma separated list of variable names as a string
+ */
+string Model::getVarsString(){
+  return vars_;
 }
 
 /**

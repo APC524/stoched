@@ -3,12 +3,13 @@
 # 11/29/16, APC 524, Final Project
 # Makefile
 # -----------------------------------------------------------------------------
-CXX = g++-6
+CXX = g++
 MPICXX = mpicc
 CXXFLAGS = -g -Wall -lm -O3 
-OMPCXXFLAGS = -g -Wall -lm -O3 -fopenmp
+OMPCXXFLAGS = -g -Wall -lm -O3 # -fopenmp
 RM = rm -f
-OBJECTS = fparser/fparser.o event.o model.o lex.yy.o parser.tab.o
+
+OBJECTS = fparser/fparser.o event.o model.o lex.yy.o parser.tab.o tauleapavail.o
 
 BASIC_CLASSES = model.o event.o realization.o paramset.o realization_factory.o
 REALIZATIONS = nextreaction.o firstreaction.o eulerleap.o

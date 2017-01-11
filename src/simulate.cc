@@ -1,15 +1,11 @@
 /**
  *  @file    simulate.cc
- *  @author  Dylan Morris (peckham@princeton.edu)
+ *  @author  Dylan Morris (dhmorris@princeton.edu)
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief APC 524, Final Project - Stoched
- *
- *  @section DESCRIPTION
- *  
+ *  @brief Example definition for ending simulation loop
  */
-
 
 
 #include <stdio.h>

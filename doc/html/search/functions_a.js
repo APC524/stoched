@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['rates_5fare_5fzero',['rates_are_zero',['../class_realization.html#a48953442ebf235cd1e02731c7419f65f',1,'Realization']]],
-  ['realization',['Realization',['../class_realization.html#af4cfb6f2221bef9ba5ad09564796677f',1,'Realization']]],
-  ['rexp',['rexp',['../classrng.html#a3adfbfb3faf9b7fa948813f5920cd5dc',1,'rng']]],
-  ['rotl',['rotl',['../classxoroshiro128plus.html#ac80afbdcbf2c512310c4aebe42f936f0',1,'xoroshiro128plus']]],
-  ['rpois',['rpois',['../classrng.html#a9c16bdeae3be90e8bd30eb284a4b2980',1,'rng']]],
-  ['runif',['runif',['../classrng.html#a3f0fec3ad9a286726825fddbf78aada8',1,'rng::runif()'],['../classxoroshiro128plus.html#a5054e4de9c05fdab89ab41dbfe05a424',1,'xoroshiro128plus::runif()']]]
+  ['paramset',['Paramset',['../class_paramset.html#a8d94d19a0afff74b1d37b0d2bcac4bc5',1,'Paramset']]],
+  ['parsefile',['parseFile',['../testparser_8cc.html#a337e369a428dc304642d5bddb95bd4c1',1,'testparser.cc']]],
+  ['poisson_5fknuth',['poisson_knuth',['../classrng.html#a1fd45ffcc5dc65bdf23311f97fd0630c',1,'rng']]],
+  ['poisson_5fptrs',['poisson_ptrs',['../classrng.html#aefbbe59c0bb810de0337855e77b36747',1,'rng']]]
 ];

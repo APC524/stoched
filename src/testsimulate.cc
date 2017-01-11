@@ -1,4 +1,13 @@
-// testevent.cc
+/**
+ *  @file    testsimulate.cc
+ *  @author  Kevin Griffin (kevinpg@princeton.edu)
+ *  @date    12/6/16  
+ *  @version 1.0 
+ *  
+ *  @brief Example simulation code
+ *
+ */
+
 #include <iostream>
 #include <string>
 #include <stdio.h>

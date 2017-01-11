@@ -6,6 +6,7 @@
  *
  *  @brief Based upon public domain xorshift implementations by David Blackman 
  *   and Sebastiano Vigna (vigna@acm.org) 
+ *
  */
 
 #ifndef RNG_H_
