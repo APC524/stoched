@@ -66,10 +66,12 @@ int main(int argc, char *argv[]) {
   // test that the Model was initialized by the parser properly
   // TO BE IMPLEMENTED 
 
+  // these are dynamic, not defaults
+  int n_vars = model->getVarsCount();
+  int n_events = model->getEventsCount();
+  
   // default parameters
   int method = 0;
-  int n_vars = 2;
-  int n_events = 4;
 
   vector<double> inits_v;
   int init_count = 0;
@@ -126,13 +128,20 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  if(init_count==0)
-    init_count=2;
+  if(init_count != n_vars){
+    throw runtime_error("Number of initial values must "
+                        "equal number of variables");
+  }
 
   double inits[init_count];
+  
   if(inits_v.empty()){
-    inits[0] = 0.0;
-    inits[1] = 0.0;
+    fprintf(stderr,
+            "Warning: no initial values specified. Initializing "
+            "all variables as equal to zero \n");
+    for(int i = 0; i < init_count; i++){
+      inits[i] = 0.0;
+    }
   }
   else{
     for(int i = 0; i < init_count; i++){
