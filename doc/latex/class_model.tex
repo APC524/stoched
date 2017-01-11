@@ -22,8 +22,14 @@ void \hyperlink{class_model_ab6f784e4ff8cdf3ee5e010ef4dd8d597}{add\+Event} (stri
 \item 
 void \hyperlink{class_model_a78d9b07bd5e819215c9aeefabb4cede7}{add\+Event\+Fct} (int i\+Event, string function)
 \begin{DoxyCompactList}\small\item\em Add \hyperlink{class_event}{Event} function to specified \hyperlink{class_event}{Event} in \hyperlink{class_model}{Model}. \end{DoxyCompactList}\item 
+void \hyperlink{class_model_a371ba260fc741531a08a197ea7446758}{set\+Tau\+Leap\+False} ()
+\begin{DoxyCompactList}\small\item\em Indicate tau leaping is inpermissible by setting the tau\+Leap\+Avail\+\_\+ flag to false. \end{DoxyCompactList}\item 
+bool \hyperlink{class_model_aeba8f871483d714448a0bbf509ab21e7}{check\+Tau\+Leap\+Avail} ()
+\begin{DoxyCompactList}\small\item\em Check if events are compatible with tau leaping. \end{DoxyCompactList}\item 
 double \hyperlink{class_model_a774d9fb034f8704a75d7b3568a87a3bc}{use\+Event\+Fct} (int i\+Event, int i\+Function, double $\ast$state\+Array)
 \begin{DoxyCompactList}\small\item\em Evaluate given function in specified \hyperlink{class_event}{Event}. \end{DoxyCompactList}\item 
+string \hyperlink{class_model_a9ee802e2090b51ae403d39f6ec0138d8}{get\+Vars\+String} ()
+\begin{DoxyCompactList}\small\item\em Get a list of the variables that make up the state array. \end{DoxyCompactList}\item 
 double \hyperlink{class_model_a2909caddddccca90faaae708e68226ad}{get\+Event\+Rate} (int i\+Event, double $\ast$state\+Array)
 \begin{DoxyCompactList}\small\item\em Evaluate rate function for a specified \hyperlink{class_event}{Event}. \end{DoxyCompactList}\item 
 int \hyperlink{class_model_ae8b56a284c355ff18421174d078dc870}{get\+Vars\+Count} ()
@@ -44,7 +50,10 @@ vector$<$ \hyperlink{class_event}{Event} $\ast$ $>$ \hyperlink{class_model_ab1a5
 \begin{DoxyCompactList}\small\item\em List of Events in \hyperlink{class_model}{Model}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_model_a713e115e1b8d997490d80d877ffb4740}\label{class_model_a713e115e1b8d997490d80d877ffb4740}} 
 string \hyperlink{class_model_a713e115e1b8d997490d80d877ffb4740}{vars\+\_\+}
-\begin{DoxyCompactList}\small\item\em Variables associated with a model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Variables associated with a model. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_model_ad1c8e8467a77fc52e4e6a4fb416111f5}\label{class_model_ad1c8e8467a77fc52e4e6a4fb416111f5}} 
+bool {\bfseries tau\+Leap\+Avail\+\_\+}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -128,6 +137,19 @@ Add variable list to a \hyperlink{class_model}{Model}
 \begin{DoxyReturn}{Returns}
 void 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_model_aeba8f871483d714448a0bbf509ab21e7}\label{class_model_aeba8f871483d714448a0bbf509ab21e7}} 
+\index{Model@{Model}!check\+Tau\+Leap\+Avail@{check\+Tau\+Leap\+Avail}}
+\index{check\+Tau\+Leap\+Avail@{check\+Tau\+Leap\+Avail}!Model@{Model}}
+\subsubsection{\texorpdfstring{check\+Tau\+Leap\+Avail()}{checkTauLeapAvail()}}
+{\footnotesize\ttfamily bool Model\+::check\+Tau\+Leap\+Avail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if events are compatible with tau leaping. 
+
+\begin{DoxyReturn}{Returns}
+the status of if tau leaping is available as a boolean 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_model_a2909caddddccca90faaae708e68226ad}\label{class_model_a2909caddddccca90faaae708e68226ad}} 
 \index{Model@{Model}!get\+Event\+Rate@{get\+Event\+Rate}}
 \index{get\+Event\+Rate@{get\+Event\+Rate}!Model@{Model}}
@@ -191,6 +213,32 @@ Return total number of variables.
 
 \begin{DoxyReturn}{Returns}
 int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_a9ee802e2090b51ae403d39f6ec0138d8}\label{class_model_a9ee802e2090b51ae403d39f6ec0138d8}} 
+\index{Model@{Model}!get\+Vars\+String@{get\+Vars\+String}}
+\index{get\+Vars\+String@{get\+Vars\+String}!Model@{Model}}
+\subsubsection{\texorpdfstring{get\+Vars\+String()}{getVarsString()}}
+{\footnotesize\ttfamily string Model\+::get\+Vars\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get a list of the variables that make up the state array. 
+
+\begin{DoxyReturn}{Returns}
+comma separated list of variable names as a string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_a371ba260fc741531a08a197ea7446758}\label{class_model_a371ba260fc741531a08a197ea7446758}} 
+\index{Model@{Model}!set\+Tau\+Leap\+False@{set\+Tau\+Leap\+False}}
+\index{set\+Tau\+Leap\+False@{set\+Tau\+Leap\+False}!Model@{Model}}
+\subsubsection{\texorpdfstring{set\+Tau\+Leap\+False()}{setTauLeapFalse()}}
+{\footnotesize\ttfamily void Model\+::set\+Tau\+Leap\+False (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Indicate tau leaping is inpermissible by setting the tau\+Leap\+Avail\+\_\+ flag to false. 
+
+\begin{DoxyReturn}{Returns}
+void 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_model_a3f2fd71261c87162718864d7efc67f2f}\label{class_model_a3f2fd71261c87162718864d7efc67f2f}} 
 \index{Model@{Model}!update\+Rates@{update\+Rates}}

@@ -1,14 +1,15 @@
 var searchData=
 [
-  ['t_5ffinal',['t_final',['../class_paramset.html#ac88cde461d8dbbd8a7d2636fc45f7119',1,'Paramset']]],
-  ['t_5finitial',['t_initial',['../class_paramset.html#a7d82a76c08567e5072aa1b125708c7d8',1,'Paramset']]],
-  ['testevent_2ecc',['testevent.cc',['../testevent_8cc.html',1,'']]],
-  ['testmodel_2ecc',['testmodel.cc',['../testmodel_8cc.html',1,'']]],
-  ['testparser_2ecc',['testparser.cc',['../testparser_8cc.html',1,'']]],
-  ['testsimulate_2ecc',['testsimulate.cc',['../testsimulate_8cc.html',1,'']]],
-  ['the_5fmodel',['the_model',['../class_realization.html#a47ec1d062b8caee874b08c1a17d6aeeb',1,'Realization']]],
-  ['the_5fparamset',['the_paramset',['../class_realization.html#a119bb29de88929bc51bc1b329473a94b',1,'Realization']]],
-  ['the_5frng',['the_rng',['../class_realization.html#ac8d358d929afae90cf5790675b6744f9',1,'Realization']]],
-  ['timestep_5fsize',['timestep_size',['../class_paramset.html#a0554913cf803a67bc59ffdee154abc24',1,'Paramset']]],
-  ['to_5fdouble',['to_double',['../rng_8h.html#a73a289eba67aceb5189b2cb970cb20a1',1,'to_double(uint64_t x):&#160;xoroshiro128plus.cc'],['../xoroshiro128plus_8cc.html#a73a289eba67aceb5189b2cb970cb20a1',1,'to_double(uint64_t x):&#160;xoroshiro128plus.cc']]]
+  ['stoched',['Stoched',['../index.html',1,'']]],
+  ['seed',['seed',['../class_paramset.html#ab8a5866bb87cc2d78a69c47bacaeb06e',1,'Paramset']]],
+  ['set_5fto_5finitial_5fstate',['set_to_initial_state',['../class_euler_leap.html#a1a13929ea1ebf40e7357439968828f4b',1,'EulerLeap::set_to_initial_state()'],['../class_next_reaction.html#a0cc63c4ec9fe3f338472fff302f6d746',1,'NextReaction::set_to_initial_state()'],['../class_realization.html#a391a89af7574a9053f53f8a299c2cc70',1,'Realization::set_to_initial_state()']]],
+  ['setrate',['setRate',['../class_event.html#a993a01984496bc158be92b67422f8655',1,'Event']]],
+  ['settauleapfalse',['setTauLeapFalse',['../class_model.html#a371ba260fc741531a08a197ea7446758',1,'Model']]],
+  ['simulate',['simulate',['../class_realization.html#a4e21bc7355e33c17d1401736b3c62413',1,'Realization']]],
+  ['simulate_2ecc',['simulate.cc',['../simulate_8cc.html',1,'']]],
+  ['splitmix64',['splitmix64',['../classxoroshiro128plus.html#aee8ea766a36b82e20c5fdc2c5184a41c',1,'xoroshiro128plus']]],
+  ['state_5farray',['state_array',['../class_realization.html#a126f89978f0407873473222171333ee1',1,'Realization']]],
+  ['state_5ftime',['state_time',['../class_realization.html#a7c4def45c4833072317517b71e723793',1,'Realization']]],
+  ['step',['step',['../class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d',1,'EulerLeap::step()'],['../class_first_reaction.html#aed63c3c95d20b2ad557dabb6c5376a73',1,'FirstReaction::step()'],['../class_next_reaction.html#a2c1502879c76efe398c2947056936725',1,'NextReaction::step()'],['../class_realization.html#a9949217117927b149850288f3b74c9ef',1,'Realization::step()']]],
+  ['suppress_5foutput',['suppress_output',['../class_paramset.html#a43e8f2987712248fa2139946af93c072',1,'Paramset']]]
 ];

@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['to_5fdouble',['to_double',['../rng_8h.html#a73a289eba67aceb5189b2cb970cb20a1',1,'to_double(uint64_t x):&#160;xoroshiro128plus.cc'],['../xoroshiro128plus_8cc.html#a73a289eba67aceb5189b2cb970cb20a1',1,'to_double(uint64_t x):&#160;xoroshiro128plus.cc']]]
+  ['set_5fto_5finitial_5fstate',['set_to_initial_state',['../class_euler_leap.html#a1a13929ea1ebf40e7357439968828f4b',1,'EulerLeap::set_to_initial_state()'],['../class_next_reaction.html#a0cc63c4ec9fe3f338472fff302f6d746',1,'NextReaction::set_to_initial_state()'],['../class_realization.html#a391a89af7574a9053f53f8a299c2cc70',1,'Realization::set_to_initial_state()']]],
+  ['setrate',['setRate',['../class_event.html#a993a01984496bc158be92b67422f8655',1,'Event']]],
+  ['settauleapfalse',['setTauLeapFalse',['../class_model.html#a371ba260fc741531a08a197ea7446758',1,'Model']]],
+  ['simulate',['simulate',['../class_realization.html#a4e21bc7355e33c17d1401736b3c62413',1,'Realization']]],
+  ['splitmix64',['splitmix64',['../classxoroshiro128plus.html#aee8ea766a36b82e20c5fdc2c5184a41c',1,'xoroshiro128plus']]],
+  ['step',['step',['../class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d',1,'EulerLeap::step()'],['../class_first_reaction.html#aed63c3c95d20b2ad557dabb6c5376a73',1,'FirstReaction::step()'],['../class_next_reaction.html#a2c1502879c76efe398c2947056936725',1,'NextReaction::step()'],['../class_realization.html#a9949217117927b149850288f3b74c9ef',1,'Realization::step()']]]
 ];
