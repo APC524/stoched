@@ -26,16 +26,16 @@ int parseFile(Model& model, string inputfilename);
    a path to an input file of parameters */
 
 // wrapper for argument validation
-int validate_args(int argc, char *argv[]) {
+bool args_invalid(int argc, char *argv[]) {
   // do very basic argument validation for now
   // note: argc = # of agrs + 1 because name of program is counted
   if (argc < 2) { // require 2 or more args
-    fprintf(stderr, "\nExpected at least 2 arguments, got %i \n\n"
-           "USAGE: %s <model file> \n\n"
+    fprintf(stderr, "\nExpected at least 1 argument, got %i \n\n"
+           "USAGE: %s <model file>\n"
            "<model file>: Path to a file "
            "specifying a stoched model\n\n",
            argc - 1, argv[0]);
-    exit(1);
+    return 1;
   }
   return 0;
 }
@@ -43,7 +43,7 @@ int validate_args(int argc, char *argv[]) {
 int main(int argc, char *argv[]) {
 
   // do argument validation
-  validate_args(argc, argv);
+  if(args_invalid(argc, argv)) {return 1;};
   
   // coerce arg variables to usable types 
   string model_path = argv[1];
@@ -128,9 +128,15 @@ int main(int argc, char *argv[]) {
     }
   }
 
+  try{
   if((init_count != n_vars) && (init_count != 0)){
     throw runtime_error("Number of initial values must "
                         "equal number of variables");
+  }
+  }
+  catch (const runtime_error& e) {
+    cout << "\nERROR: " << e.what() << "\n";
+    return 1;
   }
 
   double inits[init_count];
