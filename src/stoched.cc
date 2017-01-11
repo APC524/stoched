@@ -29,7 +29,7 @@ int parseFile(Model& model, string inputfilename);
 int validate_args(int argc, char *argv[]) {
   // do very basic argument validation for now
   // note: argc = # of agrs + 1 because name of program is counted
-  if (argc <= 2) { // require 2 or more args
+  if (argc < 2) { // require 2 or more args
     fprintf(stderr, "\nExpected at least 2 arguments, got %i \n\n"
            "USAGE: %s <model file> \n\n"
            "<model file>: Path to a file "
