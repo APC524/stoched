@@ -79,6 +79,7 @@ int Realization::simulate(std::ofstream& myfile){
   double t_initial = the_paramset.t_initial;
   double t_final = the_paramset.t_final;
   int max_iter = the_paramset.max_iter;
+  int suppress_output = the_paramset.suppress_output;
   
   bool time_stop = 0;
   bool max_iter_stop = 0;
@@ -94,7 +95,8 @@ int Realization::simulate(std::ofstream& myfile){
     step();
 
     // output state of the simuation
-    output_state(myfile);
+    if(suppress_output==0)
+      output_state(myfile);
     
     // increment iteration count
     iter_count++;
@@ -114,6 +116,10 @@ int Realization::simulate(std::ofstream& myfile){
           done = 1;
     }
   }
+
+  if(suppress_output==1)
+    output_state(myfile);
+
   return 0;
 }
 

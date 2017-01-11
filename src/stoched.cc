@@ -27,13 +27,11 @@ int parseFile(Model& model);
 // wrapper for argument validation
 int validate_args(int argc, char *argv[]) {
   // do very basic argument validation for now
-  if (argc < 3) {
+  if (argc < 2) {
     printf("\nExpected at least 2 arguments, got %i \n\n"
-           "USAGE: %s <model file> <parameter file>\n\n"
+           "USAGE: %s <model file> \n\n"
            "<model file>: Path to a file "
-           "specifying a stoched model\n"
-           "<parameter file>: Path to a file "
-           "giving parameters for the model realization\n\n",
+           "specifying a stoched model\n\n",
            argc - 1, argv[0]);
     exit(1);
   }
@@ -48,7 +46,6 @@ int main(int argc, char *argv[]) {
   
   // coerce arg variables to usable types 
   string model_path = argv[1];
-  //string param_path = argv[2];
 
   // allow user-specified output path, or default
   string out_path = "stoched_output";
@@ -73,7 +70,7 @@ int main(int argc, char *argv[]) {
   double max_iter = 100000000;
   double timestep_size = -2341.9382;
   int seed = 502;
-  int nthreads = -1;
+  int suppress_output = 0;
 
   int n_vars = model_ptr->getVarsCount();
   int n_events = model_ptr->getEventsCount();
@@ -86,8 +83,8 @@ int main(int argc, char *argv[]) {
   for(int k = 0; k < n_vars; k++){inits[k] = 0;};
 
   // Set non-default params from inputs 
-  if(argc>3){
-    for(int j = 3; j < argc; j++){
+  if(argc>2){
+    for(int j = 2; j < argc; j++){
 
         // CONVERT TYPES 
 
@@ -106,8 +103,10 @@ int main(int argc, char *argv[]) {
           max_iter = atof(argv[j + 1]);
         } else if (string(argv[j]) == "seed") {
           seed = atoi(argv[j + 1]);
-        } else if (string(argv[j]) == "nthreads") {
-          nthreads = atoi(argv[j + 1]);
+        } else if (string(argv[j]) == "out_path") {
+          out_path = string(argv[j + 1]);
+        } else if (string(argv[j]) == "suppress_print") {
+          suppress_output = atoi(argv[j + 1]);
         }
     }
   }
@@ -115,7 +114,7 @@ int main(int argc, char *argv[]) {
   // Fix method parameters 
   Paramset paramset(method, n_vars, inits, t_initial,
                     t_final, timestep_size, n_realizations,
-                    max_iter, seed);
+                    max_iter, seed, suppress_output);
 
   // instantiate rng
   xoroshiro128plus* rng_ptr = new xoroshiro128plus(seed);
@@ -166,7 +165,7 @@ int main(int argc, char *argv[]) {
   }
   high_resolution_clock::time_point t2 = high_resolution_clock::now();
   auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
-  printf("Test ran in %15.8f seconds \n", duration_first * 1.0e-6);
+  printf("Code ran in %15.8f seconds \n", duration_first * 1.0e-6);
 
   return 0;
 }
