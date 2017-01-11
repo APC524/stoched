@@ -6,7 +6,6 @@
 CXX = g++
 MPICXX = mpicc
 CXXFLAGS = -g -Wall -lm -O3 
-OMPCXXFLAGS = -g -Wall -lm -O3 # -fopenmp
 RM = rm -f
 
 OBJECTS = fparser/fparser.o event.o model.o lex.yy.o parser.tab.o tauleapavail.o
@@ -21,25 +20,25 @@ all: stoched.exe testparser.exe testevent.exe testmodel.exe testsimulate.exe
 
 
 simulate.exe: simulate.o
-	$(CXX) $(OMPCXXFLAGS) -o $@ $^ -I $(CXXFLAGS)
+	$(CXX) $(CXXFLAGS) -o $@ $^ -I $(CXXFLAGS)
 
 testparser.exe: testparser.o $(OBJECTS)
-	$(CXX) $(OMPCXXFLAGS) $^ -ll -o $@
+	$(CXX) $(CXXFLAGS) $^ -ll -o $@
 
 testevent.exe: event.o testevent.o fparser/fparser.o
-	$(CXX) $(OMPCXXFLAGS) $^ -o $@  
+	$(CXX) $(CXXFLAGS) $^ -o $@  
 
 testmodel.exe: model.o event.o testmodel.o fparser/fparser.o
-	$(CXX) $(OMPCXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 testmodel: model.o event.o testmodel.o fparser/fparser.o
-	$(CXX) $(OMPCXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 testsimulate.exe: testsimulate.o $(CLASSES) fparser/fparser.o
-	$(CXX) $(OMPCXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 stoched.exe: stoched.o $(OBJECTS) $(CLASSES)
-	$(CXX) $(OMPCXXFLAGS) $^ -ll -o $@
+	$(CXX) $(CXXFLAGS) $^ -ll -o $@
 
 stoched_serial.exe: stoched.o $(OBJECTS) $(CLASSES)
 	$(CXX) $(CXXFLAGS) $^ -ll -o $@

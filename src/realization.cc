@@ -150,6 +150,9 @@ int Realization::output_state(std::ofstream& myfile){
 bool Realization::rates_are_zero(){
   bool val = 1;
   for(int i = 0; i < n_events; i++){
+    if (abs(rates[i]) < 1e-14){
+      rates[i] = 0.0;
+    }
     if(rates[i] < 0.0) {
       throw runtime_error("Negative rate. Rates must always "
                           "be greater than or equal to zero");
