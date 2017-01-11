@@ -9,11 +9,15 @@
 
   // global varibales that flex defines
   extern "C" int yylex();
-  extern "C" int yyparse(Model& cModel, int eventCnt);
+  extern "C" int yyparse(Model& cModel, int eventCnt, int eqnCnt);
   extern "C" FILE *yyin;
   extern int linecount;
  
-  void yyerror(Model& cModel, int eventCnt, const char *s); // declare the error function
+  // declare error function
+  void yyerror(Model& cModel, int eventCnt, int eqnCnt, const char *s);
+  // declare a function to check if tau leaping is available
+  bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
+		  int eqnCnt);
   %}
 // flex returns a token as a yystype. Bison will store this in a union
 // containing the different data types.
@@ -39,11 +43,17 @@
  // input argument(s) to the parser function
 %parse-param {Model& cModel}
 %parse-param {int eventCnt}
+%parse-param {int eqnCnt}
 
 %%
 // %% demarcates the beginning of the recursive parsing rules
 parser:
-{cout << "set eventCnt = 0" <<endl; eventCnt = 0; }vars_line event_lines footer {
+{  cout << "set eventCnt = 0" << endl; 
+   eventCnt = 0; 
+   cout << "set eqnCnt = 0" << endl;
+   eqnCnt = 0; 
+}
+vars_line event_lines footer {
   cout << "done with a parser file!" << endl;
 }
 ;
@@ -58,14 +68,40 @@ event_lines event_line
 | event_line
 ;
 event_line:
-EVENT RATE QSTRING { cout << "initialize event\n";
-  cout << "rateStr =" << $3 << endl;cModel.addEvent($3); } equations_list {cout << "increment eventCnt" << endl; eventCnt++; cout << "new val of eventCnt = " << eventCnt << endl;} ENDLS {  // 
-  cout << " end of event" << endl;
-}
+EVENT RATE QSTRING
+{ cout << "Found a new event\n";
+  cout << "setting rateStr = " << $3 << endl;cModel.addEvent($3);
+} equations_list {
+  cout << "increment eventCnt" << endl;
+  eventCnt++;
+  cout << "new val of eventCnt = " << eventCnt << endl;
+  eqnCnt = 0;
+  cout << "reset eqnCnt to " << eqnCnt << endl;
+  } ENDLS {
+    cout << " end of event" << endl;
+    }
 ;
 equations_list:
-equations_list QSTRING { cout << "f =" << eventCnt<< endl; cModel.addEventFct(eventCnt, $2); }
-| QSTRING { cout << "QSTRING = " << $1 << "eventCnt = " << eventCnt<< endl; cout << $1 << " "; cModel.addEventFct(eventCnt, $1); }
+equations_list QSTRING 
+{ cout << "Adding new equation: " << $2; 
+  cout << "eqnCnt = " << eqnCnt<< endl;
+  cModel.addEventFct(eventCnt, $2);
+  // check if this new equation is compatible with tau leaping
+  if (!tauLeapAvail(cModel, cModel.getVarsString(), $2, eqnCnt)){
+    cModel.setTauLeapFalse();
+    cout << "tau leap is not available!!!" << endl;
+    cout << cModel.checkTauLeapAvail() << endl;
+  }
+  eqnCnt++;
+}
+| QSTRING 
+{ cout << "Adding new equation: " << $1; 
+  cout << "eqnCnt = " << eqnCnt<< endl;
+  cModel.addEventFct(eventCnt, $1); 
+  // check if this new equation is compatible with tau leaping
+  // ... should call the same function as above
+  eqnCnt++;
+}
 ;
 footer:
 END ENDLS
@@ -92,12 +128,13 @@ int parseFile(Model& cModel) {
   do {
     cout << "about to run yyparse" << endl;
     int eventCnt = 0;
-    yyparse(cModel, eventCnt);
+    int eqnCnt = 0;
+    yyparse(cModel, eventCnt, eqnCnt);
   } while (!feof(yyin));
   return 0;
 }
 
-void yyerror(Model& cModel, int eventCnt, const char *s) {
+void yyerror(Model& cModel, int eventCnt, int eqnCnt, const char *s) {
   cout << "ERROR: Parser error on line " << linecount << ". Message: " << s << endl;
   exit(-1);
 }
