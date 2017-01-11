@@ -66,7 +66,8 @@ parser:
    eqnCnt = 0; 
 }
 vars_line event_lines footer {
-  cout << "done with a parser file!" << endl;
+  cout << "done with a parser file!\n"
+       << "---------------------------------------------------------"<< endl;
 }
 ;
 vars_line:
@@ -139,7 +140,8 @@ int parseFile(Model& cModel, string inputfile) {
 
   // parse through the input until there is no more:
   do {
-    cout << "Begin parsing file named: " << inputfile << endl;
+    cout << "---------------------------------------------------------\n"
+	 << "Begin parsing file named: " << inputfile << endl;
     int eventCnt = 0;
     int eqnCnt = 0;
     yyparse(cModel, eventCnt, eqnCnt);
