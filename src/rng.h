@@ -34,7 +34,7 @@ class rng {
   virtual double runif() = 0;
 
   /// get a new random exponential(lambda) RV
-  double rexp(double mean);
+  double rexp(double lambda);
 
   /// get a new random poisson(mean) RV
   long rpois(double mean);
