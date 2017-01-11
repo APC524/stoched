@@ -92,6 +92,9 @@ equations_list QSTRING
     cout << "tau leap is not available!!!" << endl;
     cout << cModel.checkTauLeapAvail() << endl;
   }
+  else {
+    cout << "tau leap was available!!!" << endl;
+  }
   eqnCnt++;
 }
 | QSTRING 
