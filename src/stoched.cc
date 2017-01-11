@@ -17,7 +17,7 @@
 using namespace std::chrono;
 
 //declare the parser method written by flex and bison
-int parseFile(Model& model);
+int parseFile(Model& model, string inputfilename);
 
 /* eventually parseFile will take a std::string
    argument giving the path to the model file
@@ -28,8 +28,9 @@ int parseFile(Model& model);
 // wrapper for argument validation
 int validate_args(int argc, char *argv[]) {
   // do very basic argument validation for now
-  if (argc < 2) {
-    printf("\nExpected at least 2 arguments, got %i \n\n"
+  // note: argc = # of agrs + 1 because name of program is counted
+  if (argc <= 2) { // require 2 or more args
+    fprintf(stderr, "\nExpected at least 2 arguments, got %i \n\n"
            "USAGE: %s <model file> \n\n"
            "<model file>: Path to a file "
            "specifying a stoched model\n\n",
@@ -56,9 +57,10 @@ int main(int argc, char *argv[]) {
   model_ptr = & model;
 
   // populate model from parser
-  int res = parseFile(model);
+  int res = parseFile(model, model_path);
   if (res != 0) {
-    fprintf(stderr, "Error: Parser returned %d", res);
+    fprintf(stderr, "Error: Parser returned %d\n", res);
+    exit(1);
   }
 
   // test that the Model was initialized by the parser properly
