@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setrate',['setRate',['../class_event.html#a993a01984496bc158be92b67422f8655',1,'Event']]]
+  ['log_5ffactorial',['log_factorial',['../classrng.html#ae85750e7f1befc4d1016731248dd3e80',1,'rng']]]
 ];

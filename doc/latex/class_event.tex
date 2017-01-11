@@ -2,7 +2,7 @@
 \label{class_event}\index{Event@{Event}}
 
 
-Class E\+V\+E\+NT holds a user-\/specified event, namely set of functions and associated rate.  
+Class \hyperlink{class_event}{Event} holds a user-\/specified event, namely set of functions and associated rate.  
 
 
 
@@ -32,10 +32,25 @@ int \hyperlink{class_event_a1a0f2e2dc0b203f7be0f1d5b8810c6a2}{get\+Size} ()
 \mbox{\Hypertarget{class_event_acf8fc6215a0eeaa049e2aca9a347f4b0}\label{class_event_acf8fc6215a0eeaa049e2aca9a347f4b0}} 
 string {\bfseries event\+Name}
 \end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_event_a77f230a68021756fd1e2d35dcfa534f8}\label{class_event_a77f230a68021756fd1e2d35dcfa534f8}} 
+Function\+Parser $\ast$$\ast$ \hyperlink{class_event_a77f230a68021756fd1e2d35dcfa534f8}{function\+Array\+\_\+}
+\begin{DoxyCompactList}\small\item\em Array of function parsers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_event_a5a82a70465e39626ad62d1cfe3fc7617}\label{class_event_a5a82a70465e39626ad62d1cfe3fc7617}} 
+Function\+Parser \hyperlink{class_event_a5a82a70465e39626ad62d1cfe3fc7617}{rate\+Function}
+\begin{DoxyCompactList}\small\item\em Rate specified by an equation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_event_a42d51bef1ea3b953e9825f3e5bf2210e}\label{class_event_a42d51bef1ea3b953e9825f3e5bf2210e}} 
+double \hyperlink{class_event_a42d51bef1ea3b953e9825f3e5bf2210e}{rate\+\_\+}
+\begin{DoxyCompactList}\small\item\em Value of rate equation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_event_a59244ccd0e0f3654f07715bb3dd6423f}\label{class_event_a59244ccd0e0f3654f07715bb3dd6423f}} 
+int \hyperlink{class_event_a59244ccd0e0f3654f07715bb3dd6423f}{eq\+\_\+count\+\_\+}
+\begin{DoxyCompactList}\small\item\em Number of function parsers. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Class E\+V\+E\+NT holds a user-\/specified event, namely set of functions and associated rate. 
+Class \hyperlink{class_event}{Event} holds a user-\/specified event, namely set of functions and associated rate. 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_event_a5a40dd4708297f7031e29b39e039ae10}\label{class_event_a5a40dd4708297f7031e29b39e039ae10}} 
@@ -68,11 +83,6 @@ nothing
 
 Destructor of \hyperlink{class_event}{Event}. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em none} & \\
-\hline
-\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 nothing 
 \end{DoxyReturn}
@@ -91,9 +101,9 @@ Add a function parser to the function array.
 
 
 \begin{DoxyParams}{Parameters}
-{\em function} & is a string used to generate a \hyperlink{class_function_parser}{Function\+Parser} object \\
+{\em function} & is a string used to generate a Function\+Parser object \\
 \hline
-{\em variables} & is a string used to generate a \hyperlink{class_function_parser}{Function\+Parser} object \\
+{\em variables} & is a string used to generate a Function\+Parser object \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -127,11 +137,6 @@ evaluated rate\+Function as a double
 
 Return size of event, namely number of functions, to user. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em None} & \\
-\hline
-\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 size of event, namely number of functions, as an int 
 \end{DoxyReturn}
@@ -179,5 +184,5 @@ evaluated function\+Parser as a double
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/event.\+h\item 
-/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{event_8cc}{event.\+cc}\end{DoxyCompactItemize}
+/\+Users/dylan/stoched/src/\hyperlink{event_8h}{event.\+h}\item 
+/\+Users/dylan/stoched/src/\hyperlink{event_8cc}{event.\+cc}\end{DoxyCompactItemize}

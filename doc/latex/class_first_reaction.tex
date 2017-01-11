@@ -1,0 +1,104 @@
+\hypertarget{class_first_reaction}{}\section{First\+Reaction Class Reference}
+\label{class_first_reaction}\index{First\+Reaction@{First\+Reaction}}
+
+
+Class \hyperlink{class_first_reaction}{First\+Reaction} implements \hyperlink{class_realization}{Realization} \hyperlink{class_first_reaction_aed63c3c95d20b2ad557dabb6c5376a73}{step()} function using the exact First Reaction algorithm of Gillespie (1971)  
+
+
+
+
+{\ttfamily \#include $<$firstreaction.\+h$>$}
+
+Inheritance diagram for First\+Reaction\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_first_reaction}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_first_reaction_a5122d48f6ecbe17a75cecd41b06ac4a2}{First\+Reaction} (\hyperlink{class_model}{Model} $\ast$\hyperlink{class_realization_a47ec1d062b8caee874b08c1a17d6aeeb}{the\+\_\+model}, const \hyperlink{class_paramset}{Paramset} \&\hyperlink{class_realization_a119bb29de88929bc51bc1b329473a94b}{the\+\_\+paramset}, \hyperlink{classrng}{rng} $\ast$\hyperlink{class_realization_ac8d358d929afae90cf5790675b6744f9}{the\+\_\+rng}, int \hyperlink{class_realization_ad9951a0829e68e12fcb3817735bb5097}{n\+\_\+vars}, int \hyperlink{class_realization_afb711282bef806fc0020f91252d1df2c}{n\+\_\+events})
+\begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{class_first_reaction}{First\+Reaction}. \end{DoxyCompactList}\item 
+\hyperlink{class_first_reaction_ae2d082e400c86abd63ae8a30683c0469}{$\sim$\+First\+Reaction} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \hyperlink{class_first_reaction}{First\+Reaction}. \end{DoxyCompactList}\item 
+int \hyperlink{class_first_reaction_aed63c3c95d20b2ad557dabb6c5376a73}{step} ()
+\begin{DoxyCompactList}\small\item\em Update waiting times. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_first_reaction_adef190a1cb589cc8317b469f94cd6ad4}\label{class_first_reaction_adef190a1cb589cc8317b469f94cd6ad4}} 
+double $\ast$ \hyperlink{class_first_reaction_adef190a1cb589cc8317b469f94cd6ad4}{waiting\+\_\+times}
+\begin{DoxyCompactList}\small\item\em pause \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class \hyperlink{class_first_reaction}{First\+Reaction} implements \hyperlink{class_realization}{Realization} \hyperlink{class_first_reaction_aed63c3c95d20b2ad557dabb6c5376a73}{step()} function using the exact First Reaction algorithm of Gillespie (1971) 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_first_reaction_a5122d48f6ecbe17a75cecd41b06ac4a2}\label{class_first_reaction_a5122d48f6ecbe17a75cecd41b06ac4a2}} 
+\index{First\+Reaction@{First\+Reaction}!First\+Reaction@{First\+Reaction}}
+\index{First\+Reaction@{First\+Reaction}!First\+Reaction@{First\+Reaction}}
+\subsubsection{\texorpdfstring{First\+Reaction()}{FirstReaction()}}
+{\footnotesize\ttfamily First\+Reaction\+::\+First\+Reaction (\begin{DoxyParamCaption}\item[{\hyperlink{class_model}{Model} $\ast$}]{the\+\_\+model,  }\item[{const \hyperlink{class_paramset}{Paramset} \&}]{the\+\_\+paramset,  }\item[{\hyperlink{classrng}{rng} $\ast$}]{the\+\_\+rng,  }\item[{int}]{n\+\_\+vars,  }\item[{int}]{n\+\_\+events }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \hyperlink{class_first_reaction}{First\+Reaction}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+\_\+model} & is a \hyperlink{class_model}{Model} object \\
+\hline
+{\em the\+\_\+paramset} & is a \hyperlink{class_paramset}{Paramset} object \\
+\hline
+{\em the\+\_\+rng} & is a random number generator \\
+\hline
+{\em n\+\_\+vars} & is an int specifying variable count \\
+\hline
+{\em n\+\_\+events} & is an int specifying event count\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_first_reaction_ae2d082e400c86abd63ae8a30683c0469}\label{class_first_reaction_ae2d082e400c86abd63ae8a30683c0469}} 
+\index{First\+Reaction@{First\+Reaction}!````~First\+Reaction@{$\sim$\+First\+Reaction}}
+\index{````~First\+Reaction@{$\sim$\+First\+Reaction}!First\+Reaction@{First\+Reaction}}
+\subsubsection{\texorpdfstring{$\sim$\+First\+Reaction()}{~FirstReaction()}}
+{\footnotesize\ttfamily First\+Reaction\+::$\sim$\+First\+Reaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \hyperlink{class_first_reaction}{First\+Reaction}. 
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_first_reaction_aed63c3c95d20b2ad557dabb6c5376a73}\label{class_first_reaction_aed63c3c95d20b2ad557dabb6c5376a73}} 
+\index{First\+Reaction@{First\+Reaction}!step@{step}}
+\index{step@{step}!First\+Reaction@{First\+Reaction}}
+\subsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily int First\+Reaction\+::step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update waiting times. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_realization_a9949217117927b149850288f3b74c9ef}{Realization}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/dylan/stoched/src/\hyperlink{firstreaction_8h}{firstreaction.\+h}\item 
+/\+Users/dylan/stoched/src/\hyperlink{firstreaction_8cc}{firstreaction.\+cc}\end{DoxyCompactItemize}

@@ -1,0 +1,86 @@
+\hypertarget{classxoroshiro128plus}{}\section{xoroshiro128plus Class Reference}
+\label{classxoroshiro128plus}\index{xoroshiro128plus@{xoroshiro128plus}}
+
+
+Class \hyperlink{classxoroshiro128plus}{xoroshiro128plus} implements a random number generator of Class rng.  
+
+
+
+
+{\ttfamily \#include $<$xoroshiro128plus.\+h$>$}
+
+Inheritance diagram for xoroshiro128plus\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classxoroshiro128plus}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classxoroshiro128plus_ae32867bf0900c675d3b6f638ea2c49e1}{xoroshiro128plus} (int seed)
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classxoroshiro128plus_ae6dfa2376788f9632175a385c6cf74ef}\label{classxoroshiro128plus_ae6dfa2376788f9632175a385c6cf74ef}} 
+\hyperlink{classxoroshiro128plus_ae6dfa2376788f9632175a385c6cf74ef}{$\sim$xoroshiro128plus} ()
+\begin{DoxyCompactList}\small\item\em Default Destructor for Xoroshiro128plus. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classxoroshiro128plus_a14185bcb657d561663803f4a8b2e9a92}\label{classxoroshiro128plus_a14185bcb657d561663803f4a8b2e9a92}} 
+uint64\+\_\+t \hyperlink{classxoroshiro128plus_a14185bcb657d561663803f4a8b2e9a92}{next} ()
+\begin{DoxyCompactList}\small\item\em get random int and update state \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classxoroshiro128plus_a5054e4de9c05fdab89ab41dbfe05a424}\label{classxoroshiro128plus_a5054e4de9c05fdab89ab41dbfe05a424}} 
+double \hyperlink{classxoroshiro128plus_a5054e4de9c05fdab89ab41dbfe05a424}{runif} ()
+\begin{DoxyCompactList}\small\item\em get random uniform(0, 1) double and update state \end{DoxyCompactList}\item 
+void \hyperlink{classxoroshiro128plus_a8058dee37dfc67409ed8674ba8f830a9}{jump} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classxoroshiro128plus_ac80afbdcbf2c512310c4aebe42f936f0}\label{classxoroshiro128plus_ac80afbdcbf2c512310c4aebe42f936f0}} 
+uint64\+\_\+t \hyperlink{classxoroshiro128plus_ac80afbdcbf2c512310c4aebe42f936f0}{rotl} (const uint64\+\_\+t x, int k)
+\begin{DoxyCompactList}\small\item\em simulated rotate \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classxoroshiro128plus_aee8ea766a36b82e20c5fdc2c5184a41c}\label{classxoroshiro128plus_aee8ea766a36b82e20c5fdc2c5184a41c}} 
+uint64\+\_\+t \hyperlink{classxoroshiro128plus_aee8ea766a36b82e20c5fdc2c5184a41c}{splitmix64} ()
+\begin{DoxyCompactList}\small\item\em splitmix64 next function, for initializing generator \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classxoroshiro128plus_a50f3b4f14b1a5b3034d4cf3e6dde2b10}\label{classxoroshiro128plus_a50f3b4f14b1a5b3034d4cf3e6dde2b10}} 
+uint64\+\_\+t {\bfseries s} \mbox{[}2\mbox{]}
+\item 
+\mbox{\Hypertarget{classxoroshiro128plus_acdcc17b31842b463c1a00360b182b3aa}\label{classxoroshiro128plus_acdcc17b31842b463c1a00360b182b3aa}} 
+uint64\+\_\+t {\bfseries splitmixstate}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class \hyperlink{classxoroshiro128plus}{xoroshiro128plus} implements a random number generator of Class rng. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classxoroshiro128plus_ae32867bf0900c675d3b6f638ea2c49e1}\label{classxoroshiro128plus_ae32867bf0900c675d3b6f638ea2c49e1}} 
+\index{xoroshiro128plus@{xoroshiro128plus}!xoroshiro128plus@{xoroshiro128plus}}
+\index{xoroshiro128plus@{xoroshiro128plus}!xoroshiro128plus@{xoroshiro128plus}}
+\subsubsection{\texorpdfstring{xoroshiro128plus()}{xoroshiro128plus()}}
+{\footnotesize\ttfamily xoroshiro128plus\+::xoroshiro128plus (\begin{DoxyParamCaption}\item[{int}]{seed }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+initialize state with splitmix64 random ints from seed int (prevents similar seeds from generating correlated states) 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classxoroshiro128plus_a8058dee37dfc67409ed8674ba8f830a9}\label{classxoroshiro128plus_a8058dee37dfc67409ed8674ba8f830a9}} 
+\index{xoroshiro128plus@{xoroshiro128plus}!jump@{jump}}
+\index{jump@{jump}!xoroshiro128plus@{xoroshiro128plus}}
+\subsubsection{\texorpdfstring{jump()}{jump()}}
+{\footnotesize\ttfamily void xoroshiro128plus\+::jump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This is the jump function for the generator. It is equivalent to 2$^\wedge$64 calls to \hyperlink{classxoroshiro128plus_a14185bcb657d561663803f4a8b2e9a92}{next()}; it can be used to generate 2$^\wedge$64 non-\/overlapping subsequences for parallel computations. 
+
+Implements \hyperlink{classrng_a2203fb1d2504c000306be5a0035d1a6c}{rng}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/dylan/stoched/src/\hyperlink{xoroshiro128plus_8h}{xoroshiro128plus.\+h}\item 
+/\+Users/dylan/stoched/src/\hyperlink{xoroshiro128plus_8cc}{xoroshiro128plus.\+cc}\end{DoxyCompactItemize}

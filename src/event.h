@@ -1,3 +1,14 @@
+/** 
+ *  @file    event.h
+ *  @author  Caleb Peckham (peckham@princeton.edu)
+ *  @date    12/6/16  
+ *  @version 1.0 
+ *  
+ *  @brief Class Event holds a user-specified event, namely set of 
+ *         functions and associated rate
+ *  
+ */
+
 #ifndef EVENT_H_
 #define EVENT_H_
 #include "fparser/fparser.hh"
@@ -5,12 +16,12 @@
 using namespace std;
 
 /**  
- *  @brief Class EVENT holds a user-specified event, namely set of 
+ *  @brief Class Event holds a user-specified event, namely set of 
  *         functions and associated rate
  */  
-
 class Event {
  public: 
+
   // Default constructor for Event 
   Event();
 

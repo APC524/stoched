@@ -1,13 +1,25 @@
+/** 
+ *  @file    parser.y
+ *  @author  Kevin Griffin (kevinpg@princeton.edu)
+ *  @date    12/6/16  
+ *  @version 1.0 
+ *  
+ *  @brief APC 524, Final Project - Stoched 
+ *
+ *  @section DESCRIPTION
+ *  
+ */
+
 %{
+
 #include <cstdio>
 #include <iostream>
 #include "model.h"
 #include "event.h"
 
-
   using namespace std;
 
-  // global varibales that flex defines
+  // global variables that flex defines
   extern "C" int yylex();
   extern "C" int yyparse(Model& cModel, int eventCnt, int eqnCnt);
   extern "C" FILE *yyin;
@@ -115,9 +127,9 @@ ENDLS ENDL
 
 %%
 
-int parseFile(Model& cModel) {
+int parseFile(Model& cModel, string inputfile) {
   // set the input file
-  string inputfile = "example.parser.in";
+  //string inputfile = "example.parser.in";
   FILE *myfile = fopen(inputfile.c_str(), "r");
   // check that the file is valid
   if (!myfile) {

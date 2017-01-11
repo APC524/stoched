@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['model',['Model',['../class_model.html',1,'Model'],['../class_model.html#ae3b375de5f6df4faf74a95d64748e048',1,'Model::Model()']]],
-  ['model_2ecc',['model.cc',['../model_8cc.html',1,'']]],
-  ['mpfrfloat',['MpfrFloat',['../class_mpfr_float.html',1,'']]],
-  ['mpfrfloatdata',['MpfrFloatData',['../struct_mpfr_float_1_1_mpfr_float_data.html',1,'MpfrFloat']]],
-  ['mpfrfloatdatacontainer',['MpfrFloatDataContainer',['../class_mpfr_float_1_1_mpfr_float_data_container.html',1,'MpfrFloat']]]
+  ['jump',['jump',['../classrng.html#a2203fb1d2504c000306be5a0035d1a6c',1,'rng::jump()'],['../classxoroshiro128plus.html#a8058dee37dfc67409ed8674ba8f830a9',1,'xoroshiro128plus::jump()']]]
 ];

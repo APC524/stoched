@@ -4,11 +4,12 @@
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief APC 524, Final Project - Stoched
+ *  @brief APC 524, Final Project - Stoched 
  *
  *  @section DESCRIPTION
  *  
  */
+
 
 #include "event.h"
 #include "model.h"
@@ -23,9 +24,8 @@
 using namespace std;
 
 /**
- *   @brief  Default  constructor for Model  
+ *   Default constructor for Model  
  *  
- *   @param  none   
  *   @return nothing 
  */ 
 
@@ -34,16 +34,15 @@ Model:: Model() {
 }
 
 /**
- *   @brief  Destructor of Model  
+ *   Destructor of Model  
  *  
- *   @param  none
  *   @return nothing 
  */ 
 Model:: ~Model() {
 }
 
 /**
- *   @brief  Add variable list to a Model
+ *   Add variable list to a Model
  *  
  *   @param  vars is a string used to set variables associate with a Model
  *   @return void
@@ -53,7 +52,7 @@ void Model::addVars(string vars) {
 }
 
 /**
- *   @brief  Add Event to Model's list of Events
+ *   Add Event to Model's list of Events
  *  
  *   @param  functionRate is a string that defines an Event's rate
  *   @return void
@@ -126,8 +125,13 @@ double Model::getEventRate(int iEvent, double *stateArray) {
 
 }
 
+/**
+ *   @brief  Return total number of variables
+ *  
+ *   @return int
+ */ 
 int Model::getVarsCount() {
-  // Returns total number of variables. 
+
   int var_count = 1;
   for (int i = 0; i < vars_.length(); i++) {
     if (vars_[i] == ',') var_count++;
@@ -135,8 +139,25 @@ int Model::getVarsCount() {
   return var_count;
 }
 
+
+/**
+ *   @brief  Return total number of Events
+ *
+ *   @return int
+ */
+int Model::getEventsCount() {
+  return eventPtrList.size();
+}
+
+
+/**
+ *   @brief  Returns the ith variable in the variable list
+ *
+ *   @param  index is an int that indexes variable list
+ *   @return ith variable as string
+ */
 string Model::getIthVar(int index) {
-  // Returns the ith variable in the variable list. 
+
   istringstream ss(vars_);
   string token;
   for(int i=0; i < index+1; i++){
@@ -178,7 +199,7 @@ void Model::updateState(int iEvent, double *stateArray) {
  *   @return void
  */ 
 void Model::updateRates(double *stateArray, double *rateArray) {
-  int event_count = eventPtrList.size();
+  int event_count = getEventsCount();
   double rateCopy[event_count];
 
   for (int i = 0; i < event_count; i++)
@@ -189,5 +210,5 @@ void Model::updateRates(double *stateArray, double *rateArray) {
 
   for (int i = 0; i < event_count; i++)
     rateArray[i] = rateCopy[i];
-
 }
+

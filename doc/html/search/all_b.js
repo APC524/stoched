@@ -1,9 +1,21 @@
 var searchData=
 [
-  ['yy_5fbs_5fcolumn',['yy_bs_column',['../structyy__buffer__state.html#a10c4fcd8be759e6bf11e6d3e8cdb0307',1,'yy_buffer_state']]],
-  ['yy_5fbs_5flineno',['yy_bs_lineno',['../structyy__buffer__state.html#a818e94bc9c766e683c60df1e9fd01199',1,'yy_buffer_state']]],
-  ['yy_5fbuffer_5fstate',['yy_buffer_state',['../structyy__buffer__state.html',1,'']]],
-  ['yy_5ftrans_5finfo',['yy_trans_info',['../structyy__trans__info.html',1,'']]],
-  ['yyalloc',['yyalloc',['../unionyyalloc.html',1,'']]],
-  ['yystype',['YYSTYPE',['../union_y_y_s_t_y_p_e.html',1,'']]]
+  ['readme',['README',['../md___users_dylan_stoched_src__r_e_a_d_m_e.html',1,'']]],
+  ['rate_5f',['rate_',['../class_event.html#a42d51bef1ea3b953e9825f3e5bf2210e',1,'Event']]],
+  ['ratefunction',['rateFunction',['../class_event.html#a5a82a70465e39626ad62d1cfe3fc7617',1,'Event']]],
+  ['rates',['rates',['../class_realization.html#a9c52d8c6aa0ad99dbbec1e98302db7d8',1,'Realization']]],
+  ['rates_5fare_5fzero',['rates_are_zero',['../class_realization.html#a48953442ebf235cd1e02731c7419f65f',1,'Realization']]],
+  ['realization',['Realization',['../class_realization.html',1,'Realization'],['../class_realization.html#af4cfb6f2221bef9ba5ad09564796677f',1,'Realization::Realization()']]],
+  ['realization_2ecc',['realization.cc',['../realization_8cc.html',1,'']]],
+  ['realization_2eh',['realization.h',['../realization_8h.html',1,'']]],
+  ['realization_5ffactory_2ecc',['realization_factory.cc',['../realization__factory_8cc.html',1,'']]],
+  ['realization_5ffactory_2eh',['realization_factory.h',['../realization__factory_8h.html',1,'']]],
+  ['realizationfactory',['RealizationFactory',['../class_realization_factory.html',1,'']]],
+  ['rexp',['rexp',['../classrng.html#a3adfbfb3faf9b7fa948813f5920cd5dc',1,'rng']]],
+  ['rng',['rng',['../classrng.html',1,'']]],
+  ['rng_2ecc',['rng.cc',['../rng_8cc.html',1,'']]],
+  ['rng_2eh',['rng.h',['../rng_8h.html',1,'']]],
+  ['rotl',['rotl',['../classxoroshiro128plus.html#ac80afbdcbf2c512310c4aebe42f936f0',1,'xoroshiro128plus']]],
+  ['rpois',['rpois',['../classrng.html#a9c16bdeae3be90e8bd30eb284a4b2980',1,'rng']]],
+  ['runif',['runif',['../classrng.html#a3f0fec3ad9a286726825fddbf78aada8',1,'rng::runif()'],['../classxoroshiro128plus.html#a5054e4de9c05fdab89ab41dbfe05a424',1,'xoroshiro128plus::runif()']]]
 ];

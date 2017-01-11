@@ -1,0 +1,67 @@
+\hypertarget{classrng}{}\section{rng Class Reference}
+\label{classrng}\index{rng@{rng}}
+
+
+Class rng implements random number generator, based upon public domain xorshift implementations by David Blackman and Sebastiano Vigna (\href{mailto:vigna@acm.org}{\tt vigna@acm.\+org})  
+
+
+
+
+{\ttfamily \#include $<$rng.\+h$>$}
+
+Inheritance diagram for rng\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrng}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrng_acc0ef5e0bf2bee28c37070ddb4c21175}\label{classrng_acc0ef5e0bf2bee28c37070ddb4c21175}} 
+virtual \hyperlink{classrng_acc0ef5e0bf2bee28c37070ddb4c21175}{$\sim$rng} ()
+\begin{DoxyCompactList}\small\item\em Destructor of rng object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrng_a0fa7d2415b07e3396b6ed3fb7c238606}\label{classrng_a0fa7d2415b07e3396b6ed3fb7c238606}} 
+virtual uint64\+\_\+t \hyperlink{classrng_a0fa7d2415b07e3396b6ed3fb7c238606}{next} ()=0
+\begin{DoxyCompactList}\small\item\em get a new random int64 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrng_a3f0fec3ad9a286726825fddbf78aada8}\label{classrng_a3f0fec3ad9a286726825fddbf78aada8}} 
+virtual double \hyperlink{classrng_a3f0fec3ad9a286726825fddbf78aada8}{runif} ()=0
+\begin{DoxyCompactList}\small\item\em get a new random uniform(0, 1) RV \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrng_a3adfbfb3faf9b7fa948813f5920cd5dc}\label{classrng_a3adfbfb3faf9b7fa948813f5920cd5dc}} 
+double \hyperlink{classrng_a3adfbfb3faf9b7fa948813f5920cd5dc}{rexp} (double mean)
+\begin{DoxyCompactList}\small\item\em get a new random exponential(lambda) RV \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrng_a9c16bdeae3be90e8bd30eb284a4b2980}\label{classrng_a9c16bdeae3be90e8bd30eb284a4b2980}} 
+long \hyperlink{classrng_a9c16bdeae3be90e8bd30eb284a4b2980}{rpois} (double mean)
+\begin{DoxyCompactList}\small\item\em get a new random poisson(mean) RV \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrng_a2203fb1d2504c000306be5a0035d1a6c}\label{classrng_a2203fb1d2504c000306be5a0035d1a6c}} 
+virtual void \hyperlink{classrng_a2203fb1d2504c000306be5a0035d1a6c}{jump} ()=0
+\begin{DoxyCompactList}\small\item\em quick 2$^\wedge$64 calls to next (for parallelism) \end{DoxyCompactList}\item 
+double \hyperlink{classrng_ae85750e7f1befc4d1016731248dd3e80}{log\+\_\+factorial} (int k)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrng_a1fd45ffcc5dc65bdf23311f97fd0630c}\label{classrng_a1fd45ffcc5dc65bdf23311f97fd0630c}} 
+long \hyperlink{classrng_a1fd45ffcc5dc65bdf23311f97fd0630c}{poisson\+\_\+knuth} (double mean)
+\begin{DoxyCompactList}\small\item\em random poisson \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrng_aefbbe59c0bb810de0337855e77b36747}\label{classrng_aefbbe59c0bb810de0337855e77b36747}} 
+long \hyperlink{classrng_aefbbe59c0bb810de0337855e77b36747}{poisson\+\_\+ptrs} (double mean)
+\begin{DoxyCompactList}\small\item\em random poisson \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class rng implements random number generator, based upon public domain xorshift implementations by David Blackman and Sebastiano Vigna (\href{mailto:vigna@acm.org}{\tt vigna@acm.\+org}) 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classrng_ae85750e7f1befc4d1016731248dd3e80}\label{classrng_ae85750e7f1befc4d1016731248dd3e80}} 
+\index{rng@{rng}!log\+\_\+factorial@{log\+\_\+factorial}}
+\index{log\+\_\+factorial@{log\+\_\+factorial}!rng@{rng}}
+\subsubsection{\texorpdfstring{log\+\_\+factorial()}{log\_factorial()}}
+{\footnotesize\ttfamily double rng\+::log\+\_\+factorial (\begin{DoxyParamCaption}\item[{int}]{k }\end{DoxyParamCaption})}
+
+log factorial function modified from public domain C\# implementation by John D. Cook (\href{http://www.johndcook.com/blog/csharp_log_factorial/}{\tt http\+://www.\+johndcook.\+com/blog/csharp\+\_\+log\+\_\+factorial/}) and P\+T\+RS algorithm by Wolfgang Hoermann (1993) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/dylan/stoched/src/\hyperlink{rng_8h}{rng.\+h}\item 
+/\+Users/dylan/stoched/src/\hyperlink{rng_8cc}{rng.\+cc}\end{DoxyCompactItemize}
