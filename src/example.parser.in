@@ -4,9 +4,6 @@ SETUP_VARS "a,b"
 
 EVENT RATE "3" "a + 1" "b + 0"
 EVENT RATE "a / 3" "a - 1" "b + 0"
-EVENT RATE "5 * a" "a + 0" "b + 1"
-EVENT RATE "b / 30" "a + 0" "b - 1"
-
 
 end
 
