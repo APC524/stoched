@@ -94,10 +94,6 @@ int main(int argc, char *argv[]) {
         if (string(argv[j]) == "method") {
           // We know the next argument *should* be the filename:
           method = atoi(argv[j + 1]);
-        } else if (string(argv[j]) == "n_vars") {
-          n_vars = atoi(argv[j + 1]);
-        } else if (string(argv[j]) == "n_events") {
-          n_events = atoi(argv[j + 1]);
         } else if (string(argv[j]) == "t_initial") {
           t_initial = atof(argv[j + 1]);
         } else if (string(argv[j]) == "t_final") {
