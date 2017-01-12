@@ -4,7 +4,7 @@
  *  @date    1/12/17  
  *  @version 1.0 
  *  
- *  @brief   Example event code
+ *  @brief   Test Event code
  *
  */
 
