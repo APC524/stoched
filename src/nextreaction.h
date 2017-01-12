@@ -11,7 +11,7 @@
  */
 
 #ifndef NEXTREACTION_H_
-#define NEXTREACTION_H
+#define NEXTREACTION_H_
 #include "realization.h"
 #include <float.h>
 

@@ -8,7 +8,7 @@ Caleb is a senior undergraduate student in the MAE Department.
 
 ###Dylan Morris
 
-
+Dylan is a second-year graduate student in the Ecology and Evolutionary Biology Department. His research interests include Statistics, Applied Mathematics, and Bioinformatics, and he graduated from the University of Cambridge. 
 
 ###Kevin Griffin
 
