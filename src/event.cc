@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <stdlib.h>
-#include "gtest/gtest.h"
+//#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -30,6 +30,10 @@ using namespace std;
 Event::Event() {
   eq_count_ = 0;
   functionArray_ = (FunctionParser **)malloc(sizeof(FunctionParser));
+  deltaVar_ = new double[getVarsCount()];
+  for (int i = 0; i < getVarsCount(); i++){
+    deltaVar_[i] = 0.0;
+  }
 }
   
 /**
@@ -50,6 +54,12 @@ Event::~Event() {
  *   @return void
  */ 
 void Event::addFunction(string function, string variables) {
+  
+  var_count = 0;
+  for (int i = 0; i < vars_.length(); i++) {
+    if (vars_[i] == ',') varCount++;
+  }
+  varsCount_ ;
 
   if (eq_count_ != 0) {
     functionArray_  = (FunctionParser**)realloc(functionArray_, (eq_count_)*sizeof(FunctionParser));
@@ -95,6 +105,16 @@ void Event::setRate(string function, string variables) {
 }
 
 /**
+ *   @brief Return rate to user based on values of the state array
+ *  
+ *   @param  stateArray is a double array specifying variable values of function
+ *   @return evaluated rateFunction as a double
+ */ 
+double Event::getRate(double *stateArray) {
+  return rateFunction.Eval(stateArray);
+}
+
+/**
  *   @brief Return size of event, namely number of functions, to user  
  *
  *   @return size of event, namely number of functions, as an int
@@ -104,11 +124,25 @@ int Event::getSize() {
 }
 
 /**
- *   @brief Return rate to user based on values of the state array
- *  
- *   @param  stateArray is a double array specifying variable values of function
- *   @return evaluated rateFunction as a double
+ *   @brief Return the change of a variable when its corresponding equation is called
+ *
+ *   @param  whichVar is an int specifying of which variable to find the delta
+ *   @return change in value of whichVar when its corresponding equation is called, as a double
  */ 
-double Event::getRate(double *stateArray) {
-  return rateFunction.Eval(stateArray);
+double Event::getDeltaVar(int whichVar) {
+  if (whichVar >= getVarsCount()){
+    fprintf(stderr, "Error: Array bounds exceeded. Asked for a derivate\n"
+            "in the contDeriv array that does not exist\n");
+    exit(1);
+  }
+  return deltaVar_[whichVar];
+}
+
+void Event::setDeltaVar(int whichVar, double val) {
+  if (whichVar >= getVarsCount()){
+    fprintf(stderr, "Error: Array bounds exceeded. Tried to set a derivate\n"
+            "in the contDeriv array that does not exist\n");
+    exit(1);
+  }
+  deltaVar_[whichVar] = val;
 }

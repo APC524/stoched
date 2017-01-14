@@ -43,15 +43,19 @@ class Event {
   // Return size of Event, namely number of functions, to user 
   int getSize();
   
+  // Return the change of a variable when its corresponding equation is called
+  double getDeltaVar(int whichVar);
+  
   // Specify name of Event object
   string eventName; 
 
  private:
+  int varsCount; ///< Number of variables in the state array
   FunctionParser **functionArray_; ///< Array of function parsers 
   FunctionParser rateFunction;     ///< Rate specified by an equation
   double rate_;                    ///< Value of rate equation 
   int eq_count_;                   ///< Number of function parsers
-
+  double* deltaVar_; ///< how much each variable in the state changes when its corrsponding function is called. Only used by midpoint tau leaping to calculate approximate continuous time derivative.
 };
 
 #endif  

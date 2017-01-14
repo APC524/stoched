@@ -34,9 +34,11 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
 
   if (isdigit(functionStr[0])){ // assume the case of double +/- var
     int i = 1;
+    string newDelta;
     for (; (isdigit(functionStr[i]) || functionStr[i] == '.'); i++){
-      ;
+      newDelta.append(functionStr[i]);
     }
+    cout << "newDelta = " << newDelta << endl;
     // ignore white space
     if (isspace(functionStr[i])){
       for (; isspace(functionStr[i]); i++){

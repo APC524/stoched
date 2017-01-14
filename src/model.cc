@@ -167,6 +167,32 @@ string Model::getIthVar(int index) {
 }
 
 /**
+ *   @brief  Returns the continuous time derivative of specified variable
+ *
+ *   @param  int specifying which variable from the state array to find derivative
+ *   @param  double array of the entire state array
+ *   @return ith continuous derivative as a double
+ */
+double Model::getContDeriv(int whichVar, double *stateArray) {
+  if (whichVar >= getVarsCount()){
+    fprintf(stderr, "Error: Array bounds exceeded. Asked for a derivate\n"
+	    "in the contDeriv array that does not exist\n");
+    exit(1);
+  }
+  if (!tauLeapAvail_){
+    fprintf(stderr, "Error: tau leaping is not available, so can not access\n"
+	    "the continuous time derivative\n");
+    exit(1);
+  }
+  double deriv = 0;
+  for (iEvent = 0; iEvent < getEventsCount(); iEvent++){
+    deriv += (eventPtrList[iEvent].getRate())
+      * (eventPtrList[iEvent].getDeltaVar(whichVar));
+  }
+  return deriv;
+}
+
+/**
  *   @brief  Update state array by evaluating all functions of a given Event
  *  
  *   @param  iEvent is an int that indexes Event list

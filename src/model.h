@@ -36,7 +36,7 @@ class Model {
   // Destructor of Model 
   ~Model();
 
-  // Add variable list to a Model
+  // Add variable list to a Model.
   void addVars(string vars);
   
   // Add Event to Model's list of Events
@@ -68,6 +68,10 @@ class Model {
 
   // Returns the ith variable in the variable list
   string getIthVar(int index);
+
+  // Returns the approximate continuous time derivative of a variable
+  // in the state vector.
+  double getContDeriv(int whichVar, double *stateArray);
 
   // Update state array by evaluation all functions of a given Event
   void updateState(int iEvent, double *stateArray);
