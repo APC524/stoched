@@ -10,7 +10,7 @@ int main(){
   printf("OLD COMPILER\n");
   #endif
 
-#if __cplusplus > 199711L
+#if __cplusplus < 199711L
   printf ("REALLY old compiler\n");
 #endif
                     
