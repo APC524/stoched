@@ -199,7 +199,9 @@ int main(int argc, char *argv[]) {
   }
 
   for(int i = myFirstRealization; i <= myLastRealization; i++){
-    // Open file
+   
+    //for(int i = 0; i < n_realizations; i++){
+  // Open file
     ofstream myfile;
     string write_out_path = out_path + "_realization_" + to_string(i+1) + ".txt";
 
