@@ -43,14 +43,17 @@ class Event {
   // Return size of Event, namely number of functions, to user 
   int getSize();
   
-  // Return the change of a variable when its corresponding equation is called
-  double getDeltaVar(int whichVar);
-  
+  // Return how much the ith eqaution increments the ith equation when it is called
+  double getDeltaVar(int i);
+
+  // Set how much the ith eqaution increments the ith equation when it is called
+  void setDeltaVar(int i, double val) {
+
   // Specify name of Event object
   string eventName; 
 
  private:
-  int varsCount; ///< Number of variables in the state array
+  int varsCount_; ///< Number of variables in the state array
   FunctionParser **functionArray_; ///< Array of function parsers 
   FunctionParser rateFunction;     ///< Rate specified by an equation
   double rate_;                    ///< Value of rate equation 

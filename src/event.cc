@@ -30,10 +30,7 @@ using namespace std;
 Event::Event() {
   eq_count_ = 0;
   functionArray_ = (FunctionParser **)malloc(sizeof(FunctionParser));
-  deltaVar_ = new double[getVarsCount()];
-  for (int i = 0; i < getVarsCount(); i++){
-    deltaVar_[i] = 0.0;
-  }
+  deltaVar_ = (double*)malloc(sizeof(double));
 }
   
 /**
@@ -42,8 +39,8 @@ Event::Event() {
  *   @return nothing 
  */ 
 Event::~Event() {
-  
-  free (functionArray_); 
+  free(deltaVar_);
+  free(functionArray_); 
 }
 
 /**
@@ -54,12 +51,11 @@ Event::~Event() {
  *   @return void
  */ 
 void Event::addFunction(string function, string variables) {
-  
-  var_count = 0;
-  for (int i = 0; i < vars_.length(); i++) {
-    if (vars_[i] == ',') varCount++;
+  // count how many variables there are
+  int varsCount_ = 1;
+  for (int i = 0; i < variables.length(); i++) {
+    if (variables[i] == ',') varsCount_++;
   }
-  varsCount_ ;
 
   if (eq_count_ != 0) {
     functionArray_  = (FunctionParser**)realloc(functionArray_, (eq_count_)*sizeof(FunctionParser));
@@ -72,8 +68,11 @@ void Event::addFunction(string function, string variables) {
     fprintf(stderr, "Error!\n");
     exit(-1);
   }
+  // allocate memory so that a continuous derivative delta can be added
+  if (eq_count_ != 0){
+    deltaVar_ = (double*)realloc(deltaVar_,varsCount_*sizeof(double));
+  }
   eq_count_++;
-
 }
 
 /**
@@ -124,25 +123,32 @@ int Event::getSize() {
 }
 
 /**
- *   @brief Return the change of a variable when its corresponding equation is called
+ *   @brief Return how the ith variable is incremented when the ith equation is called
  *
- *   @param  whichVar is an int specifying of which variable to find the delta
- *   @return change in value of whichVar when its corresponding equation is called, as a double
+ *   @param  i is an int specifying of which variable to find the delta.
+0 is the first variable
+ *   @return change in value of i when its corresponding equation is called, as a double
  */ 
-double Event::getDeltaVar(int whichVar) {
-  if (whichVar >= getVarsCount()){
+double Event::getDeltaVar(int i) {
+  if (i >= eq_count_){
     fprintf(stderr, "Error: Array bounds exceeded. Asked for a derivate\n"
             "in the contDeriv array that does not exist\n");
     exit(1);
   }
-  return deltaVar_[whichVar];
+  return deltaVar_[i];
 }
 
-void Event::setDeltaVar(int whichVar, double val) {
-  if (whichVar >= getVarsCount()){
+/**
+ *   @brief set the amount that the ith function increments the ith variable. This is used by midpoint tau leaping
+ *
+ *   @param  i is an int specifying of which variable to set. 0 is the first variable
+ *   @return void
+ */ 
+void Event::setDeltaVar(int i, double val) {
+  if (i >= eq_count_){
     fprintf(stderr, "Error: Array bounds exceeded. Tried to set a derivate\n"
             "in the contDeriv array that does not exist\n");
     exit(1);
   }
-  deltaVar_[whichVar] = val;
+  deltaVar_[i] = val;
 }
