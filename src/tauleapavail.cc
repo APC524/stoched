@@ -13,7 +13,7 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
 
   // finding the beginning and end of the variable name in varListStr
   // that corresponds to eqnCnt
-  int begVarName = 0;
+  unsigned begVarName = 0;
   for (int commaCnt = 0; commaCnt != eqnCnt; begVarName++){
     if (begVarName == varListStr.length()){
       cout << "\tthe # of functns > # of equations so cant tau leap" << endl;
@@ -23,7 +23,7 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
       commaCnt++;
     }
   }
-  int endVarName = begVarName;
+  unsigned endVarName = begVarName;
   for (; !(varListStr[endVarName] == ',' || varListStr[endVarName] == '\0');
        endVarName++){
     if (endVarName == varListStr.length()){
@@ -33,7 +33,7 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
   }
 
   if (isdigit(functionStr[0])){ // assume the case of double +/- var
-    int i = 1;
+    unsigned i = 1;
     for (; (isdigit(functionStr[i]) || functionStr[i] == '.'); i++){
       ;
     }
@@ -92,7 +92,7 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
     }
   }
   else { // handle the case that the equation begins with nondigit
-    int i = 0;
+    unsigned i = 0;
     if (!isalpha(functionStr[i])){
       cout << "\ttau leap is not available. equation begins with\n"
 	   << "\tcharacter that is not 0-9, a-z, or A-Z" << endl;

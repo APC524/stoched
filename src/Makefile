@@ -3,9 +3,9 @@
 # 11/29/16, APC 524, Final Project
 # Makefile
 # -----------------------------------------------------------------------------
-CXX = g++
+CXX = g++-6
 MPICXX = mpicc
-CXXFLAGS = -g -Wall -lm -O3 
+CXXFLAGS = -g -Wall -lm -O3 -std=c++0x
 OMPCXXFLAGS = -g -Wall -lm -O3 # -fopenmp
 RM = rm -f
 
@@ -65,10 +65,10 @@ fparser/fparser.o: fparser/fparser.cc
 #	$(CXX) $^ -o $@
 
 %.o: %.cc
-	$(CXX) -std=c++11 -c $<
+	$(CXX) $(CXXFLAGS) -c $<
 
 %.o: %.c
-	$(CXX) -std=c++11 -c $<
+	$(CXX) $(CXXFLAGS) -c $<
 
 # clean up object code and executables
 clean:

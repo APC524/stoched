@@ -176,7 +176,6 @@ int main(int argc, char *argv[]) {
     myfile.open(write_out_path);
     // Write the header line corresponding to model
     myfile << left << setw(15) << "time";
-    int vars_count = model.getVarsCount(); 
     for(int i = 0; i < n_vars; i++){
       string test = model.getIthVar(i);
       myfile << left << setw(15) <<  test;

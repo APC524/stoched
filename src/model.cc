@@ -133,7 +133,7 @@ double Model::getEventRate(int iEvent, double *stateArray) {
 int Model::getVarsCount() {
 
   int var_count = 1;
-  for (int i = 0; i < vars_.length(); i++) {
+  for (unsigned i = 0; i < vars_.length(); i++) {
     if (vars_[i] == ',') var_count++;
   }
   return var_count;

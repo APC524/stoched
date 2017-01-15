@@ -76,14 +76,10 @@ int Realization::set_to_initial_state(){
  *   @return int
  */ 
 int Realization::simulate(std::ofstream& myfile){
-  double t_initial = the_paramset.t_initial;
   double t_final = the_paramset.t_final;
   int max_iter = the_paramset.max_iter;
   int suppress_output = the_paramset.suppress_output;
   
-  bool time_stop = 0;
-  bool max_iter_stop = 0;
-  bool rate_stop = 0;
   int iter_count = 1;
   bool done = 0;
 

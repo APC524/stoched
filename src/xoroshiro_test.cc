@@ -1,5 +1,6 @@
 #include "xoroshiro128plus.h"
 #include <stdio.h>
+#include <cstdlib>
 
 int main(int argc, char *argv[]) {
   xoroshiro128plus test_generator(5);
