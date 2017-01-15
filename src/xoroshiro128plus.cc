@@ -12,18 +12,24 @@
 #include "xoroshiro128plus.h"
 #include "rng.h"
 
+// support for c++0x 
 #ifndef INT64_C
 #define INT64_C(c) (int64_t) c
 #define UINT64_C(c) (uint64_t) c
-#endif
 
+inline double to_double(uint64_t x) {
+       const union { uint64_t i; double d; } u = { .i = UINT64_C(0x3FF) << 52 | x >> 12 };
+       return u.d - 1.0;
+}
 
-
+#else 
 /// convert uint64_t to double in (0, 1)
 inline double to_double(uint64_t x) {
        const union { uint64_t i; double d; } u = { .i = UINT64_C(0x3FF) << 52 | x >> 12 };
        return u.d - 1.0;
 }
+
+#endif
 
 /// splitmix64 next function, for initializing generator
 uint64_t xoroshiro128plus::splitmix64() {

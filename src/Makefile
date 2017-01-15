@@ -5,7 +5,7 @@
 # -----------------------------------------------------------------------------
 CXX = g++
 MPICXX = mpicc
-CXXFLAGS = -g -Wall -lm -O3 -std=c++0x
+CXXFLAGS = -g -Wall -lm -O3
 OMPCXXFLAGS = -g -Wall -lm -O3 # -fopenmp
 RM = rm -f
 
