@@ -204,7 +204,8 @@ int main(int argc, char *argv[]) {
     myfile.close();
   }
   high_resolution_clock::time_point t2 = high_resolution_clock::now();
-  auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
+  high_resolution_clock::rep duration_first =
+    duration_cast<microseconds>( t2 - t1 ).count();
   printf("Code ran in %15.8f seconds \n", duration_first * 1.0e-6);
 
   return 0;
