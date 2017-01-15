@@ -104,16 +104,13 @@ int Realization::simulate(std::ofstream& myfile){
     /* check that stop conditions haven't been reached
        (maybe wrap this in a function) */ 
     if(state_time > t_final){
-      time_stop = 1;
       done = 1;
     }
     else if (iter_count > max_iter) {
-      max_iter_stop = 1;
       done = 1;
     }
     else if(rates_are_zero()){
-          rate_stop = 1;
-          done = 1;
+      done = 1;
     }
   }
 
