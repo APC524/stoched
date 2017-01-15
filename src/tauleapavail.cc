@@ -6,10 +6,10 @@
 using namespace std;
 
 bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
-		  int eqnCnt){
-  
-  // cout << "Beginning of tauLeapAvail. Comparing " << varListStr
-  // << " with " << functionStr << endl;
+		  int eqnCnt, int eventCnt){
+  // string representation of the amount that the function increments its var
+  string newDelta = "";
+  bool deltaNegative = false; // whether delta is a negative number
 
   // finding the beginning and end of the variable name in varListStr
   // that corresponds to eqnCnt
@@ -32,10 +32,15 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
     }
   }
 
-  if (isdigit(functionStr[0])){ // assume the case of double +/- var
-    unsigned i = 1;
+  if (isdigit(functionStr[0]) || functionStr[0] == '.'
+      || functionStr[0] == '-'){ 
+    if (functionStr[0] == '-'){
+      deltaNegative = !deltaNegative;
+    }
+    // this is the case where the function must be float +/- var
+    unsigned i = 0;
     for (; (isdigit(functionStr[i]) || functionStr[i] == '.'); i++){
-      ;
+      newDelta += functionStr[i];
     }
     // ignore white space
     if (isspace(functionStr[i])){
@@ -46,11 +51,16 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
     // expect + or -
     if (i == functionStr.length()){
       cout << "\ttau leaping is available, function is a constant" << endl;
+      cModel.setDelta(eqnCnt, eventCnt, 0.0);
+      cout << "\tAdding new delta to list of availble deltas: 0" << endl;
       return true;
     }
     if (!(functionStr[i] == '+' || functionStr[i] == '-')){
       cout << "\ttau leaping not available. was expecting +/-" << endl;
       return false;
+    }
+    if (functionStr[i] == '-'){
+      deltaNegative = !deltaNegative;
     }
     i++;
     if (i == functionStr.length()){
@@ -135,11 +145,16 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
     // expect + or -
     if (i == functionStr.length()){
       cout << "\ttau leaping is available, function is constant" << endl;
+      cModel.setDelta(eqnCnt, eventCnt, 0.0);
+      cout << "\tAdding new delta to list of availble deltas: 0" << endl;
       return true;
     }
     if (!(functionStr[i] == '+' || functionStr[i] == '-')){
       cout << "\ttau leaping not available. was expecting +/-" << endl;
       return false;
+    }
+    if (functionStr[i] == '-'){
+      deltaNegative = !deltaNegative;      
     }
     i++;
     if (i == functionStr.length()){
@@ -156,13 +171,17 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
       cerr << "ERROR: invalid function. should not end with +/-" << endl;
       exit(1);
     }
+    if (functionStr[i] == '-'){
+      deltaNegative = !deltaNegative;
+      i++;
+    }
     if (!(isdigit(functionStr[i]) || functionStr[i] == '.')){
       cout << "\ttau leaping not available. was expecting a double" << endl;
       return false;
     }
-    // expect a double
+    // expect a float
     for (; (isdigit(functionStr[i]) || functionStr[i] == '.'); i++){
-      ;
+      newDelta += functionStr[i];
     }
     // expect a \0 character
     if (functionStr[i] != '\0'){
@@ -171,6 +190,13 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
       return false;
     }
   }
-  cout << "\ttau leap is available" << endl;
+  cout << "\ttau leap is available\n";
+  double dDelta = atof(newDelta.c_str());
+  if (deltaNegative){
+    dDelta *= -1.0;
+  }
+  cModel.setDelta(eqnCnt, eventCnt, dDelta);
+  cout << "\tAdding new delta to list of availble deltas: "
+       << dDelta << endl;
   return true;
 }

@@ -43,8 +43,3 @@ src/testsimulate
 
 # macOS files
 .DS_Store
-
-# flex bison intermediate files
-lex.yy.c
-parser.tab.c
-parser.tab.h

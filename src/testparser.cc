@@ -40,5 +40,14 @@ int main(int argc, char *argv[]) {
   if (res != 0) {
     fprintf(stderr, "Error: Parser returned %d", res);
   }
+  
+  // check if continuous derivative were found and print them
+  double stateArray[] = {1, 2};
+  if (model.checkTauLeapAvail()){
+    for (int i =0; i < model.getVarsCount(); i++) {
+      cout << "Continuous derivative for var " << i << " = " 
+	   << model.getContDeriv(i,stateArray) << endl;
+    }
+  }
   return 0;
 }

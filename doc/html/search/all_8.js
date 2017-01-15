@@ -5,5 +5,6 @@ var searchData=
   ['method',['method',['../class_paramset.html#a67376577973f825ba60fc7c319ccc906',1,'Paramset']]],
   ['model',['Model',['../class_model.html',1,'Model'],['../class_model.html#ae3b375de5f6df4faf74a95d64748e048',1,'Model::Model()']]],
   ['model_2ecc',['model.cc',['../model_8cc.html',1,'']]],
-  ['model_2eh',['model.h',['../model_8h.html',1,'']]]
+  ['model_2eh',['model.h',['../model_8h.html',1,'']]],
+  ['modeltests_2ecc',['modeltests.cc',['../modeltests_8cc.html',1,'']]]
 ];
