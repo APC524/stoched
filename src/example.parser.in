@@ -2,8 +2,14 @@ SETUP_VARS "a,b"
 
 # this is an example of a comment
 
-EVENT RATE "3" "a + 1" "b + 0"
-EVENT RATE "a / 3" "a - 1" "b + 0"
+#EVENT RATE "3" "a + 1.199" "b + 0"
+#EVENT RATE "a / 3" "a - 1" "b + 0"
+
+#EVENT RATE "3" "1.999 + a" "0 + b"
+#EVENT RATE "a / 3" "a - 7.3" "b + 0.22"
+
+EVENT RATE "a / 2" "a - 1" "b + 4" 
+EVENT RATE "b / 2" "a + 1" "b - 4"
 
 end
 

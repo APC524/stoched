@@ -6,10 +6,9 @@
 using namespace std;
 
 bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
-		  int eqnCnt){
-  
-  // cout << "Beginning of tauLeapAvail. Comparing " << varListStr
-  // << " with " << functionStr << endl;
+		  int eqnCnt, int eventCnt){
+  // string representation of the amount that the function increments its var
+  string newDelta = "";
 
   // finding the beginning and end of the variable name in varListStr
   // that corresponds to eqnCnt
@@ -33,10 +32,9 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
   }
 
   if (isdigit(functionStr[0])){ // assume the case of double +/- var
-    string newDelta;
-    unsigned i = 1;
+    unsigned i = 0;
     for (; (isdigit(functionStr[i]) || functionStr[i] == '.'); i++){
-      newDelta.append(functionStr[i]);
+      newDelta += functionStr[i];
     }
     cout << "newDelta = " << newDelta << endl;
     // ignore white space
@@ -162,9 +160,9 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
       cout << "\ttau leaping not available. was expecting a double" << endl;
       return false;
     }
-    // expect a double
+    // expect a float
     for (; (isdigit(functionStr[i]) || functionStr[i] == '.'); i++){
-      ;
+      newDelta += functionStr[i];
     }
     // expect a \0 character
     if (functionStr[i] != '\0'){
@@ -173,6 +171,9 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
       return false;
     }
   }
-  cout << "\ttau leap is available" << endl;
+  cout << "\ttau leap is available\n";
+  cModel.setDelta(eqnCnt, eventCnt, atof(newDelta.c_str()));
+  cout << "\tAdding new delta to list of availble deltas: "
+       << atof(newDelta.c_str()) << endl;
   return true;
 }

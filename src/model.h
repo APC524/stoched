@@ -47,7 +47,7 @@ class Model {
 
   // Indicate tau leaping is inpermissible
   void setTauLeapFalse();
-
+  
   // Check if events are compatible with tau leaping
   bool checkTauLeapAvail();
 
@@ -72,6 +72,9 @@ class Model {
   // Returns the approximate continuous time derivative of a variable
   // in the state vector.
   double getContDeriv(int whichVar, double *stateArray);
+
+  // Set the delta of the whichVar in the whichEvent
+  void setDelta(int whichVar, int whichEvent, double val);
 
   // Update state array by evaluation all functions of a given Event
   void updateState(int iEvent, double *stateArray);

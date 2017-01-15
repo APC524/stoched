@@ -47,7 +47,7 @@ class Event {
   double getDeltaVar(int i);
 
   // Set how much the ith eqaution increments the ith equation when it is called
-  void setDeltaVar(int i, double val) {
+  void setDeltaVar(int i, double val);
 
   // Specify name of Event object
   string eventName; 

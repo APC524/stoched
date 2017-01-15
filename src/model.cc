@@ -102,7 +102,6 @@ bool Model::checkTauLeapAvail() {
  */ 
 double Model::useEventFct(int iEvent, int iFunction, double *stateArray) {
   return eventPtrList[iEvent]->useFunction(iFunction, stateArray);
-
 }
 
 /**
@@ -185,11 +184,23 @@ double Model::getContDeriv(int whichVar, double *stateArray) {
     exit(1);
   }
   double deriv = 0;
-  for (iEvent = 0; iEvent < getEventsCount(); iEvent++){
-    deriv += (eventPtrList[iEvent].getRate())
-      * (eventPtrList[iEvent].getDeltaVar(whichVar));
+  for (int iEvent = 0; iEvent < getEventsCount(); iEvent++){
+    deriv += (eventPtrList[iEvent]->getRate(stateArray))
+      * (eventPtrList[iEvent]->getDeltaVar(whichVar));
   }
   return deriv;
+}
+
+/**
+ *   @brief  Sets the delta of a specified variable in the specified event. This delta is needed to compute the continuous time derivative
+ *
+ *   @param  int specifying to which variable from the state array the delta corresponds
+ *   @param  int specifying to which event the delta corresponds
+ *   @param  double specifying the value of delta
+ *   @return void
+ */
+void Model::setDelta(int whichVar, int whichEvent, double val){
+  eventPtrList[whichEvent]->setDeltaVar(whichVar, val);
 }
 
 /**
