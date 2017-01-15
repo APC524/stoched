@@ -29,8 +29,6 @@ using namespace std::chrono;
 int main() {
   
   string variables = "a,b";
-  double args[2] = {1.0, 2.0};
-  double rateArray[2] = {0.0, 0.0};
 
   string function1A = "a + 1";
   string function1B = "b + 0";
@@ -94,7 +92,6 @@ int main() {
 
   // Write the header line corresponding to model
   myfile << left << setw(15) << "time";
-  int vars_count = model.getVarsCount(); 
   for(int i = 0; i < n_vars; i++){
     string test = model.getIthVar(i);
     myfile << left << setw(15) <<  test;
@@ -115,7 +112,6 @@ int main() {
 
   myfile << "\n";
   myfile << left << setw(15) << "time";
-  vars_count = model.getVarsCount(); 
   for(int i = 0; i < n_vars; i++){
     string test = model.getIthVar(i);
     myfile << left << setw(15) <<  test;

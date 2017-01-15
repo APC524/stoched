@@ -5,7 +5,8 @@
 # -----------------------------------------------------------------------------
 CXX = g++
 MPICXX = mpicc
-CXXFLAGS = -g -Wall -lm -O3 
+CXXFLAGS = -g -Wall -lm -O3
+OMPCXXFLAGS = -g -Wall -lm -O3 # -fopenmp
 RM = rm -f
 
 OBJECTS = fparser/fparser.o event.o model.o lex.yy.o parser.tab.o tauleapavail.o
@@ -64,10 +65,10 @@ fparser/fparser.o: fparser/fparser.cc
 #	$(CXX) $^ -o $@
 
 %.o: %.cc
-	$(CXX) -std=c++11 -c $<
+	$(CXX) $(CXXFLAGS) -c $<
 
 %.o: %.c
-	$(CXX) -std=c++11 -c $<
+	$(CXX) $(CXXFLAGS) -c $<
 
 # clean up object code and executables
 clean:
