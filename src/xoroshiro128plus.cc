@@ -40,9 +40,13 @@
 #endif
 
 #if __cplusplus < 199711L
-#warning "stoched should ideally be compiled by a compiler that supports C++11 or later. Support for earlier C++ standards is experimental"
+
+#warning "the xoroshiro128plus random number generator used by stoched should ideally be compiled by a compiler that supports C++11 or later. Support for earlier C++ standards is experimental"
+
+// needed includes for pre-C++11 implementation
 #include "math.h"
 #include "string.h"
+
 /// convert uint64_t to double in (0, 1)
 inline double to_double(uint64_t x){
 	uint64_t x52 = x & ((1ULL << 53) - 1);
@@ -55,7 +59,10 @@ inline double to_double(uint64_t x){
 	return ldexp(0x1p52 + m, -52 - e);
 }
 
-#else 
+#else
+
+// typical double conversion, per Vigna
+
 /// convert uint64_t to double in (0, 1)
 inline double to_double(uint64_t x) {
        const union { uint64_t i; double d; } u = { .i = UINT64_C(0x3FF) << 52 | x >> 12 };
