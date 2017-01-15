@@ -7,8 +7,8 @@
 
 int main(){
   printf("not defined");
-  //uint64_t test = UINT64_C(0x3FF);
-  // printf("%llu \n", test);
+  uint64_t test = UINT64_C(0x3FF);
+  printf("%llu \n", test);
   printf("%llu \n", (uint64_t) (0x3FF));
 
   return 0;
