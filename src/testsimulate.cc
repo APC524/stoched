@@ -1,6 +1,6 @@
 /**
  *  @file    testsimulate.cc
- *  @author  Kevin Griffin (kevinpg@princeton.edu)
+ *  @author  Dylan Morris (dhmorris@princeton.edu)
  *  @date    12/6/16  
  *  @version 1.0 
  *  
@@ -118,7 +118,8 @@ int main() {
   }
   myfile << "\n";
 
-  auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
+  high_resolution_clock::rep duration_first =
+    duration_cast<microseconds>(t2 - t1 ).count();
 
   high_resolution_clock::time_point t3 = high_resolution_clock::now();
   FirstReaction realization2(model_ptr, paramset, rng_ptr, n_vars, n_events);
@@ -127,7 +128,8 @@ int main() {
   // Close the file 
   myfile.close();
 
-  auto duration_next = duration_cast<microseconds>( t4 - t3 ).count();
+  high_resolution_clock::rep duration_next =
+    duration_cast<microseconds>( t4 - t3 ).count();
 
   printf("First rxn ran in %15.8f seconds \n", duration_first * 1.0e-6);
   printf("Next rxn ran in %15.8f seconds \n", duration_next * 1.0e-6);
@@ -136,9 +138,3 @@ int main() {
 
   return 0;
 }
-
-
-
-
-
-

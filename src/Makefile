@@ -17,28 +17,39 @@ RANDOM = rng.o xoroshiro128plus.o
 
 CLASSES = $(BASIC_CLASSES) $(REALIZATIONS) $(RANDOM)
 
-all: xoroshiro_test.exe testevent.exe testmodel.exe testsimulate.exe stoched.exe testparser.exe 
+all: stoched.exe testparser.exe testevent.exe testmodel.exe testsimulate.exe xoroshiro_test.exe
+
+googletests: eventtests.exe modeltests.exe parsertests.exe xoroshiro_test.exe
 
 simulate.exe: simulate.o
-	$(CXX) $(OMPCXXFLAGS) -o $@ $^ -I $(CXXFLAGS)
+	$(CXX) $(CXXFLAGS) -o $@ $^ -I $(CXXFLAGS)
 
 testparser.exe: testparser.o $(OBJECTS)
-	$(CXX) $(OMPCXXFLAGS) $^ -ll -o $@
+	$(CXX) $(CXXFLAGS) $^ -ll -o $@
 
 testevent.exe: event.o testevent.o fparser/fparser.o
-	$(CXX) $(OMPCXXFLAGS) $^ -o $@  
+	$(CXX) $(CXXFLAGS) $^ -o $@  
 
 testmodel.exe: model.o event.o testmodel.o fparser/fparser.o
-	$(CXX) $(OMPCXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 testmodel: model.o event.o testmodel.o fparser/fparser.o
-	$(CXX) $(OMPCXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 testsimulate.exe: testsimulate.o $(CLASSES) fparser/fparser.o
-	$(CXX) $(OMPCXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+eventtests.exe: gtest/include eventtests.o $(CLASSES) fparser/fparser.o gtest/libgtest.a 
+	$(CXX) $(OMPCXXFLAGS) -I $^ -lpthread -o $@
+
+modeltests.exe: gtest/include modeltests.o $(CLASSES) fparser/fparser.o gtest/libgtest.a 
+	$(CXX) $(OMPCXXFLAGS) -I $^ -lpthread -o $@
+
+parsertests.exe: gtest/include parsertests.o $(OBJECTS) gtest/libgtest.a 
+	$(CXX) $(OMPCXXFLAGS) -I $^ -lpthread -ll -o $@
 
 stoched.exe: stoched.o $(OBJECTS) $(CLASSES)
-	$(CXX) $(OMPCXXFLAGS) $^ -ll -o $@
+	$(CXX) $(CXXFLAGS) $^ -ll -o $@
 
 stoched_serial.exe: stoched.o $(OBJECTS) $(CLASSES)
 	$(CXX) $(CXXFLAGS) $^ -ll -o $@

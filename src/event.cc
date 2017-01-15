@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <stdlib.h>
+//#include "gtest/gtest.h"
 
 using namespace std;
 
@@ -29,6 +30,7 @@ using namespace std;
 Event::Event() {
   eq_count_ = 0;
   functionArray_ = (FunctionParser **)malloc(sizeof(FunctionParser));
+  deltaVar_ = (double*)malloc(sizeof(double));
 }
   
 /**
@@ -37,8 +39,8 @@ Event::Event() {
  *   @return nothing 
  */ 
 Event::~Event() {
-  
-  free (functionArray_); 
+  free(deltaVar_);
+  free(functionArray_); 
 }
 
 /**
@@ -49,6 +51,11 @@ Event::~Event() {
  *   @return void
  */ 
 void Event::addFunction(string function, string variables) {
+  // count how many variables there are
+  int varsCount_ = 1;
+  for (int i = 0; i < variables.length(); i++) {
+    if (variables[i] == ',') varsCount_++;
+  }
 
   if (eq_count_ != 0) {
     functionArray_  = (FunctionParser**)realloc(functionArray_, (eq_count_)*sizeof(FunctionParser));
@@ -61,8 +68,11 @@ void Event::addFunction(string function, string variables) {
     fprintf(stderr, "Error!\n");
     exit(-1);
   }
+  // allocate memory so that a continuous derivative delta can be added
+  if (eq_count_ != 0){
+    deltaVar_ = (double*)realloc(deltaVar_,varsCount_*sizeof(double));
+  }
   eq_count_++;
-
 }
 
 /**
@@ -94,6 +104,16 @@ void Event::setRate(string function, string variables) {
 }
 
 /**
+ *   @brief Return rate to user based on values of the state array
+ *  
+ *   @param  stateArray is a double array specifying variable values of function
+ *   @return evaluated rateFunction as a double
+ */ 
+double Event::getRate(double *stateArray) {
+  return rateFunction.Eval(stateArray);
+}
+
+/**
  *   @brief Return size of event, namely number of functions, to user  
  *
  *   @return size of event, namely number of functions, as an int
@@ -103,11 +123,32 @@ int Event::getSize() {
 }
 
 /**
- *   @brief Return rate to user based on values of the state array
- *  
- *   @param  stateArray is a double array specifying variable values of function
- *   @return evaluated rateFunction as a double
+ *   @brief Return how the ith variable is incremented when the ith equation is called
+ *
+ *   @param  i is an int specifying of which variable to find the delta.
+0 is the first variable
+ *   @return change in value of i when its corresponding equation is called, as a double
  */ 
-double Event::getRate(double *stateArray) {
-  return rateFunction.Eval(stateArray);
+double Event::getDeltaVar(int i) {
+  if (i >= eq_count_){
+    fprintf(stderr, "Error: Array bounds exceeded. Asked for a derivate\n"
+            "in the contDeriv array that does not exist\n");
+    exit(1);
+  }
+  return deltaVar_[i];
+}
+
+/**
+ *   @brief set the amount that the ith function increments the ith variable. This is used by midpoint tau leaping
+ *
+ *   @param  i is an int specifying of which variable to set. 0 is the first variable
+ *   @return void
+ */ 
+void Event::setDeltaVar(int i, double val) {
+  if (i >= eq_count_){
+    fprintf(stderr, "Error: Array bounds exceeded. Tried to set a derivate\n"
+            "in the contDeriv array that does not exist\n");
+    exit(1);
+  }
+  deltaVar_[i] = val;
 }
