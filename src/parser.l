@@ -11,13 +11,17 @@
  */
 
 
+%option noyywrap
+
 %{
 #include <stdio.h>
 #include <iostream>
 #include "parser.tab.h"
+
 using namespace std;
 int linecount = 1;
 #define YY_DECL extern "C" int yylex()
+
 %}
 %%
 [ \t]          { 

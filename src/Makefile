@@ -17,7 +17,7 @@ RANDOM = rng.o xoroshiro128plus.o
 
 CLASSES = $(BASIC_CLASSES) $(REALIZATIONS) $(RANDOM)
 
-all: stoched.exe testparser.exe testevent.exe testmodel.exe testsimulate.exe
+all: stoched.exe testparser.exe testevent.exe testmodel.exe testsimulate.exe xoroshiro_test.exe
 
 googletests: eventtests.exe modeltests.exe parsertests.exe xoroshiro_test.exe
 
@@ -25,7 +25,7 @@ simulate.exe: simulate.o
 	$(CXX) $(CXXFLAGS) -o $@ $^ -I $(CXXFLAGS)
 
 testparser.exe: testparser.o $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $^ -ll -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@ 
 
 testevent.exe: event.o testevent.o fparser/fparser.o
 	$(CXX) $(CXXFLAGS) $^ -o $@  
@@ -46,13 +46,13 @@ modeltests.exe: gtest/include modeltests.o $(CLASSES) fparser/fparser.o gtest/li
 	$(CXX) $(OMPCXXFLAGS) -I $^ -lpthread -o $@
 
 parsertests.exe: gtest/include parsertests.o $(OBJECTS) gtest/libgtest.a 
-	$(CXX) $(OMPCXXFLAGS) -I $^ -lpthread -ll -o $@
+	$(CXX) $(OMPCXXFLAGS) -I $^ -lpthread -o $@
 
 stoched.exe: stoched.o $(OBJECTS) $(CLASSES)
-	$(CXX) $(CXXFLAGS) $^ -ll -o $@
+	$(CXX) $(CXXFLAGS) $^ -o  $@
 
 stoched_serial.exe: stoched.o $(OBJECTS) $(CLASSES)
-	$(CXX) $(CXXFLAGS) $^ -ll -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 fparser/fparser.exe: fparser/example2.o fparser/fparser.o
 	$(CXX) $^ -o $@
@@ -75,10 +75,10 @@ fparser/fparser.o: fparser/fparser.cc
 #	$(CXX) $^ -o $@
 
 %.o: %.cc
-	$(CXX) $(CXXFLAGS) -c $<
+	$(CXX) -std=c++0x -c $<
 
 %.o: %.c
-	$(CXX) $(CXXFLAGS) -c $<
+	$(CXX) -std=c++0x -c $<
 
 # clean up object code and executables
 clean:

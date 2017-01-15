@@ -24,7 +24,7 @@
   extern "C" int yyparse(Model& cModel, int eventCnt, int eqnCnt);
   extern "C" FILE *yyin;
   extern int linecount;
- 
+   
   // declare error function
   void yyerror(Model& cModel, int eventCnt, int eqnCnt, const char *s);
   // declare a function to check if tau leaping is available
