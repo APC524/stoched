@@ -3,7 +3,7 @@
 # 11/29/16, APC 524, Final Project
 # Makefile
 # -----------------------------------------------------------------------------
-CXX = g++
+CXX = mpicc
 MPICXX = mpicc
 CXXFLAGS = -g -Wall -lm -O3 
 OMPCXXFLAGS = -g -Wall -lm -O3 # -fopenmp
@@ -39,9 +39,9 @@ testsimulate.exe: testsimulate.o $(CLASSES) fparser/fparser.o
 	$(CXX) $(OMPCXXFLAGS) $^ -o $@
 
 stoched.exe: stoched.o $(OBJECTS) $(CLASSES)
-	$(CXX) $(OMPCXXFLAGS) $^ -ll -o $@
+	$(MPICXX) $(CXXFLAGS) $^ -ll -o $@
 
-stoched_serial.exe: stoched.o $(OBJECTS) $(CLASSES)
+stoched_serial.exe: stoched_serial.o $(OBJECTS) $(CLASSES)
 	$(CXX) $(CXXFLAGS) $^ -ll -o $@
 
 fparser/fparser.exe: fparser/example2.o fparser/fparser.o
@@ -67,8 +67,14 @@ fparser/fparser.o: fparser/fparser.cc
 %.o: %.cc
 	$(CXX) -std=c++11 -c $<
 
-%.o: %.c
-	$(CXX) -std=c++11 -c $<
+#%.o: %.c
+#	$(CXX) -std=c++0x -c $<
+lex.yy.o: lex.yy.c
+	mv lex.yy.c lex.yy.cc
+	$(CXX) -std=c++0x -c lex.yy.cc
+parser.tab.o: parser.tab.c
+	mv parser.tab.c parser.tab.cc
+	$(CXX) -std=c++0x -c parser.tab.cc
 
 # clean up object code and executables
 clean:
