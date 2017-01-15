@@ -32,6 +32,7 @@
 
 #include "xoroshiro128plus.h"
 #include "rng.h"
+#include "math.h"
 
 // support for C++ stds <= C++11
 #ifndef INT64_C
@@ -50,7 +51,7 @@ inline double to_double(uint64_t x){
 	if (e > 52 || e == 0)
 		return 0.0;
 	/* Shift out the bit we don't want set. */
-	m = (r >> e) << (e - 1);
+	m = (x52 >> e) << (e - 1);
 	return ldexp(0x1p52 + m, -52 - e);
 }
 
