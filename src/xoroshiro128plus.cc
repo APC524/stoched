@@ -32,7 +32,6 @@
 
 #include "xoroshiro128plus.h"
 #include "rng.h"
-#include "math.h"
 
 // support for C++ stds <= C++11
 #ifndef INT64_C
@@ -42,7 +41,8 @@
 
 #if __cplusplus < 199711L
 #warning "stoched should ideally be compiled by a compiler that supports C++11 or later. Support for earlier C++ standards is experimental"
-
+#include "math.h"
+#include "string.h"
 /// convert uint64_t to double in (0, 1)
 inline double to_double(uint64_t x){
 	uint64_t x52 = x & ((1ULL << 53) - 1);
