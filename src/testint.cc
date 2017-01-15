@@ -11,13 +11,14 @@ int main(){
   #endif
 
 #if __cplusplus < 199711L
+    #warning "stoched should ideally be compiled by a compiler that supports C++11 or later. Support for earlier C++ standards is experimental"
   printf ("REALLY old compiler\n");
 #endif
                     
   printf("not defined\n");
   uint64_t test = UINT64_C(0x3FF);
   printf("%llu \n", test);
-  printf("%llu \n", (uint64_t) (0x3FF));
+  printf("%llu \n", (uint64_t) (0x1p52));
 
   return 0;
 }
@@ -38,9 +39,9 @@ int main(){
   printf("OLD COMPILER\n");
   #endif
   printf("defined");
-  //uint64_t test = UINT64_C(0x3FF);
-  // printf("%llu \n", test);
-  printf("%llu \n", (uint64_t) (0x3FF));
+  uint64_t test = UINT64_C(0x3FF);
+  printf("%llu \n", test);
+  printf("%llu \n", (uint64_t) (0x1p52));
 
   return 0;
 }

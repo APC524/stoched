@@ -9,17 +9,49 @@
  *  
  */
 
+
+
+/* Legacy C++ standard double conversion based upon open-source code by
+ * Artur Grabowski, which appears with the following license:
+ *
+ * Copyright (c) 2015 Artur Grabowski <art@blahonga.org>
+ *
+ * Permission to use, copy, modify, and distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ */
+
+
 #include "xoroshiro128plus.h"
 #include "rng.h"
 
-// support for c++0x 
+// support for C++ stds <= C++11
 #ifndef INT64_C
 #define INT64_C(c) (int64_t) c
 #define UINT64_C(c) (uint64_t) c
+#endif
 
-inline double to_double(uint64_t x) {
-       const union { uint64_t i; double d; } u = { .i = UINT64_C(0x3FF) << 52 | x >> 12 };
-       return u.d - 1.0;
+#if __cplusplus < 199711L
+#warning "stoched should ideally be compiled by a compiler that supports C++11 or later. Support for earlier C++ standards is experimental"
+
+/// convert uint64_t to double in (0, 1)
+inline double to_double(uint64_t x){
+	uint64_t x52 = x & ((1ULL << 53) - 1);
+        int e = ffsll(x52);
+	uint64_t m;
+	if (e > 52 || e == 0)
+		return 0.0;
+	/* Shift out the bit we don't want set. */
+	m = (r >> e) << (e - 1);
+	return ldexp(0x1p52 + m, -52 - e);
 }
 
 #else 
