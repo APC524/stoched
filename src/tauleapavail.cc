@@ -42,7 +42,6 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
     for (; (isdigit(functionStr[i]) || functionStr[i] == '.'); i++){
       newDelta += functionStr[i];
     }
-    cout << "newDelta = " << newDelta << endl;
     // ignore white space
     if (isspace(functionStr[i])){
       for (; isspace(functionStr[i]); i++){
@@ -52,6 +51,8 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
     // expect + or -
     if (i == functionStr.length()){
       cout << "\ttau leaping is available, function is a constant" << endl;
+      cModel.setDelta(eqnCnt, eventCnt, 0.0);
+      cout << "\tAdding new delta to list of availble deltas: 0" << endl;
       return true;
     }
     if (!(functionStr[i] == '+' || functionStr[i] == '-')){
@@ -144,6 +145,8 @@ bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
     // expect + or -
     if (i == functionStr.length()){
       cout << "\ttau leaping is available, function is constant" << endl;
+      cModel.setDelta(eqnCnt, eventCnt, 0.0);
+      cout << "\tAdding new delta to list of availble deltas: 0" << endl;
       return true;
     }
     if (!(functionStr[i] == '+' || functionStr[i] == '-')){
