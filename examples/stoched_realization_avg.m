@@ -6,13 +6,13 @@
 % final state, so then this script will average the final (equilibrium)
 % values
 clear all
-path = '~/apc/hw/stoched/examples/';
+path = './';
 fileprefix = 'stoched_output_realization_';
 filesuffix = '.txt';
 
 n_realizations = 4;
 avg = zeros(3,1);
-figure(1)
+figure(2)
 hold on
 for j = 1:n_realizations
     filename = [path,fileprefix,int2str(j),filesuffix];

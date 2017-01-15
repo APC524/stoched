@@ -7,7 +7,7 @@
 % Therefore, in figure 3, when enough realizaitons are averaged, the
 % solution should approach 20 molecules of A at long times.
 clear all
-path = '~/apc/hw/stoched/examples/';
+path = './';
 fileprefix = 'stoched_output_realization_';
 filesuffix = '.txt';
 %% plot time histories on same graph
