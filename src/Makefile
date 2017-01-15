@@ -25,7 +25,7 @@ simulate.exe: simulate.o
 	$(CXX) $(CXXFLAGS) -o $@ $^ -I $(CXXFLAGS)
 
 testparser.exe: testparser.o $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $^ -ll -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@ 
 
 testevent.exe: event.o testevent.o fparser/fparser.o
 	$(CXX) $(CXXFLAGS) $^ -o $@  
@@ -46,13 +46,13 @@ modeltests.exe: gtest/include modeltests.o $(CLASSES) fparser/fparser.o gtest/li
 	$(CXX) $(OMPCXXFLAGS) -I $^ -lpthread -o $@
 
 parsertests.exe: gtest/include parsertests.o $(OBJECTS) gtest/libgtest.a 
-	$(CXX) $(OMPCXXFLAGS) -I $^ -lpthread -ll -o $@
+	$(CXX) $(OMPCXXFLAGS) -I $^ -lpthread -o $@
 
 stoched.exe: stoched.o $(OBJECTS) $(CLASSES)
-	$(CXX) $(CXXFLAGS) $^ -ll -o $@
+	$(CXX) $(CXXFLAGS) $^ -o  $@
 
 stoched_serial.exe: stoched.o $(OBJECTS) $(CLASSES)
-	$(CXX) $(CXXFLAGS) $^ -ll -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 fparser/fparser.exe: fparser/example2.o fparser/fparser.o
 	$(CXX) $^ -o $@
