@@ -17,8 +17,9 @@ RANDOM = rng.o xoroshiro128plus.o
 
 CLASSES = $(BASIC_CLASSES) $(REALIZATIONS) $(RANDOM)
 
-all: stoched.exe testparser.exe testevent.exe testmodel.exe testsimulate.exe eventtests.exe \
-     modeltests.exe parsertests.exe xoroshiro_test.exe
+all: stoched.exe testparser.exe testevent.exe testmodel.exe testsimulate.exe
+
+googletests: eventtests.exe modeltests.exe parsertests.exe xoroshiro_test.exe
 
 simulate.exe: simulate.o
 	$(CXX) $(CXXFLAGS) -o $@ $^ -I $(CXXFLAGS)
