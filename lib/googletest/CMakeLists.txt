@@ -14,6 +14,3 @@ if(BUILD_GMOCK)
 elseif(BUILD_GTEST)
   add_subdirectory( googletest )
 endif()
-
-include_directories(/Users/Caleb/APC524/stoched/src/gtest/include)
-target_link_libraries(test_inet /Users/Caleb/APC524/stoched/src/gtest/libgtest.a)

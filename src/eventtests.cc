@@ -1,3 +1,13 @@
+/**
+ *  @file    eventtests.cc
+ *  @author  Caleb Peckham (peckham@princeton.edu)
+ *  @date    1/12/17  
+ *  @version 1.0 
+ *  
+ *  @brief   Test Event code
+ *
+ */
+
 #include <string>
 #include <stdio.h>
 #include <iostream>

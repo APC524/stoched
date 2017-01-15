@@ -1,3 +1,13 @@
+/**
+ *  @file    xoroshirotests.cc
+ *  @author  Dylan Morris (dhmorris@princeton.edu)
+ *  @date    1/12/17  
+ *  @version 1.0 
+ *  
+ *  @brief Example xoroshiro code
+ *
+ */
+
 #include "xoroshiro128plus.h"
 #include <stdio.h>
 #include <cstdlib>
@@ -39,8 +49,8 @@ int main(int argc, char *argv[]) {
     printf("Exponential: %15.8f \n", test_generator.rexp(2));
   }
 
-    for(int k = 0; k < 20; k++){
-    printf("Poisson: %ld \n", test_generator.rpois(30000));
+  for(int k = 0; k < 20; k++){
+    printf("Poisson: %d \n", (int) test_generator.rpois(30000));
   }
 
   return 0;

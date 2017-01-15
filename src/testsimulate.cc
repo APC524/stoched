@@ -1,6 +1,6 @@
 /**
  *  @file    testsimulate.cc
- *  @author  Kevin Griffin (kevinpg@princeton.edu)
+ *  @author  Dylan Morris (dhmorris@princeton.edu)
  *  @date    12/6/16  
  *  @version 1.0 
  *  
@@ -136,9 +136,3 @@ int main() {
 
   return 0;
 }
-
-
-
-
-
-
