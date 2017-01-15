@@ -3,7 +3,7 @@
 # 11/29/16, APC 524, Final Project
 # Makefile
 # -----------------------------------------------------------------------------
-CXX = g++-6
+CXX = g++
 MPICXX = mpicc
 CXXFLAGS = -g -Wall -lm -O3 -std=c++0x
 OMPCXXFLAGS = -g -Wall -lm -O3 # -fopenmp
