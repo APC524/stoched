@@ -1,5 +1,5 @@
 /** 
- *  @file    firstreaction.cc
+ *  @file    nextreaction.cc
  *  @author  Dylan Morris (dhmorris@princeton.edu)
  *  @date    12/6/16  
  *  @version 1.0 

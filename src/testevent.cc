@@ -4,10 +4,7 @@
  *  @date    12/6/16  
  *  @version 1.0 
  *  
- *  @brief APC 524, Final Project - Stoched
- *
- *  @section DESCRIPTION
- *  
+ *  @brief   Example usage of Event class  
  */
 
 #include <iostream>

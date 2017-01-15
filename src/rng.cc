@@ -117,7 +117,6 @@ double rng::log_factorial(int k)
   }
   
   else if(k > 254){
-    double x = k + 1;
     return 0.5 * log(2 * M_PI) + (k + 0.5) * log(k) -
       k + (1.0/12.0 - 1.0/(360 * k * k))/k;
   }

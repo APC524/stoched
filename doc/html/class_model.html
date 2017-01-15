@@ -60,7 +60,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_model-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -86,9 +85,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a78d9b07bd5e819215c9aeefabb4cede7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a78d9b07bd5e819215c9aeefabb4cede7">addEventFct</a> (int iEvent, string function)</td></tr>
 <tr class="memdesc:a78d9b07bd5e819215c9aeefabb4cede7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add <a class="el" href="class_event.html" title="Class Event holds a user-specified event, namely set of functions and associated rate. ">Event</a> function to specified <a class="el" href="class_event.html" title="Class Event holds a user-specified event, namely set of functions and associated rate. ">Event</a> in <a class="el" href="class_model.html" title="Class Model, which holds user-specified models of stochastic systems from which realizations are to b...">Model</a>.  <a href="#a78d9b07bd5e819215c9aeefabb4cede7">More...</a><br /></td></tr>
 <tr class="separator:a78d9b07bd5e819215c9aeefabb4cede7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a371ba260fc741531a08a197ea7446758"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a371ba260fc741531a08a197ea7446758">setTauLeapFalse</a> ()</td></tr>
+<tr class="memdesc:a371ba260fc741531a08a197ea7446758"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicate tau leaping is inpermissible by setting the tauLeapAvail_ flag to false.  <a href="#a371ba260fc741531a08a197ea7446758">More...</a><br /></td></tr>
+<tr class="separator:a371ba260fc741531a08a197ea7446758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeba8f871483d714448a0bbf509ab21e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#aeba8f871483d714448a0bbf509ab21e7">checkTauLeapAvail</a> ()</td></tr>
+<tr class="memdesc:aeba8f871483d714448a0bbf509ab21e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if events are compatible with tau leaping.  <a href="#aeba8f871483d714448a0bbf509ab21e7">More...</a><br /></td></tr>
+<tr class="separator:aeba8f871483d714448a0bbf509ab21e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a774d9fb034f8704a75d7b3568a87a3bc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a774d9fb034f8704a75d7b3568a87a3bc">useEventFct</a> (int iEvent, int iFunction, double *stateArray)</td></tr>
 <tr class="memdesc:a774d9fb034f8704a75d7b3568a87a3bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate given function in specified <a class="el" href="class_event.html" title="Class Event holds a user-specified event, namely set of functions and associated rate. ">Event</a>.  <a href="#a774d9fb034f8704a75d7b3568a87a3bc">More...</a><br /></td></tr>
 <tr class="separator:a774d9fb034f8704a75d7b3568a87a3bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ee802e2090b51ae403d39f6ec0138d8"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a9ee802e2090b51ae403d39f6ec0138d8">getVarsString</a> ()</td></tr>
+<tr class="memdesc:a9ee802e2090b51ae403d39f6ec0138d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a list of the variables that make up the state array.  <a href="#a9ee802e2090b51ae403d39f6ec0138d8">More...</a><br /></td></tr>
+<tr class="separator:a9ee802e2090b51ae403d39f6ec0138d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2909caddddccca90faaae708e68226ad"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a2909caddddccca90faaae708e68226ad">getEventRate</a> (int iEvent, double *stateArray)</td></tr>
 <tr class="memdesc:a2909caddddccca90faaae708e68226ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate rate function for a specified <a class="el" href="class_event.html" title="Class Event holds a user-specified event, namely set of functions and associated rate. ">Event</a>.  <a href="#a2909caddddccca90faaae708e68226ad">More...</a><br /></td></tr>
 <tr class="separator:a2909caddddccca90faaae708e68226ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,24 +115,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f2fd71261c87162718864d7efc67f2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a3f2fd71261c87162718864d7efc67f2f">updateRates</a> (double *stateArray, double *rateArray)</td></tr>
 <tr class="memdesc:a3f2fd71261c87162718864d7efc67f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update rate for all Events in <a class="el" href="class_model.html" title="Class Model, which holds user-specified models of stochastic systems from which realizations are to b...">Model</a>'s <a class="el" href="class_event.html" title="Class Event holds a user-specified event, namely set of functions and associated rate. ">Event</a> list.  <a href="#a3f2fd71261c87162718864d7efc67f2f">More...</a><br /></td></tr>
 <tr class="separator:a3f2fd71261c87162718864d7efc67f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae05422514dfd69ef84acbf62e1da6314"><td class="memItemLeft" align="right" valign="top"><a id="ae05422514dfd69ef84acbf62e1da6314"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Model</b> (int n_vars, int n_events, VectorXd(*rate_function)(double t, VectorXd state_array, VectorXd rate_params), VectorXd(*event_function)(double t, VectorXd state_array, VectorXd event_params, int event_choice))</td></tr>
-<tr class="separator:ae05422514dfd69ef84acbf62e1da6314"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a58a70f2aa016135d36cab7a3e4c9984b"><td class="memItemLeft" align="right" valign="top"><a id="a58a70f2aa016135d36cab7a3e4c9984b"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>n_vars</b></td></tr>
-<tr class="separator:a58a70f2aa016135d36cab7a3e4c9984b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac44cde8cfcdee99497cf0de5a6bf9485"><td class="memItemLeft" align="right" valign="top"><a id="ac44cde8cfcdee99497cf0de5a6bf9485"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>n_events</b></td></tr>
-<tr class="separator:ac44cde8cfcdee99497cf0de5a6bf9485"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a5bd4589568179430178006dd7cf456"><td class="memItemLeft" align="right" valign="top"><a id="a9a5bd4589568179430178006dd7cf456"></a>
-Vector_xf(*&#160;</td><td class="memItemRight" valign="bottom"><b>rate_function</b> )(double t, VectorXd state_array, VectorXd rate_params)</td></tr>
-<tr class="separator:a9a5bd4589568179430178006dd7cf456"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa03b6ffb568662cb94607d87f4432b79"><td class="memItemLeft" align="right" valign="top"><a id="aa03b6ffb568662cb94607d87f4432b79"></a>
-Vector_xf(*&#160;</td><td class="memItemRight" valign="bottom"><b>event_function</b> )(double t, VectorXd state_array, VectorXd event_params, int event_choice))</td></tr>
-<tr class="separator:aa03b6ffb568662cb94607d87f4432b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -136,6 +126,9 @@ vector&lt; <a class="el" href="class_event.html">Event</a> * &gt;&#160;</td><td 
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a713e115e1b8d997490d80d877ffb4740">vars_</a></td></tr>
 <tr class="memdesc:a713e115e1b8d997490d80d877ffb4740"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variables associated with a model. <br /></td></tr>
 <tr class="separator:a713e115e1b8d997490d80d877ffb4740"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1c8e8467a77fc52e4e6a4fb416111f5"><td class="memItemLeft" align="right" valign="top"><a id="ad1c8e8467a77fc52e4e6a4fb416111f5"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>tauLeapAvail_</b></td></tr>
+<tr class="separator:ad1c8e8467a77fc52e4e6a4fb416111f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class <a class="el" href="class_model.html" title="Class Model, which holds user-specified models of stochastic systems from which realizations are to b...">Model</a>, which holds user-specified models of stochastic systems from which realizations are to be simulated. A model may have variable parameters; each complete set will be stored in an object of class <a class="el" href="class_paramset.html" title="Class Paramset holds a particular set of pameters for user requested simulation run(s) ...">Paramset</a>. </p>
@@ -269,6 +262,26 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 
 </div>
 </div>
+<a id="aeba8f871483d714448a0bbf509ab21e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeba8f871483d714448a0bbf509ab21e7">&#9670;&nbsp;</a></span>checkTauLeapAvail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Model::checkTauLeapAvail </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if events are compatible with tau leaping. </p>
+<dl class="section return"><dt>Returns</dt><dd>the status of if tau leaping is available as a boolean </dd></dl>
+
+</div>
+</div>
 <a id="a2909caddddccca90faaae708e68226ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2909caddddccca90faaae708e68226ad">&#9670;&nbsp;</a></span>getEventRate()</h2>
 
@@ -371,6 +384,46 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 
 <p>Return total number of variables. </p>
 <dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="a9ee802e2090b51ae403d39f6ec0138d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ee802e2090b51ae403d39f6ec0138d8">&#9670;&nbsp;</a></span>getVarsString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Model::getVarsString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a list of the variables that make up the state array. </p>
+<dl class="section return"><dt>Returns</dt><dd>comma separated list of variable names as a string </dd></dl>
+
+</div>
+</div>
+<a id="a371ba260fc741531a08a197ea7446758"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a371ba260fc741531a08a197ea7446758">&#9670;&nbsp;</a></span>setTauLeapFalse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Model::setTauLeapFalse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Indicate tau leaping is inpermissible by setting the tauLeapAvail_ flag to false. </p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>
@@ -496,10 +549,8 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/dylan/stoched/src/<a class="el" href="model_8h_source.html">model.h</a></li>
-<li>/Users/dylan/stoched/src/<a class="el" href="old__model_8h_source.html">old_model.h</a></li>
-<li>/Users/dylan/stoched/src/<a class="el" href="model_8cc.html">model.cc</a></li>
-<li>/Users/dylan/stoched/src/old_model.cc</li>
+<li>/Users/Caleb/APC524/stoched/src/<a class="el" href="model_8h_source.html">model.h</a></li>
+<li>/Users/Caleb/APC524/stoched/src/<a class="el" href="model_8cc.html">model.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

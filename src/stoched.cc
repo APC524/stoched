@@ -26,16 +26,16 @@ int parseFile(Model& model, string inputfilename);
    a path to an input file of parameters */
 
 // wrapper for argument validation
-int validate_args(int argc, char *argv[]) {
+bool args_invalid(int argc, char *argv[]) {
   // do very basic argument validation for now
   // note: argc = # of agrs + 1 because name of program is counted
-  if (argc <= 2) { // require 2 or more args
-    fprintf(stderr, "\nExpected at least 2 arguments, got %i \n\n"
-           "USAGE: %s <model file> \n\n"
+  if (argc < 2) { // require 2 or more args
+    fprintf(stderr, "\nExpected at least 1 argument, got %i \n\n"
+           "USAGE: %s <model file>\n"
            "<model file>: Path to a file "
            "specifying a stoched model\n\n",
            argc - 1, argv[0]);
-    exit(1);
+    return 1;
   }
   return 0;
 }
@@ -43,7 +43,7 @@ int validate_args(int argc, char *argv[]) {
 int main(int argc, char *argv[]) {
 
   // do argument validation
-  validate_args(argc, argv);
+  if(args_invalid(argc, argv)) {return 1;};
   
   // coerce arg variables to usable types 
   string model_path = argv[1];
@@ -66,19 +66,21 @@ int main(int argc, char *argv[]) {
   // test that the Model was initialized by the parser properly
   // TO BE IMPLEMENTED 
 
+  // these are dynamic, not defaults
+  int n_vars = model_ptr->getVarsCount();
+  int n_events = model_ptr->getEventsCount();
+  
   // default parameters
   int method = 0;
-  int n_vars = 2;
-  int n_events = 4;
 
   vector<double> inits_v;
   int init_count = 0;
 
   double t_initial = 0;
   double t_final = 5000;
-  double timestep_size = 0.5;
   int n_realizations = 1;
   double max_iter = 100000000;
+  double timestep_size = -2341.9382;
   int seed = 502;
   int suppress_output = 0;
 
@@ -92,10 +94,6 @@ int main(int argc, char *argv[]) {
         if (string(argv[j]) == "method") {
           // We know the next argument *should* be the filename:
           method = atoi(argv[j + 1]);
-        } else if (string(argv[j]) == "n_vars") {
-          n_vars = atoi(argv[j + 1]);
-        } else if (string(argv[j]) == "n_events") {
-          n_events = atoi(argv[j + 1]);
         } else if (string(argv[j]) == "t_initial") {
           t_initial = atof(argv[j + 1]);
         } else if (string(argv[j]) == "t_final") {
@@ -126,13 +124,26 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  if(init_count==0)
-    init_count=2;
+  try{
+  if((init_count != n_vars) && (init_count != 0)){
+    throw runtime_error("Number of initial values must "
+                        "equal number of variables");
+  }
+  }
+  catch (const runtime_error& e) {
+    cout << "\nERROR: " << e.what() << "\n";
+    return 1;
+  }
 
   double inits[init_count];
+  
   if(inits_v.empty()){
-    inits[0] = 0.0;
-    inits[1] = 0.0;
+    fprintf(stderr,
+            "WARNING: no initial values specified. \n "
+            "Giving all variables an initial value of zero... \n");
+    for(int i = 0; i < init_count; i++){
+      inits[i] = 0.0;
+    }
   }
   else{
     for(int i = 0; i < init_count; i++){
@@ -165,7 +176,6 @@ int main(int argc, char *argv[]) {
     myfile.open(write_out_path);
     // Write the header line corresponding to model
     myfile << left << setw(15) << "time";
-    int vars_count = model.getVarsCount(); 
     for(int i = 0; i < n_vars; i++){
       string test = model.getIthVar(i);
       myfile << left << setw(15) <<  test;

@@ -7,7 +7,7 @@
  *  @brief  Class EulerLeap implements Realization step() function 
  *          using the basic tau leap approximate method of Gillepsie
  *          (2001). The method is analogous to the deterministic forward 
- *          Euler method the numerical solution of ordinary
+ *          Euler method for the numerical solution of ordinary
  *          differential equations.
  */
 
@@ -19,23 +19,25 @@ EulerLeap::EulerLeap(Model *the_model, const Paramset & the_paramset,
   Realization(the_model, the_paramset, the_rng, n_vars, n_events)
 {
   // check for invalid tau leap simulation conditions
-  
-  // uncomment model flag check below once implemented by Kevin
-  /*
-  if(!the_model->tau_leap_available) {
+    if(!the_model->checkTauLeapAvail()) {
     throw runtime_error("Euler tau leap simulation can only be used "
-                        "when all possible events change variables "
-                        "by an quantity that does not depend upon the "
-                        "current values of the state variables \n\n"
+                        "when events change state variables "
+                        "by quantities that do not depend upon the "
+                        "state variables themselves.\n\n"
                         "Example: \n "
-                        "EVENT RATE \"a + b / 3\" \"a - 1\" \"b + 4\"\n\n"
+                        "EVENT RATE \"a + b / 3\" \"a - 1\" \"b + 4\"\n"
                         "is a valid event for tau leap simulations.\n\n"
                         "EVENT RATE \"a + b / 3\" \"a - b\" \"b + 4\" \n"
-                        "is not a valid event for tau leap simulations.");
+                        "is not a valid event for tau leap simulations.\n");
 
       };
-  */
+ 
   if(the_paramset.timestep_size < 0){
+    if(the_paramset.timestep_size == -2341.9382){
+      throw runtime_error("No timestep size specified. "
+                          "Tau leap methods require a "
+                          "timestep size");
+    }
     throw runtime_error("Invalid timestep size: timestep size must "
                         "be positive");
       };

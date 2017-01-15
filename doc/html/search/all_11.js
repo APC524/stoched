@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['xoroshiro128plus',['xoroshiro128plus',['../classxoroshiro128plus.html',1,'xoroshiro128plus'],['../classxoroshiro128plus.html#ae32867bf0900c675d3b6f638ea2c49e1',1,'xoroshiro128plus::xoroshiro128plus()']]],
-  ['xoroshiro128plus_2ecc',['xoroshiro128plus.cc',['../xoroshiro128plus_8cc.html',1,'']]],
-  ['xoroshiro128plus_2eh',['xoroshiro128plus.h',['../xoroshiro128plus_8h.html',1,'']]]
+  ['waiting_5ftimes',['waiting_times',['../class_first_reaction.html#adef190a1cb589cc8317b469f94cd6ad4',1,'FirstReaction::waiting_times()'],['../class_next_reaction.html#a8a7d82a004db70828dd732bf57cf35b6',1,'NextReaction::waiting_times()']]]
 ];
