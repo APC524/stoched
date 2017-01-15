@@ -171,7 +171,7 @@ int main(int argc, char *argv[]) {
   for(int i = 0; i < n_realizations; i++){
     // Open file
     ofstream myfile;
-    string write_out_path = out_path + "_realization_" + to_string(i+1) + ".txt";
+    string write_out_path = out_path + "_realization_" + to_string(static_cast<long long>(i+1)) + ".txt";
 
     myfile.open(write_out_path);
     // Write the header line corresponding to model

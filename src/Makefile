@@ -17,8 +17,7 @@ RANDOM = rng.o xoroshiro128plus.o
 
 CLASSES = $(BASIC_CLASSES) $(REALIZATIONS) $(RANDOM)
 
-all: stoched.exe testparser.exe testevent.exe testmodel.exe testsimulate.exe
-
+all: xoroshiro_test.exe testevent.exe testmodel.exe testsimulate.exe stoched.exe testparser.exe 
 
 simulate.exe: simulate.o
 	$(CXX) $(OMPCXXFLAGS) -o $@ $^ -I $(CXXFLAGS)
@@ -65,10 +64,10 @@ fparser/fparser.o: fparser/fparser.cc
 #	$(CXX) $^ -o $@
 
 %.o: %.cc
-	$(CXX) $(CXXFLAGS) -c $<
+	$(CXX) -std=c++0x -c $<
 
 %.o: %.c
-	$(CXX) $(CXXFLAGS) -c $<
+	$(CXX) -std=c++0x -c $<
 
 # clean up object code and executables
 clean:
