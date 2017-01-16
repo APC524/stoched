@@ -5,6 +5,8 @@ Application for modeling stochastic systems and simulating realizations from the
 cd src
 make
 
+Refer to the user guide for required packages/libraries. 
+
 #### Sample Execution
 cd examples
 ../src/stoched.exe chem.parser.in init_file init_file.txt
