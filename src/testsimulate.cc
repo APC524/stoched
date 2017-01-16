@@ -1,6 +1,6 @@
 /**
  *  @file    testsimulate.cc
- *  @author  Kevin Griffin (kevinpg@princeton.edu)
+ *  @author  Dylan Morris (dhmorris@princeton.edu)
  *  @date    12/6/16  
  *  @version 1.0 
  *  
@@ -29,8 +29,6 @@ using namespace std::chrono;
 int main() {
   
   string variables = "a,b";
-  double args[2] = {1.0, 2.0};
-  double rateArray[2] = {0.0, 0.0};
 
   string function1A = "a + 1";
   string function1B = "b + 0";
@@ -94,7 +92,6 @@ int main() {
 
   // Write the header line corresponding to model
   myfile << left << setw(15) << "time";
-  int vars_count = model.getVarsCount(); 
   for(int i = 0; i < n_vars; i++){
     string test = model.getIthVar(i);
     myfile << left << setw(15) <<  test;
@@ -115,14 +112,14 @@ int main() {
 
   myfile << "\n";
   myfile << left << setw(15) << "time";
-  vars_count = model.getVarsCount(); 
   for(int i = 0; i < n_vars; i++){
     string test = model.getIthVar(i);
     myfile << left << setw(15) <<  test;
   }
   myfile << "\n";
 
-  auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
+  high_resolution_clock::rep duration_first =
+    duration_cast<microseconds>(t2 - t1 ).count();
 
   high_resolution_clock::time_point t3 = high_resolution_clock::now();
   FirstReaction realization2(model_ptr, paramset, rng_ptr, n_vars, n_events);
@@ -131,7 +128,8 @@ int main() {
   // Close the file 
   myfile.close();
 
-  auto duration_next = duration_cast<microseconds>( t4 - t3 ).count();
+  high_resolution_clock::rep duration_next =
+    duration_cast<microseconds>( t4 - t3 ).count();
 
   printf("First rxn ran in %15.8f seconds \n", duration_first * 1.0e-6);
   printf("Next rxn ran in %15.8f seconds \n", duration_next * 1.0e-6);
@@ -140,9 +138,3 @@ int main() {
 
   return 0;
 }
-
-
-
-
-
-

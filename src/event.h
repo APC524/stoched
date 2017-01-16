@@ -43,15 +43,20 @@ class Event {
   // Return size of Event, namely number of functions, to user 
   int getSize();
   
+  // Return how much the ith eqaution increments the ith equation when it is called
+  double getDeltaVar(int i);
+
+  // Set how much the ith eqaution increments the ith equation when it is called
+  void setDeltaVar(int i, double val);
+
   // Specify name of Event object
   string eventName; 
 
  private:
   FunctionParser **functionArray_; ///< Array of function parsers 
   FunctionParser rateFunction;     ///< Rate specified by an equation
-  double rate_;                    ///< Value of rate equation 
   int eq_count_;                   ///< Number of function parsers
-
+  double* deltaVar_; ///< how much each variable in the state changes when its corrsponding function is called. Only used by midpoint tau leaping to calculate approximate continuous time derivative.
 };
 
 #endif  

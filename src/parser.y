@@ -24,12 +24,12 @@
   extern "C" int yyparse(Model& cModel, int eventCnt, int eqnCnt);
   extern "C" FILE *yyin;
   extern int linecount;
- 
+   
   // declare error function
   void yyerror(Model& cModel, int eventCnt, int eqnCnt, const char *s);
   // declare a function to check if tau leaping is available
   bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
-		  int eqnCnt);
+		    int eqnCnt, int eventCnt);
   %}
 // flex returns a token as a yystype. Bison will store this in a union
 // containing the different data types.
@@ -101,7 +101,7 @@ equations_list QSTRING
   cout << "eqnCnt = " << eqnCnt<< endl;
   cModel.addEventFct(eventCnt, $2);
   // check if this new equation is compatible with tau leaping
-  if (!tauLeapAvail(cModel, cModel.getVarsString(), $2, eqnCnt)){
+  if (!tauLeapAvail(cModel, cModel.getVarsString(), $2, eqnCnt, eventCnt)){
     cModel.setTauLeapFalse();
   }
   eqnCnt++;
@@ -111,7 +111,7 @@ equations_list QSTRING
   cout << "eqnCnt = " << eqnCnt<< endl;
   cModel.addEventFct(eventCnt, $1); 
   // check if this new equation is compatible with tau leaping
-  if (!tauLeapAvail(cModel, cModel.getVarsString(), $1, eqnCnt)){
+  if (!tauLeapAvail(cModel, cModel.getVarsString(), $1, eqnCnt, eventCnt)){
     cModel.setTauLeapFalse();
   }
   eqnCnt++;

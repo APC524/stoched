@@ -76,14 +76,10 @@ int Realization::set_to_initial_state(){
  *   @return int
  */ 
 int Realization::simulate(std::ofstream& myfile){
-  double t_initial = the_paramset.t_initial;
   double t_final = the_paramset.t_final;
   int max_iter = the_paramset.max_iter;
   int suppress_output = the_paramset.suppress_output;
   
-  bool time_stop = 0;
-  bool max_iter_stop = 0;
-  bool rate_stop = 0;
   int iter_count = 1;
   bool done = 0;
 
@@ -104,16 +100,13 @@ int Realization::simulate(std::ofstream& myfile){
     /* check that stop conditions haven't been reached
        (maybe wrap this in a function) */ 
     if(state_time > t_final){
-      time_stop = 1;
       done = 1;
     }
     else if (iter_count > max_iter) {
-      max_iter_stop = 1;
       done = 1;
     }
     else if(rates_are_zero()){
-          rate_stop = 1;
-          done = 1;
+      done = 1;
     }
   }
 
@@ -150,6 +143,9 @@ int Realization::output_state(std::ofstream& myfile){
 bool Realization::rates_are_zero(){
   bool val = 1;
   for(int i = 0; i < n_events; i++){
+    if (abs(rates[i]) < 1e-14){
+      rates[i] = 0.0;
+    }
     if(rates[i] < 0.0) {
       throw runtime_error("Negative rate. Rates must always "
                           "be greater than or equal to zero");

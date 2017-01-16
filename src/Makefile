@@ -5,7 +5,7 @@
 # -----------------------------------------------------------------------------
 CXX = g++
 MPICXX = mpicc
-CXXFLAGS = -g -Wall -lm -O3 
+CXXFLAGS = -g -Wall -lm -O3
 OMPCXXFLAGS = -g -Wall -lm -O3 # -fopenmp
 RM = rm -f
 
@@ -17,32 +17,42 @@ RANDOM = rng.o xoroshiro128plus.o
 
 CLASSES = $(BASIC_CLASSES) $(REALIZATIONS) $(RANDOM)
 
-all: stoched.exe testparser.exe testevent.exe testmodel.exe testsimulate.exe
+all: stoched.exe testparser.exe testevent.exe testmodel.exe testsimulate.exe xoroshiro_test.exe
 
+googletests: eventtests.exe modeltests.exe parsertests.exe xoroshiro_test.exe
 
 simulate.exe: simulate.o
-	$(CXX) $(OMPCXXFLAGS) -o $@ $^ -I $(CXXFLAGS)
+	$(CXX) $(CXXFLAGS) -o $@ $^ -I $(CXXFLAGS)
 
 testparser.exe: testparser.o $(OBJECTS)
-	$(CXX) $(OMPCXXFLAGS) $^ -ll -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@ 
 
 testevent.exe: event.o testevent.o fparser/fparser.o
-	$(CXX) $(OMPCXXFLAGS) $^ -o $@  
+	$(CXX) $(CXXFLAGS) $^ -o $@  
 
 testmodel.exe: model.o event.o testmodel.o fparser/fparser.o
-	$(CXX) $(OMPCXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 testmodel: model.o event.o testmodel.o fparser/fparser.o
-	$(CXX) $(OMPCXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 testsimulate.exe: testsimulate.o $(CLASSES) fparser/fparser.o
-	$(CXX) $(OMPCXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+eventtests.exe: gtest/include eventtests.o $(CLASSES) fparser/fparser.o gtest/libgtest.a 
+	$(CXX) $(OMPCXXFLAGS) -I $^ -lpthread -o $@
+
+modeltests.exe: gtest/include modeltests.o $(CLASSES) fparser/fparser.o gtest/libgtest.a 
+	$(CXX) $(OMPCXXFLAGS) -I $^ -lpthread -o $@
+
+parsertests.exe: gtest/include parsertests.o $(OBJECTS) gtest/libgtest.a 
+	$(CXX) $(OMPCXXFLAGS) -I $^ -lpthread -o $@
 
 stoched.exe: stoched.o $(OBJECTS) $(CLASSES)
-	$(MPICXX) $(CXXFLAGS) $^ -ll -o $@
+	$(MPICXX) $(CXXFLAGS) $^ -o  $@
 
-stoched_serial.exe: stoched_serial.o $(OBJECTS) $(CLASSES)
-	$(CXX) $(CXXFLAGS) $^ -ll -o $@
+stoched_serial.exe: stoched.o $(OBJECTS) $(CLASSES)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 fparser/fparser.exe: fparser/example2.o fparser/fparser.o
 	$(CXX) $^ -o $@
@@ -65,8 +75,9 @@ fparser/fparser.o: fparser/fparser.cc
 #	$(CXX) $^ -o $@
 
 %.o: %.cc
-	$(CXX) -std=c++11 -c $<
+	$(CXX) -std=c++0x -c $<
 
+<<<<<<< HEAD
 #%.o: %.c
 #	$(CXX) -std=c++0x -c $<
 lex.yy.o: lex.yy.c
@@ -75,6 +86,10 @@ lex.yy.o: lex.yy.c
 parser.tab.o: parser.tab.c
 	mv parser.tab.c parser.tab.cc
 	$(CXX) -std=c++0x -c parser.tab.cc
+=======
+%.o: %.c
+	$(CXX) -std=c++0x -c $<
+>>>>>>> d03208bc5294b769e36edae8d9961a8a5bc7a37f
 
 # clean up object code and executables
 clean:

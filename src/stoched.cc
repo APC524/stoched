@@ -203,12 +203,11 @@ int main(int argc, char *argv[]) {
     //for(int i = 0; i < n_realizations; i++){
   // Open file
     ofstream myfile;
-    string write_out_path = out_path + "_realization_" + to_string(i+1) + ".txt";
+    string write_out_path = out_path + "_realization_" + to_string(static_cast<long long>(i+1)) + ".txt";
 
     myfile.open(write_out_path);
     // Write the header line corresponding to model
     myfile << left << setw(15) << "time";
-    int vars_count = model.getVarsCount(); 
     for(int i = 0; i < n_vars; i++){
       string test = model.getIthVar(i);
       myfile << left << setw(15) <<  test;
@@ -240,7 +239,8 @@ int main(int argc, char *argv[]) {
   MPI_Finalize();
   
   high_resolution_clock::time_point t2 = high_resolution_clock::now();
-  auto duration_first = duration_cast<microseconds>( t2 - t1 ).count();
+  high_resolution_clock::rep duration_first =
+    duration_cast<microseconds>( t2 - t1 ).count();
   printf("Code ran in %15.8f seconds \n", duration_first * 1.0e-6);
 
   return 0;
