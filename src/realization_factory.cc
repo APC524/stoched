@@ -43,6 +43,12 @@ Realization* RealizationFactory::NewRealization(Model *the_model,
     return new EulerLeap(the_model, the_paramset, the_rng,
                          n_vars, n_events);
   };
+
+  if(method == 3) {
+    return new MidpointLeap(the_model, the_paramset, the_rng,
+                            n_vars, n_events);
+
+  }
   
   return NULL;
 

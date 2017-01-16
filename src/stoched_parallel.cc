@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <mpi.h>
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -166,8 +167,40 @@ int main(int argc, char *argv[]) {
   // Instantiate timer 
   high_resolution_clock::time_point t1 = high_resolution_clock::now();
 
-  // Loop over instantiations of realizations for same model:    
-  for(int i = 0; i < n_realizations; i++){
+  // Loop over instantiations of realizations for same model: 
+
+  MPI_Init(NULL, NULL);
+  int RANK;
+  MPI_Comm_rank(MPI_COMM_WORLD, &RANK);
+  int N_RANKS;
+  MPI_Comm_size(MPI_COMM_WORLD, &N_RANKS);
+
+  // perform domain decomposition
+  if (n_realizations < N_RANKS){
+    printf("Number of ranks exceeds number of realizations."
+           " Try using fewer ranks\n");
+    MPI_Abort(MPI_COMM_WORLD, 1);
+  }
+  // the first realization in the range of realizations that this process owns
+  int myFirstRealization = 0;
+  // ex. 42 realizations on 4 ranks. rank 0: computes realizations 0-10,
+  // rank 1: 11-21, rank 2: 22-31, rank 3: 32-41
+  int defaultRCnt = n_realizations/int(N_RANKS); // minimum # of realizations
+  for (int irank = 0; irank < RANK; irank++){
+    myFirstRealization += defaultRCnt;
+    if (irank < n_realizations % N_RANKS){
+      myFirstRealization++;
+    }
+  }
+  // the last realization in the range of realizations that this process owns
+  int myLastRealization = myFirstRealization + defaultRCnt - 1;
+  if (RANK < n_realizations % N_RANKS){
+    myFirstRealization++;
+  }
+
+  for(int i = myFirstRealization; i <= myLastRealization; i++){
+   
+    //for(int i = 0; i < n_realizations; i++){
   // Open file
     ofstream myfile;
     string write_out_path = out_path + "_realization_" + to_string(static_cast<long long>(i+1)) + ".txt";
@@ -202,6 +235,8 @@ int main(int argc, char *argv[]) {
     realization->simulate(myfile);
     myfile.close();
   }
+  
+  MPI_Finalize();
   
   high_resolution_clock::time_point t2 = high_resolution_clock::now();
   high_resolution_clock::rep duration_first =

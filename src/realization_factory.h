@@ -16,10 +16,12 @@
 #include "nextreaction.h"
 #include "firstreaction.h"
 #include "eulerleap.h"
+#include "midpointleap.h"
 
 /**  
  *  @brief Class RealizationFactory generates required instance of Realization 
- *         (FirstReaction, NextReaction, EulerLeap) based on input
+ *         (FirstReaction, NextReaction, EulerLeap, MidpointLeap) 
+ *         based on input
  *  
  */
 class RealizationFactory {

@@ -16,7 +16,7 @@
 %{
 #include <stdio.h>
 #include <iostream>
-#include "parser.tab.h"
+#include "parser.bison.hh"
 
 using namespace std;
 int linecount = 1;
