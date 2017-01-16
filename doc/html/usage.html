@@ -106,29 +106,8 @@ stoched-master/examples$ ../src/stoched.exe chem.parser.in init_file init_file.t
 <p>Assumes installation of OpenMPI </p><pre class="fragment">stoched-master$ cd src
 stoched-master/src$ make parallel
 </pre><h5>Sample Execution of Parallel Code</h5>
-<p>For usage on Adroit.</p>
-<p>Run_mpi.slurm, located in stoched/src: </p><pre class="fragment">#!/bin/bash
-# Parallel job using 4 processors:
-#SBATCH -N 1 
-#SBATCH --ntasks-per-node=4
-#SBATCH -t 0:03:00
-#SBATCH --mail-type=begin
-#SBATCH --mail-type=end
-#SBATCH --mail-type=fail
-#SBATCH --mail-user=kevinpg@princeton.edu 
-# Load openmpi environment 
-module load openmpi
-# Make sure you are in the correct directory
-cd ~/stoched/src/
-# for nx in 128 256 512 
-    # do                                                                                                                                                
-    #    time ./heat_omp $nx 4 &gt; heat_omp.$nx.4.out
-    #    gnuplot -e "outfile='heat_omp.$nx.4.out'" surf.plt
-    #    time srun ./heat_mpi $nx &gt; heat_mpi.$nx.4.out
-    #    gnuplot -e "outfile='heat_mpi.$nx.4.out'" surf.plt                                                                                                                                    
-# done 
-
-time srun -n 4 ./stoched_parallel.exe example.parser.in init_file init_file.txt n_realizations 100000 suppress_print 1 &gt; stoched_mpi.4.out
+<p>For usage on Adroit. </p><pre class="fragment">stoched-master$ cd examples    
+stoched-master/examples$ sbatch run_mpi.slurm
 </pre><h5>Compiling Test Code</h5>
 <p>Assumes installation of Google Test suite </p><pre class="fragment">stoched-master$ cd src
 stoched-master/src$ make googletests
@@ -147,7 +126,10 @@ stoched-master/src$ ./testmodel.exe
 <p><b>max_iter</b>: allows user to specify maximum number of iterations. Default value is 100000000.</p>
 <p><b>seed</b>: allows user to fix a seed of the random number generator (which allows for verification of consistency between multiple runs, and with external software results). The default value is 502.</p>
 <p><b>out_path</b>: Allows user to specify an alternative output file path name. The default value is stoched_output, which will write to a file named stoched_output.txt . The extension is not required when specifying pathname.</p>
-<p><b>suppress_print</b>: Option specified as either a 0 or 1. If 1, the software prints only the final value of the simulation to each output file. If 0 (default value), the software runs as usual, printing the results at each timestep. Specifying 1 results in significant speedup of the code. </p>
+<p><b>suppress_print</b>: Option specified as either a 0 or 1. If 1, the software prints only the final value of the simulation to each output file. If 0 (default value), the software runs as usual, printing the results at each timestep. Specifying 1 results in significant speedup of the code.</p>
+<h4>Step 4: Access Documentation</h4>
+<p>For further information, visit the Doxygen-generated documentation. The associated HTML documentation can be viewed by pointing a HTML browser to the index.html file in the doc/html directory</p>
+<p>To see a PDF version of the documentation, open the refman.pdf file located the doc/latex directory </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
