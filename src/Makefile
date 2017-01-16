@@ -12,7 +12,7 @@ RM = rm -f
 OBJECTS = fparser/fparser.o event.o model.o lex.yy.o parser.tab.o tauleapavail.o
 
 BASIC_CLASSES = model.o event.o realization.o paramset.o realization_factory.o
-REALIZATIONS = nextreaction.o firstreaction.o eulerleap.o
+REALIZATIONS = nextreaction.o firstreaction.o eulerleap.o midpointleap.o
 RANDOM = rng.o xoroshiro128plus.o
 
 CLASSES = $(BASIC_CLASSES) $(REALIZATIONS) $(RANDOM)
