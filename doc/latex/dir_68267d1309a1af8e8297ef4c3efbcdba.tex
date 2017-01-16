@@ -4,27 +4,39 @@
 \begin{DoxyCompactItemize}
 \item 
 file \hyperlink{eulerleap_8cc}{eulerleap.\+cc}
-\begin{DoxyCompactList}\small\item\em Class \hyperlink{class_euler_leap}{Euler\+Leap} implements \hyperlink{class_realization}{Realization} step() function using the basic tau leap approximate method of Gillepsie (2001). The method is analogous to the deterministic forward Euler method the numerical solution of ordinary differential equations. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Class \hyperlink{class_euler_leap}{Euler\+Leap} implements \hyperlink{class_realization}{Realization} step() function using the basic tau leap approximate method of Gillepsie (2001). The method is analogous to the deterministic forward Euler method for the numerical solution of ordinary differential equations. \end{DoxyCompactList}\item 
 file \hyperlink{eulerleap_8h}{eulerleap.\+h}
-\begin{DoxyCompactList}\small\item\em Class \hyperlink{class_euler_leap}{Euler\+Leap} implements \hyperlink{class_realization}{Realization} step() function using the basic tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic forward Euler method the numerical solution of ordinary differential equations. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Class \hyperlink{class_euler_leap}{Euler\+Leap} implements \hyperlink{class_realization}{Realization} step() function using the basic tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic forward Euler method for the numerical solution of ordinary differential equations. \end{DoxyCompactList}\item 
 file \hyperlink{event_8cc}{event.\+cc}
 \begin{DoxyCompactList}\small\item\em Class \hyperlink{class_event}{Event} holds a user-\/specified event, namely set of functions and associated rate. \end{DoxyCompactList}\item 
 file \hyperlink{event_8h}{event.\+h}
 \begin{DoxyCompactList}\small\item\em Class \hyperlink{class_event}{Event} holds a user-\/specified event, namely set of functions and associated rate. \end{DoxyCompactList}\item 
+file \hyperlink{eventtests_8cc}{eventtests.\+cc}
+\begin{DoxyCompactList}\small\item\em Test \hyperlink{class_event}{Event} code. \end{DoxyCompactList}\item 
 file \hyperlink{firstreaction_8cc}{firstreaction.\+cc}
 \begin{DoxyCompactList}\small\item\em Class \hyperlink{class_first_reaction}{First\+Reaction} implements \hyperlink{class_realization}{Realization} step() function using the exact First Reaction algorithm of Gillespie (1971) \end{DoxyCompactList}\item 
 file \hyperlink{firstreaction_8h}{firstreaction.\+h}
 \begin{DoxyCompactList}\small\item\em Class \hyperlink{class_first_reaction}{First\+Reaction} implements \hyperlink{class_realization}{Realization} step() function using the exact First Reaction algorithm of Gillespie (1971) \end{DoxyCompactList}\item 
+file \hyperlink{midpointleap_8cc}{midpointleap.\+cc}
+\begin{DoxyCompactList}\small\item\em Class \hyperlink{class_midpoint_leap}{Midpoint\+Leap} implements \hyperlink{class_realization}{Realization} step() function using the midpoint tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic midpoint (2nd-\/order Runge-\/\+Kutta) method for the numerical solution of ordinary differential equations. \end{DoxyCompactList}\item 
+file \hyperlink{midpointleap_8h}{midpointleap.\+h}
+\begin{DoxyCompactList}\small\item\em Class \hyperlink{class_midpoint_leap}{Midpoint\+Leap} implements \hyperlink{class_realization}{Realization} step() function using the midpoint tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic midpoint (2nd-\/order Runge-\/\+Kutta) method for the numerical solution of ordinary differential equations. \end{DoxyCompactList}\item 
 file \hyperlink{model_8cc}{model.\+cc}
-\begin{DoxyCompactList}\small\item\em A\+PC 524, Final Project -\/ Stoched. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Class \hyperlink{class_model}{Model}, which holds user-\/specified models of stochastic systems from which realizations are to be simulated. \end{DoxyCompactList}\item 
 file \hyperlink{model_8h}{model.\+h}
-\begin{DoxyCompactList}\small\item\em A\+PC 524, Final Project -\/ Stoched. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Class \hyperlink{class_model}{Model}, which holds user-\/specified models of stochastic systems from which realizations are to be simulated. \end{DoxyCompactList}\item 
+file \hyperlink{modeltests_8cc}{modeltests.\+cc}
+\begin{DoxyCompactList}\small\item\em Test usage of \hyperlink{class_model}{Model} class. \end{DoxyCompactList}\item 
+file \hyperlink{nextreaction_8cc}{nextreaction.\+cc}
+\begin{DoxyCompactList}\small\item\em Class \hyperlink{class_next_reaction}{Next\+Reaction} implements \hyperlink{class_realization}{Realization} step() function using the exact Next Reaction algorithm of Gibson \& Bruck (2000) \end{DoxyCompactList}\item 
 file \hyperlink{nextreaction_8h}{nextreaction.\+h}
 \begin{DoxyCompactList}\small\item\em Class nextreaction implements \hyperlink{class_realization}{Realization} step() function using the exact Next Reaction algorithm of Gibson \& Bruck (2000) \end{DoxyCompactList}\item 
 file \hyperlink{paramset_8cc}{paramset.\+cc}
 \begin{DoxyCompactList}\small\item\em Class \hyperlink{class_paramset}{Paramset} holds a particular set of pameters for user requested simulation run(s) \end{DoxyCompactList}\item 
 file \hyperlink{paramset_8h}{paramset.\+h}
 \begin{DoxyCompactList}\small\item\em Class \hyperlink{class_paramset}{Paramset} holds a particular set of pameters for user requested simulation run(s) \end{DoxyCompactList}\item 
+file \hyperlink{parsertests_8cc}{parsertests.\+cc}
+\begin{DoxyCompactList}\small\item\em Example parsing code. \end{DoxyCompactList}\item 
 file \hyperlink{realization_8cc}{realization.\+cc}
 \begin{DoxyCompactList}\small\item\em Class \hyperlink{class_realization}{Realization} holds realizations of a \hyperlink{class_model}{Model} (state array, propensities, waiting times, etc.) \end{DoxyCompactList}\item 
 file \hyperlink{realization_8h}{realization.\+h}
@@ -38,13 +50,17 @@ file \hyperlink{rng_8cc}{rng.\+cc}
 file \hyperlink{rng_8h}{rng.\+h}
 \begin{DoxyCompactList}\small\item\em Based upon public domain xorshift implementations by David Blackman and Sebastiano Vigna (\href{mailto:vigna@acm.org}{\tt vigna@acm.\+org}) \end{DoxyCompactList}\item 
 file \hyperlink{simulate_8cc}{simulate.\+cc}
-\begin{DoxyCompactList}\small\item\em A\+PC 524, Final Project -\/ Stoched. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Example definition for ending simulation loop. \end{DoxyCompactList}\item 
+file \hyperlink{tauleapavail_8cc}{tauleapavail.\+cc}
+\begin{DoxyCompactList}\small\item\em Called by parser.\+y to determine whether to use tau leap or not. \end{DoxyCompactList}\item 
 file \hyperlink{testevent_8cc}{testevent.\+cc}
-\begin{DoxyCompactList}\small\item\em A\+PC 524, Final Project -\/ Stoched. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Example usage of \hyperlink{class_event}{Event} class. \end{DoxyCompactList}\item 
 file \hyperlink{testmodel_8cc}{testmodel.\+cc}
-\begin{DoxyCompactList}\small\item\em A\+PC 524, Final Project -\/ Stoched. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Example usage of \hyperlink{class_model}{Model} class. \end{DoxyCompactList}\item 
 file \hyperlink{testparser_8cc}{testparser.\+cc}
-\begin{DoxyCompactList}\small\item\em A\+PC 524, Final Project -\/ Stoched. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Example parsing code. \end{DoxyCompactList}\item 
+file \hyperlink{testsimulate_8cc}{testsimulate.\+cc}
+\begin{DoxyCompactList}\small\item\em Example simulation code. \end{DoxyCompactList}\item 
 file \hyperlink{xoroshiro128plus_8cc}{xoroshiro128plus.\+cc}
 \begin{DoxyCompactList}\small\item\em Class xoroshorio128plus implements a random number generator of Class rng. \end{DoxyCompactList}\item 
 file \hyperlink{xoroshiro128plus_8h}{xoroshiro128plus.\+h}
