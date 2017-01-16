@@ -1,11 +1,11 @@
-SETUP_VARS "a,b,ab"
+SETUP_VARS "a,b,c"
 
 # this is an example of a comment
 
 # The forward reaction
-EVENT RATE "2*a*b/(2*a*b + 10*ab)" "a - 1" "b - 1" "ab + 1"
+EVENT RATE "2*a*b/(2*a*b + 10*c)" "a - 1" "b - 1" "c + 1"
 # The backward reaction
-EVENT RATE "10*ab/(2*a*b + 10*ab)" "a + 1" "b + 1" "ab - 1"
+EVENT RATE "10*c/(2*a*b + 10*c)" "a + 1" "b + 1" "c - 1"
 
 end
 

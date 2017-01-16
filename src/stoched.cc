@@ -180,6 +180,9 @@ int main(int argc, char *argv[]) {
       myfile << left << setw(15) <<  test;
     }
     myfile << "\n";
+    if (paramset.suppress_output == 1){
+      myfile.close();
+    }
 
     // instantiate realization class
     Realization *realization = factory.NewRealization(model_ptr,
@@ -199,8 +202,10 @@ int main(int argc, char *argv[]) {
     }
     
     // simulate and clean up
-    realization->simulate(myfile);
-    myfile.close();
+    realization->simulate(myfile, write_out_path);
+    if (paramset.suppress_output == 0){
+      myfile.close();
+    }
   }
   
   high_resolution_clock::time_point t2 = high_resolution_clock::now();

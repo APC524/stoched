@@ -110,15 +110,15 @@ To specify additional parameters, the user may include additional command line a
 
 The command line arguments are as follows:
 
-__init_file__: Required for specifying the initial states data for most model definitions. The exception is a model definition with two species which each start with zero population. This is the default initial state. 
+__init_file__: Required for specifying the initial states data for most model definitions. The exception is a model definition in which all variables start at 0. This is the default initial state. 
 
-__method__: specifies which algorithm is used to perform computations. Specifying 0 will run the exact Gillespie algorithm, while 1 will run the Euler tau-leap method, and 2 will run the midpoint tau-leap method. Default is 0. 
+__method__: specifies which algorithm is used to perform computations. Specifying 0 will run the exact First Reaction algorithm, 1 will run the exact Next Reaction algorithm, 2 will run the Euler tau-leap method, and 3 will run the midpoint tau-leap method. Default is 0. 
 
 __t_initial__: allows user to modify the starting time of the simulation. Default is 0 .
 
 __t_final__: allows user to modify the end time of the simulation. Default is 5000 . 
 
-__timestep_size__: allows user to fix timestep size if desired. 
+__timestep_size__: allows user to fix timestep size for tau leaping algorithms
 
 __n_realizations__: allows user to run the simulation multiple times with the same model and model conditions. Default value is 1. 
 

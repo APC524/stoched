@@ -75,7 +75,7 @@ int Realization::set_to_initial_state(){
  *  
  *   @return int
  */ 
-int Realization::simulate(std::ofstream& myfile){
+int Realization::simulate(std::ofstream& myfile, std::string write_out_path){
   double t_final = the_paramset.t_final;
   int max_iter = the_paramset.max_iter;
   int suppress_output = the_paramset.suppress_output;
@@ -110,8 +110,11 @@ int Realization::simulate(std::ofstream& myfile){
     }
   }
 
-  if(suppress_output==1)
+  if(suppress_output==1){
+    myfile.open(write_out_path);
     output_state(myfile);
+    myfile.close();
+  }
 
   return 0;
 }

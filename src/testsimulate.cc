@@ -107,7 +107,7 @@ int main() {
 
   high_resolution_clock::time_point t1 = high_resolution_clock::now();
   NextReaction realization(model_ptr, paramset, rng_ptr, n_vars, n_events);
-  realization.simulate(myfile);
+  realization.simulate(myfile,"example_output.txt");
   high_resolution_clock::time_point t2 = high_resolution_clock::now();
 
   myfile << "\n";
@@ -123,7 +123,7 @@ int main() {
 
   high_resolution_clock::time_point t3 = high_resolution_clock::now();
   FirstReaction realization2(model_ptr, paramset, rng_ptr, n_vars, n_events);
-  realization2.simulate(myfile);
+  realization2.simulate(myfile,"example_output.txt");
   high_resolution_clock::time_point t4 = high_resolution_clock::now();
   // Close the file 
   myfile.close();
