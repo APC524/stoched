@@ -185,12 +185,12 @@ int main(int argc, char *argv[]) {
     }
 
     // instantiate realization class
-    Realization *realization = factory.NewRealization(model_ptr,
-						      paramset,
-						      rng_ptr,
-						      n_vars,
-						      n_events);
-
+    try {
+      Realization *realization = factory.NewRealization(model_ptr,
+                                                        paramset,
+                                                        rng_ptr,
+                                                        n_vars,
+                                                        n_events);
     
     // check that realization factory worked
     if(realization == NULL){
@@ -202,7 +202,12 @@ int main(int argc, char *argv[]) {
     }
     
     // simulate and clean up
-    realization->simulate(myfile, write_out_path);
+      realization->simulate(myfile, write_out_path);
+    }
+    catch (const runtime_error& e) {
+      cout << "\nERROR: during simulation run " << i << ": " << e.what() << "\n";
+    }
+
     if (paramset.suppress_output == 0){
       myfile.close();
     }

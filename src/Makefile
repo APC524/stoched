@@ -28,9 +28,6 @@ parallel:
 
 googletests: eventtests.exe modeltests.exe parsertests.exe xoroshiro_test.exe
 
-simulate.exe: simulate.o
-	$(CXX) $(CXXFLAGS) -o $@ $^ -I $(CXXFLAGS)
-
 testparser.exe: testparser.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o $@ 
 
