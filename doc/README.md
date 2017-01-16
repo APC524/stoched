@@ -18,7 +18,6 @@ Download ZIP file at [__stoched__ Github](https://github.com/APC524/stoched)
 
 ###Getting Started
 
-
 ####Step 1: Creating an input file
 
 The parser uses a custom language that is designed to be accessible to non-programmers. It uses minimal syntax and allows for line comments and end of line comments, and whitespace like new lines between commands. It has been designed to reduce the likelihood of redundant and potentially incorrect information.
@@ -152,3 +151,10 @@ __seed__: allows user to fix a seed of the random number generator (which allows
 __out_path__: Allows user to specify an alternative output file path name. The default value is stoched_output, which will write to a file named stoched_output.txt . The extension is not required when specifying pathname. 
 
 __suppress_print__: Option specified as either a 0 or 1. If 1, the software prints only the final value of the simulation to each output file. If 0 (default value), the software runs as usual, printing the results at each timestep. Specifying 1 results in significant speedup of the code. 
+
+
+####Step 4: Access Documentation
+
+For further information, visit the Doxygen-generated documentation. The associated HTML documentation can be viewed by pointing a HTML browser to the index.html file in the doc/html directory
+
+To see a PDF version of the documentation, open the refman.pdf file located the doc/latex directory
