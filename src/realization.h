@@ -51,7 +51,7 @@ class Realization {
   double state_time;            ///< state_time is a double that tracks state progress
 
   // simulates the realization from t_inital to t_final
-  int simulate(std::ofstream& myfile);
+  int simulate(std::ofstream& myfile, std::string write_out_path);
 
   /// takes one simulation step according to the chosen algorithm 
   virtual int step() = 0;
