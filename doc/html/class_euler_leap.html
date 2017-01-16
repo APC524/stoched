@@ -66,7 +66,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Class <a class="el" href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using the basic tau leap approximate algorithm...">EulerLeap</a> implements <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a> <a class="el" href="class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d" title="takes one simulation step according to the chosen algorithm ">step()</a> function using the basic tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic forward Euler method for the numerical solution of ordinary differential equations.  
+<p>Class <a class="el" href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using the basic tau leap approximate algorithm...">EulerLeap</a> implements <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a> <a class="el" href="class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d" title="Update waiting times. ">step()</a> function using the basic tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic forward Euler method for the numerical solution of ordinary differential equations.  
  <a href="class_euler_leap.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="eulerleap_8h_source.html">eulerleap.h</a>&gt;</code></p>
@@ -82,12 +82,14 @@ Inheritance diagram for EulerLeap:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae5db6ea05659798b624a28872799b906"><td class="memItemLeft" align="right" valign="top"><a id="ae5db6ea05659798b624a28872799b906"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EulerLeap</b> (<a class="el" href="class_model.html">Model</a> *<a class="el" href="class_realization.html#a47ec1d062b8caee874b08c1a17d6aeeb">the_model</a>, const <a class="el" href="class_paramset.html">Paramset</a> &amp;<a class="el" href="class_realization.html#a119bb29de88929bc51bc1b329473a94b">the_paramset</a>, <a class="el" href="classrng.html">rng</a> *<a class="el" href="class_realization.html#ac8d358d929afae90cf5790675b6744f9">the_rng</a>, int <a class="el" href="class_realization.html#ad9951a0829e68e12fcb3817735bb5097">n_vars</a>, int <a class="el" href="class_realization.html#afb711282bef806fc0020f91252d1df2c">n_events</a>)</td></tr>
+<tr class="memitem:ae5db6ea05659798b624a28872799b906"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_euler_leap.html#ae5db6ea05659798b624a28872799b906">EulerLeap</a> (<a class="el" href="class_model.html">Model</a> *<a class="el" href="class_realization.html#a47ec1d062b8caee874b08c1a17d6aeeb">the_model</a>, const <a class="el" href="class_paramset.html">Paramset</a> &amp;<a class="el" href="class_realization.html#a119bb29de88929bc51bc1b329473a94b">the_paramset</a>, <a class="el" href="classrng.html">rng</a> *<a class="el" href="class_realization.html#ac8d358d929afae90cf5790675b6744f9">the_rng</a>, int <a class="el" href="class_realization.html#ad9951a0829e68e12fcb3817735bb5097">n_vars</a>, int <a class="el" href="class_realization.html#afb711282bef806fc0020f91252d1df2c">n_events</a>)</td></tr>
+<tr class="memdesc:ae5db6ea05659798b624a28872799b906"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using the basic tau leap approximate algorithm...">EulerLeap</a>.  <a href="#ae5db6ea05659798b624a28872799b906">More...</a><br /></td></tr>
 <tr class="separator:ae5db6ea05659798b624a28872799b906"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25b1ea90a95bfd41ecb919605683da9d"><td class="memItemLeft" align="right" valign="top"><a id="a25b1ea90a95bfd41ecb919605683da9d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d">step</a> ()</td></tr>
-<tr class="memdesc:a25b1ea90a95bfd41ecb919605683da9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">takes one simulation step according to the chosen algorithm <br /></td></tr>
+<tr class="memitem:a2c4f981e34196c279e8b13c41fbd43da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_euler_leap.html#a2c4f981e34196c279e8b13c41fbd43da">~EulerLeap</a> ()</td></tr>
+<tr class="memdesc:a2c4f981e34196c279e8b13c41fbd43da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="class_midpoint_leap.html" title="Class MidpointLeap implements Realization step() function using the midpoint tau leap approximate alg...">MidpointLeap</a>.  <a href="#a2c4f981e34196c279e8b13c41fbd43da">More...</a><br /></td></tr>
+<tr class="separator:a2c4f981e34196c279e8b13c41fbd43da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25b1ea90a95bfd41ecb919605683da9d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d">step</a> ()</td></tr>
+<tr class="memdesc:a25b1ea90a95bfd41ecb919605683da9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update waiting times.  <a href="#a25b1ea90a95bfd41ecb919605683da9d">More...</a><br /></td></tr>
 <tr class="separator:a25b1ea90a95bfd41ecb919605683da9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a13929ea1ebf40e7357439968828f4b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_euler_leap.html#a1a13929ea1ebf40e7357439968828f4b">set_to_initial_state</a> ()</td></tr>
 <tr class="memdesc:a1a13929ea1ebf40e7357439968828f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets state_array and state_time to their user-specified initial values.  <a href="#a1a13929ea1ebf40e7357439968828f4b">More...</a><br /></td></tr>
@@ -146,8 +148,88 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:a7c4def45c4833072317517b71e723793 inherit pub_attribs_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class <a class="el" href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using the basic tau leap approximate algorithm...">EulerLeap</a> implements <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a> <a class="el" href="class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d" title="takes one simulation step according to the chosen algorithm ">step()</a> function using the basic tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic forward Euler method for the numerical solution of ordinary differential equations. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>Class <a class="el" href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using the basic tau leap approximate algorithm...">EulerLeap</a> implements <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a> <a class="el" href="class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d" title="Update waiting times. ">step()</a> function using the basic tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic forward Euler method for the numerical solution of ordinary differential equations. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae5db6ea05659798b624a28872799b906"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5db6ea05659798b624a28872799b906">&#9670;&nbsp;</a></span>EulerLeap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EulerLeap::EulerLeap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_model.html">Model</a> *&#160;</td>
+          <td class="paramname"><em>the_model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_paramset.html">Paramset</a> &amp;&#160;</td>
+          <td class="paramname"><em>the_paramset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classrng.html">rng</a> *&#160;</td>
+          <td class="paramname"><em>the_rng</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n_vars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n_events</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor for <a class="el" href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using the basic tau leap approximate algorithm...">EulerLeap</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">the_model</td><td>is a <a class="el" href="class_model.html" title="Class Model, which holds user-specified models of stochastic systems from which realizations are to b...">Model</a> object </td></tr>
+    <tr><td class="paramname">the_paramset</td><td>is a <a class="el" href="class_paramset.html" title="Class Paramset holds a particular set of pameters for user requested simulation run(s) ...">Paramset</a> object </td></tr>
+    <tr><td class="paramname">the_rng</td><td>is a random number generator </td></tr>
+    <tr><td class="paramname">n_vars</td><td>is an int specifying variable count </td></tr>
+    <tr><td class="paramname">n_events</td><td>is an int specifying event count</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>nothing </dd></dl>
+
+</div>
+</div>
+<a id="a2c4f981e34196c279e8b13c41fbd43da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c4f981e34196c279e8b13c41fbd43da">&#9670;&nbsp;</a></span>~EulerLeap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EulerLeap::~EulerLeap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor for <a class="el" href="class_midpoint_leap.html" title="Class MidpointLeap implements Realization step() function using the midpoint tau leap approximate alg...">MidpointLeap</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>nothing </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1a13929ea1ebf40e7357439968828f4b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a13929ea1ebf40e7357439968828f4b">&#9670;&nbsp;</a></span>set_to_initial_state()</h2>
 
@@ -175,6 +257,36 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
 <p>Reimplemented from <a class="el" href="class_realization.html#a391a89af7574a9053f53f8a299c2cc70">Realization</a>.</p>
+
+</div>
+</div>
+<a id="a25b1ea90a95bfd41ecb919605683da9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25b1ea90a95bfd41ecb919605683da9d">&#9670;&nbsp;</a></span>step()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int EulerLeap::step </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update waiting times. </p>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+<p>Implements <a class="el" href="class_realization.html#a9949217117927b149850288f3b74c9ef">Realization</a>.</p>
 
 </div>
 </div>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['rate_5f',['rate_',['../class_event.html#a42d51bef1ea3b953e9825f3e5bf2210e',1,'Event']]],
-  ['ratefunction',['rateFunction',['../class_event.html#a5a82a70465e39626ad62d1cfe3fc7617',1,'Event']]],
-  ['rates',['rates',['../class_realization.html#a9c52d8c6aa0ad99dbbec1e98302db7d8',1,'Realization']]]
+  ['n_5fevents',['n_events',['../class_realization.html#afb711282bef806fc0020f91252d1df2c',1,'Realization']]],
+  ['n_5frealizations',['n_realizations',['../class_paramset.html#a50c0325e75983b66d0825406ec7873ac',1,'Paramset']]],
+  ['n_5fvars',['n_vars',['../class_paramset.html#aee56c5dcf7d40836397965cdcf392343',1,'Paramset::n_vars()'],['../class_realization.html#ad9951a0829e68e12fcb3817735bb5097',1,'Realization::n_vars()']]]
 ];

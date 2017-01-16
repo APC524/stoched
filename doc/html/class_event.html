@@ -96,6 +96,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1a0f2e2dc0b203f7be0f1d5b8810c6a2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a1a0f2e2dc0b203f7be0f1d5b8810c6a2">getSize</a> ()</td></tr>
 <tr class="memdesc:a1a0f2e2dc0b203f7be0f1d5b8810c6a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return size of event, namely number of functions, to user.  <a href="#a1a0f2e2dc0b203f7be0f1d5b8810c6a2">More...</a><br /></td></tr>
 <tr class="separator:a1a0f2e2dc0b203f7be0f1d5b8810c6a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb753b1954fd16e7ba92ae16157f70fd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#afb753b1954fd16e7ba92ae16157f70fd">getDeltaVar</a> (int i)</td></tr>
+<tr class="memdesc:afb753b1954fd16e7ba92ae16157f70fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return how the ith variable is incremented when the ith equation is called.  <a href="#afb753b1954fd16e7ba92ae16157f70fd">More...</a><br /></td></tr>
+<tr class="separator:afb753b1954fd16e7ba92ae16157f70fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a980f39895f2afc1c2273d921d92aeac0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a980f39895f2afc1c2273d921d92aeac0">setDeltaVar</a> (int i, double val)</td></tr>
+<tr class="memdesc:a980f39895f2afc1c2273d921d92aeac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the amount that the ith function increments the ith variable. This is used by midpoint tau leaping  <a href="#a980f39895f2afc1c2273d921d92aeac0">More...</a><br /></td></tr>
+<tr class="separator:a980f39895f2afc1c2273d921d92aeac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -113,14 +119,14 @@ FunctionParser **&#160;</td><td class="memItemRight" valign="bottom"><a class="e
 FunctionParser&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a5a82a70465e39626ad62d1cfe3fc7617">rateFunction</a></td></tr>
 <tr class="memdesc:a5a82a70465e39626ad62d1cfe3fc7617"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rate specified by an equation. <br /></td></tr>
 <tr class="separator:a5a82a70465e39626ad62d1cfe3fc7617"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42d51bef1ea3b953e9825f3e5bf2210e"><td class="memItemLeft" align="right" valign="top"><a id="a42d51bef1ea3b953e9825f3e5bf2210e"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a42d51bef1ea3b953e9825f3e5bf2210e">rate_</a></td></tr>
-<tr class="memdesc:a42d51bef1ea3b953e9825f3e5bf2210e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value of rate equation. <br /></td></tr>
-<tr class="separator:a42d51bef1ea3b953e9825f3e5bf2210e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59244ccd0e0f3654f07715bb3dd6423f"><td class="memItemLeft" align="right" valign="top"><a id="a59244ccd0e0f3654f07715bb3dd6423f"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a59244ccd0e0f3654f07715bb3dd6423f">eq_count_</a></td></tr>
 <tr class="memdesc:a59244ccd0e0f3654f07715bb3dd6423f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of function parsers. <br /></td></tr>
 <tr class="separator:a59244ccd0e0f3654f07715bb3dd6423f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a869e25f5b77f85372eb0397ea01e25bf"><td class="memItemLeft" align="right" valign="top"><a id="a869e25f5b77f85372eb0397ea01e25bf"></a>
+double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a869e25f5b77f85372eb0397ea01e25bf">deltaVar_</a></td></tr>
+<tr class="memdesc:a869e25f5b77f85372eb0397ea01e25bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">how much each variable in the state changes when its corrsponding function is called. Only used by midpoint tau leaping to calculate approximate continuous time derivative. <br /></td></tr>
+<tr class="separator:a869e25f5b77f85372eb0397ea01e25bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class <a class="el" href="class_event.html" title="Class Event holds a user-specified event, namely set of functions and associated rate. ">Event</a> holds a user-specified event, namely set of functions and associated rate. </p>
@@ -211,6 +217,33 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
+<a id="afb753b1954fd16e7ba92ae16157f70fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb753b1954fd16e7ba92ae16157f70fd">&#9670;&nbsp;</a></span>getDeltaVar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Event::getDeltaVar </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return how the ith variable is incremented when the ith equation is called. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>is an int specifying of which variable to find the delta. 0 is the first variable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>change in value of i when its corresponding equation is called, as a double </dd></dl>
+
+</div>
+</div>
 <a id="a2288e3b3fa19e076e04bba11b88d189a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2288e3b3fa19e076e04bba11b88d189a">&#9670;&nbsp;</a></span>getRate()</h2>
 
@@ -255,6 +288,43 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 <p>Return size of event, namely number of functions, to user. </p>
 <dl class="section return"><dt>Returns</dt><dd>size of event, namely number of functions, as an int </dd></dl>
+
+</div>
+</div>
+<a id="a980f39895f2afc1c2273d921d92aeac0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a980f39895f2afc1c2273d921d92aeac0">&#9670;&nbsp;</a></span>setDeltaVar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Event::setDeltaVar </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set the amount that the ith function increments the ith variable. This is used by midpoint tau leaping </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>is an int specifying of which variable to set. 0 is the first variable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>

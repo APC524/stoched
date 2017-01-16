@@ -2,12 +2,12 @@
 \label{class_midpoint_leap}\index{Midpoint\+Leap@{Midpoint\+Leap}}
 
 
-Class \hyperlink{class_midpoint_leap}{Midpoint\+Leap} implements \hyperlink{class_realization}{Realization} \hyperlink{class_midpoint_leap_a8afc1a6a8777157f7b42ec08a848b564}{step()} function using Midpoint Leap method.  
+Class \hyperlink{class_midpoint_leap}{Midpoint\+Leap} implements \hyperlink{class_realization}{Realization} \hyperlink{class_midpoint_leap_a8afc1a6a8777157f7b42ec08a848b564}{step()} function using the midpoint tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic midpoint (2nd-\/order Runge-\/\+Kutta) method for the numerical solution of ordinary differential equations.  
 
 
 
 
-{\ttfamily \#include $<$realization.\+h$>$}
+{\ttfamily \#include $<$midpointleap.\+h$>$}
 
 Inheritance diagram for Midpoint\+Leap\+:\begin{figure}[H]
 \begin{center}
@@ -18,15 +18,106 @@ Inheritance diagram for Midpoint\+Leap\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_midpoint_leap_a8afc1a6a8777157f7b42ec08a848b564}\label{class_midpoint_leap_a8afc1a6a8777157f7b42ec08a848b564}} 
+\hyperlink{class_midpoint_leap_a9e5301b74a349ecc4c1de994426eb8b2}{Midpoint\+Leap} (\hyperlink{class_model}{Model} $\ast$\hyperlink{class_realization_a47ec1d062b8caee874b08c1a17d6aeeb}{the\+\_\+model}, const \hyperlink{class_paramset}{Paramset} \&\hyperlink{class_realization_a119bb29de88929bc51bc1b329473a94b}{the\+\_\+paramset}, \hyperlink{classrng}{rng} $\ast$\hyperlink{class_realization_ac8d358d929afae90cf5790675b6744f9}{the\+\_\+rng}, int \hyperlink{class_realization_ad9951a0829e68e12fcb3817735bb5097}{n\+\_\+vars}, int \hyperlink{class_realization_afb711282bef806fc0020f91252d1df2c}{n\+\_\+events})
+\begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{class_midpoint_leap}{Midpoint\+Leap}. \end{DoxyCompactList}\item 
+\hyperlink{class_midpoint_leap_ae220cffbf343b380ef53e8a2749327f6}{$\sim$\+Midpoint\+Leap} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \hyperlink{class_midpoint_leap}{Midpoint\+Leap}. \end{DoxyCompactList}\item 
 int \hyperlink{class_midpoint_leap_a8afc1a6a8777157f7b42ec08a848b564}{step} ()
-\begin{DoxyCompactList}\small\item\em takes one simulation step according to the chosen algorithm \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Update waiting times. \end{DoxyCompactList}\item 
+int \hyperlink{class_midpoint_leap_a177682cf5042407ccee1a443e8920896}{set\+\_\+to\+\_\+initial\+\_\+state} ()
+\begin{DoxyCompactList}\small\item\em Sets state\+\_\+array and state\+\_\+time to their user-\/specified initial values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_midpoint_leap_abf06466b009f0e52938cbf8fd299f406}\label{class_midpoint_leap_abf06466b009f0e52938cbf8fd299f406}} 
+double $\ast$ \hyperlink{class_midpoint_leap_abf06466b009f0e52938cbf8fd299f406}{midpoint\+\_\+array\+\_\+}
+\begin{DoxyCompactList}\small\item\em midpoint\+\_\+array\+\_\+ is a double array holding the current midpoints for the tau-\/leap step \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
-Class \hyperlink{class_midpoint_leap}{Midpoint\+Leap} implements \hyperlink{class_realization}{Realization} \hyperlink{class_midpoint_leap_a8afc1a6a8777157f7b42ec08a848b564}{step()} function using Midpoint Leap method. 
+Class \hyperlink{class_midpoint_leap}{Midpoint\+Leap} implements \hyperlink{class_realization}{Realization} \hyperlink{class_midpoint_leap_a8afc1a6a8777157f7b42ec08a848b564}{step()} function using the midpoint tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic midpoint (2nd-\/order Runge-\/\+Kutta) method for the numerical solution of ordinary differential equations. 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_midpoint_leap_a9e5301b74a349ecc4c1de994426eb8b2}\label{class_midpoint_leap_a9e5301b74a349ecc4c1de994426eb8b2}} 
+\index{Midpoint\+Leap@{Midpoint\+Leap}!Midpoint\+Leap@{Midpoint\+Leap}}
+\index{Midpoint\+Leap@{Midpoint\+Leap}!Midpoint\+Leap@{Midpoint\+Leap}}
+\subsubsection{\texorpdfstring{Midpoint\+Leap()}{MidpointLeap()}}
+{\footnotesize\ttfamily Midpoint\+Leap\+::\+Midpoint\+Leap (\begin{DoxyParamCaption}\item[{\hyperlink{class_model}{Model} $\ast$}]{the\+\_\+model,  }\item[{const \hyperlink{class_paramset}{Paramset} \&}]{the\+\_\+paramset,  }\item[{\hyperlink{classrng}{rng} $\ast$}]{the\+\_\+rng,  }\item[{int}]{n\+\_\+vars,  }\item[{int}]{n\+\_\+events }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \hyperlink{class_midpoint_leap}{Midpoint\+Leap}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+\_\+model} & is a \hyperlink{class_model}{Model} object \\
+\hline
+{\em the\+\_\+paramset} & is a \hyperlink{class_paramset}{Paramset} object \\
+\hline
+{\em the\+\_\+rng} & is a random number generator \\
+\hline
+{\em n\+\_\+vars} & is an int specifying variable count \\
+\hline
+{\em n\+\_\+events} & is an int specifying event count\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+intialize midpoint array \mbox{\Hypertarget{class_midpoint_leap_ae220cffbf343b380ef53e8a2749327f6}\label{class_midpoint_leap_ae220cffbf343b380ef53e8a2749327f6}} 
+\index{Midpoint\+Leap@{Midpoint\+Leap}!````~Midpoint\+Leap@{$\sim$\+Midpoint\+Leap}}
+\index{````~Midpoint\+Leap@{$\sim$\+Midpoint\+Leap}!Midpoint\+Leap@{Midpoint\+Leap}}
+\subsubsection{\texorpdfstring{$\sim$\+Midpoint\+Leap()}{~MidpointLeap()}}
+{\footnotesize\ttfamily Midpoint\+Leap\+::$\sim$\+Midpoint\+Leap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \hyperlink{class_midpoint_leap}{Midpoint\+Leap}. 
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_midpoint_leap_a177682cf5042407ccee1a443e8920896}\label{class_midpoint_leap_a177682cf5042407ccee1a443e8920896}} 
+\index{Midpoint\+Leap@{Midpoint\+Leap}!set\+\_\+to\+\_\+initial\+\_\+state@{set\+\_\+to\+\_\+initial\+\_\+state}}
+\index{set\+\_\+to\+\_\+initial\+\_\+state@{set\+\_\+to\+\_\+initial\+\_\+state}!Midpoint\+Leap@{Midpoint\+Leap}}
+\subsubsection{\texorpdfstring{set\+\_\+to\+\_\+initial\+\_\+state()}{set\_to\_initial\_state()}}
+{\footnotesize\ttfamily int Midpoint\+Leap\+::set\+\_\+to\+\_\+initial\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sets state\+\_\+array and state\+\_\+time to their user-\/specified initial values. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_realization_a391a89af7574a9053f53f8a299c2cc70}{Realization}.
+
+\mbox{\Hypertarget{class_midpoint_leap_a8afc1a6a8777157f7b42ec08a848b564}\label{class_midpoint_leap_a8afc1a6a8777157f7b42ec08a848b564}} 
+\index{Midpoint\+Leap@{Midpoint\+Leap}!step@{step}}
+\index{step@{step}!Midpoint\+Leap@{Midpoint\+Leap}}
+\subsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily int Midpoint\+Leap\+::step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update waiting times. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_realization_a9949217117927b149850288f3b74c9ef}{Realization}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{realization_8h}{realization.\+h}\end{DoxyCompactItemize}
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{midpointleap_8h}{midpointleap.\+h}\item 
+/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/\hyperlink{midpointleap_8cc}{midpointleap.\+cc}\end{DoxyCompactItemize}

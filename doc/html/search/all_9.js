@@ -1,11 +1,14 @@
 var searchData=
 [
-  ['n_5fevents',['n_events',['../class_realization.html#afb711282bef806fc0020f91252d1df2c',1,'Realization']]],
-  ['n_5frealizations',['n_realizations',['../class_paramset.html#a50c0325e75983b66d0825406ec7873ac',1,'Paramset']]],
-  ['n_5fvars',['n_vars',['../class_paramset.html#aee56c5dcf7d40836397965cdcf392343',1,'Paramset::n_vars()'],['../class_realization.html#ad9951a0829e68e12fcb3817735bb5097',1,'Realization::n_vars()']]],
-  ['newrealization',['NewRealization',['../class_realization_factory.html#a4881816e453d1107de053ea3c0b8d8ba',1,'RealizationFactory']]],
-  ['next',['next',['../classrng.html#a0fa7d2415b07e3396b6ed3fb7c238606',1,'rng::next()'],['../classxoroshiro128plus.html#a14185bcb657d561663803f4a8b2e9a92',1,'xoroshiro128plus::next()']]],
-  ['nextreaction',['NextReaction',['../class_next_reaction.html',1,'NextReaction'],['../class_next_reaction.html#ac08695146983c863c3edf3bb4e61d9f9',1,'NextReaction::NextReaction()']]],
-  ['nextreaction_2ecc',['nextreaction.cc',['../nextreaction_8cc.html',1,'']]],
-  ['nextreaction_2eh',['nextreaction.h',['../nextreaction_8h.html',1,'']]]
+  ['main',['main',['../simulate_8cc.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;simulate.cc'],['../testevent_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;testevent.cc'],['../testmodel_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;testmodel.cc'],['../testparser_8cc.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;testparser.cc']]],
+  ['max_5fiter',['max_iter',['../class_paramset.html#afeb86c327cd6966707996019609e6ed1',1,'Paramset']]],
+  ['method',['method',['../class_paramset.html#a67376577973f825ba60fc7c319ccc906',1,'Paramset']]],
+  ['midpoint_5farray_5f',['midpoint_array_',['../class_midpoint_leap.html#abf06466b009f0e52938cbf8fd299f406',1,'MidpointLeap']]],
+  ['midpointleap',['MidpointLeap',['../class_midpoint_leap.html',1,'MidpointLeap'],['../class_midpoint_leap.html#a9e5301b74a349ecc4c1de994426eb8b2',1,'MidpointLeap::MidpointLeap()']]],
+  ['midpointleap_2ecc',['midpointleap.cc',['../midpointleap_8cc.html',1,'']]],
+  ['midpointleap_2eh',['midpointleap.h',['../midpointleap_8h.html',1,'']]],
+  ['model',['Model',['../class_model.html',1,'Model'],['../class_model.html#ae3b375de5f6df4faf74a95d64748e048',1,'Model::Model()']]],
+  ['model_2ecc',['model.cc',['../model_8cc.html',1,'']]],
+  ['model_2eh',['model.h',['../model_8h.html',1,'']]],
+  ['modeltests_2ecc',['modeltests.cc',['../modeltests_8cc.html',1,'']]]
 ];

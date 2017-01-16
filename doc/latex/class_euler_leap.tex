@@ -18,12 +18,12 @@ Inheritance diagram for Euler\+Leap\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_euler_leap_ae5db6ea05659798b624a28872799b906}\label{class_euler_leap_ae5db6ea05659798b624a28872799b906}} 
-{\bfseries Euler\+Leap} (\hyperlink{class_model}{Model} $\ast$\hyperlink{class_realization_a47ec1d062b8caee874b08c1a17d6aeeb}{the\+\_\+model}, const \hyperlink{class_paramset}{Paramset} \&\hyperlink{class_realization_a119bb29de88929bc51bc1b329473a94b}{the\+\_\+paramset}, \hyperlink{classrng}{rng} $\ast$\hyperlink{class_realization_ac8d358d929afae90cf5790675b6744f9}{the\+\_\+rng}, int \hyperlink{class_realization_ad9951a0829e68e12fcb3817735bb5097}{n\+\_\+vars}, int \hyperlink{class_realization_afb711282bef806fc0020f91252d1df2c}{n\+\_\+events})
-\item 
-\mbox{\Hypertarget{class_euler_leap_a25b1ea90a95bfd41ecb919605683da9d}\label{class_euler_leap_a25b1ea90a95bfd41ecb919605683da9d}} 
+\hyperlink{class_euler_leap_ae5db6ea05659798b624a28872799b906}{Euler\+Leap} (\hyperlink{class_model}{Model} $\ast$\hyperlink{class_realization_a47ec1d062b8caee874b08c1a17d6aeeb}{the\+\_\+model}, const \hyperlink{class_paramset}{Paramset} \&\hyperlink{class_realization_a119bb29de88929bc51bc1b329473a94b}{the\+\_\+paramset}, \hyperlink{classrng}{rng} $\ast$\hyperlink{class_realization_ac8d358d929afae90cf5790675b6744f9}{the\+\_\+rng}, int \hyperlink{class_realization_ad9951a0829e68e12fcb3817735bb5097}{n\+\_\+vars}, int \hyperlink{class_realization_afb711282bef806fc0020f91252d1df2c}{n\+\_\+events})
+\begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{class_euler_leap}{Euler\+Leap}. \end{DoxyCompactList}\item 
+\hyperlink{class_euler_leap_a2c4f981e34196c279e8b13c41fbd43da}{$\sim$\+Euler\+Leap} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \hyperlink{class_midpoint_leap}{Midpoint\+Leap}. \end{DoxyCompactList}\item 
 int \hyperlink{class_euler_leap_a25b1ea90a95bfd41ecb919605683da9d}{step} ()
-\begin{DoxyCompactList}\small\item\em takes one simulation step according to the chosen algorithm \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Update waiting times. \end{DoxyCompactList}\item 
 int \hyperlink{class_euler_leap_a1a13929ea1ebf40e7357439968828f4b}{set\+\_\+to\+\_\+initial\+\_\+state} ()
 \begin{DoxyCompactList}\small\item\em Sets state\+\_\+array and state\+\_\+time to their user-\/specified initial values. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
@@ -31,6 +31,48 @@ int \hyperlink{class_euler_leap_a1a13929ea1ebf40e7357439968828f4b}{set\+\_\+to\+
 
 \subsection{Detailed Description}
 Class \hyperlink{class_euler_leap}{Euler\+Leap} implements \hyperlink{class_realization}{Realization} \hyperlink{class_euler_leap_a25b1ea90a95bfd41ecb919605683da9d}{step()} function using the basic tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic forward Euler method for the numerical solution of ordinary differential equations. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_euler_leap_ae5db6ea05659798b624a28872799b906}\label{class_euler_leap_ae5db6ea05659798b624a28872799b906}} 
+\index{Euler\+Leap@{Euler\+Leap}!Euler\+Leap@{Euler\+Leap}}
+\index{Euler\+Leap@{Euler\+Leap}!Euler\+Leap@{Euler\+Leap}}
+\subsubsection{\texorpdfstring{Euler\+Leap()}{EulerLeap()}}
+{\footnotesize\ttfamily Euler\+Leap\+::\+Euler\+Leap (\begin{DoxyParamCaption}\item[{\hyperlink{class_model}{Model} $\ast$}]{the\+\_\+model,  }\item[{const \hyperlink{class_paramset}{Paramset} \&}]{the\+\_\+paramset,  }\item[{\hyperlink{classrng}{rng} $\ast$}]{the\+\_\+rng,  }\item[{int}]{n\+\_\+vars,  }\item[{int}]{n\+\_\+events }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \hyperlink{class_euler_leap}{Euler\+Leap}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+\_\+model} & is a \hyperlink{class_model}{Model} object \\
+\hline
+{\em the\+\_\+paramset} & is a \hyperlink{class_paramset}{Paramset} object \\
+\hline
+{\em the\+\_\+rng} & is a random number generator \\
+\hline
+{\em n\+\_\+vars} & is an int specifying variable count \\
+\hline
+{\em n\+\_\+events} & is an int specifying event count\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_euler_leap_a2c4f981e34196c279e8b13c41fbd43da}\label{class_euler_leap_a2c4f981e34196c279e8b13c41fbd43da}} 
+\index{Euler\+Leap@{Euler\+Leap}!````~Euler\+Leap@{$\sim$\+Euler\+Leap}}
+\index{````~Euler\+Leap@{$\sim$\+Euler\+Leap}!Euler\+Leap@{Euler\+Leap}}
+\subsubsection{\texorpdfstring{$\sim$\+Euler\+Leap()}{~EulerLeap()}}
+{\footnotesize\ttfamily Euler\+Leap\+::$\sim$\+Euler\+Leap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \hyperlink{class_midpoint_leap}{Midpoint\+Leap}. 
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_euler_leap_a1a13929ea1ebf40e7357439968828f4b}\label{class_euler_leap_a1a13929ea1ebf40e7357439968828f4b}} 
@@ -49,6 +91,23 @@ int
 
 
 Reimplemented from \hyperlink{class_realization_a391a89af7574a9053f53f8a299c2cc70}{Realization}.
+
+\mbox{\Hypertarget{class_euler_leap_a25b1ea90a95bfd41ecb919605683da9d}\label{class_euler_leap_a25b1ea90a95bfd41ecb919605683da9d}} 
+\index{Euler\+Leap@{Euler\+Leap}!step@{step}}
+\index{step@{step}!Euler\+Leap@{Euler\+Leap}}
+\subsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily int Euler\+Leap\+::step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update waiting times. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_realization_a9949217117927b149850288f3b74c9ef}{Realization}.
 
 
 

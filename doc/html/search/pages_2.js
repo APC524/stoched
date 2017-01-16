@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stoched',['Stoched',['../index.html',1,'']]]
+  ['user_20guide',['User Guide',['../usage.html',1,'']]]
 ];
