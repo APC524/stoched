@@ -1,0 +1,52 @@
+\hypertarget{tauleapavail_8cc}{}\section{/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/tauleapavail.cc File Reference}
+\label{tauleapavail_8cc}\index{/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/tauleapavail.\+cc@{/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/tauleapavail.\+cc}}
+
+
+Called by parser.\+y to determine whether to use tau leap or not.  
+
+
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}model.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{tauleapavail_8cc_a5867da89fbdaeaa7590006b49f0f2646}{tau\+Leap\+Avail} (\hyperlink{class_model}{Model} \&c\+Model, string var\+List\+Str, string function\+Str, int eqn\+Cnt, int event\+Cnt)
+\begin{DoxyCompactList}\small\item\em Is tau leap available? \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Called by parser.\+y to determine whether to use tau leap or not. 
+
+\begin{DoxyAuthor}{Author}
+Kevin Griffin (\href{mailto:kpgriffin@princeton.edu}{\tt kpgriffin@princeton.\+edu}) 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{tauleapavail_8cc_a5867da89fbdaeaa7590006b49f0f2646}\label{tauleapavail_8cc_a5867da89fbdaeaa7590006b49f0f2646}} 
+\index{tauleapavail.\+cc@{tauleapavail.\+cc}!tau\+Leap\+Avail@{tau\+Leap\+Avail}}
+\index{tau\+Leap\+Avail@{tau\+Leap\+Avail}!tauleapavail.\+cc@{tauleapavail.\+cc}}
+\subsubsection{\texorpdfstring{tau\+Leap\+Avail()}{tauLeapAvail()}}
+{\footnotesize\ttfamily bool tau\+Leap\+Avail (\begin{DoxyParamCaption}\item[{\hyperlink{class_model}{Model} \&}]{c\+Model,  }\item[{string}]{var\+List\+Str,  }\item[{string}]{function\+Str,  }\item[{int}]{eqn\+Cnt,  }\item[{int}]{event\+Cnt }\end{DoxyParamCaption})}
+
+
+
+Is tau leap available? 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmodel} & is a \hyperlink{class_model}{Model} object \\
+\hline
+{\em var\+List} & str is a string of variables \\
+\hline
+{\em function\+Str} & is a string used to generate a Function Parser \\
+\hline
+{\em eqn\+Cnt} & is an int specifying number of equations \\
+\hline
+{\em event\+Cnt} & is an int specifying number of events\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}

@@ -1,15 +1,19 @@
 var searchData=
 [
-  ['stoched',['Stoched',['../index.html',1,'']]],
-  ['seed',['seed',['../class_paramset.html#ab8a5866bb87cc2d78a69c47bacaeb06e',1,'Paramset']]],
-  ['set_5fto_5finitial_5fstate',['set_to_initial_state',['../class_euler_leap.html#a1a13929ea1ebf40e7357439968828f4b',1,'EulerLeap::set_to_initial_state()'],['../class_next_reaction.html#a0cc63c4ec9fe3f338472fff302f6d746',1,'NextReaction::set_to_initial_state()'],['../class_realization.html#a391a89af7574a9053f53f8a299c2cc70',1,'Realization::set_to_initial_state()']]],
-  ['setrate',['setRate',['../class_event.html#a993a01984496bc158be92b67422f8655',1,'Event']]],
-  ['settauleapfalse',['setTauLeapFalse',['../class_model.html#a371ba260fc741531a08a197ea7446758',1,'Model']]],
-  ['simulate',['simulate',['../class_realization.html#a4e21bc7355e33c17d1401736b3c62413',1,'Realization']]],
-  ['simulate_2ecc',['simulate.cc',['../simulate_8cc.html',1,'']]],
-  ['splitmix64',['splitmix64',['../classxoroshiro128plus.html#aee8ea766a36b82e20c5fdc2c5184a41c',1,'xoroshiro128plus']]],
-  ['state_5farray',['state_array',['../class_realization.html#a126f89978f0407873473222171333ee1',1,'Realization']]],
-  ['state_5ftime',['state_time',['../class_realization.html#a7c4def45c4833072317517b71e723793',1,'Realization']]],
-  ['step',['step',['../class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d',1,'EulerLeap::step()'],['../class_first_reaction.html#aed63c3c95d20b2ad557dabb6c5376a73',1,'FirstReaction::step()'],['../class_next_reaction.html#a2c1502879c76efe398c2947056936725',1,'NextReaction::step()'],['../class_realization.html#a9949217117927b149850288f3b74c9ef',1,'Realization::step()']]],
-  ['suppress_5foutput',['suppress_output',['../class_paramset.html#a43e8f2987712248fa2139946af93c072',1,'Paramset']]]
+  ['ratefunction',['rateFunction',['../class_event.html#a5a82a70465e39626ad62d1cfe3fc7617',1,'Event']]],
+  ['rates',['rates',['../class_realization.html#a9c52d8c6aa0ad99dbbec1e98302db7d8',1,'Realization']]],
+  ['rates_5fare_5fzero',['rates_are_zero',['../class_realization.html#a48953442ebf235cd1e02731c7419f65f',1,'Realization']]],
+  ['realization',['Realization',['../class_realization.html',1,'Realization'],['../class_realization.html#af4cfb6f2221bef9ba5ad09564796677f',1,'Realization::Realization()']]],
+  ['realization_2ecc',['realization.cc',['../realization_8cc.html',1,'']]],
+  ['realization_2eh',['realization.h',['../realization_8h.html',1,'']]],
+  ['realization_5ffactory_2ecc',['realization_factory.cc',['../realization__factory_8cc.html',1,'']]],
+  ['realization_5ffactory_2eh',['realization_factory.h',['../realization__factory_8h.html',1,'']]],
+  ['realizationfactory',['RealizationFactory',['../class_realization_factory.html',1,'']]],
+  ['rexp',['rexp',['../classrng.html#a7770e4ceae3bad5c426784b4b2148a1d',1,'rng']]],
+  ['rng',['rng',['../classrng.html',1,'']]],
+  ['rng_2ecc',['rng.cc',['../rng_8cc.html',1,'']]],
+  ['rng_2eh',['rng.h',['../rng_8h.html',1,'']]],
+  ['rotl',['rotl',['../classxoroshiro128plus.html#ac80afbdcbf2c512310c4aebe42f936f0',1,'xoroshiro128plus']]],
+  ['rpois',['rpois',['../classrng.html#a9c16bdeae3be90e8bd30eb284a4b2980',1,'rng']]],
+  ['runif',['runif',['../classrng.html#a3f0fec3ad9a286726825fddbf78aada8',1,'rng::runif()'],['../classxoroshiro128plus.html#a5054e4de9c05fdab89ab41dbfe05a424',1,'xoroshiro128plus::runif()']]]
 ];

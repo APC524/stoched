@@ -15,6 +15,18 @@
 #include "midpointleap.h"
 using namespace std;
 
+/**
+ *   @brief  Default constructor for MidpointLeap
+ *  
+ *   @param  the_model is a Model object
+ *   @param  the_paramset is a Paramset object
+ *   @param  the_rng is a random number generator 
+ *   @param  n_vars is an int specifying variable count
+ *   @param  n_events is an int specifying event count
+ * 
+ *   @return nothing 
+ */ 
+
 MidpointLeap::MidpointLeap(Model *the_model, const Paramset & the_paramset,
                      rng *the_rng, int n_vars, int n_events) :
   Realization(the_model, the_paramset, the_rng, n_vars, n_events)
@@ -51,11 +63,21 @@ MidpointLeap::MidpointLeap(Model *the_model, const Paramset & the_paramset,
   }
 }
 
+/**
+ *   @brief Destructor for MidpointLeap
+ *  
+ *   @return nothing 
+ */ 
 
 MidpointLeap::~MidpointLeap(){
   delete midpoint_array_;
 }
 
+/**
+ *   @brief Sets state_array and state_time to their user-specified initial values
+ *  
+ *   @return int
+ */ 
 int MidpointLeap::set_to_initial_state(){
   // call base method
   Realization::set_to_initial_state();
@@ -63,6 +85,11 @@ int MidpointLeap::set_to_initial_state(){
   return 0;
 }
 
+/**
+ *   @brief Update waiting times
+ *  
+ *   @return int
+ */  
 
 int MidpointLeap::step(){
 
