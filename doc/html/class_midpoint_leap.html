@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Stoched: APC 524 Final Project: EulerLeap Class Reference</title>
+<title>Stoched: APC 524 Final Project: MidpointLeap Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,40 +60,41 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="class_euler_leap-members.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="class_midpoint_leap-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">EulerLeap Class Reference</div>  </div>
+<div class="title">MidpointLeap Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Class <a class="el" href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using the basic tau leap approximate algorithm...">EulerLeap</a> implements <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a> <a class="el" href="class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d" title="Update waiting times. ">step()</a> function using the basic tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic forward Euler method for the numerical solution of ordinary differential equations.  
- <a href="class_euler_leap.html#details">More...</a></p>
+<p>Class <a class="el" href="class_midpoint_leap.html" title="Class MidpointLeap implements Realization step() function using the midpoint tau leap approximate alg...">MidpointLeap</a> implements <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a> <a class="el" href="class_midpoint_leap.html#a8afc1a6a8777157f7b42ec08a848b564" title="Update waiting times. ">step()</a> function using the midpoint tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic midpoint (2nd-order Runge-Kutta) method for the numerical solution of ordinary differential equations.  
+ <a href="class_midpoint_leap.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="eulerleap_8h_source.html">eulerleap.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="midpointleap_8h_source.html">midpointleap.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for EulerLeap:</div>
+Inheritance diagram for MidpointLeap:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_euler_leap.png" usemap="#EulerLeap_map" alt=""/>
-  <map id="EulerLeap_map" name="EulerLeap_map">
-<area href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times..." alt="Realization" shape="rect" coords="0,0,73,24"/>
+  <img src="class_midpoint_leap.png" usemap="#MidpointLeap_map" alt=""/>
+  <map id="MidpointLeap_map" name="MidpointLeap_map">
+<area href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times..." alt="Realization" shape="rect" coords="0,0,88,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae5db6ea05659798b624a28872799b906"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_euler_leap.html#ae5db6ea05659798b624a28872799b906">EulerLeap</a> (<a class="el" href="class_model.html">Model</a> *<a class="el" href="class_realization.html#a47ec1d062b8caee874b08c1a17d6aeeb">the_model</a>, const <a class="el" href="class_paramset.html">Paramset</a> &amp;<a class="el" href="class_realization.html#a119bb29de88929bc51bc1b329473a94b">the_paramset</a>, <a class="el" href="classrng.html">rng</a> *<a class="el" href="class_realization.html#ac8d358d929afae90cf5790675b6744f9">the_rng</a>, int <a class="el" href="class_realization.html#ad9951a0829e68e12fcb3817735bb5097">n_vars</a>, int <a class="el" href="class_realization.html#afb711282bef806fc0020f91252d1df2c">n_events</a>)</td></tr>
-<tr class="memdesc:ae5db6ea05659798b624a28872799b906"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using the basic tau leap approximate algorithm...">EulerLeap</a>.  <a href="#ae5db6ea05659798b624a28872799b906">More...</a><br /></td></tr>
-<tr class="separator:ae5db6ea05659798b624a28872799b906"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c4f981e34196c279e8b13c41fbd43da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_euler_leap.html#a2c4f981e34196c279e8b13c41fbd43da">~EulerLeap</a> ()</td></tr>
-<tr class="memdesc:a2c4f981e34196c279e8b13c41fbd43da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="class_midpoint_leap.html" title="Class MidpointLeap implements Realization step() function using the midpoint tau leap approximate alg...">MidpointLeap</a>.  <a href="#a2c4f981e34196c279e8b13c41fbd43da">More...</a><br /></td></tr>
-<tr class="separator:a2c4f981e34196c279e8b13c41fbd43da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25b1ea90a95bfd41ecb919605683da9d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d">step</a> ()</td></tr>
-<tr class="memdesc:a25b1ea90a95bfd41ecb919605683da9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update waiting times.  <a href="#a25b1ea90a95bfd41ecb919605683da9d">More...</a><br /></td></tr>
-<tr class="separator:a25b1ea90a95bfd41ecb919605683da9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a13929ea1ebf40e7357439968828f4b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_euler_leap.html#a1a13929ea1ebf40e7357439968828f4b">set_to_initial_state</a> ()</td></tr>
-<tr class="memdesc:a1a13929ea1ebf40e7357439968828f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets state_array and state_time to their user-specified initial values.  <a href="#a1a13929ea1ebf40e7357439968828f4b">More...</a><br /></td></tr>
-<tr class="separator:a1a13929ea1ebf40e7357439968828f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e5301b74a349ecc4c1de994426eb8b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_midpoint_leap.html#a9e5301b74a349ecc4c1de994426eb8b2">MidpointLeap</a> (<a class="el" href="class_model.html">Model</a> *<a class="el" href="class_realization.html#a47ec1d062b8caee874b08c1a17d6aeeb">the_model</a>, const <a class="el" href="class_paramset.html">Paramset</a> &amp;<a class="el" href="class_realization.html#a119bb29de88929bc51bc1b329473a94b">the_paramset</a>, <a class="el" href="classrng.html">rng</a> *<a class="el" href="class_realization.html#ac8d358d929afae90cf5790675b6744f9">the_rng</a>, int <a class="el" href="class_realization.html#ad9951a0829e68e12fcb3817735bb5097">n_vars</a>, int <a class="el" href="class_realization.html#afb711282bef806fc0020f91252d1df2c">n_events</a>)</td></tr>
+<tr class="memdesc:a9e5301b74a349ecc4c1de994426eb8b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="class_midpoint_leap.html" title="Class MidpointLeap implements Realization step() function using the midpoint tau leap approximate alg...">MidpointLeap</a>.  <a href="#a9e5301b74a349ecc4c1de994426eb8b2">More...</a><br /></td></tr>
+<tr class="separator:a9e5301b74a349ecc4c1de994426eb8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae220cffbf343b380ef53e8a2749327f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_midpoint_leap.html#ae220cffbf343b380ef53e8a2749327f6">~MidpointLeap</a> ()</td></tr>
+<tr class="memdesc:ae220cffbf343b380ef53e8a2749327f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="class_midpoint_leap.html" title="Class MidpointLeap implements Realization step() function using the midpoint tau leap approximate alg...">MidpointLeap</a>.  <a href="#ae220cffbf343b380ef53e8a2749327f6">More...</a><br /></td></tr>
+<tr class="separator:ae220cffbf343b380ef53e8a2749327f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8afc1a6a8777157f7b42ec08a848b564"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_midpoint_leap.html#a8afc1a6a8777157f7b42ec08a848b564">step</a> ()</td></tr>
+<tr class="memdesc:a8afc1a6a8777157f7b42ec08a848b564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update waiting times.  <a href="#a8afc1a6a8777157f7b42ec08a848b564">More...</a><br /></td></tr>
+<tr class="separator:a8afc1a6a8777157f7b42ec08a848b564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a177682cf5042407ccee1a443e8920896"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_midpoint_leap.html#a177682cf5042407ccee1a443e8920896">set_to_initial_state</a> ()</td></tr>
+<tr class="memdesc:a177682cf5042407ccee1a443e8920896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets state_array and state_time to their user-specified initial values.  <a href="#a177682cf5042407ccee1a443e8920896">More...</a><br /></td></tr>
+<tr class="separator:a177682cf5042407ccee1a443e8920896"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_realization"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_realization')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_realization.html">Realization</a></td></tr>
 <tr class="memitem:af4cfb6f2221bef9ba5ad09564796677f inherit pub_methods_class_realization"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#af4cfb6f2221bef9ba5ad09564796677f">Realization</a> (<a class="el" href="class_model.html">Model</a> *<a class="el" href="class_realization.html#a47ec1d062b8caee874b08c1a17d6aeeb">the_model</a>, const <a class="el" href="class_paramset.html">Paramset</a> &amp;<a class="el" href="class_realization.html#a119bb29de88929bc51bc1b329473a94b">the_paramset</a>, <a class="el" href="classrng.html">rng</a> *<a class="el" href="class_realization.html#ac8d358d929afae90cf5790675b6744f9">the_rng</a>, int <a class="el" href="class_realization.html#ad9951a0829e68e12fcb3817735bb5097">n_vars</a>, int <a class="el" href="class_realization.html#afb711282bef806fc0020f91252d1df2c">n_events</a>)</td></tr>
 <tr class="memdesc:af4cfb6f2221bef9ba5ad09564796677f inherit pub_methods_class_realization"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a>.  <a href="class_realization.html#af4cfb6f2221bef9ba5ad09564796677f">More...</a><br /></td></tr>
@@ -110,6 +111,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab7ef90279eef4bf11261084f541c7bb0 inherit pub_methods_class_realization"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_realization.html#ab7ef90279eef4bf11261084f541c7bb0">output_state</a> (std::ofstream &amp;myfile)</td></tr>
 <tr class="memdesc:ab7ef90279eef4bf11261084f541c7bb0 inherit pub_methods_class_realization"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current state of the simulation.  <a href="class_realization.html#ab7ef90279eef4bf11261084f541c7bb0">More...</a><br /></td></tr>
 <tr class="separator:ab7ef90279eef4bf11261084f541c7bb0 inherit pub_methods_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:abf06466b009f0e52938cbf8fd299f406"><td class="memItemLeft" align="right" valign="top"><a id="abf06466b009f0e52938cbf8fd299f406"></a>
+double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_midpoint_leap.html#abf06466b009f0e52938cbf8fd299f406">midpoint_array_</a></td></tr>
+<tr class="memdesc:abf06466b009f0e52938cbf8fd299f406"><td class="mdescLeft">&#160;</td><td class="mdescRight">midpoint_array_ is a double array holding the current midpoints for the tau-leap step <br /></td></tr>
+<tr class="separator:abf06466b009f0e52938cbf8fd299f406"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -148,16 +156,16 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:a7c4def45c4833072317517b71e723793 inherit pub_attribs_class_realization"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class <a class="el" href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using the basic tau leap approximate algorithm...">EulerLeap</a> implements <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a> <a class="el" href="class_euler_leap.html#a25b1ea90a95bfd41ecb919605683da9d" title="Update waiting times. ">step()</a> function using the basic tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic forward Euler method for the numerical solution of ordinary differential equations. </p>
+<div class="textblock"><p>Class <a class="el" href="class_midpoint_leap.html" title="Class MidpointLeap implements Realization step() function using the midpoint tau leap approximate alg...">MidpointLeap</a> implements <a class="el" href="class_realization.html" title="Class Realization holds realizations of a Model (state array, propensities, waiting times...">Realization</a> <a class="el" href="class_midpoint_leap.html#a8afc1a6a8777157f7b42ec08a848b564" title="Update waiting times. ">step()</a> function using the midpoint tau leap approximate algorithm of Gillepsie (2001). The method is analogous to the deterministic midpoint (2nd-order Runge-Kutta) method for the numerical solution of ordinary differential equations. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae5db6ea05659798b624a28872799b906"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5db6ea05659798b624a28872799b906">&#9670;&nbsp;</a></span>EulerLeap()</h2>
+<a id="a9e5301b74a349ecc4c1de994426eb8b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e5301b74a349ecc4c1de994426eb8b2">&#9670;&nbsp;</a></span>MidpointLeap()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">EulerLeap::EulerLeap </td>
+          <td class="memname">MidpointLeap::MidpointLeap </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_model.html">Model</a> *&#160;</td>
           <td class="paramname"><em>the_model</em>, </td>
@@ -194,7 +202,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
       </table>
 </div><div class="memdoc">
 
-<p>Default constructor for <a class="el" href="class_euler_leap.html" title="Class EulerLeap implements Realization step() function using the basic tau leap approximate algorithm...">EulerLeap</a>. </p>
+<p>Default constructor for <a class="el" href="class_midpoint_leap.html" title="Class MidpointLeap implements Realization step() function using the midpoint tau leap approximate alg...">MidpointLeap</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">the_model</td><td>is a <a class="el" href="class_model.html" title="Class Model, which holds user-specified models of stochastic systems from which realizations are to b...">Model</a> object </td></tr>
@@ -206,17 +214,18 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>nothing </dd></dl>
+<p>intialize midpoint array </p>
 
 </div>
 </div>
-<a id="a2c4f981e34196c279e8b13c41fbd43da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c4f981e34196c279e8b13c41fbd43da">&#9670;&nbsp;</a></span>~EulerLeap()</h2>
+<a id="ae220cffbf343b380ef53e8a2749327f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae220cffbf343b380ef53e8a2749327f6">&#9670;&nbsp;</a></span>~MidpointLeap()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">EulerLeap::~EulerLeap </td>
+          <td class="memname">MidpointLeap::~MidpointLeap </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -230,8 +239,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1a13929ea1ebf40e7357439968828f4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a13929ea1ebf40e7357439968828f4b">&#9670;&nbsp;</a></span>set_to_initial_state()</h2>
+<a id="a177682cf5042407ccee1a443e8920896"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a177682cf5042407ccee1a443e8920896">&#9670;&nbsp;</a></span>set_to_initial_state()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -240,7 +249,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int EulerLeap::set_to_initial_state </td>
+          <td class="memname">int MidpointLeap::set_to_initial_state </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -260,8 +269,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 
 </div>
 </div>
-<a id="a25b1ea90a95bfd41ecb919605683da9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25b1ea90a95bfd41ecb919605683da9d">&#9670;&nbsp;</a></span>step()</h2>
+<a id="a8afc1a6a8777157f7b42ec08a848b564"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8afc1a6a8777157f7b42ec08a848b564">&#9670;&nbsp;</a></span>step()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -270,7 +279,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int EulerLeap::step </td>
+          <td class="memname">int MidpointLeap::step </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -291,8 +300,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/Caleb/APC524/stoched/src/<a class="el" href="eulerleap_8h_source.html">eulerleap.h</a></li>
-<li>/Users/Caleb/APC524/stoched/src/<a class="el" href="eulerleap_8cc.html">eulerleap.cc</a></li>
+<li>/Users/Caleb/APC524/stoched/src/<a class="el" href="midpointleap_8h_source.html">midpointleap.h</a></li>
+<li>/Users/Caleb/APC524/stoched/src/<a class="el" href="midpointleap_8cc.html">midpointleap.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,258 +1,277 @@
 \begin{theindex}
 
   \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/eulerleap.\+cc}, 
-		\hyperpage{41}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/eulerleap.\+h}, 
-		\hyperpage{41}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/event.\+cc}, 
-		\hyperpage{42}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/event.\+h}, 
-		\hyperpage{43}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/eventtests.\+cc}, 
-		\hyperpage{43}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/firstreaction.\+cc}, 
-		\hyperpage{44}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/firstreaction.\+h}, 
-		\hyperpage{44}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/model.\+cc}, 
 		\hyperpage{45}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/model.\+h}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/eulerleap.\+h}, 
+		\hyperpage{45}
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/event.\+cc}, 
 		\hyperpage{46}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/modeltests.\+cc}, 
-		\hyperpage{46}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/nextreaction.\+cc}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/event.\+h}, 
 		\hyperpage{47}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/nextreaction.\+h}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/eventtests.\+cc}, 
 		\hyperpage{47}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/paramset.\+cc}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/firstreaction.\+cc}, 
 		\hyperpage{48}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/paramset.\+h}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/firstreaction.\+h}, 
 		\hyperpage{48}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/parsertests.\+cc}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/midpointleap.\+cc}, 
 		\hyperpage{49}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization.\+cc}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/midpointleap.\+h}, 
 		\hyperpage{50}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization.\+h}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/model.\+cc}, 
 		\hyperpage{50}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization\+\_\+factory.\+cc}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/model.\+h}, 
 		\hyperpage{51}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization\+\_\+factory.\+h}, 
-		\hyperpage{51}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/rng.\+cc}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/modeltests.\+cc}, 
 		\hyperpage{52}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/rng.\+h}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/nextreaction.\+cc}, 
+		\hyperpage{52}
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/nextreaction.\+h}, 
 		\hyperpage{53}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/simulate.\+cc}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/paramset.\+cc}, 
+		\hyperpage{53}
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/paramset.\+h}, 
 		\hyperpage{54}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/tauleapavail.\+cc}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/parsertests.\+cc}, 
+		\hyperpage{54}
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization.\+cc}, 
 		\hyperpage{55}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/testevent.\+cc}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization.\+h}, 
+		\hyperpage{55}
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization\+\_\+factory.\+cc}, 
 		\hyperpage{56}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/testmodel.\+cc}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/realization\+\_\+factory.\+h}, 
 		\hyperpage{57}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/testparser.\+cc}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/rng.\+cc}, 
+		\hyperpage{57}
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/rng.\+h}, 
 		\hyperpage{58}
-  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/testsimulate.\+cc}, 
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/simulate.\+cc}, 
 		\hyperpage{59}
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/tauleapavail.\+cc}, 
+		\hyperpage{60}
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/testevent.\+cc}, 
+		\hyperpage{61}
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/testmodel.\+cc}, 
+		\hyperpage{62}
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/testparser.\+cc}, 
+		\hyperpage{63}
+  \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/testsimulate.\+cc}, 
+		\hyperpage{64}
   \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/xoroshiro128plus.\+cc}, 
-		\hyperpage{60}
+		\hyperpage{65}
   \item {/\+Users/\+Caleb/\+A\+P\+C524/stoched/src/xoroshiro128plus.\+h}, 
-		\hyperpage{60}
+		\hyperpage{66}
+  \item {$\sim$\+Euler\+Leap}
+    \subitem {Euler\+Leap}, \hyperpage{16}
   \item {$\sim$\+Event}
-    \subitem {Event}, \hyperpage{17}
+    \subitem {Event}, \hyperpage{18}
   \item {$\sim$\+First\+Reaction}
-    \subitem {First\+Reaction}, \hyperpage{22}
+    \subitem {First\+Reaction}, \hyperpage{23}
+  \item {$\sim$\+Midpoint\+Leap}
+    \subitem {Midpoint\+Leap}, \hyperpage{25}
   \item {$\sim$\+Model}
-    \subitem {Model}, \hyperpage{24}
+    \subitem {Model}, \hyperpage{27}
   \item {$\sim$\+Next\+Reaction}
-    \subitem {Next\+Reaction}, \hyperpage{31}
+    \subitem {Next\+Reaction}, \hyperpage{34}
   \item {$\sim$\+Paramset}
-    \subitem {Paramset}, \hyperpage{33}
+    \subitem {Paramset}, \hyperpage{36}
   \item {$\sim$\+Realization}
-    \subitem {Realization}, \hyperpage{35}
+    \subitem {Realization}, \hyperpage{38}
 
   \indexspace
 
   \item {add\+Event}
-    \subitem {Model}, \hyperpage{24}
+    \subitem {Model}, \hyperpage{27}
   \item {add\+Event\+Fct}
-    \subitem {Model}, \hyperpage{24}
+    \subitem {Model}, \hyperpage{28}
   \item {add\+Function}
-    \subitem {Event}, \hyperpage{18}
+    \subitem {Event}, \hyperpage{19}
   \item {add\+Vars}
-    \subitem {Model}, \hyperpage{25}
+    \subitem {Model}, \hyperpage{28}
 
   \indexspace
 
   \item {check\+Tau\+Leap\+Avail}
-    \subitem {Model}, \hyperpage{25}
+    \subitem {Model}, \hyperpage{28}
 
   \indexspace
 
   \item {Euler\+Leap}, \hyperpage{15}
+    \subitem {$\sim$\+Euler\+Leap}, \hyperpage{16}
+    \subitem {Euler\+Leap}, \hyperpage{16}
     \subitem {set\+\_\+to\+\_\+initial\+\_\+state}, \hyperpage{16}
-  \item {Event}, \hyperpage{16}
-    \subitem {$\sim$\+Event}, \hyperpage{17}
-    \subitem {add\+Function}, \hyperpage{18}
-    \subitem {Event}, \hyperpage{17}
-    \subitem {get\+Delta\+Var}, \hyperpage{18}
-    \subitem {get\+Rate}, \hyperpage{18}
-    \subitem {get\+Size}, \hyperpage{19}
-    \subitem {set\+Delta\+Var}, \hyperpage{19}
-    \subitem {set\+Rate}, \hyperpage{19}
-    \subitem {use\+Function}, \hyperpage{20}
+    \subitem {step}, \hyperpage{17}
+  \item {Event}, \hyperpage{17}
+    \subitem {$\sim$\+Event}, \hyperpage{18}
+    \subitem {add\+Function}, \hyperpage{19}
+    \subitem {Event}, \hyperpage{18}
+    \subitem {get\+Delta\+Var}, \hyperpage{19}
+    \subitem {get\+Rate}, \hyperpage{19}
+    \subitem {get\+Size}, \hyperpage{20}
+    \subitem {set\+Delta\+Var}, \hyperpage{20}
+    \subitem {set\+Rate}, \hyperpage{20}
+    \subitem {use\+Function}, \hyperpage{21}
 
   \indexspace
 
-  \item {First\+Reaction}, \hyperpage{20}
-    \subitem {$\sim$\+First\+Reaction}, \hyperpage{22}
-    \subitem {First\+Reaction}, \hyperpage{21}
-    \subitem {step}, \hyperpage{22}
+  \item {First\+Reaction}, \hyperpage{21}
+    \subitem {$\sim$\+First\+Reaction}, \hyperpage{23}
+    \subitem {First\+Reaction}, \hyperpage{22}
+    \subitem {step}, \hyperpage{23}
 
   \indexspace
 
   \item {get\+Cont\+Deriv}
-    \subitem {Model}, \hyperpage{25}
+    \subitem {Model}, \hyperpage{28}
   \item {get\+Delta\+Var}
-    \subitem {Event}, \hyperpage{18}
-  \item {get\+Event\+Rate}
-    \subitem {Model}, \hyperpage{26}
-  \item {get\+Events\+Count}
-    \subitem {Model}, \hyperpage{26}
-  \item {get\+Ith\+Var}
-    \subitem {Model}, \hyperpage{26}
-  \item {get\+Rate}
-    \subitem {Event}, \hyperpage{18}
-  \item {get\+Size}
     \subitem {Event}, \hyperpage{19}
+  \item {get\+Event\+Rate}
+    \subitem {Model}, \hyperpage{29}
+  \item {get\+Events\+Count}
+    \subitem {Model}, \hyperpage{29}
+  \item {get\+Ith\+Var}
+    \subitem {Model}, \hyperpage{29}
+  \item {get\+Rate}
+    \subitem {Event}, \hyperpage{19}
+  \item {get\+Size}
+    \subitem {Event}, \hyperpage{20}
   \item {get\+Vars\+Count}
-    \subitem {Model}, \hyperpage{27}
+    \subitem {Model}, \hyperpage{30}
   \item {get\+Vars\+String}
-    \subitem {Model}, \hyperpage{27}
+    \subitem {Model}, \hyperpage{30}
 
   \indexspace
 
   \item {jump}
-    \subitem {xoroshiro128plus}, \hyperpage{40}
+    \subitem {xoroshiro128plus}, \hyperpage{43}
 
   \indexspace
 
   \item {log\+\_\+factorial}
-    \subitem {rng}, \hyperpage{38}
+    \subitem {rng}, \hyperpage{41}
 
   \indexspace
 
   \item {main}
-    \subitem {simulate.\+cc}, \hyperpage{55}
-    \subitem {testevent.\+cc}, \hyperpage{56}
-    \subitem {testmodel.\+cc}, \hyperpage{57}
-    \subitem {testparser.\+cc}, \hyperpage{58}
-  \item {Model}, \hyperpage{22}
-    \subitem {$\sim$\+Model}, \hyperpage{24}
-    \subitem {add\+Event}, \hyperpage{24}
-    \subitem {add\+Event\+Fct}, \hyperpage{24}
-    \subitem {add\+Vars}, \hyperpage{25}
-    \subitem {check\+Tau\+Leap\+Avail}, \hyperpage{25}
-    \subitem {get\+Cont\+Deriv}, \hyperpage{25}
-    \subitem {get\+Event\+Rate}, \hyperpage{26}
-    \subitem {get\+Events\+Count}, \hyperpage{26}
-    \subitem {get\+Ith\+Var}, \hyperpage{26}
-    \subitem {get\+Vars\+Count}, \hyperpage{27}
-    \subitem {get\+Vars\+String}, \hyperpage{27}
-    \subitem {Model}, \hyperpage{23}
-    \subitem {set\+Delta}, \hyperpage{27}
-    \subitem {set\+Tau\+Leap\+False}, \hyperpage{28}
-    \subitem {update\+Rates}, \hyperpage{28}
-    \subitem {update\+State}, \hyperpage{28}
-    \subitem {use\+Event\+Fct}, \hyperpage{29}
+    \subitem {simulate.\+cc}, \hyperpage{60}
+    \subitem {testevent.\+cc}, \hyperpage{62}
+    \subitem {testmodel.\+cc}, \hyperpage{63}
+    \subitem {testparser.\+cc}, \hyperpage{64}
+  \item {Midpoint\+Leap}, \hyperpage{23}
+    \subitem {$\sim$\+Midpoint\+Leap}, \hyperpage{25}
+    \subitem {Midpoint\+Leap}, \hyperpage{24}
+    \subitem {set\+\_\+to\+\_\+initial\+\_\+state}, \hyperpage{25}
+    \subitem {step}, \hyperpage{25}
+  \item {Model}, \hyperpage{26}
+    \subitem {$\sim$\+Model}, \hyperpage{27}
+    \subitem {add\+Event}, \hyperpage{27}
+    \subitem {add\+Event\+Fct}, \hyperpage{28}
+    \subitem {add\+Vars}, \hyperpage{28}
+    \subitem {check\+Tau\+Leap\+Avail}, \hyperpage{28}
+    \subitem {get\+Cont\+Deriv}, \hyperpage{28}
+    \subitem {get\+Event\+Rate}, \hyperpage{29}
+    \subitem {get\+Events\+Count}, \hyperpage{29}
+    \subitem {get\+Ith\+Var}, \hyperpage{29}
+    \subitem {get\+Vars\+Count}, \hyperpage{30}
+    \subitem {get\+Vars\+String}, \hyperpage{30}
+    \subitem {Model}, \hyperpage{27}
+    \subitem {set\+Delta}, \hyperpage{30}
+    \subitem {set\+Tau\+Leap\+False}, \hyperpage{31}
+    \subitem {update\+Rates}, \hyperpage{31}
+    \subitem {update\+State}, \hyperpage{31}
+    \subitem {use\+Event\+Fct}, \hyperpage{32}
 
   \indexspace
 
   \item {New\+Realization}
-    \subitem {Realization\+Factory}, \hyperpage{37}
-  \item {Next\+Reaction}, \hyperpage{29}
-    \subitem {$\sim$\+Next\+Reaction}, \hyperpage{31}
-    \subitem {Next\+Reaction}, \hyperpage{30}
-    \subitem {set\+\_\+to\+\_\+initial\+\_\+state}, \hyperpage{31}
-    \subitem {step}, \hyperpage{31}
+    \subitem {Realization\+Factory}, \hyperpage{40}
+  \item {Next\+Reaction}, \hyperpage{32}
+    \subitem {$\sim$\+Next\+Reaction}, \hyperpage{34}
+    \subitem {Next\+Reaction}, \hyperpage{33}
+    \subitem {set\+\_\+to\+\_\+initial\+\_\+state}, \hyperpage{34}
+    \subitem {step}, \hyperpage{34}
 
   \indexspace
 
   \item {output\+\_\+state}
-    \subitem {Realization}, \hyperpage{35}
+    \subitem {Realization}, \hyperpage{38}
 
   \indexspace
 
-  \item {Paramset}, \hyperpage{32}
-    \subitem {$\sim$\+Paramset}, \hyperpage{33}
-    \subitem {Paramset}, \hyperpage{32}
+  \item {Paramset}, \hyperpage{35}
+    \subitem {$\sim$\+Paramset}, \hyperpage{36}
+    \subitem {Paramset}, \hyperpage{35}
 
   \indexspace
 
   \item {rates\+\_\+are\+\_\+zero}
-    \subitem {Realization}, \hyperpage{35}
-  \item {Realization}, \hyperpage{33}
-    \subitem {$\sim$\+Realization}, \hyperpage{35}
-    \subitem {output\+\_\+state}, \hyperpage{35}
-    \subitem {rates\+\_\+are\+\_\+zero}, \hyperpage{35}
-    \subitem {Realization}, \hyperpage{34}
-    \subitem {set\+\_\+to\+\_\+initial\+\_\+state}, \hyperpage{35}
-    \subitem {simulate}, \hyperpage{36}
-  \item {Realization\+Factory}, \hyperpage{36}
-    \subitem {New\+Realization}, \hyperpage{37}
-  \item {rng}, \hyperpage{37}
-    \subitem {log\+\_\+factorial}, \hyperpage{38}
+    \subitem {Realization}, \hyperpage{38}
+  \item {Realization}, \hyperpage{36}
+    \subitem {$\sim$\+Realization}, \hyperpage{38}
+    \subitem {output\+\_\+state}, \hyperpage{38}
+    \subitem {rates\+\_\+are\+\_\+zero}, \hyperpage{38}
+    \subitem {Realization}, \hyperpage{37}
+    \subitem {set\+\_\+to\+\_\+initial\+\_\+state}, \hyperpage{38}
+    \subitem {simulate}, \hyperpage{39}
+  \item {Realization\+Factory}, \hyperpage{39}
+    \subitem {New\+Realization}, \hyperpage{40}
+  \item {rng}, \hyperpage{40}
+    \subitem {log\+\_\+factorial}, \hyperpage{41}
 
   \indexspace
 
   \item {set\+\_\+to\+\_\+initial\+\_\+state}
     \subitem {Euler\+Leap}, \hyperpage{16}
-    \subitem {Next\+Reaction}, \hyperpage{31}
-    \subitem {Realization}, \hyperpage{35}
+    \subitem {Midpoint\+Leap}, \hyperpage{25}
+    \subitem {Next\+Reaction}, \hyperpage{34}
+    \subitem {Realization}, \hyperpage{38}
   \item {set\+Delta}
-    \subitem {Model}, \hyperpage{27}
+    \subitem {Model}, \hyperpage{30}
   \item {set\+Delta\+Var}
-    \subitem {Event}, \hyperpage{19}
+    \subitem {Event}, \hyperpage{20}
   \item {set\+Rate}
-    \subitem {Event}, \hyperpage{19}
+    \subitem {Event}, \hyperpage{20}
   \item {set\+Tau\+Leap\+False}
-    \subitem {Model}, \hyperpage{28}
+    \subitem {Model}, \hyperpage{31}
   \item {simulate}
-    \subitem {Realization}, \hyperpage{36}
+    \subitem {Realization}, \hyperpage{39}
   \item {simulate.\+cc}
-    \subitem {main}, \hyperpage{55}
+    \subitem {main}, \hyperpage{60}
   \item {step}
-    \subitem {First\+Reaction}, \hyperpage{22}
-    \subitem {Next\+Reaction}, \hyperpage{31}
+    \subitem {Euler\+Leap}, \hyperpage{17}
+    \subitem {First\+Reaction}, \hyperpage{23}
+    \subitem {Midpoint\+Leap}, \hyperpage{25}
+    \subitem {Next\+Reaction}, \hyperpage{34}
 
   \indexspace
 
   \item {tau\+Leap\+Avail}
-    \subitem {tauleapavail.\+cc}, \hyperpage{55}
+    \subitem {tauleapavail.\+cc}, \hyperpage{61}
   \item {tauleapavail.\+cc}
-    \subitem {tau\+Leap\+Avail}, \hyperpage{55}
+    \subitem {tau\+Leap\+Avail}, \hyperpage{61}
   \item {testevent.\+cc}
-    \subitem {main}, \hyperpage{56}
+    \subitem {main}, \hyperpage{62}
   \item {testmodel.\+cc}
-    \subitem {main}, \hyperpage{57}
+    \subitem {main}, \hyperpage{63}
   \item {testparser.\+cc}
-    \subitem {main}, \hyperpage{58}
+    \subitem {main}, \hyperpage{64}
 
   \indexspace
 
   \item {update\+Rates}
-    \subitem {Model}, \hyperpage{28}
+    \subitem {Model}, \hyperpage{31}
   \item {update\+State}
-    \subitem {Model}, \hyperpage{28}
+    \subitem {Model}, \hyperpage{31}
   \item {use\+Event\+Fct}
-    \subitem {Model}, \hyperpage{29}
+    \subitem {Model}, \hyperpage{32}
   \item {use\+Function}
-    \subitem {Event}, \hyperpage{20}
+    \subitem {Event}, \hyperpage{21}
 
   \indexspace
 
-  \item {xoroshiro128plus}, \hyperpage{39}
-    \subitem {jump}, \hyperpage{40}
-    \subitem {xoroshiro128plus}, \hyperpage{39}
+  \item {xoroshiro128plus}, \hyperpage{42}
+    \subitem {jump}, \hyperpage{43}
+    \subitem {xoroshiro128plus}, \hyperpage{42}
 
 \end{theindex}

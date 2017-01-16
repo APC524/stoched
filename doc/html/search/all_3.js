@@ -1,7 +1,7 @@
 var searchData=
 [
   ['eq_5fcount_5f',['eq_count_',['../class_event.html#a59244ccd0e0f3654f07715bb3dd6423f',1,'Event']]],
-  ['eulerleap',['EulerLeap',['../class_euler_leap.html',1,'']]],
+  ['eulerleap',['EulerLeap',['../class_euler_leap.html',1,'EulerLeap'],['../class_euler_leap.html#ae5db6ea05659798b624a28872799b906',1,'EulerLeap::EulerLeap()']]],
   ['eulerleap_2ecc',['eulerleap.cc',['../eulerleap_8cc.html',1,'']]],
   ['eulerleap_2eh',['eulerleap.h',['../eulerleap_8h.html',1,'']]],
   ['event',['Event',['../class_event.html',1,'Event'],['../class_event.html#a5a40dd4708297f7031e29b39e039ae10',1,'Event::Event()']]],

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  16 JAN 2017 15:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  16 JAN 2017 15:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1197,11 +1197,11 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 65.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.29996pt on input line 65.
- [2] [3] [4])
+ [2] [3] [4] [5] [6])
 \tf@toc=\write5
 \openout5 = `refman.toc'.
 
- [5] [6
+ [7] [8
 
 ]
 Package hyperref Info: Option `pageanchor' set `true' on input line 138.
@@ -1271,10 +1271,15 @@ Chapter 5.
 
 ]
 Chapter 6.
-(./files.tex [13]) [14]
+(./files.tex [13]
+
+LaTeX Warning: Reference `parser_8bison_8hh' on page 14 undefined on input line
+ 19.
+
+) [14]
 Chapter 7.
 (./class_euler_leap.tex
-<class_euler_leap.pdf, id=1144, 501.875pt x 495.68185pt>
+<class_euler_leap.pdf, id=1250, 501.875pt x 495.68185pt>
 File: class_euler_leap.pdf Graphic file (type pdf)
 
 <use class_euler_leap.pdf>
@@ -1287,34 +1292,51 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 10.79993pt on input line 18.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 26.
+(Font)              scaled to size 8.09995pt on input line 22.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 26.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 22.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 26.
+(Font)              scaled to size 8.09995pt on input line 22.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 28.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 22.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 6.29996pt on input line 28.
+(Font)              scaled to size 6.29996pt on input line 22.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 40.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 40.
  [15
 
  <./class_euler_leap.pdf>]
-Underfull \hbox (badness 10000) detected at line 46
+Underfull \hbox (badness 10000) detected at line 59
 [][][]
  []
 
-) (./class_event.tex [16]
+
+Underfull \hbox (badness 10000) detected at line 72
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 88
+[][][]
+ []
+
+[16]
+Underfull \hbox (badness 10000) detected at line 105
+[][][]
+ []
+
+) (./class_event.tex [17]
 Underfull \hbox (badness 10000) detected at line 77
 [][][]
  []
 
-[17]
+[18]
 Underfull \hbox (badness 10000) detected at line 90
 [][][]
  []
 
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 100.
 
 Underfull \hbox (badness 10000) detected at line 113
 [][][]
@@ -1325,9 +1347,7 @@ Underfull \hbox (badness 10000) detected at line 131
 [][][]
  []
 
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 138.
-[18]
+[19]
 Underfull \hbox (badness 10000) detected at line 149
 [][][]
  []
@@ -1342,7 +1362,7 @@ Underfull \hbox (badness 10000) detected at line 180
 [][][]
  []
 
-[19]
+[20]
 Underfull \hbox (badness 10000) detected at line 200
 [][][]
  []
@@ -1353,13 +1373,13 @@ Underfull \hbox (badness 10000) detected at line 220
  []
 
 ) (./class_first_reaction.tex
-<class_first_reaction.pdf, id=1249, 501.875pt x 427.12573pt>
+<class_first_reaction.pdf, id=1378, 501.875pt x 427.12573pt>
 File: class_first_reaction.pdf Graphic file (type pdf)
 
 <use class_first_reaction.pdf>
 Package pdftex.def Info: class_first_reaction.pdf used on input line 15.
 (pdftex.def)             Requested size: 66.86186pt x 56.9055pt.
- [20 <./class_first_reaction.pdf>] [21]
+ [21 <./class_first_reaction.pdf>] [22]
 Underfull \hbox (badness 10000) detected at line 63
 [][][]
  []
@@ -1374,112 +1394,14 @@ Underfull \hbox (badness 10000) detected at line 92
 [][][]
  []
 
-) (./class_model.tex [22]
-LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
-(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 48.
-LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 48.
- [23]
-Underfull \hbox (badness 10000) detected at line 75
-[][][]
- []
+) (./class_midpoint_leap.tex
+<class_midpoint_leap.pdf, id=1437, 501.875pt x 418.23253pt>
+File: class_midpoint_leap.pdf Graphic file (type pdf)
 
-
-Underfull \hbox (badness 10000) detected at line 86
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 105
-[][][]
- []
-
-[24]
-Underfull \hbox (badness 10000) detected at line 125
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 141
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 154
-[][][]
- []
-
-[25]
-Underfull \hbox (badness 10000) detected at line 174
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 194
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 207
-[][][]
- []
-
-[26]
-Underfull \hbox (badness 10000) detected at line 225
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 238
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 251
-[][][]
- []
-
-
-Overfull \vbox (11.79094pt too high) has occurred while \output is active []
-
-
-[27]
-Underfull \hbox (badness 10000) detected at line 273
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 286
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 306
-[][][]
- []
-
-
-Overfull \vbox (3.67549pt too high) has occurred while \output is active []
-
-
-[28]
-Underfull \hbox (badness 10000) detected at line 326
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 348
-[][][]
- []
-
-) (./class_next_reaction.tex
-<class_next_reaction.pdf, id=1442, 501.875pt x 427.12573pt>
-File: class_next_reaction.pdf Graphic file (type pdf)
-
-<use class_next_reaction.pdf>
-Package pdftex.def Info: class_next_reaction.pdf used on input line 15.
-(pdftex.def)             Requested size: 66.86186pt x 56.9055pt.
- [29 <./class_next_reaction.pdf>] [30]
+<use class_midpoint_leap.pdf>
+Package pdftex.def Info: class_midpoint_leap.pdf used on input line 15.
+(pdftex.def)             Requested size: 68.2786pt x 56.9055pt.
+ [23 <./class_midpoint_leap.pdf>] [24]
 Underfull \hbox (badness 10000) detected at line 65
 [][][]
  []
@@ -1499,19 +1421,136 @@ Underfull \hbox (badness 10000) detected at line 111
 [][][]
  []
 
-) (./class_paramset.tex [31] [32]
+) (./class_model.tex [25]
+LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
+(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 48.
+LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
+(Font)              scaled to size 8.09995pt on input line 48.
+ [26]
+Underfull \hbox (badness 10000) detected at line 75
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 86
+[][][]
+ []
+
+[27]
+Underfull \hbox (badness 10000) detected at line 105
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 125
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 141
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 154
+[][][]
+ []
+
+[28]
+Underfull \hbox (badness 10000) detected at line 174
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 194
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 207
+[][][]
+ []
+
+[29]
+Underfull \hbox (badness 10000) detected at line 225
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 238
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 251
+[][][]
+ []
+
+[30]
+Underfull \hbox (badness 10000) detected at line 273
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 286
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 306
+[][][]
+ []
+
+[31]
+Underfull \hbox (badness 10000) detected at line 326
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 348
+[][][]
+ []
+
+) (./class_next_reaction.tex
+<class_next_reaction.pdf, id=1629, 501.875pt x 427.12573pt>
+File: class_next_reaction.pdf Graphic file (type pdf)
+
+<use class_next_reaction.pdf>
+Package pdftex.def Info: class_next_reaction.pdf used on input line 15.
+(pdftex.def)             Requested size: 66.86186pt x 56.9055pt.
+ [32 <./class_next_reaction.pdf>] [33]
+Underfull \hbox (badness 10000) detected at line 65
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 78
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 94
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 111
+[][][]
+ []
+
+) (./class_paramset.tex [34] [35]
 Underfull \hbox (badness 10000) detected at line 97
 [][][]
  []
 
 ) (./class_realization.tex
-<class_realization.pdf, id=1555, 501.875pt x 142.3719pt>
+<class_realization.pdf, id=1743, 501.875pt x 104.56064pt>
 File: class_realization.pdf Graphic file (type pdf)
 
 <use class_realization.pdf>
 Package pdftex.def Info: class_realization.pdf used on input line 15.
-(pdftex.def)             Requested size: 200.59328pt x 56.9055pt.
- [33 <./class_realization.pdf>] [34]
+(pdftex.def)             Requested size: 273.13737pt x 56.9055pt.
+ [36 <./class_realization.pdf>] [37]
 Underfull \hbox (badness 10000) detected at line 92
 [][][]
  []
@@ -1531,7 +1570,7 @@ Underfull \hbox (badness 10000) detected at line 134
 [][][]
  []
 
-[35]
+[38]
 Underfull \hbox (badness 10000) detected at line 147
 [][][]
  []
@@ -1541,26 +1580,28 @@ Underfull \hbox (badness 10000) detected at line 164
 [][][]
  []
 
-) (./class_realization_factory.tex [36]
+) (./class_realization_factory.tex [39]
 Underfull \hbox (badness 10000) detected at line 46
 [][][]
  []
 
-) (./classrng.tex <classrng.pdf, id=1669, 501.875pt x 343.16205pt>
+) (./classrng.tex <classrng.pdf, id=1861, 501.875pt x 343.16205pt>
 File: classrng.pdf Graphic file (type pdf)
 
 <use classrng.pdf>
 Package pdftex.def Info: classrng.pdf used on input line 15.
 (pdftex.def)             Requested size: 83.21933pt x 56.9055pt.
- [37 <./classrng.pdf>]) (./classxoroshiro128plus.tex
-<classxoroshiro128plus.pdf, id=1695, 501.875pt x 343.16205pt>
+ [40 <./classrng.pdf>]) (./classxoroshiro128plus.tex
+<classxoroshiro128plus.pdf, id=1887, 501.875pt x 343.16205pt>
 File: classxoroshiro128plus.pdf Graphic file (type pdf)
 
 <use classxoroshiro128plus.pdf>
 Package pdftex.def Info: classxoroshiro128plus.pdf used on input line 15.
 (pdftex.def)             Requested size: 83.21933pt x 56.9055pt.
- [38] [39 <./classxoroshiro128plus.pdf>])
-[40]
+ [41] [42 <./classxoroshiro128plus.pdf>])
+[43] [44
+
+]
 Chapter 8.
 (./eulerleap_8cc.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
@@ -1587,9 +1628,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
-[41
-
-]
+[45]
 Underfull \hbox (badness 10000) detected at line 20
 [][][]
  []
@@ -1629,7 +1668,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
-[42]
+[46]
 Underfull \hbox (badness 10000) detected at line 19
 [][][]
  []
@@ -1659,7 +1698,7 @@ Underfull \hbox (badness 10000) detected at line 33
 [][][]
  []
 
-[43]
+[47]
 Underfull \hbox (badness 10000) detected at line 36
 [][][]
  []
@@ -1689,7 +1728,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
-[44]
+[48]
 Underfull \hbox (badness 10000) detected at line 19
 [][][]
  []
@@ -1704,6 +1743,46 @@ Underfull \hbox (badness 10000) detected at line 25
 [][][]
  []
 
+) (./midpointleap_8cc.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 17
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 20
+[][][]
+ []
+
+) (./midpointleap_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--10
+
+ []
+
+[49]
+Underfull \hbox (badness 10000) detected at line 20
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 23
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 26
+[][][]
+ []
+
 ) (./model_8cc.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--17
 
@@ -1714,7 +1793,7 @@ Underfull \hbox (badness 10000) detected at line 22
 [][][]
  []
 
-
+[50]
 Underfull \hbox (badness 10000) detected at line 25
 [][][]
  []
@@ -1729,7 +1808,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--12
 
  []
 
-[45]
+
 Underfull \hbox (badness 10000) detected at line 22
 [][][]
  []
@@ -1749,12 +1828,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--13
 
  []
 
-
+[51]
 Underfull \hbox (badness 10000) detected at line 36
 [][][]
  []
 
-[46]
+
 Underfull \hbox (badness 10000) detected at line 39
 [][][]
  []
@@ -1779,12 +1858,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
-
+[52]
 Underfull \hbox (badness 10000) detected at line 20
 [][][]
  []
 
-[47]
+
 Underfull \hbox (badness 10000) detected at line 23
 [][][]
  []
@@ -1814,12 +1893,12 @@ Underfull \hbox (badness 10000) detected at line 20
 [][][]
  []
 
-) (./paramset_8h.tex
+) (./paramset_8h.tex [53]
 Underfull \hbox (badness 10000) detected at line 18
 [][][]
  []
 
-[48]
+
 Underfull \hbox (badness 10000) detected at line 21
 [][][]
  []
@@ -1849,12 +1928,12 @@ Underfull \hbox (badness 10000) detected at line 37
 [][][]
  []
 
-) (./realization_8cc.tex
+) (./realization_8cc.tex [54]
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
-[49]
+
 Underfull \hbox (badness 10000) detected at line 14
 [][][]
  []
@@ -1874,7 +1953,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--18
 
  []
 
-
+[55]
 Underfull \hbox (badness 10000) detected at line 28
 [][][]
  []
@@ -1889,7 +1968,7 @@ Underfull \hbox (badness 10000) detected at line 34
 [][][]
  []
 
-) (./realization__factory_8cc.tex [50]
+) (./realization__factory_8cc.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
@@ -1910,22 +1989,22 @@ Underfull \hbox (badness 10000) detected at line 20
  []
 
 ) (./realization__factory_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--12
+Underfull \hbox (badness 10000) in paragraph at lines 8--13
 
  []
 
-[51]
-Underfull \hbox (badness 10000) detected at line 22
+[56]
+Underfull \hbox (badness 10000) detected at line 23
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 25
+Underfull \hbox (badness 10000) detected at line 26
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 28
+Underfull \hbox (badness 10000) detected at line 29
 [][][]
  []
 
@@ -1949,12 +2028,12 @@ Underfull \hbox (badness 10000) detected at line 21
 [][][]
  []
 
-) (./rng_8h.tex [52]
+[57]) (./rng_8h.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--11
 
  []
 
-
+[58]
 Underfull \hbox (badness 10000) detected at line 27
 [][][]
  []
@@ -1969,7 +2048,7 @@ Underfull \hbox (badness 10000) detected at line 33
 [][][]
  []
 
-) (./simulate_8cc.tex [53]
+) (./simulate_8cc.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--12
 
  []
@@ -1989,7 +2068,7 @@ Underfull \hbox (badness 10000) detected at line 28
 [][][]
  []
 
-[54]
+[59]
 Underfull \hbox (badness 10000) detected at line 44
 [][][]
  []
@@ -2004,7 +2083,7 @@ Underfull \hbox (badness 10000) detected at line 21
 [][][]
  []
 
-[55]
+[60]
 Underfull \hbox (badness 10000) detected at line 50
 [][][]
  []
@@ -2014,7 +2093,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--12
 
  []
 
-
+[61]
 Underfull \hbox (badness 10000) detected at line 22
 [][][]
  []
@@ -2034,7 +2113,7 @@ Underfull \hbox (badness 10000) detected at line 44
 [][][]
  []
 
-) (./testmodel_8cc.tex [56]
+) (./testmodel_8cc.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--13
 
  []
@@ -2049,7 +2128,7 @@ Underfull \hbox (badness 10000) detected at line 26
 [][][]
  []
 
-
+[62]
 Underfull \hbox (badness 10000) detected at line 29
 [][][]
  []
@@ -2064,7 +2143,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--12
 
  []
 
-[57]
+
 Underfull \hbox (badness 10000) detected at line 25
 [][][]
  []
@@ -2074,7 +2153,7 @@ Underfull \hbox (badness 10000) detected at line 28
 [][][]
  []
 
-
+[63]
 Underfull \hbox (badness 10000) detected at line 31
 [][][]
  []
@@ -2084,12 +2163,12 @@ Underfull \hbox (badness 10000) detected at line 47
 [][][]
  []
 
-) (./testsimulate_8cc.tex [58]
+) (./testsimulate_8cc.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--21
 
  []
 
-
+[64]
 Underfull \hbox (badness 10000) detected at line 32
 [][][]
  []
@@ -2109,7 +2188,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--12
 
  []
 
-[59]
+
 Underfull \hbox (badness 10000) detected at line 32
 [][][]
  []
@@ -2129,12 +2208,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
-
+[65]
 Underfull \hbox (badness 10000) detected at line 20
 [][][]
  []
 
-[60]
+
 Underfull \hbox (badness 10000) detected at line 23
 [][][]
  []
@@ -2144,48 +2223,51 @@ Underfull \hbox (badness 10000) detected at line 26
 [][][]
  []
 
-) [61] [62
-
-] (./refman.ind
-Underfull \hbox (badness 10000) in paragraph at lines 37--39
+) [66] (./refman.ind
+Underfull \hbox (badness 10000) in paragraph at lines 41--43
 []\T1/phv/m/n/10 /[]Users/[]Caleb/[]A[]P[]C524/stoched/src/realization[]_[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--41
+Underfull \hbox (badness 10000) in paragraph at lines 43--45
 []\T1/phv/m/n/10 /[]Users/[]Caleb/[]A[]P[]C524/stoched/src/realization[]_[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--59
+Underfull \hbox (badness 10000) in paragraph at lines 61--63
 []\T1/phv/m/n/10 /[]Users/[]Caleb/[]A[]P[]C524/stoched/src/xoroshiro128plus.[]c
 c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--61
+Underfull \hbox (badness 10000) in paragraph at lines 63--65
 []\T1/phv/m/n/10 /[]Users/[]Caleb/[]A[]P[]C524/stoched/src/xoroshiro128plus.[]h
 ,
  []
 
-[63
+[67
 
 
-] [64])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 208.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 208.
+
+] [68])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 211.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 211.
  (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 208.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 208.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 211.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 211.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: BBE59CD35A18A936F613B1ECEE6636D4;37943.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 208.
+(rerunfilecheck)             Checksum: 38A362CC62CBE3874F4D28680D9A3964;41745.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 211.
  ) 
 Here is how much of TeX's memory you used:
- 15742 strings out of 493014
- 231951 string characters out of 6133351
- 326200 words of memory out of 5000000
- 18450 multiletter control sequences out of 15000+600000
+ 15816 strings out of 493014
+ 233685 string characters out of 6133351
+ 329004 words of memory out of 5000000
+ 18482 multiletter control sequences out of 15000+600000
  69074 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  53i,16n,92p,971b,632s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2203,10 +2285,10 @@ ts/type1/urw/courier/ucrro8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
 elvetic/uhvb8ac.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/helveti
 c/uhvr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvro
 8a.pfb>
-Output written on refman.pdf (72 pages, 287103 bytes).
+Output written on refman.pdf (78 pages, 303570 bytes).
 PDF statistics:
- 2341 PDF objects out of 2487 (max. 8388607)
- 2186 compressed objects within 22 object streams
- 482 named destinations out of 1000 (max. 500000)
- 1335 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2577 PDF objects out of 2984 (max. 8388607)
+ 2403 compressed objects within 25 object streams
+ 518 named destinations out of 1000 (max. 500000)
+ 1468 words of extra memory for PDF output out of 10000 (max. 10000000)
 
