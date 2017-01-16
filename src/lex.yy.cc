@@ -1,5 +1,6 @@
+#line 2 "lex.yy.cc"
 
-#line 3 "lex.yy.c"
+#line 4 "lex.yy.cc"
 
 #define  YY_INT_ALIGNED short int
 
@@ -487,13 +488,13 @@ char *yytext;
 #line 17 "parser.l"
 #include <stdio.h>
 #include <iostream>
-#include "parser.tab.h"
+#include "parser.bison.hh"
 
 using namespace std;
 int linecount = 1;
 #define YY_DECL extern "C" int yylex()
 
-#line 497 "lex.yy.c"
+#line 498 "lex.yy.cc"
 
 #define INITIAL 0
 
@@ -677,7 +678,7 @@ YY_DECL
     
 #line 26 "parser.l"
 
-#line 681 "lex.yy.c"
+#line 682 "lex.yy.cc"
 
 	if ( !(yy_init) )
 		{
@@ -857,7 +858,7 @@ YY_RULE_SETUP
 #line 75 "parser.l"
 ECHO;
 	YY_BREAK
-#line 861 "lex.yy.c"
+#line 862 "lex.yy.cc"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 

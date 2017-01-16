@@ -3,13 +3,13 @@
 # 11/29/16, APC 524, Final Project
 # Makefile
 # -----------------------------------------------------------------------------
-CXX = g++
+CXX = mpicc
 MPICXX = mpicc
 CXXFLAGS = -g -Wall -lm -O3
 OMPCXXFLAGS = -g -Wall -lm -O3 # -fopenmp
 RM = rm -f
 
-OBJECTS = fparser/fparser.o event.o model.o lex.yy.o parser.tab.o tauleapavail.o
+OBJECTS = fparser/fparser.o event.o model.o lex.yy.o parser.bison.o tauleapavail.o
 
 BASIC_CLASSES = model.o event.o realization.o paramset.o realization_factory.o
 REALIZATIONS = nextreaction.o firstreaction.o eulerleap.o
@@ -61,11 +61,11 @@ xoroshiro_test.exe: xoroshiro_test.o $(RANDOM)
 	$(CXX) $^ -o $@
 
 # use flex and bison to generate parser source code
-parser.tab.c parser.tab.h: parser.y
-	bison -d parser.y
+parser.bison.cc parser.bison.hh: parser.y
+	bison -d -o parser.bison.cc parser.y
 
-lex.yy.c: parser.l parser.tab.h
-	flex parser.l
+lex.yy.cc: parser.l parser.bison.hh
+	flex -o lex.yy.cc parser.l
 
 # dependency rules
 fparser/fparser.o: fparser/fparser.cc
@@ -77,19 +77,8 @@ fparser/fparser.o: fparser/fparser.cc
 %.o: %.cc
 	$(CXX) -std=c++0x -c $<
 
-<<<<<<< HEAD
 #%.o: %.c
 #	$(CXX) -std=c++0x -c $<
-lex.yy.o: lex.yy.c
-	mv lex.yy.c lex.yy.cc
-	$(CXX) -std=c++0x -c lex.yy.cc
-parser.tab.o: parser.tab.c
-	mv parser.tab.c parser.tab.cc
-	$(CXX) -std=c++0x -c parser.tab.cc
-=======
-%.o: %.c
-	$(CXX) -std=c++0x -c $<
->>>>>>> d03208bc5294b769e36edae8d9961a8a5bc7a37f
 
 # clean up object code and executables
 clean:
