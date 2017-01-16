@@ -1,6 +1,4 @@
 #Libraries
 
-### Eigen
-This software uses and provides a copy of the library ``Eigen``, which is released under the [GNU LGPL](https://www.gnu.org/licenses/#LGPL). Consistent with the terms of this license, the following relevant license documents are provided in this repository:
-GNU General Public License: ``gpl.txt``
-GNU Lesser General Public License: ``lgpl.txt``
+### Google Test
+This software uses the unit testing library ``Google Test``, which is released under a BSD 3-clause license. Consistent with the terms of this license, relevant license information for these elements of the project can be found in the corresponding source code files.
