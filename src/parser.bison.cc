@@ -92,7 +92,7 @@
   
 
 /* Line 189 of yacc.c  */
-#line 96 "parser.tab.c"
+#line 96 "parser.bison.cc"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -147,7 +147,7 @@ typedef union YYSTYPE
 
 
 /* Line 214 of yacc.c  */
-#line 151 "parser.tab.c"
+#line 151 "parser.bison.cc"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -159,7 +159,7 @@ typedef union YYSTYPE
 
 
 /* Line 264 of yacc.c  */
-#line 163 "parser.tab.c"
+#line 163 "parser.bison.cc"
 
 #ifdef short
 # undef short
@@ -1471,7 +1471,7 @@ yyreduce:
 
 
 /* Line 1455 of yacc.c  */
-#line 1475 "parser.tab.c"
+#line 1475 "parser.bison.cc"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
