@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['readme',['README',['../md___users__caleb__a_p_c524_stoched_src__r_e_a_d_m_e.html',1,'']]],
   ['ratefunction',['rateFunction',['../class_event.html#a5a82a70465e39626ad62d1cfe3fc7617',1,'Event']]],
   ['rates',['rates',['../class_realization.html#a9c52d8c6aa0ad99dbbec1e98302db7d8',1,'Realization']]],
   ['rates_5fare_5fzero',['rates_are_zero',['../class_realization.html#a48953442ebf235cd1e02731c7419f65f',1,'Realization']]],
