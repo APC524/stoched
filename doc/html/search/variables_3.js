@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['max_5fiter',['max_iter',['../class_paramset.html#afeb86c327cd6966707996019609e6ed1',1,'Paramset']]],
-  ['method',['method',['../class_paramset.html#a67376577973f825ba60fc7c319ccc906',1,'Paramset']]]
+  ['initial_5fvalues',['initial_values',['../class_paramset.html#aae7232620d4a9c0bbf30b12c37610c1e',1,'Paramset']]]
 ];

@@ -1,26 +1,154 @@
-Stoched                         {#mainpage}
+User Guide                         {#usage}
 ============
 
+###Installation
 
-###Introduction 
+First go to the [download page](https://github.com/APC524/stoched) to get the latest distribution, if you have not downloaded __stoched__ already.
 
-Stoched* is a platform for simulating realizations of stochastic systems modeled by rate equations. 
-The Gillespie algorithm performs exact simulations. Also, more scalable approximate algorithms derived from the 
-Gillespie algorithm are useful for large systems. These algorithms have historically been used to solve problems 
-in molecular dynamics; today, they are applied to a wide variety of stochastic modeling problems. The platform is a 
-fast, compiled code tool with an extremely simple interface aimed towards scientists with minimal programming 
-experience. While other tools for stochastic modeling and simulation exist, none have non-programmer-friendly interfaces 
-and few are specialized to those systems modeled by rate equations alone. We take user-friendly modeling languages 
-developed for Bayesian inference (BUGS/JAGS and Stan) as guides.
+####Download
+Download ZIP file at [__stoched__ Github](https://github.com/APC524/stoched)
 
-###License
+    $ unzip stoched-master.zip
+    $ cd stoched-master
 
-Permission to use, copy, modify, and distribute this software and its documentation under the terms of the GNU General Public License is hereby granted. No representations are made about the suitability of this software for any purpose. It is provided "as is" without express or implied warranty. See the GNU General Public License for more details.
+####Clone Repository
 
-Documents produced by Stoched are derivative works derived from the input used in their production; they are not affected by this license.
+    $ git clone https://github.com/APC524/stoched
+    $ cd stoched
 
-###Links
+###Getting Started
 
-[Flex/Bison] (https://www.gnu.org/software/bison/)
 
-[Open MPI] (https://www.open-mpi.org/)
+####Step 1: Creating an input file
+
+The parser uses a custom language that is designed to be accessible to non-programmers. It uses minimal syntax and allows for line comments and end of line comments, and whitespace like new lines between commands. It has been designed to reduce the likelihood of redundant and potentially incorrect information.
+
+A simple input file:
+
+    SETUP_VARS "a, b"
+    EVENT RATE "3" "a+1" "b+0"
+    EVENT RATE "a/3" "a-1" "b+0"
+
+    end
+
+The first line initializes the variables in the simulation with a comma separated variable list enclosed in quotes. Variable names contain the characters A-Z, a-z, and 0-9. The first character, however must be A-Z or a-z. Note that underscores and spaces are not allowed and that the variable list must not contain spaces.
+
+The next line is an event line. An input file can contain as many event lines as needed. In an abstract sense an event consists of the likelihood of the event occuring and a definition of how it changes the system when it occurs. Practically, an event is a rate function followed by any number of equations that involve the variables in the variable list. The rate function and following event functions can contain nonlinear expressions, support the mathematical symbols + - * / ( ), and can contain white space between symbols. 
+
+The last line is end. This indicates the end of the file
+
+A more complicated input file with multiple, nonlinear events:
+
+    SETUP_VARS “a,b,c”
+    EVENT RATE “a” “a * (1 + c)” “b - 0.4” “0.56“
+    EVENT RATE “a*b/d” “a” “b-c” “a*b*c”
+
+    end
+
+The number of variables and the number of events does not have to be the same. But the number of event functions per event must always equal the number of variables in the variable string. In this example there are three variables: a,b,c; therefore, there are always 4 equations in the EVENT. The first one is the rate function and the last three indicate how the three variables are modified. So the first event occurs at a rate equal to a, and when it occurs it sets a = a * (1 + c), it sets b = b - 0.4, and it sets c = 0.56.
+
+Finer points:
+Note the syntax “a+1” and “a    +     1” are both acceptable. Scientific notation is not yet supported
+
+Lines can be commented by placing a # character. The parser ignores all text on a line after a # character. This means that it can be used to comment out a whole line if it is placed at the beginning of a line, or used to add a note at the end of a line
+
+Comment Example:
+
+    # This code is now well commented
+    SETUP_VARS “a,b”
+    # EVENT RATE “2” “a - 5” “b - 5”
+    EVENT RATE “3” “a + 1” “b + 1”     #  I’ve added a comment here to explain why the rate is 3
+    end
+
+In the above example the first event will be ignored because the line begins with #. When the second line is parsed, only the text “I’ve added …” is removed. This input file is functionally equivalent to the first example input file, but it is more readable by human because it had comments.
+
+
+####Step 2: Running stoched
+
+##### Compiling Serial Code
+
+    stoched-master$ cd src
+    stoched-master/src$ make
+
+##### Sample Execution of Serial Code
+    
+    stoched-master$ cd examples
+    stoched-master/examples$ ../src/stoched.exe chem.parser.in init_file init_file.txt
+
+##### Compiling Parallel Code
+
+Assumes installation of OpenMPI
+
+    stoched-master$ cd src
+    stoched-master/src$ make parallel
+
+##### Sample Execution of Parallel Code
+
+For usage on Adroit.
+
+Run_mpi.slurm, located in stoched/src:
+
+    #!/bin/bash
+    # Parallel job using 4 processors:
+    #SBATCH -N 1 
+    #SBATCH --ntasks-per-node=4
+    #SBATCH -t 0:03:00
+    #SBATCH --mail-type=begin
+    #SBATCH --mail-type=end
+    #SBATCH --mail-type=fail
+    #SBATCH --mail-user=kevinpg@princeton.edu 
+    # Load openmpi environment 
+    module load openmpi
+    # Make sure you are in the correct directory
+    cd ~/stoched/src/
+    # for nx in 128 256 512 
+        # do                                                                                                                                                
+        #    time ./heat_omp $nx 4 > heat_omp.$nx.4.out
+        #    gnuplot -e "outfile='heat_omp.$nx.4.out'" surf.plt
+        #    time srun ./heat_mpi $nx > heat_mpi.$nx.4.out
+        #    gnuplot -e "outfile='heat_mpi.$nx.4.out'" surf.plt                                                                                                                                    
+    # done 
+
+    time srun -n 4 ./stoched_parallel.exe example.parser.in init_file init_file.txt n_realizations 100000 suppress_print 1 > stoched_mpi.4.out
+
+
+##### Compiling Test Code
+
+Assumes installation of Google Test suite
+
+    stoched-master$ cd src
+    stoched-master/src$ make googletests
+
+##### Sample Execution of Test Code
+    
+    stoched-master$ cd src
+    stoched-master/src$ ./testmodel.exe
+
+
+####Step 3: Parameters
+
+To specify additional parameters, the user may include additional command line arguments, which are listed below. For example, to run the simulation 5 times, the command would look like this:
+
+    stoched-master/src$ ./stoched.exe example.parser.in n_realizations 5
+
+The command line arguments are as follows:
+
+__init_file__: Required for specifying the initial states data for most model definitions. The exception is a model definition with two species which each start with zero population. This is the default initial state. 
+
+__method__: specifies which algorithm is used to perform computations. Specifying 0 will run the exact Gillespie algorithm, while 1 will run the Euler tau-leap method, and 2 will run the midpoint tau-leap method. Default is 0. 
+
+__t_initial__: allows user to modify the starting time of the simulation. Default is 0 .
+
+__t_final__: allows user to modify the end time of the simulation. Default is 5000 . 
+
+__timestep_size__: allows user to fix timestep size if desired. 
+
+__n_realizations__: allows user to run the simulation multiple times with the same model and model conditions. Default value is 1. 
+
+__max_iter__: allows user to specify maximum number of iterations. Default value is 100000000.
+
+__seed__: allows user to fix a seed of the random number generator (which allows for verification of consistency between multiple runs, and with external software results). The default value is 502. 
+
+__out_path__: Allows user to specify an alternative output file path name. The default value is stoched_output, which will write to a file named stoched_output.txt . The extension is not required when specifying pathname. 
+
+__suppress_print__: Option specified as either a 0 or 1. If 1, the software prints only the final value of the simulation to each output file. If 0 (default value), the software runs as usual, printing the results at each timestep. Specifying 1 results in significant speedup of the code. 

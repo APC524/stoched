@@ -1,9 +1,28 @@
-// This is a function written by Kevin which is called by parser.y
+/** 
+ *  @file    tauleapavail.cc
+ *  @author  Kevin Griffin (kpgriffin@princeton.edu)
+ *
+ *  @brief   Called by parser.y to determine whether to use tau leap or not
+ *
+ */
+
 #include <cstdio>
 #include <iostream>
 #include "model.h"
 
 using namespace std;
+
+/**
+ *   @brief  Is tau leap available?
+ *  
+ *   @param  cmodel is a Model object
+ *   @param  varList str is a string of variables
+ *   @param  functionStr is a string used to generate a Function Parser 
+ *   @param  eqnCnt is an int specifying number of equations
+ *   @param  eventCnt is an int specifying number of events
+ * 
+ *   @return nothing 
+ */ 
 
 bool tauLeapAvail(Model& cModel, string varListStr, string functionStr,
 		  int eqnCnt, int eventCnt){

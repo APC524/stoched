@@ -109,6 +109,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adcb9dcc2d1d58f18d595f1476fc77b3b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#adcb9dcc2d1d58f18d595f1476fc77b3b">getIthVar</a> (int index)</td></tr>
 <tr class="memdesc:adcb9dcc2d1d58f18d595f1476fc77b3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the ith variable in the variable list.  <a href="#adcb9dcc2d1d58f18d595f1476fc77b3b">More...</a><br /></td></tr>
 <tr class="separator:adcb9dcc2d1d58f18d595f1476fc77b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c6960f2621f8ddc441c0f3440052971"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a6c6960f2621f8ddc441c0f3440052971">getContDeriv</a> (int whichVar, double *stateArray)</td></tr>
+<tr class="memdesc:a6c6960f2621f8ddc441c0f3440052971"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the continuous time derivative of specified variable.  <a href="#a6c6960f2621f8ddc441c0f3440052971">More...</a><br /></td></tr>
+<tr class="separator:a6c6960f2621f8ddc441c0f3440052971"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a007d1420536d6e53aa253b6106875148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a007d1420536d6e53aa253b6106875148">setDelta</a> (int whichVar, int whichEvent, double val)</td></tr>
+<tr class="memdesc:a007d1420536d6e53aa253b6106875148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the delta of a specified variable in the specified event. This delta is needed to compute the continuous time derivative.  <a href="#a007d1420536d6e53aa253b6106875148">More...</a><br /></td></tr>
+<tr class="separator:a007d1420536d6e53aa253b6106875148"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9e7a181a31a2a9fab052d11b1984afd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ad9e7a181a31a2a9fab052d11b1984afd">updateState</a> (int iEvent, double *stateArray)</td></tr>
 <tr class="memdesc:ad9e7a181a31a2a9fab052d11b1984afd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update state array by evaluating all functions of a given <a class="el" href="class_event.html" title="Class Event holds a user-specified event, namely set of functions and associated rate. ">Event</a>.  <a href="#ad9e7a181a31a2a9fab052d11b1984afd">More...</a><br /></td></tr>
 <tr class="separator:ad9e7a181a31a2a9fab052d11b1984afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -282,6 +288,44 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>tauLeapAvail_</b></td
 
 </div>
 </div>
+<a id="a6c6960f2621f8ddc441c0f3440052971"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c6960f2621f8ddc441c0f3440052971">&#9670;&nbsp;</a></span>getContDeriv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Model::getContDeriv </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>whichVar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>stateArray</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the continuous time derivative of specified variable. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>specifying which variable from the state array to find derivative </td></tr>
+    <tr><td class="paramname">double</td><td>array of the entire state array </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ith continuous derivative as a double </dd></dl>
+
+</div>
+</div>
 <a id="a2909caddddccca90faaae708e68226ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2909caddddccca90faaae708e68226ad">&#9670;&nbsp;</a></span>getEventRate()</h2>
 
@@ -404,6 +448,51 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>tauLeapAvail_</b></td
 
 <p>Get a list of the variables that make up the state array. </p>
 <dl class="section return"><dt>Returns</dt><dd>comma separated list of variable names as a string </dd></dl>
+
+</div>
+</div>
+<a id="a007d1420536d6e53aa253b6106875148"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a007d1420536d6e53aa253b6106875148">&#9670;&nbsp;</a></span>setDelta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Model::setDelta </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>whichVar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>whichEvent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the delta of a specified variable in the specified event. This delta is needed to compute the continuous time derivative. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>specifying to which variable from the state array the delta corresponds </td></tr>
+    <tr><td class="paramname">int</td><td>specifying to which event the delta corresponds </td></tr>
+    <tr><td class="paramname">double</td><td>specifying the value of delta </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>

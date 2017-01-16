@@ -1,8 +1,6 @@
 /** 
  *  @file    nextreaction.cc
  *  @author  Dylan Morris (dhmorris@princeton.edu)
- *  @date    12/6/16  
- *  @version 1.0 
  *  
  *  @brief   Class NextReaction implements Realization step() function
  *           using the exact Next Reaction algorithm of Gibson & Bruck

@@ -1,23 +1,155 @@
 \subsubsection*{Installation}
 
-First go to the download page to get the latest distribution, if you have not downloaded stoched already.
+First go to the \href{https://github.com/APC524/stoched}{\tt download page} to get the latest distribution, if you have not downloaded {\bfseries stoched} already.
 
-If you downloaded the source distribution, you need at least the following to build the executable\+:
+\paragraph*{Download}
+
+Download Z\+IP file at \href{https://github.com/APC524/stoched}{\tt {\bfseries stoched} Github} \begin{DoxyVerb}$ unzip stoched-master.zip
+$ cd stoched-master
+\end{DoxyVerb}
 
 
-\begin{DoxyItemize}
-\item The G\+NU tools flex, bison, libiconv and G\+NU make, and strip
-\item In order to generate a Makefile for your platform, you need cmake version 2.\+8.\+12 or later.
-\end{DoxyItemize}
+\paragraph*{Clone Repository}
+
+\begin{DoxyVerb}$ git clone https://github.com/APC524/stoched
+$ cd stoched
+\end{DoxyVerb}
+
 
 \subsubsection*{Getting Started}
 
 \paragraph*{Step 1\+: Creating an input file}
 
- \paragraph*{Step 2\+: Running stoched}
+The parser uses a custom language that is designed to be accessible to non-\/programmers. It uses minimal syntax and allows for line comments and end of line comments, and whitespace like new lines between commands. It has been designed to reduce the likelihood of redundant and potentially incorrect information.
 
-\paragraph*{Step 3\+: Documenting the sources}
+A simple input file\+: \begin{DoxyVerb}SETUP_VARS "a, b"
+EVENT RATE "3" "a+1" "b+0"
+EVENT RATE "a/3" "a-1" "b+0"
 
-\subsubsection*{Frequently Asked Questions}
+end
+\end{DoxyVerb}
 
-\subsubsection*{Troubleshooting}
+
+The first line initializes the variables in the simulation with a comma separated variable list enclosed in quotes. Variable names contain the characters A-\/Z, a-\/z, and 0-\/9. The first character, however must be A-\/Z or a-\/z. Note that underscores and spaces are not allowed and that the variable list must not contain spaces.
+
+The next line is an event line. An input file can contain as many event lines as needed. In an abstract sense an event consists of the likelihood of the event occuring and a definition of how it changes the system when it occurs. Practically, an event is a rate function followed by any number of equations that involve the variables in the variable list. The rate function and following event functions can contain nonlinear expressions, support the mathematical symbols + -\/ $\ast$ / ( ), and can contain white space between symbols.
+
+The last line is end. This indicates the end of the file
+
+A more complicated input file with multiple, nonlinear events\+: \begin{DoxyVerb}SETUP_VARS “a,b,c”
+EVENT RATE “a” “a * (1 + c)” “b - 0.4” “0.56“
+EVENT RATE “a*b/d” “a” “b-c” “a*b*c”
+
+end
+\end{DoxyVerb}
+
+
+The number of variables and the number of events does not have to be the same. But the number of event functions per event must always equal the number of variables in the variable string. In this example there are three variables\+: a,b,c; therefore, there are always 4 equations in the E\+V\+E\+NT. The first one is the rate function and the last three indicate how the three variables are modified. So the first event occurs at a rate equal to a, and when it occurs it sets a = a $\ast$ (1 + c), it sets b = b -\/ 0.\+4, and it sets c = 0.\+56.
+
+Finer points\+: Note the syntax “a+1” and “a + 1” are both acceptable. Scientific notation is not yet supported
+
+Lines can be commented by placing a \# character. The parser ignores all text on a line after a \# character. This means that it can be used to comment out a whole line if it is placed at the beginning of a line, or used to add a note at the end of a line
+
+Comment Example\+: \begin{DoxyVerb}# This code is now well commented
+SETUP_VARS “a,b”
+# EVENT RATE “2” “a - 5” “b - 5”
+EVENT RATE “3” “a + 1” “b + 1”     #  I’ve added a comment here to explain why the rate is 3
+end
+\end{DoxyVerb}
+
+
+In the above example the first event will be ignored because the line begins with \#. When the second line is parsed, only the text “\+I’ve added …” is removed. This input file is functionally equivalent to the first example input file, but it is more readable by human because it had comments.
+
+\paragraph*{Step 2\+: Running stoched}
+
+\subparagraph*{Compiling Serial Code}
+
+\begin{DoxyVerb}stoched-master$ cd src
+stoched-master/src$ make
+\end{DoxyVerb}
+
+
+\subparagraph*{Sample Execution of Serial Code}
+
+\begin{DoxyVerb}stoched-master$ cd examples
+stoched-master/examples$ ../src/stoched.exe chem.parser.in init_file init_file.txt
+\end{DoxyVerb}
+
+
+\subparagraph*{Compiling Parallel Code}
+
+Assumes installation of Open\+M\+PI \begin{DoxyVerb}stoched-master$ cd src
+stoched-master/src$ make parallel
+\end{DoxyVerb}
+
+
+\subparagraph*{Sample Execution of Parallel Code}
+
+For usage on Adroit.
+
+Run\+\_\+mpi.\+slurm, located in stoched/src\+: \begin{DoxyVerb}#!/bin/bash
+# Parallel job using 4 processors:
+#SBATCH -N 1 
+#SBATCH --ntasks-per-node=4
+#SBATCH -t 0:03:00
+#SBATCH --mail-type=begin
+#SBATCH --mail-type=end
+#SBATCH --mail-type=fail
+#SBATCH --mail-user=kevinpg@princeton.edu 
+# Load openmpi environment 
+module load openmpi
+# Make sure you are in the correct directory
+cd ~/stoched/src/
+# for nx in 128 256 512 
+    # do                                                                                                                                                
+    #    time ./heat_omp $nx 4 > heat_omp.$nx.4.out
+    #    gnuplot -e "outfile='heat_omp.$nx.4.out'" surf.plt
+    #    time srun ./heat_mpi $nx > heat_mpi.$nx.4.out
+    #    gnuplot -e "outfile='heat_mpi.$nx.4.out'" surf.plt                                                                                                                                    
+# done 
+
+time srun -n 4 ./stoched_parallel.exe example.parser.in init_file init_file.txt n_realizations 100000 suppress_print 1 > stoched_mpi.4.out
+\end{DoxyVerb}
+
+
+\subparagraph*{Compiling Test Code}
+
+Assumes installation of Google Test suite \begin{DoxyVerb}stoched-master$ cd src
+stoched-master/src$ make googletests
+\end{DoxyVerb}
+
+
+\subparagraph*{Sample Execution of Test Code}
+
+\begin{DoxyVerb}stoched-master$ cd src
+stoched-master/src$ ./testmodel.exe
+\end{DoxyVerb}
+
+
+\paragraph*{Step 3\+: Parameters}
+
+To specify additional parameters, the user may include additional command line arguments, which are listed below. For example, to run the simulation 5 times, the command would look like this\+: \begin{DoxyVerb}stoched-master/src$ ./stoched.exe example.parser.in n_realizations 5
+\end{DoxyVerb}
+
+
+The command line arguments are as follows\+:
+
+{\bfseries init\+\_\+file}\+: Required for specifying the initial states data for most model definitions. The exception is a model definition with two species which each start with zero population. This is the default initial state.
+
+{\bfseries method}\+: specifies which algorithm is used to perform computations. Specifying 0 will run the exact Gillespie algorithm, while 1 will run the Euler tau-\/leap method, and 2 will run the midpoint tau-\/leap method. Default is 0.
+
+{\bfseries t\+\_\+initial}\+: allows user to modify the starting time of the simulation. Default is 0 .
+
+{\bfseries t\+\_\+final}\+: allows user to modify the end time of the simulation. Default is 5000 .
+
+{\bfseries timestep\+\_\+size}\+: allows user to fix timestep size if desired.
+
+{\bfseries n\+\_\+realizations}\+: allows user to run the simulation multiple times with the same model and model conditions. Default value is 1.
+
+{\bfseries max\+\_\+iter}\+: allows user to specify maximum number of iterations. Default value is 100000000.
+
+{\bfseries seed}\+: allows user to fix a seed of the random number generator (which allows for verification of consistency between multiple runs, and with external software results). The default value is 502.
+
+{\bfseries out\+\_\+path}\+: Allows user to specify an alternative output file path name. The default value is stoched\+\_\+output, which will write to a file named stoched\+\_\+output.\+txt . The extension is not required when specifying pathname.
+
+{\bfseries suppress\+\_\+print}\+: Option specified as either a 0 or 1. If 1, the software prints only the final value of the simulation to each output file. If 0 (default value), the software runs as usual, printing the results at each timestep. Specifying 1 results in significant speedup of the code. 

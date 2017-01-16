@@ -1,15 +1,44 @@
+Welcome to {\bfseries stoched}, an application developed at Princeton University for modeling stochastic systems modeled by rate equations and simulating reactions from them!
+
+Getting started information for {\bfseries stoched} (including build instructions) is located in its interior doc/\+R\+E\+A\+D\+M\+E.\+md file.
+
 \subsubsection*{Introduction}
 
-Stoched$\ast$ is a platform for simulating realizations of stochastic systems modeled by rate equations. The Gillespie algorithm performs exact simulations. Also, more scalable approximate algorithms derived from the Gillespie algorithm are useful for large systems. These algorithms have historically been used to solve problems in molecular dynamics; today, they are applied to a wide variety of stochastic modeling problems. The platform is a fast, compiled code tool with an extremely simple interface aimed towards scientists with minimal programming experience. While other tools for stochastic modeling and simulation exist, none have non-\/programmer-\/friendly interfaces and few are specialized to those systems modeled by rate equations alone. We take user-\/friendly modeling languages developed for Bayesian inference (B\+U\+G\+S/\+J\+A\+GS and Stan) as guides.
+The platform is a fast, compiled code tool with an extremely simple interface aimed towards scientists with minimal programming experience. While other tools for stochastic modeling and simulation exist, none have non-\/programmer-\/friendly interfaces and few are specialized to those systems modeled by rate equations alone. We take user-\/friendly modeling languages developed for Bayesian inference (B\+U\+G\+S/\+J\+A\+GS and Stan) as guides.
+
+Stoched implements the Gillespie algorithm to perform exact simulations. Also, more scalable approximate algorithms derived from the Gillespie algorithm are useful for large systems. These algorithms have historically been used to solve problems in molecular dynamics; today, they are applied to a wide variety of stochastic modeling problems.
+
+\subsubsection*{Platforms}
+
+
+\begin{DoxyItemize}
+\item Linux
+\item Mac OS X
+\item Windows
+\end{DoxyItemize}
+
+\subsubsection*{Requirements}
+
+Serial Implementation
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}
+
+Parallel Implementation (optional)
+\begin{DoxyItemize}
+\item \href{https://www.open-mpi.org/}{\tt Open M\+PI}
+\end{DoxyItemize}
+
+\paragraph*{Requirements for Contributors}
+
+
+\begin{DoxyItemize}
+\item \href{https://www.gnu.org/software/bison/}{\tt Flex/\+Bison}
+\item \href{https://github.com/google/googletest}{\tt Google Test} (located in interior lib/ folder; must be built)
+\end{DoxyItemize}
 
 \subsubsection*{License}
 
 Permission to use, copy, modify, and distribute this software and its documentation under the terms of the G\+NU General Public License is hereby granted. No representations are made about the suitability of this software for any purpose. It is provided \char`\"{}as is\char`\"{} without express or implied warranty. See the G\+NU General Public License for more details.
 
-Documents produced by Stoched are derivative works derived from the input used in their production; they are not affected by this license.
-
-\subsubsection*{Links}
-
-\href{https://www.gnu.org/software/bison/}{\tt Flex/\+Bison}
-
-\href{https://www.open-mpi.org/}{\tt Open M\+PI} 
+Documents produced by Stoched are derivative works derived from the input used in their production; they are not affected by this license. 
