@@ -18,4 +18,4 @@ cd ~/stoched/src/
 #    time srun ./heat_mpi $nx > heat_mpi.$nx.4.out
 #    gnuplot -e "outfile='heat_mpi.$nx.4.out'" surf.plt
 # done
-time srun -n 4 ./stoched.exe example.parser.in init_file init_file.txt n_realizations 100000 suppress_print 1 > stoched_mpi.4.out
+time srun -n 4 ./stoched_parallel.exe example.parser.in init_file init_file.txt n_realizations 100000 suppress_print 1 > stoched_mpi.4.out

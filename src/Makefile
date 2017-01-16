@@ -3,7 +3,7 @@
 # 11/29/16, APC 524, Final Project
 # Makefile
 # -----------------------------------------------------------------------------
-CXX = mpicc
+CXX = g++
 MPICXX = mpicc
 CXXFLAGS = -g -Wall -lm -O3
 OMPCXXFLAGS = -g -Wall -lm -O3 # -fopenmp
@@ -17,7 +17,14 @@ RANDOM = rng.o xoroshiro128plus.o
 
 CLASSES = $(BASIC_CLASSES) $(REALIZATIONS) $(RANDOM)
 
-all: stoched.exe testparser.exe testevent.exe testmodel.exe testsimulate.exe xoroshiro_test.exe
+# default to building no mpi and no google tests
+default: stoched.exe testparser.exe testevent.exe testmodel.exe testsimulate.exe xoroshiro_test.exe
+
+# if parallel, then always compile stoched_parallel.cc with MPICXX, then
+# check the stoched_parallel.exe
+parallel: 
+	$(MPICXX) -std=c++0x -c stoched_parallel.cc
+	make stoched_parallel.exe
 
 googletests: eventtests.exe modeltests.exe parsertests.exe xoroshiro_test.exe
 
@@ -49,10 +56,10 @@ parsertests.exe: gtest/include parsertests.o $(OBJECTS) gtest/libgtest.a
 	$(CXX) $(OMPCXXFLAGS) -I $^ -lpthread -o $@
 
 stoched.exe: stoched.o $(OBJECTS) $(CLASSES)
-	$(MPICXX) $(CXXFLAGS) $^ -o  $@
+	$(CXX) $(CXXFLAGS) $^ -o  $@
 
-stoched_serial.exe: stoched.o $(OBJECTS) $(CLASSES)
-	$(CXX) $(CXXFLAGS) $^ -o $@
+stoched_parallel.exe: stoched_parallel.o $(OBJECTS) $(CLASSES)
+	$(MPICXX) $(CXXFLAGS) $^ -o $@
 
 fparser/fparser.exe: fparser/example2.o fparser/fparser.o
 	$(CXX) $^ -o $@
