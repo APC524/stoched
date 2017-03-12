@@ -50,14 +50,25 @@ double rng::rexp(double lambda) {
 
   
 // poisson rvs obtained using PTRS algorithm of Wolfgang Hoermann (1993)
-long rng::rpois(double mean)
+long long rng::rpois(double mean)
 {
+  if(mean < 0.0){
+    throw invalid_argument("Poisson mean must be positive");
+  }
+
   return mean < 11 ? poisson_knuth(mean) : poisson_ptrs(mean);
 }
 
+/* generate a random integer between min (inclusive) and max
+ * (exclusive) */
+int rng::randint(int min, int max)
+{
+  return int(runif() * (max - min));
+}
 
-long rng::poisson_ptrs(double mean){
-    long k;
+
+long long rng::poisson_ptrs(double mean){
+    long long k;
     double U, V, slam, loglam, a, b, invalpha, vr, us;
 
     slam = sqrt(mean);
@@ -72,7 +83,7 @@ long rng::poisson_ptrs(double mean){
         U = runif() - 0.5;
         V = runif();
         us = 0.5 - fabs(U);
-        k = (long)floor((2*a/us + b)*U + mean + 0.43);
+        k = (long long)floor((2*a/us + b)*U + mean + 0.43);
         if ((us >= 0.07) && (V <= vr))
         {
             return k;
@@ -93,16 +104,18 @@ long rng::poisson_ptrs(double mean){
 
 }
 
-long rng::poisson_knuth(double mean)
-{
+long long rng::poisson_knuth(double mean){
   double L = exp(-mean);
-  long k = 0;
+  long long k = 0;
   double p = 1.0;
 
   while(p > L){
     k += 1;
     p = p * runif();
   }
+
+  if(k == 0)
+    return 0;
   return k - 1;
 }
 
@@ -110,7 +123,7 @@ long rng::poisson_knuth(double mean)
    John D. Cook (http://www.johndcook.com/blog/csharp_log_factorial/)
    and PTRS algorithm by Wolfgang Hoermann (1993)
  */
-double rng::log_factorial(int k)
+double rng::log_factorial(long long k)
 {
   if(k < 0) {
     throw runtime_error("log-factorial undefined for int k < 0");
@@ -382,3 +395,5 @@ double rng::log_factorial(int k)
     return logkfac[k];
   }
 }
+
+

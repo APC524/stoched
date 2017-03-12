@@ -14,6 +14,7 @@
 #include <stdint.h>
 #include <math.h>
 #include <stdexcept>
+#include <cfloat> // for DBL_MIN
 
 inline double to_double(uint64_t x);
 
@@ -23,10 +24,7 @@ inline double to_double(uint64_t x);
  */
 class rng {
  public:
-
-  /// Destructor of rng object
-  virtual ~rng() {};
-  
+    
   /// get a new random int64
   virtual uint64_t next() = 0;
 
@@ -37,7 +35,7 @@ class rng {
   double rexp(double lambda);
 
   /// get a new random poisson(mean) RV
-  long rpois(double mean);
+  long long rpois(double mean);
   
   /// quick 2^64 calls to next (for parallelism)
   virtual void jump() = 0;
@@ -47,11 +45,16 @@ class rng {
    * John D. Cook (http://www.johndcook.com/blog/csharp_log_factorial/)
    * and PTRS algorithm by Wolfgang Hoermann (1993)
    */
-  double log_factorial(int k);
+  double log_factorial(long long k);
+
+
+  /* generates a random integer between min (inclusive)
+     and max (exclusive) */
+  int randint(int min, int max);
 
  private:
-  long poisson_knuth(double mean); ///< random poisson
-  long poisson_ptrs(double mean);  ///< random poisson
+  long long poisson_knuth(double mean); ///< random poisson
+  long long poisson_ptrs(double mean);  ///< random poisson
 };
 
 #endif
